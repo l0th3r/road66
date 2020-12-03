@@ -1,0 +1,213 @@
+// SECONDARY EVENT #3
+// THE TRUCK
+// Signature: Axel Faux
+//
+// CHARACTERS:
+// char0 = Trucker
+//
+// CONSEQUENCES:
+// - One person may be killed
+// - Gather food and 1 food
+// - Game over
+
+---------------------------------------------------------------------------------------------------------------------------
+(#0)
+
+[narr]There is a truck stopped on the side of the road.
+
+	1 - Stop the bus. 	
+	// 1
+	2 - Keep driving.
+	// EVENT ENDED
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#1) 
+
+[narr]You stop the bus and check around the truck.
+A dead body is lying a few meters behind.
+
+	1 - Check the body.
+	// 2
+	2 - Open the truck.
+	// 3
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#2) 
+
+[narr]You walk to the body and... it seems he's still breathing!
+He's not dead!
+He brutally stands up and points a gun at you.
+[char0]Don't move dickhead!
+THE KEYS!
+GIVE ME THE GODDAMN KEYS! 
+
+	1 - Throw the keys of your bus.
+	// 14
+	2 - Stay still and voiceless.
+	// 5
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#3) 
+
+[narr]The truck is locked.
+
+	1 - Check the body.
+	// 2
+	2 - Go back to the bus and keep driving.
+	// EVENT ENDED
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#4) 
+
+[narr]The trucker looks at you very angry and throws the keys.
+
+	1 - Kill him. 
+	// 13
+	2 - Search in the truck.
+	// 12
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#5) 
+
+[narr]The truck driver comes closer.
+[char0]Are you deaf, punk?!
+Give me these fucking keys!
+
+	1 - If you had bullets, you would have killed me already! 
+	// 6
+	2 - Punch the trucker. 
+	// 7
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#6) 
+
+[narr]The trucker explodes your head.
+
+// YOU DIED
+// GAME OVER
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#7) 
+
+[narr]You punch the trucker! 
+A gunshot goes off in the air leaving him unharmed.
+The truck driver punches you!
+
+	1 - Throw a kick in his nuts.
+	// 8
+	2 - Push him.
+	// 9
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#8) 
+
+[narr]You destroy his nuts. He screams his pain.
+[char0]HUUUUCH!
+[narr]His face is purple and he is crying. He goes down on his knees, drop his gun and you grab it.
+
+	1 - Threaten him.
+	// 10
+	2 - Leave him.
+	// 11
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#9) 
+
+[narr]The truck driver falls back and impales himself on a piece of wood.
+You find keys in his pocket. 
+
+	1 - Go back to the bus and leave
+	// EVENT ENDED
+	2 - Search in the truck.
+	// 12
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#10) 
+
+[narr]You aim his head with the gun.
+
+	1 - Now dude, YOU give me your keys!
+	// 4
+	2 - Finish him! FATALITY!.
+	// 15
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#11) 
+
+[narr]The truck driver tries to follow you but falls on the floor.
+[char0]I'll kill you, punk! Come... back... 
+
+	1 - Leave. 
+	// EVENT ENDED
+	2 - Kill him.
+	// 13
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#12) 
+
+[narr]You search in the truck and you find:
+- 1 Food
+- 1 Medical Kit 
+
+	// GET 2 FOODS
+	// EVENT ENDED
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#13) 
+
+[narr]Headshot! You literally explode his head.
+You find the keys in his pocket.
+
+	// YOU KILLED SOMEONE
+
+	1 - Leave. 
+	// EVENT ENDED
+	2 - Search in the truck.
+	// 12
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#14) 
+
+[narr]You throw your keys.
+[char0]Good boy!
+[narr]The trucker is smiling and walks to the bus.
+
+	1 - Grab your weapon and kill him. 
+	// 13
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#15) 
+
+[narr]You engage a huge <main>'s fatality:
+
+GERMAN SUPLEX!
+You carry <char0> like a puppet and jump back to explode his head on the ground.
+His whole spine cracks and he moans in pain.
+Gun on his sphincter, detonation. <char0> is dead.
+
+You grab his keys.
+
+	// YOU KILLED SOMEONE
+
+	1 - Leave. 
+	// EVENT ENDED
+	2 - Search in the truck.
+	// 12
+
+---------------------------------------------------------------------------------------------------------------------------

@@ -28,9 +28,10 @@ void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char
 /* PROGRESS */
 void ui_update_progress(WINDOW * win, int height, int val);
 
-/* MENU */
+/* USER INTERACTIONS */
 int ui_choice(WINDOW* win, char* choice1, char* choice2, char* choice3, char* choice4);
 void ui_continu_choice(WINDOW * win_men);
+void ui_set_menu();
 
 /* WINDOWS DEFINITIONS */
 WINDOW * win_start_menu;
@@ -83,6 +84,7 @@ void ui_refresh(int is_menu)
 
 	if(is_menu == 0)
 	{
+		delwin(win_start_menu);
 		delwin(win_tra);
 		delwin(win_inv);
 		delwin(win_env);

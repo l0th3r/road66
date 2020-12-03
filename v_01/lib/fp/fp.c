@@ -12,7 +12,6 @@
 
 char* fp_read_file(const char* path);
 
-
 char* fp_read_file(const char* path)
 {
 	FILE* fp;

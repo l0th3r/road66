@@ -1,0 +1,32 @@
+// SECONDARY EVENT #2
+// FOLLOWED BY A BLACK CAR
+// Signature: Axel Faux
+//
+//
+
+---------------------------------------------------------------------------------------------------------------------------
+(#0)
+
+[narr]You realise that a black car has been following you for a few miles.
+
+	1 - Drive faster. 	
+	// 1
+	2 - Break suddenly.
+	// 2
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#1) 
+
+[narr]You drive faster and lose sight of the black car.
+
+// EVENT ENDED
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#2) 
+
+[narr]Tires squeal. 
+The black car honks, take a tight turn that almost hits you and keep driving forward until it's lost in the horizon.
+
+// EVENT ENDED

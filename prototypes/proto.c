@@ -5,7 +5,7 @@
 #include <time.h>
 
 #include <unistd.h>
-#include <ncurses.h>
+#include <ncurses/ncurses.h>
 
 #include "event/secondary/secondary_events.h"
 

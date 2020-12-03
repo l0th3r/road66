@@ -1,6 +1,11 @@
 #include <ncurses.h>
 
-#include "../../proto.h"
+/* LIBS */
+#include "../../lib/config/settings.h"
+#include "../../lib/fp/fp.h"
+#include "../../lib/uf/uf.h"
+#include "../../lib/ui/ui.h"
+
 
 void intro(WINDOW * win_ev, WINDOW * win_me, int ev_w)
 {
@@ -8,13 +13,13 @@ void intro(WINDOW * win_ev, WINDOW * win_me, int ev_w)
 
     while(current >= 0)
     {
-        print_conv(win_ev, current, ev_w, "event/", "/", "/", "/", "/");
+        ui_print_dial(win_ev, current, ev_w, "event/", "/", "/", "/", "/");
 
         switch(current)
 		{
 			case 0:
                 current= -1;
-                wait_input(win_me);
+                ui_continu_choice(win_me);
 			break;
         }
 
@@ -28,13 +33,13 @@ void outro(WINDOW * win_ev, WINDOW * win_me, int ev_w)
 
     while(current >= 0)
     {
-        print_conv(win_ev, current, ev_w, "event/", "/", "/", "/", "/");
+        ui_print_dial(win_ev, current, ev_w, "event/", "/", "/", "/", "/");
 
         switch(current)
 		{
 			case 1:
                 current= -1;
-                wait_input(win_me);
+                ui_continu_choice(win_me);
 			break;
         }
 
@@ -53,19 +58,19 @@ void secondary_event_1(WINDOW * win_ev, WINDOW * win_me, int ev_w)
 
     while(current >= 0)
     {
-        print_conv(win_ev, current, ev_w, "event/secondary/1", char0, char1, char2, char3);
+        ui_print_dial(win_ev, current, ev_w, "event/secondary/1", char0, char1, char2, char3);
 
         switch(current)
 		{
 			case 0:
-				temp = choice(win_me, "Stop the bus.", "Keep driving", "/", "/");
+				temp = ui_choice(win_me, "Stop the bus.", "Keep driving", "/", "/");
                 if(temp == 0)
                     current = 1;
                 if(temp == 1)
                     current = 2;
 			break;
             case 1:
-				temp = choice(win_me, "I'm sorry but it is not on my way.", "Yeah, come in! I'll drive you there", "Start up the engine and leave.", "/");
+				temp = ui_choice(win_me, "I'm sorry but it is not on my way.", "Yeah, come in! I'll drive you there", "Start up the engine and leave.", "/");
                 if(temp == 0)
                     current = 3;
                 if(temp == 1)
@@ -75,10 +80,10 @@ void secondary_event_1(WINDOW * win_ev, WINDOW * win_me, int ev_w)
 			break;
             case 2:
                 current = -1;
-                wait_input(win_me);
+                ui_continu_choice(win_me);
 			break;
             case 3:
-				temp = choice(win_me, "Alright, come in mate!", "Sorry, I have no time to waste.", "/", "/");
+				temp = ui_choice(win_me, "Alright, come in mate!", "Sorry, I have no time to waste.", "/", "/");
                 if(temp == 0)
                     current = 5;
                 if(temp == 1)
@@ -87,11 +92,11 @@ void secondary_event_1(WINDOW * win_ev, WINDOW * win_me, int ev_w)
             case 4:
                 char0 = "Robbert";
                 current = -1;
-                wait_input(win_me);
+                ui_continu_choice(win_me);
 			break;
             case 5:
                 current = 4;
-                wait_input(win_me);
+                ui_continu_choice(win_me);
 			break;
         }
 
@@ -110,19 +115,19 @@ void secondary_event_4(WINDOW * win_ev, WINDOW * win_me, int ev_w)
 
     while(current >= 0)
     {
-        print_conv(win_ev, current, ev_w, "event/secondary/4", char0, char1, char2, char3);
+        ui_print_dial(win_ev, current, ev_w, "event/secondary/4", char0, char1, char2, char3);
 
         switch(current)
 		{
 			case 0:
-				temp = choice(win_me, "Stop the bus.", "Keep driving", "/", "/");
+				temp = ui_choice(win_me, "Stop the bus.", "Keep driving", "/", "/");
                 if(temp == 0)
                     current = 1;
                 if(temp == 1)
                     current = 2;
 			break;
             case 1:
-				temp = choice(win_me, "What the fuck?", "Trick!", "Treat!", "/");
+				temp = ui_choice(win_me, "What the fuck?", "Trick!", "Treat!", "/");
                 if(temp == 0)
                     current = 3;
                 if(temp == 1)
@@ -132,10 +137,10 @@ void secondary_event_4(WINDOW * win_ev, WINDOW * win_me, int ev_w)
 			break;
             case 2:
                 current = -1;
-                wait_input(win_me);
+                ui_continu_choice(win_me);
 			break;
             case 3:
-				temp = choice(win_me, "Kill him.", "Trick.", "Treat.", "/");
+				temp = ui_choice(win_me, "Kill him.", "Trick.", "Treat.", "/");
                 if(temp == 0)
                     current = 6;
                 if(temp == 1)
@@ -145,14 +150,14 @@ void secondary_event_4(WINDOW * win_ev, WINDOW * win_me, int ev_w)
 			break;
             case 4:
                 char0 = "Curtis";
-                temp = choice(win_me, "Okay... We will find a candy shop if you want.", "Sorry, man. I don't have candy!", "/", "/");
+                temp = ui_choice(win_me, "Okay... We will find a candy shop if you want.", "Sorry, man. I don't have candy!", "/", "/");
                 if(temp == 0)
                     current = 9;
                 if(temp == 1)
                     current = 5;
 			break;
             case 5:
-                temp = choice(win_me, "Grab your gun and kill him.", "Go back to the bus and leave.", "Okay... again, trick!", "/");
+                temp = ui_choice(win_me, "Grab your gun and kill him.", "Go back to the bus and leave.", "Okay... again, trick!", "/");
                 if(temp == 0)
                     current = 6;
                 if(temp == 1)
@@ -162,10 +167,10 @@ void secondary_event_4(WINDOW * win_ev, WINDOW * win_me, int ev_w)
 			break;
             case 6:
                 current = -1;
-                wait_input(win_me);
+                ui_continu_choice(win_me);
 			break;
             case 7:
-                temp = choice(win_me, "Hold on! I know an amazing candy shop in the next city!", "Grab your gun and kill him.", "/", "/");
+                temp = ui_choice(win_me, "Hold on! I know an amazing candy shop in the next city!", "Grab your gun and kill him.", "/", "/");
                 if(temp == 0)
                     current = 8;
                 if(temp == 1)
@@ -175,17 +180,17 @@ void secondary_event_4(WINDOW * win_ev, WINDOW * win_me, int ev_w)
                 char0 = "Curtis";
                 current= -1;
                 /* GET CURTIS IN UR BUS */
-                wait_input(win_me);
+                ui_continu_choice(win_me);
 			break;
             case 9:
                 char0 = "Curtis";
                 current= -1;
                 /* GET CURTIS IN UR BUS */
-                wait_input(win_me);
+                ui_continu_choice(win_me);
 			break;
             case 10:
                 current= -1;
-                wait_input(win_me);
+                ui_continu_choice(win_me);
 			break;
         }
 

@@ -1,0 +1,620 @@
+// MAIN EVENT #1
+// PROLOGUE
+// LOS ANGELES
+// Signature: Axel FAUX & Axel DOBRIC
+// 
+// CHARACTERS:
+// - char0 = Rafe
+// - char1 = Evelynn
+// - char2 = The patient
+// - char3 = The security guard
+// - char4 = Young man (Tim)
+// - char5 = Assaillant
+//
+// CONSEQUENCES:
+// - You abandoned someone
+// + You saved someone
+// + You did a good action (tried to save someone)
+// + You were kind
+// - You didn't try to help
+
+---------------------------------------------------------------------------------------------------------------------------
+// PROLOGUE
+
+On est dans notre appartement 
+> La radio énonce les derniers infos
+> La situation à Los Angeles se complique
+> Vaguement énoncer la secte 
+> Expliquer l'émergence d'un nouveau mouvement sans établir de corrélation
+> établir qu'un contre-pouvoir à Oklahoma. 
+Notre frère nous appelle (choix)
+> Il veut fuir avec vous
+Il vient nous chercher avec dodge ram
+> Sa femme est à son boulot
+> Elle est ambulancière
+on prend la route pour aller chercher sa femme
+Route barrée / bouchée, il faut passer par une autre route
+> Construire petit à petit une tension
+> Tu peux voir des gens se faire kidnapper par des gens masqués
+Accident de voiture, dernière solution : prendre le bus de fonction
+Ils arrivent à l'hôpital et sont témoins d'une manifestation violente, voiture en feu etc
+Son frère est armé (vétéran)
+Ils évoluent dans l'hôpital pour trouver sa femme (choix)
+Ils finissent par trouver sa femme (Evelynn)
+Elle est affairé à soigner un patient, à lui prodiguer les premiers
+Ce dernier est blessé superficiellement
+Les personnages interagissent (excepté le patient) (choix)
+Le mari prévient sa femme et tente de la convaincre de partir immédiatement avec eux
+Le patient se manifeste et s'en prend physique à sa femme
+Le frère dégaine son arme
+La sécurité l'hôpital converge vers la chambre et prend en joue le frère
+
+Une situation de tension où l'issue du choix sera la vie ou la mort d'un des membre du couple.
+
+1 - On peut convaincre son frère de rengainer, conséquence le patient s'en prend à sa femme et lui décoche un coup mortel
+L'équipe de sécurité va abattre le patient sans sommation
+Appuyer sur la détresse et la frustration du frère
+Exprime sa rancoeur envers le protagoniste (choix) 
+
+2 - On essaie de convaincre la sécurité, notre frère tue le patient mais la sécurité ouvre sur lui
+Le frère fait tomber son arme au sol et vous la récupérez.
+Sa femme éclatera en sanglot et perdra pieds, le protagoniste tentera de la convaincre de l'urgence de la situation (choix)
+
+DANS TOUS LES CAS:
+Fracas d'un véhicule contre le bâtiment
+Attaque d'une groupe armé, masqué (blanc, visage inexpressif avec ecrit LIKE sur le front) , prennent d'assaut des voitures dans la rue dont la votre, en les brulant, et abattent froidement toute personne dans son chant de vision
+(Description des opposants, détail)
+> Des gens supplient d'être épargne ou demande pourquoi font-ils ça, ils n'auront aucune réponse verbalisé, seulement le silence*
+Cette situation oblige le protagoniste et le membre de la famille a évacuer les lieux au plus vite
+Le duo seront témoins de l'exécution de l'équipe de sécurité qui tentera d'abattre les assaillants, en vain
+Ce qui obligera les deux à fuir au plus vite 
+
+1 - Ils vont réussir à trouver un moyen de s'extraire de l'hôpital (choix)
+En sortant, il découvre le dodge ram est inutilisable (à détailler) 
+Selon le choix de fuite choisi précédemment, la mort du frère différera 
+à l'issue de sa mort, nous récupérerons son arme à feu et nous dirigerons vers le bus afin de rejoindre Oklahoma.
+
+2 - Sa femme connait un très bon de moyen de s'extirper de cette situation, le protagoniste la suit
+Une fois à l'extérieur, près du bus, la belle soeur du protagoniste réalise à nouveau que son mari est mort
+Elle perd à nouveau pied, vous tentez de la raisonner (choix)
+Certains choix sont inopérants, elle ne bougera pas et se fera rattraper par le groupe vous obligeant à fuir
+Certains choix marchent mais résultent quand même par sa mort
+
+Empathique 
+Rationnelle 
+Pragmatique
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#0)
+
+[narr]Today is Sunday morning. The sun is shining brightly. Just like one of these Californian summer sun. Burdensome, stifling.
+Two eggs benedict on very stale bread. You were never really a good cook, but you always tried your best.
+The radio is on, as always, to break the silence.
+Usually, you don't pay much attention to what it says, but this time is different.
+You put aside your food to focus on the broadcast.
+[radio]KIIS FM! Every morning, your daily news bulletin!
+President Freeman declared in a speech this morning that the national state of emergency will be reinforced. The recent crisis suggests that the police forces are defenceless against Faithfull American's recent action. I quote: No such actions will be...
+[narr]The phone rings. On the screen, you see the name of your brother: Rafe. 
+It's uncommon to get a call from Rafe at this time of the day. 
+You would have expected him to be at work right now. It must be urgent.
+
+	1 - Answer the call.
+	// 1
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#1)
+
+[main]Hello!
+[char0]Listen, brother. I need you to listen carefully. It's not a joke. 
+We must get away from Los Angeles as quickly as possible.
+[main]What... 
+[char0]We need to leave now! 
+[main]Okay, I'll... I'll be downstairs. 
+[narr]You rush to your kitchen, pick up all the food you can find. You also grab your last cigarette pack.
+
+	1 - Leave your apartment.
+	// 3
+	2 - Check one last time for your stuff.
+	// 2
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#2)
+
+[main]Alright. 
+Wallet, food, underpants... Did I forget something?
+[narr]You take a last walk in your apartment.
+Your phone rings again and vibrates in your pocket.
+Yeah let's take this, we can never plan enough!
+
+	// GET 1 MEDIKIT
+
+	1 - Leave your apartment.
+	// 3
+
+---------------------------------------------
+
+(#3)
+
+[narr]Downstair, <char0> join you with his pickup. 
+[char0]Get in the car <main>! Take the wheel, you drive!
+[main]What the hell <char0>?! What's happening?! 
+[char0]One hour ago I was at work talking with an old friend. He is in the army. Like the OP marine kind of guy. He got an important call from his general. They are abandoning the region.
+[main]Why is your wife not with us?
+[char0]Well, <char1> is still working at the hospital. We have to go take her before we leave.
+[main]Ok.
+[narr]Outside, the situation is even worse than you have imagined. For the last few weeks, you've stayed locked in, as the government said. Now, on the streets you see people running, fighting, screaming. 
+And... is that a dead body?
+
+	// GO TO 4
+
+---------------------------------------------
+
+(#4)
+
+[narr]You try to stay focused on the road, but the closer you get to the city center, the more you can hear the anarchy, gunshots, explosions.
+Under pressure, you're driving faster than you should, avoiding car wrecks and people running.
+[radio]... it is indeed a new day for America...
+[narr]You want to turn right but a traffic jam blocks your way. Even further, you can see the beginning of a riot.
+[char0]Shit, we have to make a detour.
+[narr]A guy in dark cloves climbs on your car and starts jumping on it, screaming indistinct words with several other people.
+<char0> opens the glove-box, grabs a gun and loads it.
+
+	1 - Turn around.
+	// 5
+	2 - Honk.
+	// 6
+
+---------------------------------------------
+
+(#5)
+
+[narr]You immediately turn around and the dark screaming guy falls on the asphalt.
+[char0]They are fucking mad!
+[narr]Driving away, he tries to throw a baseball bat at you, but he misses you. 
+
+
+	// GO TO 7
+
+---------------------------------------------
+
+(#6)
+
+[narr]You honk but the guy would not stop jumping on your car.
+Some other guys try to hit you and <char0> from the window.
+<char0> shoots them in response.
+[char0]Drive!
+[main]Shit! Shit! SHIT!
+
+
+	// GO TO 2
+
+---------------------------------------------
+
+(#7)	
+
+[narr]You arrive at the hospital. <char0> puts the gun on his belt.
+[char0]Alright, park you there.
+[narr]You do as he says.
+[char0]Now come with me, we have to find <char1>.
+[narr]The anarchy is spread to the hospital too. You try to find your way among patients and nurses. 
+You finally find <char1>, healing a patient.
+[char0]Hey! <char1>!
+[char1]What are you doing here <char0>?
+[char0]I can't explain to you right now honey, you have to trust me. We must leave, now! 
+[char1]Sir, I am really sorry. Another nurse will take you in charge. 
+[narr]The patient grabs a knife from his pocket, grasps <char1> and puts it under her throat.
+[char2]She's going nowhere!
+[narr]Following his instinct, <char0> grabs his gun and aims at the patient.
+[char0]Fuck! Let her go!
+[narr]A security guard hears the argument and aims at your brother with his gun.
+[char3]Drop your weapon right now! 
+
+
+	1 - Try to convince your brother to drop his weapon.
+	// 8
+	2 - Try to convince the guard that your brother doesn't mean to hurt anybody.
+	// 9
+
+--------------------------------------------------------------
+
+(#8)
+
+[main]Calm down <char0>, do as he says. We're gonna let her heal this man peacefully and it's gonna be fine.
+[narr]Then <char0> drops his weapon on the ground. Suddenly the patient cuts her throat, pushes her and runs.
+[char0]No, no, NO!
+[narr]She falls on the ground, bleeding out. The security guard immediately shoots the patient dead.
+<char0>, shocked, is mumbling and trembling next to <char1>'s body. 
+[char0]Fuck off <main>! I should have killed this son of a bitch!
+[char3]Security! Floor 2! We have two dead people here... Yeah there was a shooting but it's under control... Yeah... one patient and a nurse.
+[main]I... <char0>, I'm sorry.
+[char0]...
+[narr]It all happened so fast.
+You look at the window and see a carnage. 
+Outside many people with a white mask are burning all they can find. Car, trees. You hear gunshots. Some of them are just turning mad, randomly killing anyone they come across.
+You hear the sound of the door breaking. Some of them are in the hospital.
+[main]Brother, we gotta go.
+[char0]...
+[narr]Your brother gets on his feet silently.
+
+
+	1 - Leave the hospital by the main entrance door.
+	// 10
+	2 - Find another exit.
+	// 11
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#9)
+
+[main]He doesn't mean to harm anybody, just ask the patient to drop his knife!
+[narr]But <char3> doesn't listen to you.
+[char3]Drop your gun, now!
+[narr]Under pressure, <char0> shoots <char2> and saves his wife's life.
+Seeing that, <char3>, shaking hands, shoots <char0>.
+[char1]Oh my God, no! <char0>!
+[narr]The poor woman burst into tears.
+[char3]Security! Floor 2! We have two dead people here... Yeah there was a shooting but it's under control... Yeah... one patient and a stranger, a man.
+[char1]Stranger? He's my husband, bastard!
+[main]...FUCK!
+[narr]It all happened so fast.
+You look at the window and see a carnage. Outside many people with a white mask are burning all they can find. Car, trees. You hear gunshots. Some of them are just turning mad, randomly killing anyone they come across.
+You hear the sound of the door breaking. Some of them are in the hospital.
+[main]We are fucked up.
+[narr]You take <char0>'s gun, grab <char1>'s harm and run.
+[char1]Hold on! We can't leave him! 
+
+
+	1 - Listen to me. He's dead and we can't stay here.
+	// 17
+	2 - Shut up! Is there a safe exit door?
+	// 19
+	3 - Listen, Evelynn. Right now, I am completely lost, just like you. But we need to get out of here.
+	// 20
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#10)
+
+[narr]You both run in the direction of the exit. Through the hospital, <char0> shoots two guys wearing white masks.
+You keep running and finally get out of the hospital.
+[main]Get in the car!
+[narr]Boom!
+You see your brother falling on the ground.
+Someone shot him in the leg and shoulder.
+[char0]Argh! <main>... Here, take my gun, take it!
+[main]What?! You know that I don't like these!
+[narr]He puts the gun in your hands and pushes you.
+[char0]Listen to me, <main>. Leave and save your ass!
+You hear me?! I forbid you to die here!
+
+
+	1 - Leave.
+	// 14
+	2 - Stay to help your brother.
+	// 12
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#11)
+
+[narr]The elevator is out of service.
+You both run into the direction of an exit door. You see masked guys spreading chaos in the hospital.
+You keep running, avoiding danger as much as you can until you find the exit door.
+You get outside.
+[char0]To the car! Hurry!
+[narr]Behind you, a guy rushes at your brother's with a knife. He stabs <char0>'s on the back. Your brother falls on the ground.
+The killer is looking at you now. slowly walking in your direction.
+You are like paralyzed. It's like you don't really realise what just happened.
+The guy is getting closer. He raises his harm. 
+
+Bang!
+In an extreme effort, your brother shot the aggressor and saved you.
+[char0]Argh! <main>... Here, take my gun, take it!
+[main]What?! You know that I don't like these!
+[narr]He puts the gun in your hands and pushes you.
+[char0]Listen to me, <main>. Leave and save your ass!
+You hear me?! I forbid you to die here!
+
+
+	1 - Stay with your brother to help him.
+	// 12
+	2 - Leave him.
+	// 13
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#12)
+
+[main]I'll stay with you!
+[char0]No! Get out of here! 
+
+	// YOU DID A GOOD ACTION
+	// GO TO 14
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#13)
+
+[narr]According to the situation, you decide that you can't help <char0> and you leave him.
+
+	// YOU DIDN'T TRY TO HELP
+	// GO TO 14
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#14)
+
+[narr]Your brother is beaten up by madmen.
+You feel a strong sense of guilt and bitterness.
+But there is nothing you can do.
+With tears in your eyes, you run to the car.
+[main]Sorry brother.
+[narr]The car is too damaged. It won't move, but your instinct tells you to check if there is ammunition in the glove-box.
+[main]Hell yeah! Thank you <char0>.
+[narr]You find a box of ammunition, more than you need. 
+
+
+	// GO TO 15
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#15)
+
+[narr]The gun in your hand you run like you never did, as far as possible, with fear and rage in your veins. 
+Each hour passes and the collective madness grows exponentially. You see a wall covered in blood with these words:
+
+@@@@@@@@   @@@@@@   @@@  @@@@@@@  @@@  @@@  @@@@@@@@  @@@  @@@  @@@       
+@@@@@@@@  @@@@@@@@  @@@  @@@@@@@  @@@  @@@  @@@@@@@@  @@@  @@@  @@@       
+@@!       @@!  @@@  @@!    @@!    @@!  @@@  @@!       @@!  @@@  @@!       
+!@!       !@!  @!@  !@!    !@!    !@!  @!@  !@!       !@!  @!@  !@!       
+@!!!:!    @!@!@!@!  !!@    @!!    @!@!@!@!  @!!!:!    @!@  !@!  @!!       
+!!!!!:    !!!@!!!!  !!!    !!!    !!!@!!!!  !!!!!:    !@!  !!!  !!!       
+!!:       !!:  !!!  !!:    !!:    !!:  !!!  !!:       !!:  !!!  !!:       
+:!:       :!:  !:!  :!:    :!:    :!:  !:!  :!:       :!:  !:!   :!:      
+ ::       ::   :::   ::     ::    ::   :::   ::       ::::: ::   :: ::::  
+ :         :   : :  :       :      :   : :   :         : :  :   : :: : :  
+                                                                          
+                                                                          
+ @@@@@@   @@@@@@@@@@   @@@@@@@@  @@@@@@@   @@@   @@@@@@@   @@@@@@         
+@@@@@@@@  @@@@@@@@@@@  @@@@@@@@  @@@@@@@@  @@@  @@@@@@@@  @@@@@@@@        
+@@!  @@@  @@! @@! @@!  @@!       @@!  @@@  @@!  !@@       @@!  @@@        
+!@!  @!@  !@! !@! !@!  !@!       !@!  @!@  !@!  !@!       !@!  @!@        
+@!@!@!@!  @!! !!@ @!@  @!!!:!    @!@!!@!   !!@  !@!       @!@!@!@!        
+!!!@!!!!  !@!   ! !@!  !!!!!:    !!@!@!    !!!  !!!       !!!@!!!!        
+!!:  !!!  !!:     !!:  !!:       !!: :!!   !!:  :!!       !!:  !!!        
+:!:  !:!  :!:     :!:  :!:       :!:  !:!  :!:  :!:       :!:  !:!        
+::   :::  :::     ::    :: ::::  ::   :::   ::   ::: :::  ::   :::        
+ :   : :   :      :    : :: ::    :   : :  :     :: :: :   :   : :
+
+(Faithfull America)
+	// GO TO 16
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#16)
+
+[narr]Down the alleyway, you see a bright yellow school bus. It has been a bit damaged but it seems in a working state.
+The driver's body lies dead in the street. You get on the bus. It's completely empty. You find the keys on the contact and a handwritten note on the dashboard.
+
+It says: Take them to Oklahoma City, they will be safe there.
+
+A small map is scribbled on the back of the note.
+With nothing left and no other precise goal. You decide to go to Oklahoma.
+
+You want to put distance between you and this mess as quickly as possible.
+
+At the next intersection, the light turns to orange.
+
+
+	1 - Drive faster.
+	// 22
+	2 - Stop at the light.
+	// 23
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#17)
+
+[char1]I'm lost <main>. I... I can't. 
+[main]Pull yourself together, <char1>. We are in danger. Follow me! 
+[narr]In a rush, <char1> follows you and you both run to the front door.
+When you get to the door <char1> stops suddenly.
+[char1]I can't leave like that. People need me here.
+[main]What? <char1>...
+[char1]Go without me.
+[main]I... I'm sincerely sorry, <char1>, take care of yourself.
+[char1]You too.
+
+
+	// GO TO 18
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#18)
+
+[narr]The elevator is out of service.
+You run into the direction of an exit door. You see masked guys spreading chaos in the hospital.
+You keep running, avoiding danger as much as you can until you find the exit door.
+You get outside and run.
+
+A bomb explodes in the hospital, the blast of the shock wave is terrifying.
+You feel a strong sense of guilt and bitterness. 
+You enter the car.
+[main]Shit... Shit! Shit! Shit!
+Sorry <char1>... 
+[narr]The car is too damaged. It won't move, but your instinct tells you to check if there is ammunition in the glove-box.
+[main]Hell yeah! Thank you <char0>.
+[narr]You find a box of ammunition, more than you need. 
+
+	
+	// GO TO 15
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#19) 
+
+[char1]Well... hum... There is one door in the operating room reserved for employees. 
+[main]Fine, go! Let's go there! 
+[narr]You follow <char1> to the operating room. 
+
+
+	// GO TO 21
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#20) 
+
+[char1]It's so hard, I can't... There's... No way... 
+[main]Go, <char1>. Now! 
+[narr]You grab her arm and run together. 
+She follows you.
+
+
+	// YOU WERE KIND
+	// GO TO 21
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#21) 
+
+
+[narr]When you get to the door, <char1> stops suddenly.
+[char1]This is the way.
+[main]What are you doing?
+[char1]I can't leave like that. People need me here.
+[main]What? <char1>...
+[char1]Go without me.
+[main]I... I'm sincerely sorry, <char1>, take care of yourself.
+[char1]You too.
+[narr]You get outside and run to the car.
+
+A bomb explodes in the hospital, the blast of the shock wave is terrifying.
+You feel a strong sense of guilt and bitterness. 
+You enter the car.
+[main]Shit... Shit! Shit! Shit!
+Sorry <char1>... 
+[narr]The car is too damaged. It won't move, but your instinct tells you to check if there is ammunition in the glove-box.
+[main]Hell yeah! Thank you <char0>.
+[narr]You find a box of ammunition, more than you need.
+
+
+	// YOU DID A GOOD ACTION
+	// GO TO 15
+
+---------------------------------------------------------------------------------------------------------------------------
+						PART 2
+---------------------------------------------------------------------------------------------------------------------------
+
+(#22)  
+
+[narr]You go full throttle, run past the light when it turns to red, and end up hitting a little car that was driving from the right. 
+The small car is projected violently, rolls and crashes in a building. 
+The bus takes a few damages but the engine still runs.
+
+
+	1 - Stop the bus.
+	// 25
+	2 - Keep driving.
+	// 26
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#23)
+
+[narr]You stop at the light, it turns to red. A small car passes very fast from right to left. 
+	
+	// GO TO 24
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#24) 
+
+[narr]Someone knocks on your bus in panic. 
+[char4]They're gonna kill me!
+
+
+	1 - Open the door.
+	// 27
+	2 - Drive away.
+	// 28
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#25)
+
+[narr]You stop the bus and go out, nobody seems to care about the crash or even you. 
+The car is overturned and a fire starts to spread.
+There is no sign of the driver. 
+Powerless in the face of this situation, you go back to the bus and keep driving. 
+
+Only a few seconds after, you hear an explosion. 
+It was the car that you hit. 
+Feeling bad and guilty, you stop the bus and keep looking at the car burning in the mirror. 
+[main]Shit!
+What did I do?!
+
+	// YOU KILLED SOMEONE
+	// GO TO 24
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+(#26)
+
+[narr]BOOM!
+
+Only a few seconds after, you hear an explosion. 
+It was the car that you hit. 
+Feeling bad and guilty, you stop the bus and keep looking at the car burning in the mirror. 
+[main]Shit!
+What did I do?!
+
+	// YOU DIDN'T TRY TO HELP
+	// YOU KILLED SOMEONE
+	// GO TO 24
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#27)
+
+[narr]You open the door and the young man gets into the bus. 
+[char4]Thank you! 
+[narr]You drive away and the other guys who ran after him, throw stones at you.
+The guy you saved shows them a finger.
+[char4]Assholes... 
+Hey, my name is Tim. Thank you so much. These guys could have killed me.
+
+	// CHAR4 = TIM
+	// YOU GET <CHAR4> IN YOUR BUS
+	// GO TO 29
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#28) 
+
+[narr]You drive away and the young man kicks on your bus... 
+[char4]No, no, no! Stop! Please stop!
+[narr]You see in the mirror another scene of great violence.
+You hear someone shouting: 
+[char5]FAITHFUL AMERICAAAaaa!
+
+
+	// YOU ABANDON SOMEONE
+	// GO TO 29
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#29)
+
+[narr]You keep driving through the city. 
+[radio]####### ######### ## ###################### #######
+[narr]The radio emits noises instead of distinct voices. 
+A sign signals you that you finally leave Los Angeles.
+
+
+	// SUCCESS - YOU LEAVE THE CITY
+	// EVENT ENDED
+
+---------------------------------------------------------------------------------------------------------------------------

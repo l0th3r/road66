@@ -8,26 +8,21 @@
 #include <ncurses.h>
 
 /* LIBS */
+#include "lib/config/settings.h"
 #include "lib/fp/fp.h"
 #include "lib/uf/uf.h"
 #include "lib/ui/ui.h"
 
 
 /* EVENT LIB */
-#include "event/secondary/secondary_events.h"
+#include "event/secondary/secondary_event.h"
 
 int main(int ac, char **av)
 {
-	uf_init();
-	ui_init();
+	/*/* init settings */
+	se_init();
 
-	for(;;)
-	{
-		int input = wgetch(stdscr);
-		if(input == 410)
-			ui_refresh(0);
-	}
+	get();
 
-	ui_end();
 	return 0;
 }

@@ -3,13 +3,7 @@
 	ncurses handle / UI handle
 */
 
-#define _DEFAULT_SOURCE
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include <unistd.h>
-#include <ncurses.h>
+#include "../../includes.h"
 
 #include "../uf/uf.h"
 #include "../fp/fp.h"
@@ -24,6 +18,7 @@ WINDOW * ui_new_win(char *name, int height, int width, int start_y, int start_x)
 
 /* EVENT */
 void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char* char1, char* char2, char* char3);
+void after_event_clear(WINDOW * win_ev, WINDOW * win_me);
 
 /* PROGRESS */
 void ui_update_progress(WINDOW * win, int height, int val);
@@ -178,7 +173,7 @@ int ui_choice(WINDOW* win, char* choice1, char* choice2, char* choice3, char* ch
 void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char* char1, char* char2, char* char3)
 {
 	char* raw;
-	char* file_path = malloc((str_len(path) + 10) * sizeof(char));
+	char* file_path = malloc((uf_str_len(path) + 10) * sizeof(char));
 	char* temp;
 	char* main = "Maxence";
 	char* radio = "radio";
@@ -306,7 +301,7 @@ void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char
 			box(win, 0, 0);
 			mvwprintw(win, 0, 2, " Event ");
 			wrefresh(win);
-			wait(25000);
+			uf_wait(25000);
 		}
 	}	
 
@@ -329,15 +324,14 @@ WINDOW * ui_new_win(char *name, int height, int width, int start_y, int start_x)
 void ui_update_progress(WINDOW * win, int height, int val)
 {
 	char temp;
-	/*int center_h = height / 2 - 1;*/
 	int prct = 764 * val / 100;
 
 	char* city_start = "San Fransisco";
 	char* city_arrival = "Flagstaff";
 	int distance = 764;
 
-	/* make the bar
-	temp = progress_bar(val);*/
+	if(val % 2 == 0) { temp = '0'; }
+	else { temp = 'O'; }
 
 	mvwprintw(win, 2, 4, "%s to %s", city_start, city_arrival);
 	mvwprintw(win, 3, 7, "=> %d miles remaining.", distance - prct - 8);

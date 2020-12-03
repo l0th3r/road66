@@ -1,6 +1,5 @@
-#include <ncurses.h>
-
 /* LIBS */
+#include "../../includes.h"
 #include "../../lib/config/settings.h"
 #include "../../lib/fp/fp.h"
 #include "../../lib/uf/uf.h"

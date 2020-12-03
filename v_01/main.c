@@ -1,13 +1,5 @@
-#define _DEFAULT_SOURCE
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
-
-#include <unistd.h>
-#include <ncurses.h>
-
 /* LIBS */
+#include "includes.h"
 #include "lib/config/settings.h"
 #include "lib/fp/fp.h"
 #include "lib/uf/uf.h"
@@ -19,10 +11,22 @@
 
 int main(int ac, char **av)
 {
-	/*/* init settings */
+	/* init settings lib */
 	se_init();
 
-	get();
+	/* init useful lib */
+	uf_init();
+
+	/* init ui lib */
+	ui_init();
+
+	getch();
+
+	/* end the game */
+	ui_end();
+
+	/* end settings */
+	se_end();
 
 	return 0;
 }

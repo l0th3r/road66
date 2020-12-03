@@ -2,22 +2,22 @@
 	SETTINGS lib
 	settings / global variables
 */
-#include <stdio.h>
-#include <stdlib.h>
 
-#include <libconfig.h>
+#include "../../includes.h"
 
 #include "../fp/fp.h"
 
+/* global setting file */
+config_t *cf;
+
+
 /* GLOBAL VARIABLES */
-const config_setting_t* g_cities;
 char* name;
 
 int se_init()
 {
-	config_t cfg, *cf;
+	config_t cfg;
 	const char *na = NULL;
-	int count, n, enabled;
 
 	cf = &cfg;
 	config_init(cf);
@@ -32,16 +32,12 @@ int se_init()
 	}
 
 	config_lookup_string(cf, "name", &na);
-
-	printf("before = %s\n", na);
-
 	name = (char*)na;
 
-	config_destroy(cf);
 	return 0;
 }
 
-void get()
+void se_end()
 {
-	printf("after = %s\n", name);
+	config_destroy(cf);
 }

@@ -17,6 +17,7 @@ WINDOW * ui_new_win(char *name, int height, int width, int start_y, int start_x)
 
 /* EVENT */
 void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char* char1, char* char2, char* char3);
+void after_event_clear(WINDOW * win_ev, WINDOW * win_me);
 
 /* PROGRESS */
 void ui_update_progress(WINDOW * win, int height, int val);

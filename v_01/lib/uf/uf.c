@@ -3,7 +3,9 @@
 	basic tools /
 */
 
+#define _DEFAULT_SOURCE
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 
 #include <unistd.h>
@@ -19,7 +21,7 @@ void uf_init()
 	srand(time(NULL));
 }
 
-int str_len(char *str)
+int uf_str_len(char *str)
 {
 	int i = 0;
 
@@ -30,7 +32,7 @@ int str_len(char *str)
 }
 
 /* wait in milliseconds */
-void wait(long msec)
+void uf_wait(long msec)
 {
 	fflush(stdout);
 	usleep(msec);

@@ -8,7 +8,7 @@
 
 
 int se_init();
-char* get();
+void se_end();
 
 
 #endif

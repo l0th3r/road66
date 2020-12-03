@@ -1,0 +1,133 @@
+// SECONDARY EVENT #5
+// IT'S A TRAP!
+// Signature : Damien Boussard
+//
+// CHARACTERS :
+// char0 = The bad guy
+//
+// CONSEQUENCES :
+// - Loose food
+// - Loose 1 passenger
+// - Game over
+// - Kill 1 person
+
+—————————————————————————————————————————————
+
+(#0)
+
+[narr]You see a man who beckons you, next to the road.
+
+	1 - Stop the bus.
+	// 1
+	2 - Keep driving.
+	// 2
+
+—————————————————————————————————————————————
+
+(#1)
+
+[narr]You stop the bus and suddenly, a group of armed people surrounds you.
+[char0]We have weapons, get off the bus!
+
+	1 - Stay in the bus.
+	// 3
+	2 - Leave the bus.
+	// 7
+
+—————————————————————————————————————————————
+
+(#2)
+
+[narr]You decide to just ignore him and keep driving.
+
+	// EVENT ENDED
+
+
+—————————————————————————————————————————————
+
+(#3)
+
+[char0]Don't be stubborn!
+
+	1- Stay in the bus.
+	// 4
+	2 - Leave the bus.
+	// 7
+
+
+—————————————————————————————————————————————
+
+(#4)
+
+[char0]Last chance, get off now!
+
+	1 - Stay in the bus.
+	// 5
+	2 - Leave the bus.
+	// 7
+	3 - Start the bus and drive on one of them.
+	// 6
+
+—————————————————————————————————————————————
+
+(#5)
+
+[char0]All right... Bad for you!
+[narr]They fire on the bus and destroy it.
+
+	// GAME OVER
+
+—————————————————————————————————————————————
+
+(#6)
+
+[narr]You start the engine and want to run away when you realize that the bandits are surrounding you.
+But, you decide to leave anyway, even if you need to drive on one of them. And that's what
+happens.
+You feel the body of the gangster under your wheels while you hear the others
+screaming at you.
+You try to forget what just happened and continue on your way.
+
+	// YOU KILLED SOMEONE
+	// EVENT ENDED
+
+—————————————————————————————————————————————
+
+(#7)
+
+[char0]Good choice. Now give us your ressources.
+
+	1 - Be obedient
+	// 9
+	2 - Refuse
+	// 8
+
+—————————————————————————————————————————————
+
+(#8)
+
+[narr]While looking you in the eye he shoots one of the bus passengers through the window.
+[char0]Next time it'll be you.
+
+	//YOU LOOSE ONE PASSENGER
+	1 - Give up
+	// 9
+	2 - Refuse one more / last(?) time
+	// 10
+
+—————————————————————————————————————————————
+
+(#9)
+
+[narr]They take some of your food and leave while laughing.
+
+	// YOU LOSE RESSOURCES
+	// EVENT ENDED
+
+—————————————————————————————————————————————
+
+(#10)
+
+[narr]He shoots again, but in your head this time. Bad for you, there is no deus ex machina today.
+
+	//GAME OVER

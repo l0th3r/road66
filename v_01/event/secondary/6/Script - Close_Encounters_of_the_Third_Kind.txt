@@ -1,0 +1,65 @@
+// SECONDARY EVENT #6
+// CLOSE ENCOUNTERS OF THE THIRD KIND
+// Signature: Damien Boussard
+//
+// CHARACTERS: /
+//
+// CONSEQUENCES :
+// - Find 1 fuel
+
+—————————————————————————————————————————————
+
+(#0)
+
+[narr]It's late, you're tired and need to sleep. You stop the bus at the side of the road. And fall asleep.
+During the night, you suddenly wake up because of a strange magnetic noise.
+You get off the bus to see if there is something outside, but you see nothing.
+
+	1 - Go back to sleep.
+	// 1
+	2 - Walk a little.
+	// 2
+
+—————————————————————————————————————————————
+
+(#1)
+
+[narr]You go back to your seat and quickly fall asleep again. That night you have a weird dream with aliens...
+The next day, you wake up with back pain... Suddenly you realize that you are in the desert, 50 yards from the bus!
+You just return to the bus and start a new day, trying not to think about that strange night...
+
+	// EVENT ENDED
+
+—————————————————————————————————————————————
+
+(#2)
+
+[narr]After 30 minutes of walking around the bus, the strange noise echoes once again.
+Just after that, a shiny shape passes over your head very quickly and will land further, forming a glowing spot on the horizon.
+
+	1 - Return to the bus.
+	// 3
+	2 - Go take a look.
+	// 4
+
+
+—————————————————————————————————————————————
+
+(#3)
+
+[narr]You run to take refuge on the bus, go back to your seat, but sleep did not come this night...
+
+	// EVENT ENDED
+
+
+—————————————————————————————————————————————
+
+(#4)
+
+[narr]As you get closer to the light, it is so bright that you cannot distinguish exactly what it is.
+Before getting to it. Suddenly it goes up in the sky and disappears on the horizon.
+Where it was a few seconds earlier, you find resources.
+Surprised by this encounter, you go back to bed, taking with you this booty out of nowhere.
+
+	// YOU FIND 1 FUEL
+	// EVENT ENDED

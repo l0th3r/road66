@@ -97,6 +97,9 @@ void ui_refresh(int is_menu)
 
 		win_start_menu = ui_new_win(" start MENU ", y_max, x_max, 0, 0);
 		keypad(win_start_menu, true);
+
+		/* draw the menu  
+		ui_set_menu();*/
 	}
 
 	refresh();
@@ -361,6 +364,69 @@ void after_event_clear(WINDOW * win_ev, WINDOW * win_me)
 
     wrefresh(win_me);
     wrefresh(win_ev);
+}
+
+void ui_set_menu()
+{
+	/*int to_return = -1;*/
+	int is_good = 0;
+	int choice;
+	int selected = 0;
+	int i = 0;
+
+	int end = 4;
+
+	char* arr[4];
+
+	arr[0] = "Start";
+	arr[1] = "choice2";
+	arr[2] = "Start";
+	arr[3] = "Start";
+
+	while(is_good == 0)
+	{
+		i = 0;
+		while(i < end)
+		{
+			if(i == selected)
+				wattron(win_start_menu, A_REVERSE);
+
+			mvwprintw(win_start_menu, i + 2, 2, "%d: %s", i + 1, arr[i]);
+
+			if(arr[i + 1][0] == '/')
+				end = i + 1;
+
+			wattroff(win_start_menu, A_REVERSE);
+			wrefresh(win_start_menu);
+			i++;	
+		}
+		choice = wgetch(win_start_menu);
+
+		switch(choice)
+		{
+			case 259:
+				if(selected > 0)
+					selected--;
+				else
+					selected = end - 1;
+				break;
+			case 258:
+				if(selected < end - 1)
+					selected++;
+				else
+					selected = 0;
+				break;
+			default:
+				break;
+		}
+		if(choice == 10)
+			is_good = 1;
+	}
+
+	if(selected == 0)
+	{
+		ui_refresh(0);
+	}
 }
 
 void ui_end()

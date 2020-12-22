@@ -5,14 +5,13 @@
 #include "lib/uf/uf.h"
 #include "lib/ui/ui.h"
 
-
 /* EVENT LIB */
 #include "event/secondary/secondary_event.h"
 
 int main(int ac, char **av)
 {
 	/* init settings lib */
-	se_init();
+	se_init(); 
 
 	/* init useful lib */
 	uf_init();
@@ -26,7 +25,7 @@ int main(int ac, char **av)
 	ui_end();
 
 	/* end settings */
-	se_end();
+	se_end(); 
 
 	return 0;
 }

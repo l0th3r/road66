@@ -1,0 +1,5 @@
+[main]Listen <char1>, I'm sorry about what happened to you, but you should call someone. I have to go.
+[char1]I'm very grateful to you after what happened today, thank you.
+She starts to cry bitterly.
+[main]I understand, take care <char1>.
+[narr]She doesn't answer and you leave.

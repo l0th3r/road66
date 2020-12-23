@@ -3,9 +3,7 @@
 	settings / global variables
 */
 
-#include "../../includes.h"
-
-#include "../fp/fp.h"
+#include "../includes.h"
 
 /* global setting file */
 config_t cf;
@@ -20,7 +18,7 @@ int se_init()
 
 	config_init(&cf);
 
-	if (!config_read_file(&cf, "./lib/config/config.cfg")) {
+	if (!config_read_file(&cf, "./config/config.cfg")) {
 		fprintf(stderr, "%s:%d = %s\n",
 			config_error_file(&cf),
 			config_error_line(&cf),

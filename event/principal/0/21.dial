@@ -1,0 +1,18 @@
+[narr]When you get to the door, <char1> stops suddenly.
+[char1]This is the way.
+[main]What are you doing?
+[char1]I can't leave like that. People need me here.
+[main]What? <char1>...
+[char1]Go without me.
+[main]I... I'm sincerely sorry, <char1>, take care of yourself.
+[char1]You too.
+[narr]You get outside and run to the car.
+
+A bomb explodes in the hospital, the blast of the shock wave is terrifying.
+You feel a strong sense of guilt and bitterness. 
+You enter the car.
+[main]Shit... Shit! Shit! Shit!
+Sorry <char1>... 
+[narr]The car is too damaged. It won't move, but your instinct tells you to check if there is ammunition in the glove-box.
+[main]Hell yeah! Thank you <char0>.
+[narr]You find a box of ammunition, more than you need.

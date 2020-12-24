@@ -6,8 +6,11 @@ CONFIG_FILE= config/settings.c
 UI_FILE= lib/ui/ui.c
 UF_FILE= lib/uf/uf.c
 FP_FILE= lib/fp/fp.c
+SEV_FILE= event/secondary/secondary_event.c
+PEV_FILE= event/principal/principal_event.c
 MAIN_FILE= main.c
-FILES= $(CONFIG_FILE) $(UI_FILE) $(UF_FILE) $(FP_FILE) $(MAIN_FILE)
+
+FILES= $(CONFIG_FILE) $(UI_FILE) $(UF_FILE) $(FP_FILE) $(MAIN_FILE) $(SEV_FILE) $(PEV_FILE)
 
 # FLAGS
 NORME_FLAGS= -std=c89 -pedantic

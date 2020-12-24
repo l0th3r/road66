@@ -10,5 +10,8 @@
 int se_init();
 void se_end();
 
+extern char* s_main_chara_name;
+extern int s_text_thread;
+
 
 #endif

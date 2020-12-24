@@ -1,4 +1,7 @@
 make build
+echo
+echo
+echo
 
 f_date=$(date +'%m-%d-%Y')
 f_name="road66_build_${f_date}"

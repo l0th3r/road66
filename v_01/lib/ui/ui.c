@@ -5,6 +5,7 @@
 
 #include "../../includes.h"
 
+#include "../../config/settings.h"
 #include "../uf/uf.h"
 #include "../fp/fp.h"
 
@@ -17,7 +18,7 @@ void ui_end();
 WINDOW * ui_new_win(char *name, int height, int width, int start_y, int start_x);
 
 /* EVENT */
-void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char* char1, char* char2, char* char3);
+void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char* char1, char* char2, char* char3, char* char4, char* char5);
 void after_event_clear(WINDOW * win_ev, WINDOW * win_me);
 
 /* PROGRESS */
@@ -36,6 +37,20 @@ WINDOW * win_inv;
 WINDOW * win_env;
 WINDOW * win_men;
 
+/* TERMINAL SIZE */
+int y_max;
+int x_max;
+
+/* WINDOW SIZES */
+int tra_h;
+int tra_w;
+int inv_h;
+int inv_w;
+int me_h;
+int me_w;
+int ev_h;
+int ev_w;
+
 
 void ui_init()
 {
@@ -50,20 +65,6 @@ void ui_init()
 /* called when resize */
 void ui_refresh(int is_menu)
 {
-	/* terminal size */
-	int y_max;
-	int x_max;
-
-	/* responsive windows sizes */
-	int tra_h;
-	int tra_w;
-	int inv_h;
-	int inv_w;
-	int me_h;
-	int me_w;
-	int ev_h;
-	int ev_w;
-
 	/* get terminal size and store into the variables */
 	getmaxyx(stdscr, y_max, x_max);
 
@@ -98,7 +99,7 @@ void ui_refresh(int is_menu)
 		win_start_menu = ui_new_win(" start MENU ", y_max, x_max, 0, 0);
 		keypad(win_start_menu, true);
 
-		/* draw the menu  
+		/* draw the menu   
 		ui_set_menu();*/
 	}
 
@@ -173,7 +174,7 @@ int ui_choice(WINDOW* win, char* choice1, char* choice2, char* choice3, char* ch
 	return selected;
 }
 
-void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char* char1, char* char2, char* char3)
+void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char* char1, char* char2, char* char3, char* char4, char* char5)
 {
 	char* raw;
 	char* file_path = malloc((uf_str_len(path) + 10) * sizeof(char));
@@ -287,6 +288,20 @@ void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char
 						mvwprintw(win, line, ch++, "%c", char3[i++]);
 					fp = j;
 				}
+				else if(strcmp(temp, "char4") == 0)
+				{
+					i = 0;
+					while(char4[i])
+						mvwprintw(win, line, ch++, "%c", char4[i++]);
+					fp = j;
+				}
+				else if(strcmp(temp, "char5") == 0)
+				{
+					i = 0;
+					while(char5[i])
+						mvwprintw(win, line, ch++, "%c", char5[i++]);
+					fp = j;
+				}
 				free(temp);
 			}
 	
@@ -304,7 +319,9 @@ void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char
 			box(win, 0, 0);
 			mvwprintw(win, 0, 2, " Event ");
 			wrefresh(win);
-			uf_wait(25000);
+
+			if(s_text_thread == 1)
+				uf_wait(25000);
 		}
 	}	
 

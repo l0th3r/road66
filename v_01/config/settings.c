@@ -9,15 +9,15 @@
 config_t cf;
 
 /* GLOBAL VARIABLES */
-char* name;
-int test;
+char* s_main_chara_name;
+int s_text_thread;
 
 int se_init()
 {
-	const char *na = NULL;
+	const char *char_temp = NULL;
 
+	/* init libconfig */
 	config_init(&cf);
-
 	if (!config_read_file(&cf, "./config/config.cfg")) {
 		fprintf(stderr, "%s:%d = %s\n",
 			config_error_file(&cf),
@@ -27,17 +27,18 @@ int se_init()
 		return(EXIT_FAILURE);
 	}
 
-	config_lookup_string(&cf, "name", &na);
-	name = (char*)na;
 
-	config_lookup_int(&cf, "teest", &test);
+	/* getting params */
+	config_lookup_string(&cf, "name", &char_temp);
+	s_main_chara_name = (char*)char_temp;
 
+	config_lookup_bool (&cf, "text_thread", &s_text_thread);
+	
 	
 	return(EXIT_SUCCESS);
 }
 
 void se_end()
 {
-	printf("name = %d\n", test);
 	config_destroy(&cf);
 }

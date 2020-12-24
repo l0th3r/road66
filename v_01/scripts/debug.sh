@@ -1,4 +1,7 @@
 make debug
+echo
+echo
+echo
 echo "=== DEBUG === "
 echo
 ./debug

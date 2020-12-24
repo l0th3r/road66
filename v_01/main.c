@@ -19,6 +19,9 @@ int main(int ac, char **av)
 	/* init ui lib */
 	ui_init();
 
+	/* GAME */
+	ui_refresh(1);
+
 	getch();
 
 	/* end the game */

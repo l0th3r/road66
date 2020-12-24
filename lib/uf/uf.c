@@ -1,5 +1,5 @@
 /* 
-	Useful LIBRARY 
+	USEFUL LIBRARY 
 	basic tools /
 */
 

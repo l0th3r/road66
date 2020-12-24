@@ -1,3 +1,8 @@
+#  
+#   BUILD SCRIPT FILE 
+#   Script to build a version of the game /
+#
+
 make build
 echo
 echo

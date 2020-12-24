@@ -1,3 +1,8 @@
+/* 
+	MAIN 
+	main file /
+*/
+
 /* LIBS */
 #include "includes.h"
 #include "config/settings.h"

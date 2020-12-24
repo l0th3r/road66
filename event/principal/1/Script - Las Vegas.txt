@@ -1,0 +1,2448 @@
+// 12/24/2020 1:43:53 PM
+//
+// MAIN EVENT #1
+// LAS VEGAS
+// COSMOPOLITAN CASINO
+// Signature: Axel Faux
+//
+// CHARACTERS:
+// char0 = Odd guy
+// char1 = Organizer
+// char2 = Crowd
+// char3 = Receptionist
+// char4 = Foreman
+//
+// PARAMETER:
+// moneyBet	// int _ your bet
+// fighterBet	// string _ name of the fighter you bet on
+// lastSlotMachineDialogue /* it is like a data to go back to the last dialogue you were (slot machine game)*/
+// unlockHostel	// boolean (F) _ unlock the possibility to sleep
+// unlockExitDoor	// boolean (F) _ unlock the possibility to leave
+// lockFightRoom		// boolean (F)
+// oweMoney		// boolean (F) - if you take the risk to earn more money. The stake are you owe 100 dollars to the organizer if you loose
+//
+// REQUIREMENT:
+// Store a parameters
+//
+// CONSEQUENCES:
+// - Lose a bit of sanity
+// - You abandon someone / didn't help someone
+// - Get someone in your bus
+// - Get ressources
+//
+// ---------------------------------------------------------------------------------------------------------------------------
+//
+// #400 to #799 : Fight room
+// #800 to #899 : Slot machine
+// #900 to #900 : Hub in the casino
+//
+//
+
+ $$$$$$\   $$$$$$\   $$\      $$$$$$$\  $$\     $$\
+$$  __$$\ $$  __$$\ $$ |      $$  __$$\ \$$\   $$  |
+$$ /  \__|$$ /  $$ |$$ |      $$ |  $$ | \$$\ $$  /
+$$ |$$$$\ $$ |  $$ |$$ |      $$ |  $$ |  \$$$$  /
+$$ |\_$$ |$$ |  $$ |$$ |      $$ |  $$ |   \$$  /
+$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |    $$ |
+\$$$$$$  | $$$$$$  |$$$$$$$$\ $$$$$$$  |    $$ |
+ \______/  \______/ \________|\_______/     \__|
+
+
+  $$$$$$\  $$\   $$\ $$$$$$\ $$\       $$\       $$$$$$\
+$$  __$$\ $$ |  $$ |\_$$  _|$$ |      $$ |      \_$$  _|
+$$ /  \__|$$ |  $$ |  $$ |  $$ |      $$ |        $$ |
+$$ |      $$$$$$$$ |  $$ |  $$ |      $$ |        $$ |
+$$ |      $$  __$$ |  $$ |  $$ |      $$ |        $$ |
+$$ |  $$\ $$ |  $$ |  $$ |  $$ |      $$ |        $$ |
+\$$$$$$  |$$ |  $$ |$$$$$$\ $$$$$$$$\ $$$$$$$$\ $$$$$$\
+ \______/ \__|  \__|\______|\________|\________|\______|
+ 
+(Goldy Chili)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#0)
+
+[main]Las Vegas... What the hell happened here? It looks shit.
+[narr]You can tell just by looking at it, something really bad happened here. Not to say it's a deserted city. Shops, markets, everything has been ravaged or looted. The only people here are trapped in an ill-famed city in the middle of the desert.
+Dealers, pick-pocketing, fights... This is what the city is composed of.
+[main]Homeless and gangs, seriously? 
+Fuck, where are the army forces?!
+
+	// GO TO 1								000.1
+
+-----------------------------------------------------------------------
+
+(#1) 000.1
+
+[narr]It's not so easy to find your way on the city's roads among the wastes and the abandoned cars. 
+Some people ignore your presence, some others look at you with envy, as if you were just walking past like a corrupt politician in his luxury armoured car.
+
+Driving slowly in the city centre, a group of people is approaching you and blocking your way.
+Stopping the bus, you understand that you're surrounded.
+
+	// GO TO 2								001
+
+-----------------------------------------------------------------------
+
+(#2) 	001
+
+[main]Shit. What the fuck do they want?
+[narr]They are well equipped, with rifles and guns. One of them is approaching your bus, he looks like he wants to talk.
+You roll down your door window.
+[char0]Police, park you in the casino area.
+[main]Hum... Well, you certainly don't look like the police.
+[narr]The man looks at you and reloads his rifle.
+[main]Sure, I park the bus.
+[narr]You slowly go to the casino's parking accompanied by a squad of armed people aiming you. The man knocks on your door and you open it.
+[char0]Weapons? Drugs?
+[main]Well... Yes, I have a gun.
+[char0]Confiscated, give it to me, with your keys too.
+
+	1 - Give him what he asks.
+	// 4									003
+	2 - Grab your gun and kill him.
+	// 3									002.1
+
+-----------------------------------------------------------------------
+
+(#3) 	002.1
+
+[narr]You grab your gun and right before you have time to aim him, he jumps out of the bus and you get blasted.
+
+	// YOU DIE
+
+-----------------------------------------------------------------------
+
+(#4) 	003
+
+[char0]Good!
+Well, enjoy your stay and welcome to The Cosmopolitan Casino.
+We will give you back your gun and your keys tomorrow, but you can stay longer.
+All details are available at the reception.
+[main]Hum... Okay.
+[narr]They accompany you to the casino reception.
+
+	// GO TO 900 (MENU)
+
+---------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+	
+	FIGHT ROOM FROM #400 TO #799
+	
+	BET ON A FIGHT FROM #500 TO #549
+		
+---------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+
+
+(#400)	400	// OPENED FIGHT CLUB
+
+[narr]There are two safety guards in front of the corridor to access the room. Going downstairs, you can hear a huge hubbub louder and louder coming away.
+
+	// Set a boolean which will not allow you to come again. Instead, it will shows
+	// the dialogue 401 (closed fight club)
+	// GO TO 402									010
+
+-----------------------------------------------------------------------
+
+(#401)	401	// CLOSED FIGHT CLUB
+
+[narr]The access to the fight room is closed for an undefined period.
+
+	// GO TO 901 (go back to menu reception)
+
+-----------------------------------------------------------------------
+
+(#402)	010	// YOU ARE IN THE FIGHT CLUB
+
+[narr]There is a noisy <char2> in the room.
+Approaching it, some of them notice your presence but don't really seem to care about you.
+Two bloody guys are fighting in the middle of a <char2>.
+One of them is stuck under an arm lock socket.
+He's moaning in pain...
+And double-tap the opponent.
+DING DING DING!
+In the hubbub, you hear some guys in the <char2> screaming.
+[char2]Are you not entertained?!
+[char1]Alright! Alright, we will start a new fight in ten minutes!
+Please come to claim your wins.
+
+	1 - Ask information to the organizer.
+	// 410										020
+	2 - Leave.
+	// 403										010.1
+
+-----------------------------------------------------------------------
+
+(#403)	010.1 	
+
+[char1]Hey, you!
+[narr]Before you leave, the <char1> stops you.
+[char1]You're new here, right?
+
+	1 - Yes.
+	// 404										010.2
+	2 - No, I already came to Las Vegas.
+	// 407										010.5
+
+-----------------------------------------------------------------------
+
+(#404)	010.2 	
+
+[char1]Do you have plans for this evening?
+[main]Huh? Is this a date?
+[narr]The <char1> laugh out loud, takes something from his pocket and sniffs something inside.
+[char1]Oh shit, you are so funny!
+This dumb ass thought that I want to date with...
+[narr]He stops to laugh and fixes you with his protruding eyes.
+[char1]Would you?
+[main]I...
+[char1]Hop! 
+[narr]After interrupting you, he gently speaks to you.
+[char1]I don't want to know, my naughty.
+[narr]Then he exclaimed loudly looking at around him.
+[char1]Aah! A date, what a good joke. Mouahaha!
+So, what would you do this evening if you had a lot of money?
+That's the point!
+
+
+	1 - I don't know.
+	// 405										010.3
+	2 - Play in a casino.
+	// 406										010.4
+	3 - Maybe have a date with you.
+	// 408										010.6
+	4 - Something like tropical holidays, a house or whatever.
+	// 409										010.7
+
+-----------------------------------------------------------------------
+
+(#405)	010.3
+
+[char1]Come on! I hope you are not this kind of stingy guy, you would be wrong.
+Now let me tell you something about this place. Because this is a fucking paradise!
+
+
+	// GO TO 411									20.1
+
+-----------------------------------------------------------------------
+
+(#406)	010.4
+
+[char1]You are in the FUCKING, RIGHT, PLACE.
+Especially this room, it's the best one because we don't bet on luck and it's new around here. People love it. 
+[narr]He lights a cigarette.
+[main]Well, ok b...
+[char1]Let me tell you something about this place. Because this is a fucking paradise!
+
+	// GO TO 411									020.1
+
+-----------------------------------------------------------------------
+
+(#407)	010.5
+
+[char1]Maybe, but I don't think that you ever came to Cosmopolitan Casino? It's new and we are almost the only one opened in the city now for a few days.
+Let me tell you something about this place. Because this is a fucking paradise!
+
+	// GO TO 411									020.1
+
+-----------------------------------------------------------------------
+
+(#408)	010.6
+
+[char1]How naughty you are!
+Hey, it was a fucking joke, but you could have a date and enjoy with whoever you want here with money.
+Let me tell you something about this place. Because this is a fucking paradise!
+
+
+	// GO TO 411									020.1
+
+-----------------------------------------------------------------------
+
+(#409)	010.7
+
+[char1]Hey, you are in a fucking casino! You could live your dream with the money that you can win here.
+Let me tell you something about this place. Because this is a fucking paradise!
+
+
+	// GO TO 411									020.1
+	
+-----------------------------------------------------------------------
+
+(#410)	020
+
+[main]Hey, how do we make bills here?
+[narr]The <char1>, looks at you downward, smoking his cigarette.
+He's not so tall but strong, wearing white clothes and yellow glasses.
+[char1]Are you new here?
+Forget it. 
+	
+	// GO TO 411									020.1
+
+-----------------------------------------------------------------------
+
+(#411)	020.1
+
+Here we bet with our feelings, our skills, our instinct. 
+This is the arena!
+And when YOU win, whatever if you fight or bet, YOU fucking enjoy better than a Jackpot on a stupid slot machine.
+Here we build legends, not with fucking coins.
+
+And guess what!
+We still have time for a fight today, after that we will have to close for a while. Now or never!
+
+	1 - What if I fight?
+	// 412										030
+	2 - What if I bet?
+	// 414										031
+	3 - I'm not interested.
+	// 423
+
+	
+-----------------------------------------------------------------------
+
+(#412)	030
+
+[narr]He smiles and kindly slaps your shoulder.
+[char1]Alright!
+You are a badass, I like that. Let me explain to you how things happen here.
+
+One: You get to fight for free, we wait for enough bet on the fight concerning you and your opponent.
+Two: Serious things begin! Both of you kick your asses together.
+Three: If you win, you earn ONE. HUNDRED. BUCKS.
+[narr]Sniffing a white powder, he's still smiling and waiting for your response.
+[main]Well, what if I lose?
+[char1]Are you novice? 
+Then you may take a bandage and a handkerchief, go back to your sofa and cry!
+...
+Forget it, it's a joke.
+Listen to me, I have a fighter for you. He's known around here, but he's not that big of a badass you know.
+I'm sure someone will beat him.
+
+However, they don't give a fuck about strangers. 
+So I ask you for three minutes, that's it. Don't give up, don't die or just beat him.
+Everybody will bet on him and I may earn a lot.
+A.
+LOT.
+
+	1 - Let's fight.
+	// 600										040
+	2 - Negotiate.	
+	// 602										042
+	3 - Bet.
+	// 414										031
+	4 - It sounds shit. Thank you, still.
+	// 413										30.1
+
+-----------------------------------------------------------------------
+
+(#413)	30.1
+	
+[char1]I give you this chance.
+Otherwise, leave the room.
+
+	1 - Leave the room.
+	// 900
+	2 - Stay.
+	// 611										55.3
+	3 - Let's fight.
+	// 600										040
+	3 - Bet.
+	// 414										031
+
+-----------------------------------------------------------------------
+
+(#414)	031
+
+[char1]Well, there are two fighters, just bet on one of them and you get the money if your bet is right.
+The rating may vary depending on the fighters.
+We finish this day with the last fight. So if you wanna bet, it's your last chance.
+
+Alright! EVERYBODY!
+Please, please! Listen to me! 
+We start the next fight soon with Angel versus Tyler! The bet is two for one!
+[narr]Indistinctly, the whole <char2> screams words, thirsty for money.
+[char2]One hundred twenty bucks for Angel... Fifty for Tyler! Tyler! Three hundred for Angel!
+[char1]Alright, who do you think will win?
+
+	1 - Angel.
+	// parameter ‘fighterBet' = Angel
+	// 415										032
+	
+	2 - Tyler.
+	// parameter ‘fighterBet' = Tyler
+	// 416										033
+
+-----------------------------------------------------------------------
+
+(#415)	032 	// Bet on ANGEL	
+
+[char1]How many do you wanna bet on Angel?
+
+	1 - 20$
+	// parameter 'moneyBet' = 20
+	// 417
+											
+	2 - 50$
+	// parameter 'moneyBet' = 50
+	// 417
+											
+	3 - 100$
+	// parameter 'moneyBet' = 100
+	// 417									
+	
+-----------------------------------------------------------------------
+
+(#416)	033 	// Bet on TYLER
+
+[char1]How many do you wanna bet on Tyler?
+			
+	// IF (myWallet >= 50)								
+	1 - 50$
+	// parameter 'moneyBet' = 50
+	// 417
+		
+	// IF (myWallet >= 100)									
+	2 - 100$
+	// parameter 'moneyBet' = 100
+	// 417
+	
+	// IF (myWallet < 50 && myWallet > 0)
+	3 - Bet the rest of your money.
+	// parameter 'moneyBet' = myWallet
+	// 417
+
+	// IF (myWallet <= 0)
+	3 - Fuck, I'm ruined.
+	// 418
+			
+-----------------------------------------------------------------------
+
+(#417)	034 	// Bet 20$ on ANGEL
+
+[char1]Alright you're good, join the <char2> and come back if you win.
+
+	// GO TO 500
+	
+-----------------------------------------------------------------------
+
+(#418)
+
+[char1]You can fight, it's free to participate. Let me explain you how it works...
+
+	1 - Yeah, explain me please.
+	// 
+	2 - No, I don't want to fight.
+	// 413
+				
+-----------------------------------------------------------------------
+
+(#419)	// (V2) SIMILAR TO 412, BUT WE CAN'T BET IN THE CHOICE
+
+[narr]He smiles and kindly slaps your shoulder.
+[char1]Alright!
+You are a badass, I like that. Let me explain to you how things happen here.
+
+One: You get to fight for free, we wait for enough bet on the fight concerning you and your opponent.
+Two: Serious things begin! Both of you kick your asses together.
+Three: If you win, you earn ONE. HUNDRED. BUCKS.
+[narr]Sniffing a white powder, he's still smiling and waiting for your response.
+[main]Well, what if I lose?
+[char1]Are you novice? 
+Then you may take a bandage and a handkerchief, go back to your sofa and cry!
+...
+Forget it, it's a joke.
+Listen to me, I have a fighter for you. He's known around here, but he's not that big of a badass you know.
+I'm sure someone will beat him.
+
+However, they don't give a fuck about strangers. 
+So I ask you for three minutes, that's it. Don't give up, don't die or just beat him.
+Everybody will bet on him and I may earn a lot.
+A.
+LOT.
+
+	1 - Let's fight.
+	// 600										040
+	2 - Negotiate.	
+	// 602										042
+	3 - It sounds shit. Thank you, still.
+	// 413										30.1
+
+-----------------------------------------------------------------------
+
+(#420)	// (V2) SIMILAR TO 412, BUT WE CAN'T BET IN THE CHOICE
+	
+[char1]I give you this chance.
+Otherwise, leave the room.
+
+	1 - Leave the room.
+	// 900
+	2 - Stay.
+	// 611										55.3
+	3 - Let's fight.
+	// 600										040
+	
+-----------------------------------------------------------------------
+
+(#421)	
+			
+-----------------------------------------------------------------------
+
+(#422)	
+			
+-----------------------------------------------------------------------
+
+(#423)	
+
+[char1]Alright...
+[narr]The <char1> nods and you are ejected from the room by two big guys.
+
+	// GO TO 900
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+					BET ON A FIGHT
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+
+(#500)	500 	// YOU BET : FIGHT STARTS
+
+[narr]The <char2> is on fire.
+Tyler and Angel are turning around expecting the first hit.
+...
+Here we go! Angel jumps and throws two kick jabs in Tyler's jawbone.
+Tyler seized him to avoid being hit and knees him very hard.
+Angel headbutts him and Tyler's nose is bleeding.
+After a few hooks, jabs, kicks, Angel lough a bit under adrenaline. In the arena, we may smell blood mixed to sweat.
+Tyler throws a high kick and Angel falls on the ground.
+A merciless struggle begins with hands and feet.
+
+	// if parameter ‘fighterBet' == Tyler
+		1 - Encourage Tyler.
+		// 	501
+
+	// if parameter ‘fighterBet' == Angel
+		2 - Encourage Angel.
+		// 	502
+	
+-----------------------------------------------------------------------
+
+(#501)	501 	// ENCOURAGE TYLER
+
+[main]Come on Tyler! Smash his face! 
+SMASH HIM!
+[narr]You've never seen such violence, blood squirt everywhere.
+Angel sends a huge left hook in Tyler's ribs. He's hardly breathing.
+[char1]One minute left!
+[narr]Angel right hooks, left hooks hard again... Tyler is trying to defend but he is in difficulty.
+
+	1 - Punch this motherfucker!
+	//	503
+	2 - You can do it!
+	//	503
+	3 - Wait for his right hook!
+	//	503
+	4 - Wait for his left hook!	
+	//	504
+
+-----------------------------------------------------------------------
+
+(#502)	502 	// ENCOURAGE ANGEL
+
+[main]Come on Angel!
+GET OUT OF HERE!
+[narr]Angel is punched and is almost stunned.
+He finally sent a huge left hook in Tyler's ribs. Tyler is hardly breathing but he instantly rips the next punches.
+[char1]One minute left!
+[narr]Angel is punched, again and again, he difficulty defends himself.
+
+	1 - Stay in touch!	
+	//	505
+	2 - Take him away!
+	//	505
+	3 - Raise your guard!
+	//	506
+	4 - You can do it!
+	//	505
+	
+-----------------------------------------------------------------------
+
+(#503)	503 	// LOSE YOUR BET ON TYLER
+
+[narr]Tyler tries to high kick, throw some hooks. Angel is sometimes hit but he defends well.
+Tyler's guard is up and he gets a huge nudge in the jawbone, falls on the ground and is K.O.
+[char1]Right on time, Angel wins! It was the last fight, the winner can claim their winning!
+[main]Fuck it...
+[narr]The <char2> slowly disband.
+...
+...
+<char1> looks at you.
+[char1]I said it was the last fight, leave, please.
+
+	1 - Leave the fight room.
+	// 900
+	2 - Stay.
+	// 507
+
+-----------------------------------------------------------------------
+
+(#504)	504 	// WIN  YOUR BET ON TYLER
+
+[main]DODGE HIS FUCKING LEFT HOOKS! COME ON TYLER!
+[narr]Tyler tries to high kick, throw some hooks. Angel is sometimes hit but he defends well.
+Angel, with momentum, throws a big left hook that Tyler dodges.
+Tyler takes advantage of the situation and puts K.O. Angel with a right hook.
+[char1]Right on time, Tyler wins! It was the last fight, the winner can claim their winning!
+[main]Fuck yeah, let's get my money.
+[narr]Some people of the <char2> are angry about this combat and leave.
+You claim your gain and leave the room.
+
+	// YOU EARN moneyBet*2
+	// GO TO 900
+	
+-----------------------------------------------------------------------
+
+(#505)	505 	// LOSE YOUR BET ON ANGEL
+
+[narr]Angel looks lost on what he should do.
+He sent a roundhouse kick to try to hurt Tyler.
+Tyler grabs his leg! He runs to him and raises up his leg, which makes Angel fall on his back.
+Angel is beaten up by the left and right hooks and loses consciousness.
+[char1]Right on time, Tyler wins! It was the last fight, the winner can claim their winning!
+[main]Fuck it...
+[narr]The <char2> slowly disband.
+...
+...
+<char1> looks at you.
+[char1]I said it was the last fight, leave, please.
+
+	1 - Leave the fight room.
+	// 900
+	2 - Stay.
+	// 507
+
+-----------------------------------------------------------------------
+
+(#506)	506 	// WIN  YOUR BET ON ANGEL
+
+[main]RAISE YOUR FUCKING GUARD! COME ON ANGEL!
+Tyler throws some jabs, again and again, to break his guard.
+Angel does a double leg takedown and throws him on the ground.
+Tyler is beaten up by the left and right hooks and loses consciousness.
+[char1]Right on time, Angel wins! It was the last fight, the winner can claim their winning!
+[main]Fuck yeah, let's get my money.
+[narr]The <char2> slowly disband.
+You claim your gain and leave the room.
+
+	// YOU EARN moneyBet*2
+	// GO TO 900
+
+-----------------------------------------------------------------------
+
+(#507)	507	// Stay in the fight room after losing your bet
+
+[narr]The <char1> nods and you are ejected from the room by two big guys.
+
+	// GO TO 900
+
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+						FIGHT
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+
+
+(#600)	040
+
+[main]I will fight. Where's my lovely partner?
+[char1]Wooh, easy! Don't be so impatient. Let me announce the fight and your opponent.
+
+	// GO TO 601									041
+
+-----------------------------------------------------------------------
+
+(#601)	041
+
+[char1]Hey, do you need a bit of white magic?
+
+	1 - What?
+	// 603										050
+	2 - Gimme this shit.
+	// 604										051
+	3 - No thanks.
+	// 605										052
+
+-----------------------------------------------------------------------
+
+(#602)	042
+
+[main]A lot, huh? I want more for this fight.
+[narr]He stops to smile and looks at you without saying anything for a while.
+[char1]Mmh.
+...
+...
+Two hundred bucks.
+
+	1 - Let's fight for two hundred bucks.
+	// 606										053
+	2 - Four hundred bucks.
+	// 608										055
+
+-----------------------------------------------------------------------
+
+(#603)	050
+
+[narr]He looks at you with a desperate look.
+[char1]Forget it.
+
+	// GO TO 613									060
+	
+-----------------------------------------------------------------------
+
+(#604)	051
+
+[narr]You take a big sniff of his white magic.
+...
+...
+It irritates your nostrils a little, but you feel very strong
+...
+[main]Whoooooo AAAAAAAAH! HOLY FUCK!
+GO! Go! Go go GOOO!
+[char1]What the fuck? Easy, you gonna mess around and burst a blood vessel or something!
+[main]Where is he?! GOOOO!
+
+	// GO TO 700
+
+-----------------------------------------------------------------------
+
+(#605)	052
+
+[char1]Are you sure?
+[nair]He shows his hand with white powder.
+[main]I said no.
+
+	// GO TO 612									059
+
+
+-----------------------------------------------------------------------
+
+(#606)	053
+
+[narr]You make a deal.
+[char1]Two hundred bucks.
+
+	// GO TO 601									041
+	
+-----------------------------------------------------------------------
+
+(#607)	
+
+[narr]You make a deal.
+[char1]Three hundred bucks. You better have my money if you loose.
+
+	// GO TO 601
+
+-----------------------------------------------------------------------
+
+(#608)	055
+
+[char1]Mmh, and what do you think about FUCK YOU?
+It's two hundred or nothing.
+
+	1 - Two hundred bucks is a good price, I will fight.
+	// 606										053
+	2 - Never mind, I don't fight.
+	// 609										55.1
+
+-----------------------------------------------------------------------
+
+(#609)	055.1
+
+[char1]Oh come on! Don't chicken out so easily.
+...
+Alright, three hundred bucks but only if you win.
+The stakes are if you lose, you will owe me one hundred bucks.
+
+So you better know what you do.
+Am I clear?
+
+	1 - I take the risk.
+	// oweMoney = true
+	// 608
+	
+	2 - Two hundred bucks is a good price finally.
+	// 606										053
+	
+	2 - No, I said that I don't fight.
+	// 610
+
+-----------------------------------------------------------------------
+
+(#610)	055.2
+
+[char1]You chicken out and you are wasting my time.
+Get out of my way unless you want to bet on one of the next fighters.
+
+	1 - I want to bet on a fighter.
+	// 414	// BET ON A FIGHTER						031
+	2 - No thanks.
+	// 611										055.3
+
+-----------------------------------------------------------------------
+
+(#611)	055.3
+
+[narr]Then <char1> nods and you are ejected from the room by two big guys.
+
+	// GO TO 900
+
+-----------------------------------------------------------------------
+
+(#612)	059	// Not drugged fight
+
+[char1]Where're you from...?
+[main]It's <main>, I'm from Los Angeles.
+[char1]Awesome, a Californian!
+...
+Alright! EVERYBODY!
+Please, please! Listen to me! 
+We start the next fight soon with <char4> versus <main>, a new badass from California!
+[char2]Boo! Boo! <char4> will beat this asshole.
+[char1]Calm down guys, we're waiting for your bets before starting. The bet is ten for one!
+[narr]Indistinctly, the whole <char2> screams words, thirsty for money.
+[The <char2>]One hundred twenty bucks!
+... Fifty!
+<char4>...!
+Thirty bucks!
+Three hundred for <char4>!
+[char1]Remember <main>, you have three minutes.
+Ready?
+
+	1 - Actually, I'm shitting my pants.
+	// 615										061
+	2 - Ready.
+	// 616										062
+
+-----------------------------------------------------------------------
+
+(#613)	060	// Drugged fight
+
+[char1]Where're you from...?
+[main]It's <main>, <main>! Mh, yeah, I'm from Los, Los Los, Los Angeles.
+Fuck yeah!
+[narr]The char1 looks at you very strangely.
+[char1]Fuck, you are very responsive to this shit. Okay, you're from California!
+...
+Alright, EVERYBODY! Please, please! Listen to me! 
+We start the next fight soon with <char4> versus <main>, a new badass from California!
+[main]HOOOOO YEAH! Where is pussy <char4>?! Fore... Forfore... Foremaaaan!
+[char2]Boo! Boo! <char4> will beat this asshole.
+[char1]Calm down guys, we're waiting for your bets before starting. The bet is ten for one!
+[narr]Indistinctly, the whole <char2> screams words, thirsty for money.
+[char2]One hundred twenty bucks... Fifty! <char4>...! Thirty bucks! Three hundred for <char4>!
+[char1]Remember <main>, you have three minutes. Ready?
+[main]PUM PUM TCHAC, TCHAC, PUM TCHAC! Mh, yeah...
+[char1]Oh! 
+...
+'the fuck, this guy is gonna die...
+
+	1 - Go go go! Where is pussy Foreman?!
+	// 614
+
+-----------------------------------------------------------------------
+
+
+(#614)
+
+
+
+-----------------------------------------------------------------------
+
+
+(#615)	061
+
+[char1]Oh... Do you want advice?
+[main]Why not, yeah.
+[char1]Don't lose this fight, now it's your time.
+[narr]The <char1> pushes you in the <char2>.
+
+	// GO TO 617									070
+
+-----------------------------------------------------------------------
+
+(#616)	062
+
+[main]Fuck yeah, where's <char4>?!
+[char4]Am I not big enough for you? Youngest!
+
+	// GO TO 617									070
+
+-----------------------------------------------------------------------
+
+(#617)	070	// FIGHT NOT DRUGGED
+
+[main]You fall your t-shirt and the <char2> boo you when you enter the arena.
+[char2]Yeah! <char4>! <char4>!<char4>!
+[char1]READY! FIGHT!
+[narr]The public is in a frenzy! Declaiming loud and clear the name of <char4>. Before you, a thick-set, well set up chap. His
+elbow is resting in his body. He's pretty swift for his stature. Tap! Tap!
+He throws his right hand for a body shot and subtly drop down his other arm.
+
+	1 - Knock him on the chin with a striking uppercut.
+	// 619
+	2 - Fold elbow up and block.
+	// 618
+	3 - Try to knock him with a lead punch right in his face.
+	// 619
+	
+-----------------------------------------------------------------------
+
+(#618)	// FIGHT NOT DRUGGED
+		// Fold elbow up and block 
+
+[narr]He drops a long undercut but your elbow nullifies the impact and falters <char4>, who begins to tip over. 
+His centre of gravity is clearly unsettled! His respiration becomes jerky. 
+
+	1 - You step back, gain momentum and try to double dropkick.
+	// 623
+	2 - Clinch Foreman and stamp his thoracic cavity.
+	// 621
+	3 - Arch your leg behind him and use your shoulder to strike his chest.
+	// 622
+	
+-----------------------------------------------------------------------
+
+(#619)	// FIGHT NOT DRUGGED
+		// Knocks him on the chin with a striking uppercut 
+		
+[narr]Launching a long strike you quickly realize that <char4> already initiated his undercut. Rashly, you try to prime your uppercut while you rotate your head to amortize the impact. 
+You take it in stride and finally you touch him. The strike hasn't the anticipated impact. Toe-to-Toe, <char4> paws at you and try to seize an opportunity. 
+
+	1 - You try a short sequence of low-kick and high.
+	// 624
+	2 - Arch your leg behind his and use your shoulder to strike his chest.
+	// 622
+	3 - You step back, gain momentum and try to double dropkick.
+	// 623
+
+-----------------------------------------------------------------------
+
+(#620)	// FIGHT NOT DRUGGED
+		// Try to knock him out with a lead punch right in his face. 
+		
+[narr]Even before your punch hit his target, <char4> knocks you with the uppercut he has armed before. He converts his strike into a powerful bolo-punch straight in your nose and goes on with another hook-punch that comes to crash on your temple. 
+This punch tailspin your head. Some sprays of blood spurt from your lobe. Instinctively, you push <char4> to win back a sufficient safety distance.
+
+	1 - You try a short sequence of low-kick and high.
+	// 624
+	2 - You step back, gain momentum and try to double dropkick.
+	// 623
+	3 - Get closer and grab him to clinch.
+	// 625
+	
+-----------------------------------------------------------------------
+
+(#621)	// FIGHT NOT DRUGGED
+		// Clinch Foreman and stamp his thoracic cavity. 
+		
+[narr]Struggling, <char4> slumps to the floor spluttering, his eyes are rolling into the back of his head. Kneel down, this poor bastard tries to catch his breath, sadly you don't have the luxury to let him do this.
+
+	1 - You try a short sequence of low-kick and high.
+	// 624
+	2 - You step back, gain momentum and try to double dropkick.
+	// 623
+	3 - Get closer and grab him to clinch.
+	// 625
+	
+-----------------------------------------------------------------------
+
+(#622)	// FIGHT NOT DRUGGED
+		// Arch your leg behind his and use your shoulder to strike his chest.
+						
+[narr]Suddenly <char4> falls over the ground leaving you with an opportunity to attack him. While he's trying to get up, his knee close to the ground, he turns his back to you.
+
+	1 - Smashing his head against the floor.
+	// 631
+	2 - Extending the leg and hooking the leg back to strike the head.
+	// 627
+
+-----------------------------------------------------------------------
+
+(#623)	// FIGHT NOT DRUGGED
+		// You step back, gain momentum and try to double dropkick.
+								
+[narr]The impact knocks off <char4> who begins to grunt loudly. The fall broke his brow bone. A trickle of blood can be seen on his bloated face. 
+Quickly, he comes closer and begins to pound your guard. One big swing after another, he is always trying to weaken you like this. This guy is bulky, you are clearly out of his league. 
+You need to turn this situation around. And quick.
+
+	1 - Low-kick in targeting the diaphragm and follow-up with a jumping knee-kick right in his face.
+	// 626
+	2 - Underhand riposte of the back arm followed by an uppercut.
+	// 628
+	3 - Extending the leg and and hooking the leg back to strike the head. 		//(bad) 
+	// 633
+	
+-----------------------------------------------------------------------
+
+(#624)	// FIGHT NOT DRUGGED
+		// You try a short sequence of low-kick and high.
+								
+[narr]He absorbs the impact and counterattack with a series of jab and finishes with a flying knee right in your face. 
+You fall on the ground and <char4> begin to beat you up strongly.
+
+	1 - Bridge and pull right on top.
+	// 650
+	2 - Attempt to place knee blows.
+	// 651
+	3 - Try to free your arm to arch it around Foreman's neck.
+	// 649
+	
+-----------------------------------------------------------------------
+
+(#625)	// FIGHT NOT DRUGGED
+		// Get closer and grab him to clinch. 
+								
+[narr]You grab his nake but <char4> doesn't blink. He looks at you with amused eyes. He throws you a spectacular back kick to the plexus and finished it with a well-aimed knee kick. 
+There is blood on your knuckles and a bruise above your right eye, yet you can't recall the fight itself. 
+While keeping a distance that is difficult to pierce, <char4> chains a series of overhand and crochet moves to make the reading of his moves less predictable.
+
+	1 - Attempt bust removal to distance his hooks.
+	// 660
+	2 - Force contact and attempt a back thigh sweep technique.
+	// 664
+	3 - Bend down and make a rotary dodge followed by an undercut.
+	// 662
+
+-----------------------------------------------------------------------
+
+(#626)	// FIGHT NOT DRUGGED
+		// Low-kick in targeting the diaphragm and follow-up with a jumping knee-kick right in his face.
+
+								
+[narr]While <char4> executes a series of hooks to weaken your guard, you take advantage of the fact that he chambers a punch to execute a low-kick right on his diaphragm. 
+<char4> moves his chest and trunk back to avoid this kind of manoeuvre and positions his head further forward to keep the pressure on you. 
+Leaving his head unable to absorb blows without neutralizing his entire defensive posture, you jumping up a knee kick on the chin. The knee strike removes <char4> and completely neutralizes his defensive posture. 
+Both hands are positioned on his chin and leave you free to move.
+
+	1 - Charge your superman-punch and finish him.
+	// 630
+	2 - Grab his head and hammer it with your fist.
+	// 634
+	3 - Taking a short run-up, you propel yourself by jumping and dropping your leg on Foreman's temple.
+	// 635
+			
+-----------------------------------------------------------------------
+
+(#627)	// FIGHT NOT DRUGGED
+		// Extending the leg and hooking the leg back to strike the head.
+				
+[narr]You arm your kick so that it comes crashing down on <char4>'s face. Your kick comes down violently on this bugger. <char4> twirls to come crashing down a little further, with a haggard look in his eyes. 
+The impact that hit his temple must have stunned him. Getting back on his feet, he begins to fail. Tangling on one side, his breathing intensifies as if trying to stay awake as much as possible. 
+His foot placement and toe-Heel alignment is disorderly and, more than that, he remains motionless as if trying to preserve the little energy that seems to remain. <char4> remains standing out of misplaced pride but clearly has no strength left.
+
+	1 - Grab his head and deliver a series of knee blows.
+	// 663
+	2 - Strike the chin with the palm of the hand and give a backward kick to the head.
+	// 632
+	3 - Asserting a front-kick to the belly and grabbing his neck to execute a suplex.
+	// 652
+		
+-----------------------------------------------------------------------
+
+(#628)	// FIGHT NOT DRUGGED
+		// Underhand riposte of the back arm followed by an uppercut.
+								
+[narr]The rhythm of his shots intensifies, however, <char4> makes big swing to damage your guard. Giving you the possibility to arm your underhand. You hit his left cheek and add an uppercut to break his offence.
+
+	1 - Start the jab to exhaust him.
+	// 637
+	2 - Place a front-kick on the chest and follow with a jump-punch.
+	// 639
+	3 - Grab Foreman and headbutt him in the face.
+	// 638
+		
+-----------------------------------------------------------------------
+
+(#629)	// FIGHT NOT DRUGGED
+		// Run toward him and do a flying knee
+								
+[narr]You take all your momentum to strike your blow. You feel the poor bastard's nose dislocate and shrieking on the floor. Facedown on the ground, you take the time to observe <char4>'s condition and it's even worse than you thought! 
+He is bleeding profusely and some of his teeth are laid out on the ground. The assurance that abounded in <char4> immediately disappeared. The poor man looks at you with pity.
+
+	1 - Grab his head and hammer it with your fist.
+	// 634
+	2 - Taking a short run-up, you propel yourself by jumping and dropping your leg on Foreman's temple.
+	// 635
+	3 - Grab him firmly by the neck and suggest that he gives up now.
+	// 636
+		
+-----------------------------------------------------------------------
+
+(#630)	// FIGHT NOT DRUGGED
+		// Charge your superman-punch and finish him.
+								
+[narr]As you charge on <char4>, you chamber a big swing. The impact causes you and <char4> to fall to the ground. The moment his head touches the ground, you hear a huge sound of bones breaking. 
+Time to catch your breath and regain your balance, you notice that the back of your opponent's neck is half a turn too far. The deafening clamour that had been present until then was immediately silenced, giving way to a harsh reality: The impact with the ground had broken his neck. The man on the ground, with his eyes, were rolling into the back of his head, was well and truly dead.
+
+	// GO TO 797 (WIN)
+			
+-----------------------------------------------------------------------
+
+(#631)	// FIGHT NOT DRUGGED
+		// Smashing his head against the floor.
+								
+[narr]You position the palm of your hand on his scalp and propel his head on the floor. Hammering his head repeatedly. <char4> quickly regains control by whipping the ground with his feet. You absorb the kicks but he manages to get back on his feet. 
+He faces you but you notice that his posture is much less composed than before. He had a hard time raising the shoulder to cover.
+
+	1 - Start the jab to exhaust him.
+	// 637
+	2 - Grab Foreman and headbutt him in the face.
+	// 638
+	3 - Place a front-kick on the chest and follow with a jump-punch.
+	// 639
+		
+-----------------------------------------------------------------------
+
+(#632)	// FIGHT NOT DRUGGED
+		// Strike the chin with the palm of the hand and give a backward kick to the head.
+								
+[narr]Taking advantage of <char4>'s off-centre posture, you give a dry palm stroke on his chin. The impact tilts his torso backwards giving you full latitude to initiate your kick. 
+The foot hits its jaw directly in a splash of abundant blood. The impact propels it against the crowd that acts as a barrier allowing you to take advantage of the opportunity to continue your stroke sequence.
+
+	1 - Grab Foreman firmly and swing him into the centre of the ring.
+	// 642
+	2 - Rush to Foreman and place a dropkick.
+	// 640
+	3 - Chain Foreman with a series of hooks.
+	// 641
+		
+-----------------------------------------------------------------------
+
+(#633)	// FIGHT NOT DRUGGED
+		// (bad) Extending the leg and hooking the leg back to strike the head.
+								
+[narr]Suddenly, <char4> deflects the kick before putting a straight jab right into your testicles. Your first reflex is to distance yourself from the pain and try to suppress it, but <char4> counters your manoeuvre by placing a long-range knee-kick in your stomach followed by a backfist. The impact sends you to the ground where <char4> will encircle your neck with his arm in north-south position constricting your trachea.
+
+	1 - Bridge and pull right on top.
+	// 650
+	2 - Try to free your arm to arch it around <char4>'s neck.
+	// 652
+	3 - Attempt to place knee blows.
+	// 651
+		
+-----------------------------------------------------------------------
+
+(#634)	// FIGHT NOT DRUGGED
+		// Grab his head and hammer it with your fist.
+								
+[narr]You place your hand on the back of the <char4>'s skull and start hammering his head. With unfulfilled rage, you beat the poor man until the clamour of the public ceases completely. 
+A deafening silence breaks your blind rage, revealing the fragmented face of your opponent. The choked breath, drowned in his blood, whistles unpleasantly in your ears. 
+The exaltation of the fight gives way to a bitter feeling. A feeling of frustration mixed with self-loathing.
+
+	// GO TO 797 (WIN)
+				
+-----------------------------------------------------------------------
+
+(#635)	// FIGHT NOT DRUGGED
+		// Taking a short run-up, you propel yourself by jumping and dropping your leg on Foreman's temple.
+								
+[narr]Coming down like a rock, the kick knocks <char4> unconscious and immediately leaves him unconscious on the ground. 
+The countdown is heard. The audience counts in rhythm in a cheer that intensifies with each second of the countdown. Despite a short recovery of consciousness <char4> seems to remain passively on the ground, conceding you this victory. 
+The delirious crowd cheers your name with enthusiasm.
+
+	// GO TO 797 (WIN)
+	
+-----------------------------------------------------------------------
+
+(#636)	// FIGHT NOT DRUGGED
+		// Grab him firmly by the neck and suggest that he gives up now.
+								
+[narr]You place your hand on either side of his neck and give him a
+firm, authoritative look.
+[main]Listen, pal. I suggest you give up now if you don't want to leave here feet first. 
+Believe me, this fight is not worth losing your life for, what do you think?
+[narr]Then <char4> nods with a deferential look at you. He gets back on his feet and raises his arm and with a deaf voice grants you victory. The crowd around expresses his discontent loudly. 
+The bell rings to mark the end of the fight. Your glances meet furtively, giving <char4> a deafening fear that heralds a very dark outcome for the poor man. Abandonment was not an option for him.
+
+	// GO TO 797 (WIN)
+	
+-----------------------------------------------------------------------
+
+(#637)	// FIGHT NOT DRUGGED
+		// Start the jab to exhaust him.
+								
+[narr]Now <char4> struggles to hold a correct posture, you begin to put a series of jabs against him. Quickly, his posture collapses so that he can no longer hold in place. 
+Each jab makes his arms sore, forcing him to move further back. Exhausted, <char4> looks at you with resignation. Like a wish, you understand that he wants to get it over with quickly.
+
+	1 - Strangle him firmly.
+	// 644
+	2 - Give up the fight.
+	// 645
+	3 - Attempt to overkill your foot to end the fight.
+	// 643
+
+-----------------------------------------------------------------------
+
+(#638)	// FIGHT NOT DRUGGED
+		// Grab Foreman and headbutt him in the face.
+								
+[narr]In the snap of a finger, you approach <char4> with phlegm that leaves him dazed. Before he can react, you give him a smashing headbutt. <char4> collapses to the ground in a barely muffled cry of pain. 
+His nose takes on red and black hues. On the ground, he sobs painfully, paralyzed by pain. The audience is louder than ever, demanding a memorable death sentence.
+
+	1 - Give up and refuse to execute.
+	// 648
+	2 - Break Foreman's neck.
+	// 646
+	3 - Beat him to death.
+	// 647
+
+-----------------------------------------------------------------------
+
+(#639)	// FIGHT NOT DRUGGED
+		// Place a front-kick on the chest and follow with a jump-punch.
+								
+[narr]As you lifting the knee straight forward, the foot hits the bull's-eye. <char4> recoils under the impact of the blow and crouches back allowing you to aim a jump-punch directly at his face. 
+The impact propels it against the crowd that acts as a barrier allowing you to take advantage of the opportunity to continue your stroke sequence.
+
+	1 - Chain Foreman with a series of hooks.
+	// 641
+	2 - Grab Foreman firmly and swing him into the centre of the ring.
+	// 642
+	3 - Rush to Foreman and place a dropkick.
+	// 640
+
+-----------------------------------------------------------------------
+
+(#640)	// FIGHT NOT DRUGGED
+		// Rush to Foreman and place a dropkick.
+								
+[narr]You perform a perfect dropkick that knocks <char4> out of the ring by knocking the crowd right behind him like the pins in a bowling alley. 
+Surprisingly, the crowd seems to appreciate this action by kicking <char4> down in the middle of the crowd. The bell-ringing the end of the fight was not long in coming, leaving <char4> at the mercy of the crowd. 
+A few insults and banging noises reverberate on the walls of the room.
+
+	// GO TO 797 (WIN)
+	
+-----------------------------------------------------------------------
+
+(#641)	// FIGHT NOT DRUGGED
+		// Chain Foreman with a series of hooks.
+								
+[narr]The crowd holds it firmly as you start to roll <char4> hook taking little by little more momentum to intensify their impact. As <char4> weight is being felt more and more by the crowd, they begin to loosen him up. 
+And rightly so, <char4> fainted under your hooks, giving you a thunderous victory under the cheers of a crowd screaming your name with fervour.
+
+	// GO TO 797 (WIN)
+	
+-----------------------------------------------------------------------
+
+(#642)	// FIGHT NOT DRUGGED
+		// Grab Foreman firmly and swing him into the centre of the ring.
+								
+[narr]You hold <char4> firmly by the shoulders before catapulting him into the centre of the ring. At the moment of impact, <char4> remains prostrate on the ground, exhausted. <char4>, in a muffled voice, asks to abandon the fight. 
+Nothing will end his sentence, forcing you to beat him theatrically so that the bell at the end of the fight sounds. This poor man had already been through a lot. 
+<char2> is clamouring for your name as you take stock of what has happened. No amount of satisfaction will crack your face with a smile. Just a deep weariness tinged with disgust.
+
+	// GO TO 797 (WIN)
+		
+-----------------------------------------------------------------------
+
+(#643)	// FIGHT NOT DRUGGED
+		// Attempt to overkill your foot to end the fight.
+								
+[narr]The impact was not the most pronounced, but <char4> had seized the opportunity you gave him to surrender his victory in an honourable manner. The clamour of the audience will be a testament to the public's satisfaction with the outcome of the fight. 
+As you leave the arena to collect your reward, you stealthily cross <char4>'s gaze. A look full of gratitude.
+
+	// GO TO 797 (WIN)
+	
+-----------------------------------------------------------------------
+
+(#644)	// FIGHT NOT DRUGGED
+		// Strangle him firmly.
+								
+[narr]You reach out and hold <char4>'s neck firmly with both hands. There is no resistance except for a few spasms that will punctuate his choking. 
+You feel the tension suddenly break, signifying that he had fainted as if his body had let go of the pressure. His face is a scarlet red from which a few tears that the strangulation has made pearl will run down his swollen face. 
+The outcome of a rather unspectacular fight to the public's taste reminding its last ones of the emptiness of it all. A jolt, a dark reminder of the fatality that accompanies such festivities. 
+Assuring you in passing that <char4> was still alive, you leave the arena without a word, leaving this dark omen of a non-existent future in suspense. 
+For you as for all these people.
+
+	// GO TO 797 (WIN)
+	
+-----------------------------------------------------------------------
+
+(#645)	// FIGHT NOT DRUGGED
+		// Give up the fight.
+								
+[narr]You are not an executioner. This man is not here out of pleasure or personal challenge. None of this is going anywhere and if you have to give up a few dollars then so be it. 
+You say loud and clear that you don't have the strength to go on and that you're giving up the fight. This outburst of compassion surprises <char4>, leaving him frozen and dazed. 
+The silence in suspense will be broken by the bell.
+You leave without turning around, leaving everyone in amazement.
+
+	// GO TO 798 (LOOSE)
+	
+-----------------------------------------------------------------------
+
+(#646)	// FIGHT NOT DRUGGED
+		// Break Foreman's neck.
+								
+[narr]You walk behind <char4> wailing silently and arch your arm around his neck. Without a single word being exchanged, you apply pressure to break his neck. <char4> does not react, his body no longer tries to resist. 
+The hissing of his difficult breath struggles to break the silence that has been established here. All that will be left is a muffled crackling sound. <char4>'s body collapses under its own weight. A sack of meat, no more, no less. 
+This will be followed by cheers from the audience, chanting your name. A new champion is born, a turnaround worthy of fiction.
+
+	// GO TO 797 (WIN)
+	
+-----------------------------------------------------------------------
+
+(#647)	// FIGHT NOT DRUGGED
+		// Beat him to death.
+								
+[narr]When faced with <char4> in violent pain, you give him a violent kick to the forehead. The bugger roars in pain, tears mingle with foam, choking. You position yourself on <char4> and start beating him up. 
+Afterwards, his split face takes on the purplish colour of a corned beef. Your blows intensify then, moved by a rage that was unknown to you until then. 
+In the end, the poor man won't look like much identifiable. A silence tinged with admiration can be felt in the room. A blissful silence that is reserved for strangeness, for fairground monsters. 
+This is followed by a shower of applause, clapping and the numbness in your hands.
+
+	// GO TO 797 (WIN)
+	
+-----------------------------------------------------------------------
+
+(#648)	// FIGHT NOT DRUGGED
+		// Give up and refuse to execute.
+								
+[narr]You are not an executioner. This man is not here out of pleasure or personal challenge. None of this is going anywhere and if you have to give up a few dollars then so be it. 
+You say loud and clear that you don't have the strength to go on and that you're giving up the fight. This outburst of compassion surprises <char4>, leaving him frozen and dazed. The silence in suspense will be broken by the bell.
+You leave without turning around, leaving everyone in amazement.
+
+	// GO TO 797 (WIN)
+
+-----------------------------------------------------------------------
+
+(#649)	// FIGHT NOT DRUGGED
+		// Try to free your arm to arch it around Foreman's neck.
+								
+[narr]You manage to free your left arm from <char4>'s grip and place it around <char4>'s neck. He has less control over you.
+
+	1 - Bridge and pull right on top. 			// (Try 3.1)
+	// 656
+	2 - Attempt to place knee blows.				// (Try 3.1) 
+	// 657
+
+-----------------------------------------------------------------------
+
+(#650)	// FIGHT NOT DRUGGED
+		// Bridge and pull right on top.
+								
+[narr]You're trying as hard as you can but you don't have enough support to make <char4> flinch. 
+<char4> is tightening his grip on you. Oxygen is starting to run out.
+
+	1 - Try to free your arm to arch it around Foreman's neck.				// (try 2.1)
+	// 652
+	2 - Attempt to place knee blows. 								// (try 2.1)
+	// 655
+
+-----------------------------------------------------------------------
+
+(#651)	// FIGHT NOT DRUGGED
+		// Attempt to place knee blows.
+								
+[narr]You're getting agitated for nothing, you can't touch <char4> like that, you need more space for that. 
+<char4> is tightening his grip on you. Oxygen is starting to run out.
+
+	1 - Try to free your arm to arch it around Foreman's neck.				// (Try1.1)
+	// 652
+	2 - Bridge and pull right on top.								// (Try1.1)
+	// 653
+
+-----------------------------------------------------------------------
+
+(#652)	// FIGHT NOT DRUGGED
+		// (Try1.1)Try to free your arm to arch it around Foreman's neck.
+						
+[narr]You manage to free your left arm from <char4>'s grip and place it around <char4>'s neck. He has less control over you.
+
+	1 - Bridge and pull right on top.								// (Try 5.1)
+	// 658
+	2 - Attempt to place knee blows.									// (Try 5.1)
+	// 661
+
+-----------------------------------------------------------------------
+
+(#653)	// FIGHT NOT DRUGGED
+		// (Try 1.1)Bridge and pull right on top.
+								
+[narr]You're trying as hard as you can but you don't have enough support to make <char4> flinch. 
+<char4> is tightening his grip on you. Impossible to breathe. Your vision gets darker and finally turns completely black.
+
+	// GO TO 799 (KO)
+
+-----------------------------------------------------------------------
+
+(#652)	// FIGHT NOT DRUGGED
+		// Asserting a front-kick to the belly and grabbing his neck to execute a suplex.
+								
+[narr]The kick violently hits his belly, taking his breath away. By bending back on itself, it allows you to seize its blow and project it on the face. 
+<char4> collapses to the ground in a barely muffled cry of pain. His nose takes on red and black hues. On the ground, he sobs painfully, paralyzed by pain. The audience is louder than ever, demanding a memorable death sentence.
+
+	1 - Give up and refuse to execute.
+	// 648
+	2 - Beat him to death.
+	// 647
+	3 - Break Foreman's neck.
+	// 646
+		
+-----------------------------------------------------------------------
+
+(#655)	// FIGHT NOT DRUGGED
+		// (Try 2.1) Attempt to place knee blows.
+								
+[narr]You're getting agitated for nothing, you can't touch <char4> like that, you need more space for that. 
+<char4> is tightening his grip on you. Impossible to breathe. Your vision gets darker and finally turns completely black.
+
+	// GO TO 799 (KO)
+
+-----------------------------------------------------------------------
+
+(#656)	// FIGHT NOT DRUGGED
+		// (Try 3.1) Bridge and pull right on top.
+								
+[narr]You manage to grab <char4> and rotate it underneath you. His grip loosens.
+
+	1 - Attempt to place knee blows.						// (End)
+	// 659
+
+-----------------------------------------------------------------------
+
+(#657)	// FIGHT NOT DRUGGED
+		// (Try 3.1) Attempt to place knee blows.
+								
+[narr]You're getting agitated for nothing, you can't touch <char4> like that, you need more space for that. 
+<char4> is tightening his grip on you. Oxygen is starting to run out.
+
+	1 - Bridge and pull right on top.					// (Try 8.1)
+	// 658
+
+-----------------------------------------------------------------------
+
+(#658)	// FIGHT NOT DRUGGED
+		// (Try 5.1) (Try 7.1) (Try 8.1) Bridge and pull right on top.
+								
+[narr]You manage to grab <char4> and rotate it underneath you. His grip loosens.
+
+	1 - Attempt to place knee blows.						// (End)
+	// 659
+
+-----------------------------------------------------------------------
+
+(#659)	// FIGHT NOT DRUGGED
+		// (End) Attempt to place knee blows.
+								
+[narr]You knock him off his knees. <char4> is desperately trying to get up but you hold him firmly with your shoulder. 
+The situation is reversed. The passing minutes seem like hours. The room is silent. No speeches, no panting action, just a man trying to breathe and slowly asphyxiating himself. You feel <char4>'s resistance cease. 
+The tension holding his muscles, his hand squeezing you in an attempt to defuse your grip and his livid eyes confirm that the man is indeed knocked out. 
+This is followed by clamour and congratulations from the audience in a cacophony without common measure.
+
+	// GO TO 797 (WIN)
+
+-----------------------------------------------------------------------
+
+(#660)	// FIGHT NOT DRUGGED
+		// Attempt bust removal to distance his hooks.
+								
+[narr]He counters your manoeuvre by placing a long-range kneekick in your stomach followed by a backfist. 
+The impact sends you to the ground where <char4> encircle your neck with his arm in north-south position constricting your trachea.
+
+	1 - Bridge and pull right on top.						// (Try 1.1)
+	// 653
+	2 - Attempt to place knee blows.							// (Try 2.1)
+	// 661
+	3 - Try to free your arm to arch it around Foreman's neck.		
+	// 652
+
+
+-----------------------------------------------------------------------
+
+(#661)	// FIGHT NOT DRUGGED
+		// (Try 5.1) (Try 7.1) Attempt to place knee blows.
+								
+[narr]You're getting agitated for nothing, you can't touch <char4> like that, you need more space for that. 
+<char4> is tightening his grip on you. Impossible to breathe. Your vision gets darker and finally turns completely black.
+
+	// GO TO 799 (KO)
+	
+-----------------------------------------------------------------------
+
+(#662)	// FIGHT NOT DRUGGED
+		// Bend down and make a rotary dodge followed by an undercut.
+								
+[narr]You bend down for quick and start bodyshot his flank while staying in motion. Taking advantage of <char4>'s imposing build, he had trouble positioning himself correctly to start his moves.
+
+	1 - Grab Foreman and headbutt him in the face.
+	// 638
+	2 - Start the jab to exhaust him.
+	// 637
+	3 - Place a front-kick on the chest and follow with a jump-punch.
+	// 639
+
+	
+-----------------------------------------------------------------------
+
+(#663)	// FIGHT NOT DRUGGED
+		// Grab his head and deliver a series of knee blows.
+								
+[narr]You grasp <char4>'s head on either side and deliver a series of knee blows. With each blow, <char4> tires to maintain his grip on you and is unable to disengage. 
+You let go of your grip on him by pushing him. Exhausted, <char4> looks at you with resignation. Like a wish, you understand that he wants to get it over with quickly.
+
+	1 - Attempt to overkill your foot to end the fight.
+	// 643
+	2 - Give up the fight.
+	// 645
+	3 - Strangle him firmly.
+	// 644
+
+
+-----------------------------------------------------------------------
+
+(#664)	// FIGHT NOT DRUGGED
+		// Force contact and attempt a back thigh sweep technique.
+								
+[narr]You rush directly on him to make a catch by sweeping the back of his thigh. <char4> is under his own weight and you are able to exploit his build and centre of gravity. 
+<char4> loses his balance and flinches for a moment. His arms flailing in an attempt to keep his balance completely gives you a window to retaliate.
+
+	1 - Arch your leg behind his and use your shoulder to strike his chest.	
+	// 622
+	2 - You step back, gain momentum and try to double dropkick.
+	// 623
+	3 - Clinch Foreman and stamp his thoracic cavity.
+	// 621
+	
+-----------------------------------------------------------------------
+					FIGHT WITH COCAINE
+-----------------------------------------------------------------------
+
+(#700)	634	// FIGHT WITH COCAINE
+		
+[main]You fall your t-shirt and the <char2> boo you when you enter the arena.
+[narr]The public is in a frenzy! Declaiming loud and clear the name of <char4>. Before you, a thick-set, well set up chap. His
+elbow is resting in his body. He's pretty swift for his stature. 
+[char1]READY! FIGHT!
+[narr]He throws his right hand for a body shot and subtly drop down his other arm.
+
+	1 - Move quickly from left to right to confuse him.
+	// 701
+	2 - Roll on the side and low kick.
+	// 703
+	
+-----------------------------------------------------------------------
+
+(#701)	635	// FIGHT WITH COCAINE
+		// Move quickly from left to right.
+
+[narr]He knocks you with an uppercut. He converts his strike into a powerful bolo-punch straight in your nose and goes on with another hook-punch that comes to crash on your temple. 
+This punch tailspin your head. Some sprays of blood spurt from your lobe. Instinctively, you push <char4> to win back a sufficient safety distance.
+
+
+	1 - TAZ ATTACK! You turn on yourself to punch him.
+	// 702
+	2 - BACKFLIP! Foot kick with a backflip.
+	// 709		(loose)
+	3 - Take momentum and punch him.
+	// 644
+
+-----------------------------------------------------------------------
+
+(#702)	636	// FIGHT WITH COCAINE
+		// TAZ ATTACK! You turn on yourself to punch him.
+
+[narr]You turn on your self like a failure with your fist at the end of your outstretched arms.
+<char4> laugh out loud and low-kick you. You fall like a crisp on the ground in pain.
+[char4]That's it?! THAT'S IT?!
+[char2]Yeah! <char4>! <char4>!
+
+	1 - Abandon.
+	// 712
+	2 - Stand up and do a kamehameha.
+	// 711
+	
+-----------------------------------------------------------------------
+
+(#703)	637	// FIGHT WITH COCAINE
+		// Roll on the side.
+
+[narr]You roll like a kid on the ground and <char4> looks at you, amused by what is happening today on the ring. At the end of your roll, you low kick him in the knee. 
+He immediately responds by throwing himself at you with his fists.
+You are overwhelmed of fists in the face, in pain with your nose spouting blood everywhere.
+[char4]That's it?! THAT'S IT?!
+[char2]Yeah! <char4>! <char4>!
+
+	1 - Abandon.
+	// 712
+	2 - Try to struggle.
+	// 715
+
+-----------------------------------------------------------------------
+
+(#704)	638	// FIGHT WITH COCAINE
+		// Roll on the side.
+
+[narr]Running on <char4>, you throw your uppercut. He parades the blow and jabs you in the face. He's fast, moving quickly and hopping to the left.
+
+	1 - Contract all your muscles and stand guard.
+	// 716
+	2 - Unleash all your energy to jab him.
+	// 710
+
+-----------------------------------------------------------------------
+
+(#705)	639	// FIGHT WITH COCAINE
+		// Stand guard.
+		
+[narr]You struggle to defend yourself.
+
+	1 - Push him and twist kick.
+	// 706
+	2 - Push him and come off to the side.
+	// 707
+	3 - TAZ ATTACK! You turn on yourself to punch him.
+	// 702
+	
+-----------------------------------------------------------------------
+
+(#706)	640	// FIGHT WITH COCAINE
+		// Twist kick.
+				
+[narr]You try a twist kick but <char4> low-kick you and you fall like a crisp on the ground in pain.
+
+	1 - Abandon.
+	// 712
+	2 - Stand up and do a kamehameha.
+	// 711
+
+-----------------------------------------------------------------------
+
+(#707)	641	// FIGHT WITH COCAINE
+		// Push him and come off to the side.
+				
+[narr]You escape from this predicament. <char4> keeps getting closer to jabb you and keep you in a complicated situation, without respite.
+
+	1 - Unleash all your energy to jab him.
+	// 710
+	2 - BACKFLIP! Foot kick with a backflip.
+	// 708	(win)
+
+-----------------------------------------------------------------------
+
+(#708)	642	// FIGHT WITH COCAINE
+		// (win) BACKFLIP! Foot kick with a backflip. 
+				
+[narr]It's unexpected, you jump in the air and rotate to the back with your feet launched at full power in the jawbone of <char4>.
+You launched this backflip because of the drug effect and not because of your skill. You don't fall on your feet but prone, to the limit of twisting your neck.
+However, <char4> falls K.O.!
+[char2]Woah!
+[char1]I don't believe what I saw today! Whoaw! Ladies and gentlemen, <main> is our winner!
+[narr]The delirious crowd cheers your name with enthusiasm.
+
+	// GO TO 797
+
+-----------------------------------------------------------------------
+
+(#709)	643	// FIGHT WITH COCAINE
+		// (loose) BACKFLIP! Foot kick with a backflip.
+
+[narr]It's unexpected but you launch this backflip because of the drug effect and not because of your skill. You jump in the air and rotate to the back with your feet launched at full power in direction of the jawbone of <char4> but you miss him.
+When you fall, you twist your neck and feel very bad. <char4> laugh out loud of you. 
+[char4]That's it?! THAT'S IT?!
+[char2]Yeah! <char4>! <char4>!
+[narr]You feel too bad to stand up again and it's obvious that you can't fight anymore.
+TAP TAP. You abandon.
+[narr]The delirious crowd cheers <char4> with enthusiasm.
+
+	// GO TO 798
+
+-----------------------------------------------------------------------
+
+(#710)	644	// FIGHT WITH COCAINE
+		// Take momentum and punch him.
+		// Unleash all your energy to jab him.
+
+[narr]The first launched blow is easily expected but enough powerful to destabilize <char4>. You begin to jab him again and again with all your energy and <char4> struggle to defend itself.
+
+	1 - Headbutt.
+	// 713
+	2 - Nutkick.
+	// 714
+
+-----------------------------------------------------------------------
+
+(#711)	645	// FIGHT WITH COCAINE
+		// Stand up and do a Kamehameha.
+
+[narr]You stand up and begin to gather all your energy in your hands.
+[main]KA! ME! HA! ME!...
+[narr]PAW!
+You take a high kick in the head, you fall back and your vision turns completely black.
+
+	// GO TO 799
+
+-----------------------------------------------------------------------
+
+(#712)	646	// FIGHT WITH COCAINE
+		// Abandon.
+		
+[narr]TAP TAP.
+You double-tap your hand on the floor and <char4> raise his fists.
+[char1]What a strange fight today! Ladies and gentlemen, today <char4> is our winner!
+[narr]The delirious crowd cheers <char4> with enthusiasm.
+
+	// GO TO 798
+	
+-----------------------------------------------------------------------
+
+(#713)	647	// FIGHT WITH COCAINE
+		// Headbutt.
+
+[narr]You place your hand on the back of the <char4>'s skull and start headbutting his head multiple times. With unfulfilled rage, you beat the poor man until the clamour of the public ceases completely. A deafening silence breaks your blind rage, revealing the fragmented face of your opponent. The choked breath, drowned in his blood, whistles unpleasantly in your ears. The exaltation of the fight gives way to a bitter feeling.
+[char1]Wow, FUCK! What a violent fight today! Ladies and gentlemen, today, <main> is the winner!
+[narr]The delirious crowd cheers your name with enthusiasm.
+
+	// GO TO 797
+	
+-----------------------------------------------------------------------
+
+(#714)	// FIGHT WITH COCAINE
+		// Nutkick.
+
+[narr]You place a violent nutkick and <char4> falls on his knees. He's in pain so much that his face is between the red and purple.
+TAP TAP!
+<char4> double-tap the floor, screaming in pain.
+[char4]You... son of a bitch!
+[char1]Damn, it's not very fair from <main> but the rules are the rules. <main> is the winner!
+[narr]The delirious crowd cheers your name with enthusiasm.
+
+	// GO TO 797
+
+-----------------------------------------------------------------------
+
+(#715)	// FIGHT WITH COCAINE
+		// Try to struggle.
+
+[narr]You try to defend yourself or even escape this situation without success.
+You eyes roll into the back and you are K.O.
+
+	// GO TO 798 YOU LOSE THE FIGHT
+
+-----------------------------------------------------------------------
+
+(#716)	// Contract all your muscles and ...
+
+[char4]What the...
+[narr]After a while, <char4> takes momentum and punches you.
+You fall back and your vision turns completely black.
+
+	// YOU ARE KO
+	// GO TO 799
+
+-----------------------------------------------------------------------
+
+(#789)	// THREATEN, YOU GIVE THE REST OF YOUR MONEY
+
+[narr]You give him the rest of your money.
+[char1]That's it? You fucking dirty scoundrel! Leave before I regret to don't kill you!
+By the way! You fought like a shit!
+[narr]You leave the room without a word.
+
+	// GO TO 901 (RECEPTION)
+
+-----------------------------------------------------------------------
+
+(#790)	// THREATEN, YOU GIVE 100$ TO THE ORGANIZER
+
+[narr]You give him the money.
+[char1]Now leave, dirty scoundrel!
+[narr]You leave the room without a word.
+
+	// GO TO 901 (RECEPTION)
+
+-----------------------------------------------------------------------
+
+(#791)	// YOU REFUSE TO GIVE THE MONEY
+
+[narr]You are beaten to death by the <char1> and the guards.
+
+	// YOU DIE / GAME OVER
+	
+-----------------------------------------------------------------------
+
+(#792)	// YOU REFUSE TO GIVE THE MONEY
+
+[narr]Suddenly you are lifted by a security guard and <char1> grab a gun from his belt.
+[char1]Are you gonna give my fucking money, or die? 
+YOU LITTLE PIECE OF SHIT!
+
+	// IF (myWallet >= 100$)
+		1 - Give him the money.
+		// myWallet -= 100
+		// 790
+		
+	// ELSE IF (myWallet > 0 && myWallet < 100)
+		1 - I don't have enough...
+		// myWallet = 0
+		// 789
+		
+	2 - Spit in his face.
+	// 791
+
+
+-----------------------------------------------------------------------
+
+(#793)	// YOU DON'T HAVE ENOUGH MONEY TO GIVE
+
+[char1]Give it to me, dirty scoundrel.
+[narr]You give him the rest of your money and you leave the room without a word.
+
+	// GO TO 901 //(Reception)
+
+-----------------------------------------------------------------------
+
+(#794)	// YOU GIVE 100$ TO THE ORGANIZER
+
+[narr]You give him the money and leave the room without a word.
+
+	// GO TO 901 //(Reception)
+
+-----------------------------------------------------------------------
+
+(#795)	// YOU DON'T OWE MONEY AFTER LOOSING
+
+[char1]You fought well <char4>.
+[char4]Mh... Where's my money?
+[char1]Here it is.
+Hey you, <main>, seriously you should take a break and review your fighting techniques. No hard feelings and thank you for your participation.
+
+	1 - Leave the room.
+	// 901 		//(Reception)
+
+
+-----------------------------------------------------------------------
+
+(#796)	// YOU OWE 100$ TO THE ORGANIZER
+
+[char1]You fought well <char4>.
+[char4]Mh... Where's my money?
+[char1]Here it is.
+You, <main>. You wanted more money but you lost the fight, you owe me 100$.
+
+	// IF (myWallet >= 100$)
+		1 - Give him the money.
+		// myWallet -= 100
+		// 794
+		
+	// ELSE IF (myWallet > 0 && myWallet < 100)
+		1 - I don't have enough...
+		// myWallet = 0
+		// 793
+		
+	2 - Fuck you.
+	// 792
+	
+-----------------------------------------------------------------------
+
+(#797)	// YOU WIN THE FIGHT
+
+[char1]Over here to claim your gain! After what I'll ask you to leave, it was the last fight for today!
+[narr]A part of the <char2> rush the counter to get their gains. <char1> comes to see you both.
+[char1]You fought well <main>.
+[main]Yeah, thank you. Where's my money?
+[char1]Wow, you really have no time to waste!
+Here, your gain. Thank you for your participation, come back whenever you want when we open again.
+[main]You close the business? 
+[char1]Yes for a while. See you.
+[narr]You get your money and leave the room.
+
+	// YOU WIN MONEY: GET YOUR GAIN OF <moneyBet>
+	// GO TO 901 (Reception)
+	
+-----------------------------------------------------------------------
+
+(#798)	// YOU LOSE THE FIGHT
+
+[narr]After this amazing fight, <char2> rushes noisily the counter to get their claim while some others are complaining.
+[char1]It was the last fight, please leave the room if you don't have any gain to claim!
+[narr]Then <char1> comes to see you.
+
+	// IF (oweMoney == false)
+		// 795 	
+		
+	// ELSE IF (oweMoney == true)
+		// 796	
+	
+-----------------------------------------------------------------------
+
+(#799)	// YOU ARE KO
+
+[narr]You lost the fight and you are K.O.
+...
+...
+...
+...
+...
+You wake up in the Casino hostel with several pains everywhere in your body.
+
+	// IF (oweMoney == true)
+		// IF (myWallet > 100)
+			myWallet -= 100
+		// ELSE IF (myWallet <= 100)
+			myWallet = 0
+		
+	1 - Go to the reception.
+ 	// 901
+
+---------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+	
+	SLOT MACHINE FROM #800 TO #899
+
+---------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+
+(#800) 	800	// PRESENTATION - YOU ARE PLAYING ON A SLOT MACHINE
+
+// ASCII IN ORANGE
+ $$$$$$\   $$$$$$\  $$\       $$$$$$$\  $$\     $$\
+$$  __$$\ $$  __$$\ $$ |      $$  __$$\ \$$\   $$  |
+$$ /  \__|$$ /  $$ |$$ |      $$ |  $$ | \$$\ $$  /
+$$ |$$$$\ $$ |  $$ |$$ |      $$ |  $$ |  \$$$$  /
+$$ |\_$$ |$$ |  $$ |$$ |      $$ |  $$ |   \$$  /
+$$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |    $$ |
+\$$$$$$  | $$$$$$  |$$$$$$$$\ $$$$$$$  |    $$ |
+ \______/  \______/ \________|\_______/     \__|
+
+
+  $$$$$$\  $$\   $$\ $$$$$$\ $$\       $$\       $$$$$$\
+$$  __$$\ $$ |  $$ |\_$$  _|$$ |      $$ |      \_$$  _|
+$$ /  \__|$$ |  $$ |  $$ |  $$ |      $$ |        $$ |
+$$ |      $$$$$$$$ |  $$ |  $$ |      $$ |        $$ |
+$$ |      $$  __$$ |  $$ |  $$ |      $$ |        $$ |
+$$ |  $$\ $$ |  $$ |  $$ |  $$ |      $$ |        $$ |
+\$$$$$$  |$$ |  $$ |$$$$$$\ $$$$$$$$\ $$$$$$$$\ $$$$$$\
+ \______/ \__|  \__|\______|\________|\________|\______|
+ 
+(Goldy Chili)
+
+	// GO TO 801
+
+-----------------------------------------------------------------------
+
+(#801) 	801	// This is a menu - YOU ARE PLAYING ON A SLOT MACHINE
+
+// NEXT LINES IN ORANGE
+[narr]
+				GOLDY CHILI
+			    Jackpot: 400$
+
+	      SEVEN - SEVEN - SEVEN: Jackpot
+		    Three legumes: bet x10
+		          Two SEVEN: x5
+		         Two legumes: 10$
+
+			  Insert 10$ to play
+       
+
+	1 - Insert 10$.
+	// IF (lastSlotMachineDialogue == 0)
+		// GO TO 802
+	// ELSE GO TO lastSlotMachineDialogue 
+
+	2 - Leave.
+	// 850
+
+-----------------------------------------------------------------------
+
+(#802) 	802	// YOU ARE PLAYING ON A SLOT MACHINE
+
+[narr]You pull the lever.
+
+$$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$
+
+Roll 1   PEPPERSEVENTOMATOAVOCADO                        PEPPER
+Roll 2   SEVENTOMATOAVOCADOPEPPER                        PEPPER
+Roll 3   SEVENAVOCADOPEPPERTOMATO                        TOMATO
+
+Your gain: 10$
+
+// YOU WIN 10$
+// YOU LOSE 10$
+// lastSlotMachineDialogue = thisDial + 1
+				
+	1 - Insert 10$.
+	// 803
+	2 - Leave.
+	// 850
+
+-----------------------------------------------------------------------
+
+(#803) 	803	// YOU ARE PLAYING ON A SLOT MACHINE
+
+[narr]You pull the lever.
+
+$$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$
+
+Roll 1   PEPPERSEVENTOMATOAVOCADO                        AVOCADO 
+Roll 2   SEVENTOMATOAVOCADOPEPPER                        TOMATO 
+Roll 3   SEVENAVOCADOPEPPERTOMATO                        PEPPER
+
+Your gain: 0$
+			
+// YOU LOSE 10$
+// lastSlotMachineDialogue = thisDial + 1
+
+	1 - Insert 10$.
+	// 804
+	2 - Leave.
+	// 850
+
+-----------------------------------------------------------------------
+
+(#804) 	804	// YOU ARE PLAYING ON A SLOT MACHINE
+
+[narr]You pull the lever.
+
+$$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$
+
+Roll 1   PEPPERSEVENTOMATOAVOCADO                        SEVEN
+Roll 2   SEVENTOMATOAVOCADOPEPPER                        RED BEAN
+Roll 3   SEVENAVOCADOPEPPERTOMATO                        AVOCADO
+
+Your gain: 0$
+
+// YOU LOSE 10$
+	// lastSlotMachineDialogue = thisDial + 1			
+
+	1 - Insert 10$.
+	// 805
+	2 - Leave.
+	// 850
+
+-----------------------------------------------------------------------
+
+(#805) 	805 	// YOU ARE PLAYING ON A SLOT MACHINE
+
+[narr]You pull the lever.
+
+$$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$
+
+Roll 1   PEPPERSEVENTOMATOAVOCADO                        AVOCADO
+Roll 2   SEVENTOMATOAVOCADOPEPPER                        SEVEN
+Roll 3   SEVENAVOCADOPEPPERTOMATO                        PEPPER
+
+Your gain: 0$
+
+// YOU LOSE 10$
+// lastSlotMachineDialogue = thisDial + 1
+
+	1 - Insert 10$.
+	// 806
+	2 - Leave.
+	// 850
+
+-----------------------------------------------------------------------
+
+(#806) 	806 	// YOU ARE PLAYING ON A SLOT MACHINE
+
+[narr]You pull the lever.
+
+$$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$
+
+Roll 1   PEPPERSEVENTOMATOAVOCADO                        RED BEAN
+Roll 2   SEVENTOMATOAVOCADOPEPPER                        RED BEAN
+Roll 3   SEVENAVOCADOPEPPERTOMATO                        AVOCADO
+
+Your gain: 10$
+			
+// YOU LOSE 10$
+// YOU WIN 10$
+	// lastSlotMachineDialogue = thisDial + 1
+
+	1 - Insert 10$.
+	// 807
+	2 - Leave.
+	// 850
+
+-----------------------------------------------------------------------
+
+(#807) 	807 	// YOU ARE PLAYING ON A SLOT MACHINE
+
+[narr]You pull the lever.
+
+$$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$
+
+Roll 1   PEPPERSEVENTOMATOAVOCADO                        SEVEN
+Roll 2   SEVENTOMATOAVOCADOPEPPER                        SEVEN
+Roll 3   SEVENAVOCADOPEPPERTOMATO                        TOMATO
+
+Your gain: 50$
+			
+// YOU LOSE 10$
+// YOU WIN 50$
+	// lastSlotMachineDialogue = thisDial + 1
+
+	1 - Insert 10$.
+	// 808
+	2 - Leave.
+	// 850
+
+-----------------------------------------------------------------------
+
+(#808) 	808 	// YOU ARE PLAYING ON A SLOT MACHINE
+
+[narr]You pull the lever.
+
+$$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$
+
+Roll 1   PEPPERSEVENTOMATOAVOCADO                        SEVEN
+Roll 2   SEVENTOMATOAVOCADOPEPPER                        AVOCADO
+Roll 3   SEVENAVOCADOPEPPERTOMATO                        PEPPER
+
+Your gain: 0$
+	
+	// YOU LOSE 10$
+	// lastSlotMachineDialogue = thisDial + 1
+
+	1 - Insert 10$.
+	// 809
+	2 - Leave.
+	// 850
+
+-----------------------------------------------------------------------
+
+(#809) 	809 	// YOU ARE PLAYING ON A SLOT MACHINE
+
+[narr]You pull the lever.
+
+$$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$
+
+Roll 1   PEPPERSEVENTOMATOAVOCADO                        RED BEAN
+Roll 2   SEVENTOMATOAVOCADOPEPPER                        PEPPER
+Roll 3   SEVENAVOCADOPEPPERTOMATO                        SEVEN
+
+Your gain: 0$
+			
+// YOU LOSE 10$	
+// lastSlotMachineDialogue = thisDial + 1
+
+	1 - Insert 10$.
+	// 810
+	2 - Leave.
+	// 850
+
+-----------------------------------------------------------------------
+
+(#810) 	810 	// YOU ARE PLAYING ON A SLOT MACHINE
+
+[narr]You pull the lever.
+
+$$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$
+
+Roll 1   PEPPERSEVENTOMATOAVOCADO                        RED BEAN
+Roll 2   SEVENTOMATOAVOCADOPEPPER                        TOMATO
+Roll 3   SEVENAVOCADOPEPPERTOMATO                        TOMATO
+
+Your gain: 10$
+			
+// YOU LOSE 10$
+// YOU WIN 10$
+// lastSlotMachineDialogue = thisDial + 1
+
+	1 - Insert 10$.
+	// 811
+	2 - Leave.
+	// 850
+
+-----------------------------------------------------------------------
+
+(#811) 	811 	// YOU ARE PLAYING ON A SLOT MACHINE
+
+[narr]You pull the lever.
+
+$$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$
+
+Roll 1   PEPPERSEVENTOMATOAVOCADO                        PEPPER
+Roll 2   SEVENTOMATOAVOCADOPEPPER                        RED BEAN
+Roll 3   SEVENAVOCADOPEPPERTOMATO                        AVOCADO
+
+Your gain: 0$
+			
+// YOU LOSE 10$
+// lastSlotMachineDialogue = thisDial + 1
+
+	1 - Insert 10$.
+	// 812
+	2 - Leave.
+	// 850
+
+-----------------------------------------------------------------------
+
+(#812) 	812 	// YOU ARE PLAYING ON A SLOT MACHINE
+
+[narr]You pull the lever.
+
+$$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$
+
+// NEXT LINES IN ORANGE
+Roll 1   PEPPERSEVENTOMATOAVOCADO                        SEVEN
+Roll 2   SEVENTOMATOAVOCADOPEPPER                        AVOCADO
+Roll 3   SEVENAVOCADOPEPPERTOMATO                        TOMATO
+
+Your gain: 0$
+			
+// YOU LOSE 10$
+// lastSlotMachineDialogue = thisDial + 1
+
+	1 - Insert 10$.
+	// 813
+	2 - Leave.
+	// 850
+
+-----------------------------------------------------------------------
+
+(#813) 	813 	// YOU ARE PLAYING ON A SLOT MACHINE
+
+[narr]You pull the lever.
+
+$$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$
+
+Roll 1   PEPPERSEVENTOMATOAVOCADO                        RED BEAN
+Roll 2   SEVENTOMATOAVOCADOPEPPER                        TOMATO
+Roll 3   SEVENAVOCADOPEPPERTOMATO                        SEVEN
+
+Your gain: 0$
+			
+// YOU LOSE 10$
+// lastSlotMachineDialogue = thisDial + 1
+
+	1 - Insert 10$.
+	// 814
+	2 - Leave.
+	// 850
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#814) 	814 	// YOU ARE PLAYING ON A SLOT MACHINE
+
+[narr]You pull the lever.
+
+$$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$
+
+Roll 1   PEPPERSEVENTOMATOAVOCADO                        SEVEN
+Roll 2   SEVENTOMATOAVOCADOPEPPER                        SEVEN
+Roll 3   SEVENAVOCADOPEPPERTOMATO                        SEVEN
+
+        _____   ______    ______   __    __  _______    ______   ________ 
+      /     | /      \  /      \ /  |  /  |/       \  /      \ /        |
+       $$$$$ |/$$$$$$  |/$$$$$$  |$$ | /$$/ $$$$$$$  |/$$$$$$  |$$$$$$$$/ 
+            $$ |$$ |__$$ |$$ |  $$/ $$ |/$$/  $$ |__$$ |$$ |  $$ |   $$ |   
+    __   $$ |$$    $$ |$$ |      $$  $$<   $$    $$/ $$ |  $$ |   $$ |   
+ /  |  $$ |$$$$$$$$ |$$ |   __ $$$$$  \  $$$$$$$/  $$ |  $$ |   $$ |   
+ $$ \__$$ |$$ |  $$ |$$ \__/  |$$ |$$  \ $$ |      $$ \__$$ |   $$ |   
+ $$    $$/ $$ |  $$ |$$    $$/ $$ | $$  |$$ |      $$    $$/    $$ |   
+  $$$$$$/  $$/   $$/  $$$$$$/  $$/   $$/ $$/        $$$$$$/     $$/    
+
+(Jackpot)
+                                                                            
+Your gain: 400$
+			
+// YOU LOSE 10$
+// YOU WIN 400$
+// lastSlotMachineDialogue = thisDial + 1
+
+	1 - Insert 10$.
+	// 815
+	2 - Leave.
+	// 850
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#815) 	815 	// YOU ARE PLAYING ON A SLOT MACHINE
+		// THIS IS THE LOOP AFTER WE WIN THE JACKPOT
+
+[narr]You pull the lever.
+
+$$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$
+
+Roll 1   PEPPERSEVENTOMATOAVOCADO                        TOMATO
+Roll 2   SEVENTOMATOAVOCADOPEPPER                        SEVEN
+Roll 3   SEVENAVOCADOPEPPERTOMATO                        RED BEAN
+
+Your gain: 0$
+			
+// YOU LOSE 10$
+// lastSlotMachineDialogue = thisDial + 1
+
+	1 - Insert 10$.
+	// 816
+	2 - Leave.
+	// 850
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#816) 	816 	// YOU ARE PLAYING ON A SLOT MACHINE
+
+[narr]You pull the lever.
+
+$$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$
+
+Roll 1   PEPPERSEVENTOMATOAVOCADO                        PEPPER
+Roll 2   SEVENTOMATOAVOCADOPEPPER                        TOMATO
+Roll 3   SEVENAVOCADOPEPPERTOMATO                        AVOCADO
+
+Your gain: 0$
+			
+// YOU LOSE 10$
+// lastSlotMachineDialogue = thisDial + 1
+
+	1 - Insert 10$.
+	// 817
+	2 - Leave.
+	// 850
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#817) 	817 	// YOU ARE PLAYING ON A SLOT MACHINE
+
+[narr]You pull the lever.
+
+$$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$
+
+Roll 1   PEPPERSEVENTOMATOAVOCADO                        AVOCADO
+Roll 2   SEVENTOMATOAVOCADOPEPPER                        TOMATO
+Roll 3   SEVENAVOCADOPEPPERTOMATO                        AVOCADO
+
+Your gain: 10$
+			
+// YOU LOSE 10$
+// YOU WIN 10$
+// lastSlotMachineDialogue = thisDial + 1
+
+	1 - Insert 10$.
+	// 818
+	2 - Leave.
+	// 850
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#818) 	818 	// YOU ARE PLAYING ON A SLOT MACHINE
+
+[narr]You pull the lever.
+
+$$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$      $$$ GOLDY CHILI $$$
+
+Roll 1   PEPPERSEVENTOMATOAVOCADO                        SEVEN
+Roll 2   SEVENTOMATOAVOCADOPEPPER                        RED BEAN
+Roll 3   SEVENAVOCADOPEPPERTOMATO                        TOMATO
+
+Your gain: 0$
+			
+// YOU LOSE 10$
+// lastSlotMachineDialogue = thisDial - 3
+
+	1 - Insert 10$.
+	// 815 (We now loop the dialogue from 815)
+	2 - Leave.
+	// 850
+
+---------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+	CASINO HUB FROM #900 TO #999
+---------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+
+(#900) 	900	// This is a menu - YOU ARE IN THE SLOT MACHINE ROOM
+
+[narr]
+ $$$$$$\   $$$$$$\   $$$$$$\  $$\      $$\  $$$$$$\  $$$$$$$\   $$$$$$\  $$\       $$$$$$\ $$$$$$$$\  $$$$$$\  $$\   $$\
+$$  __$$\ $$  __$$\ $$  __$$\ $$$\    $$$ |$$  __$$\ $$  __$$\ $$  __$$\ $$ |      \_$$  _|\__$$  __|$$  __$$\ $$$\  $$ |
+$$ /  \__|$$ /  $$ |$$ /  \__|$$$$\  $$$$ |$$ /  $$ |$$ |  $$ |$$ /  $$ |$$ |        $$ |     $$ |   $$ /  $$ |$$$$\ $$ |
+$$ |      $$ |  $$ |\$$$$$$\  $$\$$\$$ $$ |$$ |  $$ |$$$$$$$  |$$ |  $$ |$$ |        $$ |     $$ |   $$$$$$$$ |$$ $$\$$ |
+$$ |      $$ |  $$ | \____$$\ $$ \$$$  $$ |$$ |  $$ |$$  ____/ $$ |  $$ |$$ |        $$ |     $$ |   $$  __$$ |$$ \$$$$ |
+$$ |  $$\ $$ |  $$ |$$\   $$ |$$ |\$  /$$ |$$ |  $$ |$$ |      $$ |  $$ |$$ |        $$ |     $$ |   $$ |  $$ |$$ |\$$$ |
+\$$$$$$  | $$$$$$  |\$$$$$$  |$$ | \_/ $$ | $$$$$$  |$$ |       $$$$$$  |$$$$$$$$\ $$$$$$\    $$ |   $$ |  $$ |$$ | \$$ |
+ \______/  \______/  \______/ \__|     \__| \______/ \__|       \______/ \________|\______|   \__|   \__|  \__|\__|  \__|
+
+ $$$$$$\   $$$$$$\   $$$$$$\  $$$$$$\ $$\   $$\  $$$$$$\
+$$  __$$\ $$  __$$\ $$  __$$\ \_$$  _|$$$\  $$ |$$  __$$\
+$$ /  \__|$$ /  $$ |$$ /  \__|  $$ |  $$$$\ $$ |$$ /  $$ |
+$$ |      $$$$$$$$ |\$$$$$$\    $$ |  $$ $$\$$ |$$ |  $$ |
+$$ |      $$  __$$ | \____$$\   $$ |  $$ \$$$$ |$$ |  $$ |
+$$ |  $$\ $$ |  $$ |$$\   $$ |  $$ |  $$ |\$$$ |$$ |  $$ |
+\$$$$$$  |$$ |  $$ |\$$$$$$  |$$$$$$\ $$ | \$$ | $$$$$$  |
+ \______/ \__|  \__| \______/ \______|\__|  \__| \______/
+
+(COSMOPOLITAN CASINO)                                                                                                              
+
+	1 - Go to the reception.
+	// 901
+	2 - Play on a slot machine.
+	// 800
+	3 - Go to the fight room.
+	// 400
+
+-----------------------------------------------------------------------
+
+(#901) 	901	// This is a menu - YOU ARE AT RECEPTION
+
+[narr]
+$$$$$$$\  $$$$$$$$\  $$$$$$\  $$$$$$$$\ $$$$$$$\ $$$$$$$$\ $$$$$$\  $$$$$$\  $$\   $$\ 
+$$  __$$\ $$  _____|$$  __$$\ $$  _____|$$  __$$\\__$$  __|\_$$  _|$$  __$$\ $$$\  $$ |
+$$ |  $$ |$$ |      $$ /  \__|$$ |      $$ |  $$ |  $$ |     $$ |  $$ /  $$ |$$$$\ $$ |
+$$$$$$$  |$$$$$\    $$ |      $$$$$\    $$$$$$$  |  $$ |     $$ |  $$ |  $$ |$$ $$\$$ |
+$$  __$$< $$  __|   $$ |      $$  __|   $$  ____/   $$ |     $$ |  $$ |  $$ |$$ \$$$$ |
+$$ |  $$ |$$ |      $$ |  $$\ $$ |      $$ |        $$ |     $$ |  $$ |  $$ |$$ |\$$$ |
+$$ |  $$ |$$$$$$$$\ \$$$$$$  |$$$$$$$$\ $$ |        $$ |   $$$$$$\  $$$$$$  |$$ | \$$ |
+\__|  \__|\________| \______/ \________|\__|        \__|   \______| \______/ \__|  \__|
+
+(RECEPTION)                                                                                
+[char3]Hello. How may I help you?
+
+	1 - Enter the main room.
+		// unlockHostel = true
+		// 900
+	
+	// IF (unlockHostel == true && myWallet >= 20)
+	// then show this choice
+		2 - I want to sleep one night. Cost: 20$
+		// unlockExitDoor = true
+		// 998
+
+	// IF (unlockExitDoor == true)
+	// then show this choice
+		3 - Leave the casino.
+		// 999
+		
+
+-----------------------------------------------------------------------
+
+(#998) 	950	// YOU SLEEP ONE NIGHT
+
+[narr]You got a key to sleep one night in the casino's hostel.
+...
+...
+Zzz...
+Zzzz...
+Zz...
+...
+You wake up the next day and go downstairs to the casino reception.
+
+	// LOSE 20$
+	// GO TO 901 (Reception)
+
+-----------------------------------------------------------------------
+
+(#999) 	999
+
+[narr]As promised, you get back your gun and your keys. 
+Again, you are escorted by armed men, without any word.
+You start the bus and keep driving to Oklahoma.
+[main]Alright, time to leave this time!
+[radio]... persuaded ######### it is not a political movement ######################...
+[narr]A sign signals you that you finally leave Los Angeles.
+
+	// EVENT ENDED
+

@@ -5,16 +5,11 @@
 
 /* LIBS */
 #include "includes.h"
-#include "config/settings.h"
-#include "lib/fp/fp.h"
-#include "lib/uf/uf.h"
-#include "lib/ui/ui.h"
-
-/* EVENT LIB */
-#include "event/secondary/secondary_event.h"
 
 int main(int ac, char **av)
 {
+	int temp;
+
 	/* init settings lib */
 	se_init(); 
 
@@ -25,15 +20,25 @@ int main(int ac, char **av)
 	ui_init();
 
 	/* GAME */
-	ui_refresh(1);
+	temp = ui_refresh(1);
 
-	getch();
+	switch(temp)
+	{
+		case 0:
+			ui_start_game();
+			break;
+		case 1:
+			/* quit */
+			break;
+		default:
+			break;
+	}
 
 	/* end the game */
 	ui_end();
 
 	/* end settings */
-	se_end(); 
+	se_end();
 
 	return 0;
 }

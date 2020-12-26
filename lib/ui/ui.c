@@ -5,19 +5,16 @@
 
 #include "../../includes.h"
 
-#include "../../config/settings.h"
-#include "../uf/uf.h"
-#include "../fp/fp.h"
-
 /* UI ENGINE */
 void ui_init();
-void ui_refresh(int is_menu);
 void ui_end();
+int ui_refresh(int is_menu);
 
 /* DISPLAY */
 WINDOW * ui_new_win(char *name, int height, int width, int start_y, int start_x);
 
 /* EVENT */
+void ui_start_game();
 void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char* char1, char* char2, char* char3, char* char4, char* char5);
 void after_event_clear(WINDOW * win_ev, WINDOW * win_me);
 
@@ -25,9 +22,10 @@ void after_event_clear(WINDOW * win_ev, WINDOW * win_me);
 void ui_update_progress(WINDOW * win, int height, int val);
 
 /* USER INTERACTIONS */
-int ui_choice(WINDOW* win, char* choice1, char* choice2, char* choice3, char* choice4);
 void ui_continu_choice(WINDOW * win_men);
-void ui_set_menu();
+int ui_set_menu();
+int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4);
+
 
 /* WINDOWS DEFINITIONS */
 WINDOW * win_start_menu;
@@ -58,13 +56,13 @@ void ui_init()
 	noecho();
 	cbreak();
 	curs_set(0);
-
-	ui_refresh(1);
 }
 
 /* called when resize */
-void ui_refresh(int is_menu)
+int ui_refresh(int is_menu)
 {
+	int temp = -1;
+
 	/* get terminal size and store into the variables */
 	getmaxyx(stdscr, y_max, x_max);
 
@@ -99,16 +97,20 @@ void ui_refresh(int is_menu)
 		win_start_menu = ui_new_win(" start MENU ", y_max, x_max, 0, 0);
 		keypad(win_start_menu, true);
 
-		/* draw the menu   
-		ui_set_menu();*/
+		temp = ui_set_menu();
 	}
-
-	refresh();
+	
+	return temp;
 }
 
-int ui_choice(WINDOW* win, char* choice1, char* choice2, char* choice3, char* choice4)
+void ui_start_game()
 {
-	/*int to_return = -1;*/
+	ui_refresh(0);
+
+}
+
+int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4)
+{
 	int is_good = 0;
 	int choice;
 	int selected = 0;
@@ -129,21 +131,21 @@ int ui_choice(WINDOW* win, char* choice1, char* choice2, char* choice3, char* ch
 		while(i < end)
 		{
 			if(i == selected)
-				wattron(win, A_REVERSE);
+				wattron(win_men, A_REVERSE);
 
-			mvwprintw(win, i + 2, 2, "%d: %s", i + 1, arr[i]);
+			mvwprintw(win_men, i + 2, 2, "%d: %s", i + 1, arr[i]);
 
 			if(arr[i + 1][0] == '/')
 				end = i + 1;
 
-			wattroff(win, A_REVERSE);
-			mvwprintw(win, 6, 2, "^ and v arrows to navigate.");
-			mvwprintw(win, 7, 2, "enter key to select.");
+			wattroff(win_men, A_REVERSE);
+			mvwprintw(win_men, 6, 2, "^ and v arrows to navigate.");
+			mvwprintw(win_men, 7, 2, "enter key to select.");
 
-			wrefresh(win);
+			wrefresh(win_men);
 			i++;	
 		}
-		choice = wgetch(win);
+		choice = wgetch(win_men);
 
 		switch(choice)
 		{
@@ -166,10 +168,10 @@ int ui_choice(WINDOW* win, char* choice1, char* choice2, char* choice3, char* ch
 			is_good = 1;
 	}
 
-	wclear(win);
-	box(win, 0, 0);
-	mvwprintw(win, 0, 2, " Choice ");
-	wrefresh(win);
+	wclear(win_men);
+	box(win_men, 0, 0);
+	mvwprintw(win_men, 0, 2, " Choice ");
+	wrefresh(win_men);
 
 	return selected;
 }
@@ -179,7 +181,7 @@ void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char
 	char* raw;
 	char* file_path = malloc((uf_str_len(path) + 10) * sizeof(char));
 	char* temp;
-	char* main = "Maxence";
+	char* main = s_main_chara_name;
 	char* radio = "radio";
 
 	int fp = 0;
@@ -366,7 +368,7 @@ void ui_update_progress(WINDOW * win, int height, int val)
 
 void ui_continu_choice(WINDOW * win)
 {
-	ui_choice(win, "Continue", "/", "/", "/");
+	ui_choice("Continue", "/", "/", "/");
 }
 
 void after_event_clear(WINDOW * win_ev, WINDOW * win_me)
@@ -383,7 +385,7 @@ void after_event_clear(WINDOW * win_ev, WINDOW * win_me)
     wrefresh(win_ev);
 }
 
-void ui_set_menu()
+int ui_set_menu()
 {
 	/*int to_return = -1;*/
 	int is_good = 0;
@@ -391,34 +393,45 @@ void ui_set_menu()
 	int selected = 0;
 	int i = 0;
 
+	/* number of choices in total */
 	int end = 4;
 
 	char* arr[4];
 
-	arr[0] = "Start";
-	arr[1] = "choice2";
-	arr[2] = "Start";
-	arr[3] = "Start";
+	arr[0] = "Start"; /* NEVER MAKE THIS "/" */
+	arr[1] = "Quit";
+	arr[2] = "/";
+	arr[3] = "/";
+
+	/* CHANGE IN MAIN.C THE RESPONSE */
 
 	while(is_good == 0)
 	{
+		i = -1;
+		end = 0;
+
+		/* exclude "/" choices */
+		while(i < end)
+		{
+			if(arr[end][0] != '/')
+				end++;
+			i++;			
+		}
+
 		i = 0;
+
 		while(i < end)
 		{
 			if(i == selected)
 				wattron(win_start_menu, A_REVERSE);
-
-			mvwprintw(win_start_menu, i + 2, 2, "%d: %s", i + 1, arr[i]);
-
-			if(arr[i + 1][0] == '/')
-				end = i + 1;
-
+			
+			mvwprintw(win_start_menu, y_max / 2 - end / 2 + i, x_max / 2 - 7, "%d: %s", i + 1, arr[i]);
 			wattroff(win_start_menu, A_REVERSE);
-			wrefresh(win_start_menu);
-			i++;	
+			i++;		
 		}
-		choice = wgetch(win_start_menu);
+		wrefresh(win_start_menu);
 
+		choice = wgetch(win_start_menu);
 		switch(choice)
 		{
 			case 259:
@@ -436,14 +449,16 @@ void ui_set_menu()
 			default:
 				break;
 		}
-		if(choice == 10)
+		if(choice == 10) {
+			wrefresh(win_start_menu);
 			is_good = 1;
+		}
+		else if(choice == 410)
+			ui_refresh(1);
+		
 	}
 
-	if(selected == 0)
-	{
-		ui_refresh(0);
-	}
+	return selected;
 }
 
 void ui_end()

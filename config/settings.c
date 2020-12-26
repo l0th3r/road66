@@ -8,9 +8,9 @@
 /* global setting file */
 config_t cf;
 
-/* GLOBAL VARIABLES */
-char* s_main_chara_name;
-int s_text_thread;
+/* GLOBAL VARIABLES (default settings) */
+char* s_main_chara_name = "/";
+int s_text_thread = 1;
 
 int se_init()
 {
@@ -29,7 +29,7 @@ int se_init()
 
 
 	/* getting params */
-	config_lookup_string(&cf, "name", &char_temp);
+	config_lookup_string(&cf, "main_char_name", &char_temp);
 	s_main_chara_name = (char*)char_temp;
 
 	config_lookup_bool (&cf, "text_thread", &s_text_thread);

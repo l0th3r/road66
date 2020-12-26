@@ -17,5 +17,13 @@
 #include <ncurses.h>
 #include <libconfig.h>
 
+#include "config/settings.h"
+#include "lib/fp/fp.h"
+#include "lib/uf/uf.h"
+#include "lib/ui/ui.h"
+#include "lib/en/en.h"
+
+#include "event/secondary/secondary_event.h"
+
 
 #endif

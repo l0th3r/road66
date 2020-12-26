@@ -3,12 +3,7 @@
 	File handle / file parsing
 */
 
-#define _DEFAULT_SOURCE
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include <unistd.h>
+#include "../../includes.h"
 
 char* fp_read_file(const char* path);
 

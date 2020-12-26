@@ -9,5 +9,6 @@ void se_event_5();
 void se_event_6();
 void se_event_7();
 
+void (*se_events[7])();
 
 #endif

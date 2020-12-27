@@ -14,12 +14,11 @@ int ui_refresh(int is_menu);
 WINDOW * ui_new_win(char *name, int height, int width, int start_y, int start_x);
 
 /* EVENT */
-void ui_start_game();
 void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char* char1, char* char2, char* char3, char* char4, char* char5);
 void after_event_clear(WINDOW * win_ev, WINDOW * win_me);
 
 /* PROGRESS */
-void ui_update_progress(WINDOW * win, int height, int val);
+void ui_update_progress(int val, int end_value, char* current_city, char* next_city);
 
 /* USER INTERACTIONS */
 void ui_continu_choice(WINDOW * win_men);
@@ -101,12 +100,6 @@ int ui_refresh(int is_menu)
 	}
 	
 	return temp;
-}
-
-void ui_start_game()
-{
-	ui_refresh(0);
-
 }
 
 int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4)
@@ -343,27 +336,17 @@ WINDOW * ui_new_win(char *name, int height, int width, int start_y, int start_x)
 	return win;
 }
 
-void ui_update_progress(WINDOW * win, int height, int val)
+void ui_update_progress(int val, int end_value, char* current_city, char* next_city)
 {
-	char temp;
-	int prct = 764 * val / 100;
+	mvwprintw(win_tra, 2, 4, "%s to %s", current_city, next_city);
+	mvwprintw(win_tra, 3, 4, "=> %d miles remaining.", end_value - val);
 
-	char* city_start = "San Fransisco";
-	char* city_arrival = "Flagstaff";
-	int distance = 764;
+    mvwprintw(win_tra, 5, (val % 5) + 2, "      _____________      ");
+    mvwprintw(win_tra, 6, (val % 5) + 2, "     | [][][][][]|_\\_       ");
+    mvwprintw(win_tra, 7, (val % 5) + 2, "     |               )      ");
+	mvwprintw(win_tra, 8, (val % 5) + 2, " ~~ =--(O)------(O)--=      ");
 
-	if(val % 2 == 0) { temp = '0'; }
-	else { temp = 'O'; }
-
-	mvwprintw(win, 2, 4, "%s to %s", city_start, city_arrival);
-	mvwprintw(win, 3, 7, "=> %d miles remaining.", distance - prct - 8);
-
-    mvwprintw(win, 5, (val % 5) + 2, "      _____________      ");
-    mvwprintw(win, 6, (val % 5) + 2, "     | [][][][][]|_\\_       ");
-    mvwprintw(win, 7, (val % 5) + 2, "     |               )      ");
-	mvwprintw(win, 8, (val % 5) + 2, " ~~ =--(%c)------(%c)--=      ", temp, temp);
-
-	wrefresh(win);
+	wrefresh(win_tra);
 }
 
 void ui_continu_choice(WINDOW * win)

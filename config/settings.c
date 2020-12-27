@@ -9,8 +9,9 @@
 config_t cf;
 
 /* GLOBAL VARIABLES (default settings) */
-char* s_main_chara_name = "/";
+char* s_main_chara_name = "main_chara_name";
 int s_text_thread = 1;
+int s_mile_gap_time = 0;
 
 int se_init()
 {
@@ -33,6 +34,7 @@ int se_init()
 	s_main_chara_name = (char*)char_temp;
 
 	config_lookup_bool (&cf, "text_thread", &s_text_thread);
+	config_lookup_int(&cf, "mile_gap_time", &s_mile_gap_time);
 	
 	
 	return(EXIT_SUCCESS);

@@ -25,7 +25,7 @@ int main(int ac, char **av)
 	switch(temp)
 	{
 		case 0:
-			ui_start_game();
+			en_start_game();
 			break;
 		case 1:
 			/* quit */

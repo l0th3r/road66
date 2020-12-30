@@ -10,6 +10,9 @@ int main(int ac, char **av)
 {
 	int temp;
 
+	/* init engine lib */
+	en_init();
+
 	/* init settings lib */
 	se_init(); 
 

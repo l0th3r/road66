@@ -7,11 +7,14 @@
 
 #include "../../includes.h"
 
+/* define inventory */
+inv inventory;
+
 void en_start_game();
+void en_init();
 int en_new_loop(int target);
 
 /* ENGINE LOCALS VARIABLES */
-
 /* check if the user want to quit */
 int els_is_exit = 0;
 /* ids of the current and next city */
@@ -34,6 +37,12 @@ void en_start_game()
 	}
 }
 
+void en_init()
+{
+	/* import the setting into the struct */
+	inventory.capacity = s_maximum_size;
+}
+
 /*	target = targetted city 
 	0 = first city = Las vegas
 */
@@ -46,7 +55,7 @@ int en_new_loop(int target)
 	int mile_target = s_cities_miles[target];
 
 	/* play the event of the city */
-	(*city_start[0])();
+	(*city_start[target])();
 
 	while(els_miles_counter <= mile_target)
 	{
@@ -57,10 +66,6 @@ int en_new_loop(int target)
 		uf_wait(10000 * s_mile_gap_time);
 	}
 
-	if(els_current_city == 0) {
-		els_is_update = 0;
-	}
-	
 	/* go to the next city at the end */
 	els_current_city += 1;
 

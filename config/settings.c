@@ -16,6 +16,7 @@ int s_cities_miles[9];
 char* s_main_chara_name = "main_chara_name";
 int s_text_thread = 1;
 int s_mile_gap_time = 0;
+int s_maximum_size = 10;
 
 int se_init()
 {
@@ -40,8 +41,6 @@ int se_init()
 	cities_names = config_lookup(&cf, "city_names");
 	cities_miles = config_lookup(&cf, "city_miles");
 
-	/* create the receiver array */
-	
 	while(i < 9)
 	{
 		s_cities_names[i] = (char*)config_setting_get_string_elem(cities_names, i);
@@ -49,26 +48,18 @@ int se_init()
 		i++;
 	}
 
-	i = 0;
-
 	/* getting params */
 	config_lookup_string(&cf, "main_char_name", &c_char_temp);
 	s_main_chara_name = (char*)c_char_temp;
 
 	config_lookup_bool (&cf, "text_thread", &s_text_thread);
 	config_lookup_int(&cf, "mile_gap_time", &s_mile_gap_time);
-	
+	config_lookup_int(&cf, "maximum_size", &s_maximum_size);
 	
 	return(EXIT_SUCCESS);
 }
 
 void se_end()
 {
-	/* int i = 0;
-	while(i < 9)
-	{
-		printf("%s = %d\n", s_cities_names[i], s_cities_miles[i]);
-		i++;
-	} */
 	config_destroy(&cf);
 }

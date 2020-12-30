@@ -16,5 +16,6 @@ extern int s_cities_miles[9];
 extern char* s_main_chara_name;
 extern int s_text_thread;
 extern int s_mile_gap_time;
+extern int s_maximum_size;
 
 #endif

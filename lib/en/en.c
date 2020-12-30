@@ -12,8 +12,8 @@ void en_new_loop(int start, int end);
 /* engine local settings */
 int els_miles_counter = 0;
 int els_try_random_events = 0;
-char* els_current_city = "Curr CITY";
-char* els_next_city = "Next CITY";
+int els_current_city = 0;
+int els_next_city = 0;
 
 void en_start_game()
 {

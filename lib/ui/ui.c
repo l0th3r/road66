@@ -18,7 +18,7 @@ void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char
 void after_event_clear(WINDOW * win_ev, WINDOW * win_me);
 
 /* PROGRESS */
-void ui_update_progress(int val, int end_value, char* current_city, char* next_city);
+void ui_update_progress(int val, int end_value, int current_city, int next_city);
 
 /* USER INTERACTIONS */
 void ui_continu_choice(WINDOW * win_men);
@@ -336,7 +336,7 @@ WINDOW * ui_new_win(char *name, int height, int width, int start_y, int start_x)
 	return win;
 }
 
-void ui_update_progress(int val, int end_value, char* current_city, char* next_city)
+void ui_update_progress(int val, int end_value, int current_city, int next_city)
 {
 	mvwprintw(win_tra, 2, 4, "%s to %s", current_city, next_city);
 	mvwprintw(win_tra, 3, 4, "=> %d miles remaining.", end_value - val);

@@ -8,6 +8,7 @@
 
 
 void en_start_game();
+int en_new_loop(int target);
 
 
 #endif

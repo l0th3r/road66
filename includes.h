@@ -24,6 +24,7 @@
 #include "lib/en/en.h"
 
 #include "event/secondary/secondary_event.h"
+#include "event/principal/principal_event.h"
 
 
 #endif

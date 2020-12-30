@@ -21,7 +21,7 @@ void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char
 void after_event_clear(WINDOW * win_ev, WINDOW * win_me);
 
 /* PROGRESS */
-void ui_update_progress(int val, int end_value, int current_city, int next_city);
+void ui_update_progress(int val, int end_value, int current_city);
 
 /* USER INTERACTIONS */
 void ui_continu_choice(WINDOW * win_men);

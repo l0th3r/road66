@@ -20,7 +20,7 @@ FILES= $(CONFIG_FILE) $(UI_FILE) $(UF_FILE) $(FP_FILE) $(MAIN_FILE) $(SEV_FILE) 
 
 # FLAGS
 NORME_FLAGS= -std=c89 -pedantic
-DEBUG_FLAGS= -Wall -Werror
+DEBUG_FLAGS= -Wall -Werror -g
 BEFORE_FLAGS= $(NORME_FLAGS) $(DEBUG_FLAGS) 
 AFTER_FLAGS= -lncurses -lconfig
 

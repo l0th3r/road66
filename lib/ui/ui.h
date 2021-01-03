@@ -20,8 +20,9 @@ void ui_start_game();
 void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char* char1, char* char2, char* char3, char* char4, char* char5);
 void after_event_clear(WINDOW * win_ev, WINDOW * win_me);
 
-/* PROGRESS */
+/* USER INFOS */
 void ui_update_progress(int val, int end_value, int current_city);
+void ui_update_inventory();
 
 /* USER INTERACTIONS */
 void ui_continu_choice(WINDOW * win_men);

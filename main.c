@@ -43,5 +43,8 @@ int main(int ac, char **av)
 	/* end settings */
 	se_end();
 
+	/* end engine */
+	en_end();
+
 	return 0;
 }

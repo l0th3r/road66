@@ -4,7 +4,7 @@
 void empty() {}
 
 /* function to call for each city */
-void (*city_start[9])() = 
+void (*city_event[9])() = 
 {
     empty, /* city 0 = Las vegas */
     empty,

@@ -9,17 +9,25 @@
 
 /* inventory struct */
 typedef struct {
-	char* passengers[5];
-	size_t fuel;
+	/* list of passangers names */
+	char **passengers;
+	/* total of passangers */
+	size_t pa_count;
+	/* gas amount */
+	size_t gas;
+	/* food amount */
 	size_t food;
+	/* inventory capacity */
 	size_t capacity;
+	/* total of taken inventory slots */
 	size_t total;
 } inv;
-extern inv inventory;
+extern inv* inventory;
 
 void en_init();
 void en_start_game();
 int en_new_loop(int target);
+void en_end();
 
 
 #endif

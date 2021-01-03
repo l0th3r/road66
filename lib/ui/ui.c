@@ -17,8 +17,9 @@ WINDOW * ui_new_win(char *name, int height, int width, int start_y, int start_x)
 void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char* char1, char* char2, char* char3, char* char4, char* char5);
 void after_event_clear(WINDOW * win_ev, WINDOW * win_me);
 
-/* PROGRESS */
+/* USER INFOS */
 void ui_update_progress(int val, int end_value, int current_city);
+void ui_update_inventory();
 
 /* USER INTERACTIONS */
 void ui_continu_choice(WINDOW * win_men);
@@ -347,6 +348,26 @@ void ui_update_progress(int val, int end_value, int current_city)
 	mvwprintw(win_tra, 8, (val % 5) + 2, " ~~ =--(O)------(O)--=      ");
 
 	wrefresh(win_tra);
+}
+
+void ui_update_inventory()
+{
+	/* lines */
+	int i = 3;
+	/* loop variable */
+	int j = 0;
+
+	if(inventory->pa_count > 0)
+		mvwprintw(win_inv, 2, 4, "%d Passengers:", inventory->pa_count);
+
+	while(j < inventory->pa_count)
+	{
+		mvwprintw(win_inv, i, 4, "- %s", inventory->passengers[j]);
+		i++;
+		j++;
+	}
+
+	wrefresh(win_inv);
 }
 
 void ui_continu_choice(WINDOW * win)

@@ -11,10 +11,14 @@
 inv* inventory;
 
 int en_loop(int target);
+int en_update_total();
 
 void en_init();
 void en_start_game();
-void en_update_total();
+void en_add_passenger(char* name, int pos);
+void en_rm_parrenger(int position);
+void en_mod_food(int val);
+void en_mod_gas(int val);
 void en_end();
 
 /* ENGINE LOCALS VARIABLES */
@@ -31,15 +35,6 @@ int els_is_update = 1;
 /* condition to update progress */
 int els_is_inventory = 1;
 
-
-void en_start_game()
-{
-	while(els_is_exit == 0) {
-		ui_refresh(0);
-		els_is_exit = en_loop(els_current_city);
-	}
-}
-
 void en_init()
 {
 	inventory = malloc(sizeof(inv));
@@ -53,6 +48,14 @@ void en_init()
 
 	/* allocate passengers array */
 	inventory->passengers = malloc(sizeof(char*) * inventory->capacity);
+}
+
+void en_start_game()
+{
+	while(els_is_exit == 0) {
+		ui_refresh(0);
+		els_is_exit = en_loop(els_current_city);
+	}
 }
 
 void en_add_passenger(char* name, int pos)
@@ -93,6 +96,16 @@ void en_rm_parrenger(int position)
 	inventory->pa_count -= 1;
 }
 
+void en_mod_food(int val)
+{
+	inventory->food += val;
+}
+
+void en_mod_gas(int val)
+{
+	inventory->food += val;
+}
+
 /*	target = targetted city 
 	0 = first city = Las vegas
 */
@@ -107,12 +120,7 @@ int en_loop(int target)
 	/* play the event of the city */
 	(*city_event[target])();
 
-	en_add_passenger("Yes", inventory->pa_count);
-	en_add_passenger("Oliver", inventory->pa_count);
-
-	en_rm_parrenger(0);
-
-	while(els_miles_counter <= mile_target)
+	while(els_miles_counter <= mile_target && to_return == 0)
 	{
 		if(els_is_update)
 			ui_update_progress(els_miles_counter, mile_target, els_current_city);
@@ -122,6 +130,7 @@ int en_loop(int target)
 
 		els_miles_counter++;
 		uf_wait(10000 * s_mile_gap_time);
+		to_return = 1;
 	}
 
 	/* go to the next city at the end */
@@ -130,16 +139,18 @@ int en_loop(int target)
 	return to_return;
 }
 
-void en_update_total()
+int en_update_total()
 {
-	inventory->total = inventory->gas + inventory->food + inventory->pa_count;
+	return inventory->total = inventory->gas + inventory->food + inventory->pa_count;
 }
 
 void en_end()
 {
 	int i = 0;
+
 	while(i < inventory->capacity) {
 		free(inventory->passengers[i]);
+		i++;
 	}
 	free(inventory->passengers);
 }

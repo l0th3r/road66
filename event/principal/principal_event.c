@@ -27,8 +27,11 @@ void pe_event_2()
     char* char1 = "Man";
     char* char2 = "Rafe";
     char* char3 = "Apu";
-    char* char4 = "RDM PASS"; /* NEEDS RANDOM PASSENGER FUNC */
+    char* char4 = NULL;
     char* char5 = "/";
+
+    if(inventory->pa_count > 0)
+        char4 = inventory->passengers[uf_random(inventory->pa_count)];
 
     while(current >= 0)
     {
@@ -38,7 +41,17 @@ void pe_event_2()
         switch(current)
 		{
 			case 0:
-				/* NEEDS COMPARE FUNC */
+				if(uf_compare("Maxence") == 1)
+                {
+                    temp = ui_choice("Knock again.", "Go back to the bus.", "/", "/");
+                    if(temp == 0)
+                        current = 37;
+                }
+                else
+                {
+                    ui_continu_choice(win_men);
+                    current = 38;
+                }
 			break;
             case 1:
                 temp = ui_choice("Knock again.", "Go back to the bus.", "/", "/");                  

@@ -353,12 +353,14 @@ void ui_update_progress(int val, int end_value, int current_city)
 void ui_update_inventory()
 {
 	/* lines */
-	int i = 3;
+	int i = 4;
 	/* loop variable */
 	int j = 0;
 
+	mvwprintw(win_inv, 2, 4, "Inventory slots %d/%d", en_update_total(), inventory->capacity);
+
 	if(inventory->pa_count > 0)
-		mvwprintw(win_inv, 2, 4, "%d Passengers:", inventory->pa_count);
+		mvwprintw(win_inv, 3, 4, "%d Passengers:", inventory->pa_count);
 
 	while(j < inventory->pa_count)
 	{

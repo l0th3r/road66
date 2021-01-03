@@ -29,8 +29,6 @@ void pe_event_2()
     char* char3 = "Apu";
     char* char4 = "RDM PASS"; /* NEEDS RANDOM PASSENGER FUNC */
     char* char5 = "/";
-    
-    char* choice_temp = NULL;
 
     while(current >= 0)
     {

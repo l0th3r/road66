@@ -9,10 +9,12 @@
 config_t cf;
 const config_setting_t* cities_names;
 const config_setting_t* cities_miles;
+const config_setting_t* cities_drops;
 
 /* GLOBAL VARIABLES (default settings) */
 char* s_cities_names[9];
-int s_cities_miles[9];
+int s_cities_miles[8];
+int s_cities_drops[9];
 char* s_main_chara_name = "main_chara_name";
 int s_text_thread = 1;
 int s_mile_gap_time = 0;
@@ -40,11 +42,13 @@ int se_init()
 	/* get city array from config file*/
 	cities_names = config_lookup(&cf, "city_names");
 	cities_miles = config_lookup(&cf, "city_miles");
+	cities_drops = config_lookup(&cf, "city_event_drop");
 
 	while(i < 9)
 	{
 		s_cities_names[i] = (char*)config_setting_get_string_elem(cities_names, i);
 		s_cities_miles[i] = config_setting_get_int_elem(cities_miles, i);
+		s_cities_drops[i] = config_setting_get_int_elem(cities_drops, i);
 		i++;
 	}
 

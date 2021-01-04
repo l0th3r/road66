@@ -103,7 +103,7 @@ void en_mod_food(int val)
 
 void en_mod_gas(int val)
 {
-	inventory->food += val;
+	inventory->gas += val;
 }
 
 /*	target = targetted city 
@@ -113,12 +113,16 @@ int en_loop(int target)
 {
 	/* if stop game */
 	int to_return = 0;
+	int start_mile = els_miles_counter;
 
 	/* load the targetted miles */
 	int mile_target = s_cities_miles[target];
 
 	/* play the event of the city */
 	(*city_event[target])();
+
+	en_mod_food(+5);
+	en_mod_gas(+5);
 
 	while(els_miles_counter <= mile_target && to_return == 0)
 	{
@@ -127,15 +131,23 @@ int en_loop(int target)
 		
 		if(els_is_inventory)
 			ui_update_inventory();
+		
+		/* check if half of jurney */
+		if(els_miles_counter == (mile_target - start_mile) / 2)
+		{
+			en_mod_food(-(inventory->pa_count + 1));
+			en_mod_gas(-1);
+		}
 
+		if(inventory->gas == 0)
+			to_return = 1;
+		
 		els_miles_counter++;
 		uf_wait(10000 * s_mile_gap_time);
-		to_return = 1;
 	}
 
 	/* go to the next city at the end */
 	els_current_city += 1;
-
 	return to_return;
 }
 

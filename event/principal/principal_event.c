@@ -34,13 +34,13 @@ void pe_event_1()	/* Las Vegas */
     char* char4 = "Foreman";
     char* char5 = "/";
 	
-    int moneyBet = 0;
+    /* int moneyBet = 0;
 	int lastLostMachineDial = 0;
-	int unlockHostel = 0; 			/* 0 = false ; 1 = true */
-	int unlockExitDoor = 0;			/* 0 = false ; 1 = true */
-	int lockFightRoom = 0;			/* 0 = false ; 1 = true */
-	int oweMoney = 0;				/* 0 = false ; 1 = true */
-	char* fighterBet = NULL;
+	int unlockHostel = 0; 			0 = false ; 1 = true
+	int unlockExitDoor = 0;			0 = false ; 1 = true
+	int lockFightRoom = 0;			0 = false ; 1 = true
+	int oweMoney = 0;			    0 = false ; 1 = true
+	char* fighterBet = NULL; */
 
     while(current >= 0)
     {
@@ -71,7 +71,7 @@ void pe_event_1()	/* Las Vegas */
                 current = 900;
 			break;
 			case 400:
-				lockFightRoom = 1;
+				/*lockFightRoom = 1;*/
 				ui_continu_choice(win_men);
                 current = 402;
 			break;
@@ -81,21 +81,21 @@ void pe_event_1()	/* Las Vegas */
 			break;
 			break;
 			case 402:
-				temp = ui_choice("Ask information to the organizer.", "Leave." "/", "/");                  
+				temp = ui_choice("Ask information to the organizer.", "Leave.", "/", "/");                  
                 if(temp == 0)
                     current = 410;
                 if(temp == 1)
                     current = 403;
 			break;
 			case 403:
-				temp = ui_choice("Yes.", "No, I have ever been to Las Vegas." "/", "/");                  
+				temp = ui_choice("Yes.", "No, I have ever been to Las Vegas.", "/", "/");                  
                 if(temp == 0)
                     current = 404;
                 if(temp == 1)
                     current = 407;
 			break;
 			case 404:
-				temp = ui_choice("I don't know.", "Play in a casino." "Maybe have a date with you.", "Something like tropical holidays, a house or whatever.");                  
+				temp = ui_choice("I don't know.", "Play in a casino.", "Maybe have a date with you.", "Something like tropical holidays, a house or whatever.");                  
                 if(temp == 0)
                     current = 405;
                 if(temp == 1)
@@ -119,6 +119,8 @@ void pe_event_1()	/* Las Vegas */
 
         after_event_clear(win_env, win_men);
     }
+}
+
 
 void pe_event_2()
 {

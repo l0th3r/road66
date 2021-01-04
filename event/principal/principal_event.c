@@ -214,7 +214,7 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 2)
                     current = 418;
  
-                /* NEED inventory->money -= money_bet; */
+                en_mod_money(-money_bet);
 			break;
            case 416:    /* identique au 415 */
                 current = 417;
@@ -239,8 +239,7 @@ void pe_event_1()	/* Las Vegas */
                     if (inventory->money == 0)
                         current = 418;
                     if (inventory->money < 50)
-                        /* NEED money_bet = inventory->money; */
-                        empty();
+                        money_bet = inventory->money;
                     else if(inventory->money >= 50)
                         money_bet = 50;
 
@@ -249,7 +248,7 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 2)
                     current = 418;
  
-                /* NEED inventory->money -= money_bet; */
+                inventory->money -= money_bet;
 			break;
             case 417:
 				ui_continu_choice(win_men);
@@ -319,7 +318,7 @@ void pe_event_1()	/* Las Vegas */
 			break;
             case 504:
 				ui_continu_choice(win_men);
-                /* NEED FUNC, YOU GAIN MONEY : inventory->money += (money_bet * 2); */
+                en_mod_money(+(money_bet * 2));
                 current = 900;
 			break;
             case 505:
@@ -331,7 +330,7 @@ void pe_event_1()	/* Las Vegas */
 			break;
             case 506:
 				ui_continu_choice(win_men);
-                /* NEED FUNC, YOU GAIN MONEY : inventory->money += (money_bet * 2); */
+                en_mod_money(+(money_bet * 2));
                 current = 900;
 			break;
             case 507:
@@ -876,12 +875,12 @@ void pe_event_1()	/* Las Vegas */
                     if (inventory->money >= 100)
                     {
                         current = 790;
-                        /* NEED  inventory->money -= 100; */
+                        en_mod_money(-100);
                     }
                     if (inventory->money > 0 && inventory->money < 100)
                     {
                         current = 789;
-                        /* NEED  inventory->money -= inventory->money; */
+                        en_mod_money(-inventory->money);
                     }
                 }
             break;
@@ -914,18 +913,18 @@ void pe_event_1()	/* Las Vegas */
                     if (inventory->money >= 100)
                     {
                         current = 794;
-                        /* NEED   inventory->money -= 100; */
+                        en_mod_money(-100);
                     }
                     if (inventory->money > 0 && inventory->money < 100)
                     {
                         current = 793;
-                        /* NEED   inventory->money -= inventory->money; */
+                        en_mod_money(-inventory->money);
                     }
                 }
 			break;
             case 797:
 				ui_continu_choice(win_men);
-                /* NEED : YOU GAIN MONEY : inventory->money += (money_bet * 2)    */
+                en_mod_money(+(money_bet * 2));
                 current = 901;
 			break;
             case 798:
@@ -940,11 +939,9 @@ void pe_event_1()	/* Las Vegas */
                 if (owe_money == 1)
                 {
                     if (inventory->money >= 100)
-                        /* NEED inventory->money -= 100; */
-                        empty();
+                        en_mod_money(-100);
                     if (inventory->money < 0)
-                        /* NEED  inventory->money -= inventory->money; */
-                        empty();
+                        en_mod_money(-inventory->money);
                 }
 
                 if (temp == 0)
@@ -961,7 +958,7 @@ void pe_event_1()	/* Las Vegas */
                     if (last_lost_machine_dial == 0)
                     {
                         current = 802;
-                        /* NEED inventory->money -= 10; */
+                        en_mod_money(-10);
                     }
                     else
                         current = last_lost_machine_dial;
@@ -974,12 +971,12 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 0)
                 {
                     current = 803;
-                    /* NEED inventory->money -= 10; */
+                    en_mod_money(-10);
                 }
                 if (temp == 1)
                     current = 850;
 
-                /* NEED inventory->money += 10; */
+                en_mod_money(+10);
                 last_lost_machine_dial = (current + 1);
 			break;
             case 803:
@@ -987,7 +984,7 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 0)
                 {
                     current = 804;
-                    /* NEED inventory->money -= 10; */
+                    en_mod_money(-10);
                 }
                 if (temp == 1)
                     current = 850;
@@ -999,7 +996,7 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 0)
                 {
                     current = 805;
-                    /* NEED inventory->money -= 10; */
+                    en_mod_money(-10);
                 }
                 if (temp == 1)
                     current = 850;
@@ -1011,7 +1008,7 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 0)
                 {
                     current = 806;
-                    /* NEED inventory->money -= 10; */
+                    en_mod_money(-10);
                 }
                 if (temp == 1)
                     current = 850;
@@ -1023,12 +1020,12 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 0)
                 {
                     current = 807;
-                    /* NEED inventory->money -= 10; */
+                    en_mod_money(-10);
                 }
                 if (temp == 1)
                     current = 850;
 
-                /* NEED inventory->money += 10; */
+                en_mod_money(+10);
                 last_lost_machine_dial = (current + 1);
 			break;
             case 807:
@@ -1036,12 +1033,11 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 0)
                 {
                     current = 808;
-                    /* NEED inventory->money -= 10; */
+                    en_mod_money(-10);
                 }
                 if (temp == 1)
                     current = 850;
 
-                /* NEED inventory->money += 50; */
                 last_lost_machine_dial = (current + 1);
 			break;
             case 808:
@@ -1049,7 +1045,7 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 0)
                 {
                     current = 809;
-                    /* NEED inventory->money -= 10; */
+                    en_mod_money(-10);
                 }
                 if (temp == 1)
                     current = 850;
@@ -1061,7 +1057,7 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 0)
                 {
                     current = 810;
-                    /* NEED inventory->money -= 10; */
+                    en_mod_money(-10);
                 }
                 if (temp == 1)
                     current = 850;
@@ -1073,12 +1069,12 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 0)
                 {
                     current = 811;
-                    /* NEED inventory->money -= 10; */
+                    en_mod_money(-10);
                 }
                 if (temp == 1)
                     current = 850;
 
-                /* NEED inventory->money += 10; */
+                en_mod_money(+10);
                 last_lost_machine_dial = (current + 1);
 			break;
             case 811:
@@ -1086,7 +1082,7 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 0)
                 {
                     current = 812;
-                    /* NEED inventory->money -= 10; */
+                    en_mod_money(-10);
                 }
                 if (temp == 1)
                     current = 850;
@@ -1098,7 +1094,7 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 0)
                 {
                     current = 813;
-                    /* NEED inventory->money -= 10; */
+                    en_mod_money(-10);
                 }
                 if (temp == 1)
                     current = 850;
@@ -1110,7 +1106,7 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 0)
                 {
                     current = 814;
-                    /* NEED inventory->money -= 10; */
+                    en_mod_money(-10);
                 }
                 if (temp == 1)
                     current = 850;
@@ -1122,12 +1118,12 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 0)
                 {
                     current = 815;
-                    /* NEED inventory->money -= 10; */
+                    en_mod_money(-10);
                 }
                 if (temp == 1)
                     current = 850;
 
-                /* NEED inventory->money += 400; */
+                en_mod_money(+400);
                 last_lost_machine_dial = (current + 1);
 			break;
             case 815:
@@ -1135,7 +1131,7 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 0)
                 {
                     current = 816;
-                    /* NEED inventory->money -= 10; */
+                    en_mod_money(-10);
                 }
                 if (temp == 1)
                     current = 850;
@@ -1147,7 +1143,7 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 0)
                 {
                     current = 817;
-                    /* NEED inventory->money -= 10; */
+                    en_mod_money(-10);
                 }
                 if (temp == 1)
                     current = 850;
@@ -1159,12 +1155,12 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 0)
                 {
                     current = 818;
-                    /* NEED inventory->money -= 10; */
+                    en_mod_money(-10);
                 }
                 if (temp == 1)
                     current = 850;
 
-                /* NEED inventory->money += 10; */
+                en_mod_money(+10);
                 last_lost_machine_dial = (current + 1);
 			break;
             case 818:
@@ -1172,7 +1168,7 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 0)
                 {
                     current = 815;
-                    /* NEED inventory->money -= 10; */
+                    en_mod_money(-10);
                 }
                 if (temp == 1)
                     current = 850;
@@ -1219,7 +1215,7 @@ void pe_event_1()	/* Las Vegas */
 			break;
             case 998:
 				ui_continu_choice(win_men);
-                /* NEED inventory->money -= 20; */
+                en_mod_money(-20);
                 current = 902;
 			break;
             case 999:

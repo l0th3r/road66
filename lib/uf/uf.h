@@ -12,6 +12,7 @@ void uf_wait(long msec);
 int uf_str_len(char *str);
 int uf_random(int max);
 int uf_compare(char* to_use);
+int uf_strcmp(char* src, char* dest);
 
 
 

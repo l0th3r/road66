@@ -17,6 +17,7 @@ void uf_init()
 	srand(time(NULL));
 }
 
+/* return 1 if same */
 int uf_strcmp(char* src, char* dest)
 {
 	int to_return = 0;

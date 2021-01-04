@@ -1038,6 +1038,7 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 1)
                     current = 850;
 
+                en_mod_money(+50);
                 last_lost_machine_dial = (current + 1);
 			break;
             case 808:

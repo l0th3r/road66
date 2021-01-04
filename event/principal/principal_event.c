@@ -3,14 +3,15 @@
 
 void empty() {}
 
+void pe_event_1();
 void pe_event_2();
 
 /* function to call for each city */
 void (*city_event[9])() = 
 {
-    empty, /* city 0 = Las vegas */
-    empty,
-    empty,
+    empty, /* city 0 = Los Angeles */
+    empty, /* city 1 = Las Vegas */
+    empty, /* city 2 = Henderson */
     empty,
     empty,
     empty,
@@ -18,6 +19,106 @@ void (*city_event[9])() =
     empty,
     empty,
 };
+
+
+
+
+void pe_event_1()	/* Las Vegas */
+{
+    int current = 0;
+    int temp;
+    char* char0 = "Odd Guy";
+    char* char1 = "Organizer";
+    char* char2 = "Crowd";
+    char* char3 = "Receptionist";
+    char* char4 = "Foreman";
+    char* char5 = "/";
+	
+    int moneyBet = 0;
+	int lastLostMachineDial = 0;
+	int unlockHostel = 0; 			/* 0 = false ; 1 = true */
+	int unlockExitDoor = 0;			/* 0 = false ; 1 = true */
+	int lockFightRoom = 0;			/* 0 = false ; 1 = true */
+	int oweMoney = 0;				/* 0 = false ; 1 = true */
+	char* fighterBet = NULL;
+
+    while(current >= 0)
+    {
+        ui_print_dial(win_env, current, ev_w, "event/principal/1", char0, char1, char2, char3, char4, char5);
+
+        switch(current)
+		{
+			case 0:
+				ui_continu_choice(win_men);
+				current = 1;
+			break;
+			case 1:
+				ui_continu_choice(win_men);
+                current = 2;
+			break;
+			case 2:
+				temp = ui_choice("Give him what he asks.", "Grab your gun and kill him.", "/", "/");                  
+                if(temp == 0)
+                    current = 4;
+                if(temp == 1)
+                    current = 3;
+			break;
+			case 3:
+				/* NEED GAME OVER WINDOW */
+			break;
+			case 4:
+				ui_continu_choice(win_men);
+                current = 900;
+			break;
+			case 400:
+				lockFightRoom = 1;
+				ui_continu_choice(win_men);
+                current = 402;
+			break;
+			case 401:
+				ui_continu_choice(win_men);
+                current = 901;
+			break;
+			break;
+			case 402:
+				temp = ui_choice("Ask information to the organizer.", "Leave." "/", "/");                  
+                if(temp == 0)
+                    current = 410;
+                if(temp == 1)
+                    current = 403;
+			break;
+			case 403:
+				temp = ui_choice("Yes.", "No, I have ever been to Las Vegas." "/", "/");                  
+                if(temp == 0)
+                    current = 404;
+                if(temp == 1)
+                    current = 407;
+			break;
+			case 404:
+				temp = ui_choice("I don't know.", "Play in a casino." "Maybe have a date with you.", "Something like tropical holidays, a house or whatever.");                  
+                if(temp == 0)
+                    current = 405;
+                if(temp == 1)
+                    current = 406;
+				if(temp == 2)
+                    current = 408;
+                if(temp == 3)
+                    current = 409;
+			break;
+			case 405:
+				ui_continu_choice(win_men);
+                current = 411;
+			break;
+			case 406:
+				ui_continu_choice(win_men);
+                current = 411;
+			break;
+				
+				/* TO FINISH */
+			}
+
+        after_event_clear(win_env, win_men);
+    }
 
 void pe_event_2()
 {

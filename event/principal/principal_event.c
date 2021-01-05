@@ -1523,7 +1523,7 @@ void pe_event_7()	/* Dallas */
 
     money_bet += 1;
     if (inventory->pa_count > 0)
-        char4 = inventory->passengers[uf_random(inventory->pa_count)];
+        char2 = inventory->passengers[uf_random(inventory->pa_count)];
 
     while(current >= 0)
     {

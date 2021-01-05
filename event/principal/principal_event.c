@@ -1527,7 +1527,7 @@ void pe_event_7()	/* Dallas */
 
     while(current >= 0)
     {
-        ui_print_dial(win_env, current, ev_w, "event/principal/1", char0, char1, char2, char3, char4, char5);
+        ui_print_dial(win_env, current, ev_w, "event/principal/7", char0, char1, char2, char3, char4, char5);
 
         switch(current)
 		{

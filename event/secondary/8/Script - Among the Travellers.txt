@@ -1,4 +1,4 @@
-// 15/12/2020
+// 12/23/2020 2:06:24 PM
 //
 // SECONDARY EVENT #8
 // AMONG THE TRAVELLERS
@@ -71,7 +71,7 @@ Everyone gets out of the road.
 You killed <char0>. The crowd is terrified, looking at you.
 [main]Get out of my way! I have to pass!
 Everyone gets out of the road.
-[narr]You go back to your bus. You start the engine. Some guys in the crowd shoot your bus with rifles. The bullet gets right into your reserves and ruins 1 gas and 1 food.
+[narr]You go back to your bus. You start the engine. Some guys in the crowd shoot your bus with rifles. The bullet gets right into your reserves and ruins some ressources.
 
 	// LOSE 1 GAS
 	// LOSE 1 FOOD
@@ -103,8 +103,6 @@ I only want to continue to drive on my way...
 We don't expect to move for now, could you drive him there? 
 
 	1 - Sorry, I can't take him with me.
-		// IF (we have enough place in the bus)
-			// then // YOU DIDN'T HELP SOMEONE
 	// 7
 
 	// IF (we have enough place on the bus)

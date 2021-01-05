@@ -16,7 +16,7 @@ int en_update_total();
 void en_init();
 void en_start_game();
 void en_add_passenger(char* name, int pos);
-void en_rm_parrenger(int position);
+void en_rm_passenger(int position);
 void en_mod_food(int val);
 void en_mod_gas(int val);
 void en_end();
@@ -73,6 +73,81 @@ void en_start_game()
 		els_is_exit = en_loop(els_current_city);
 }
 
+/*	target = targetted city 
+	0 = first city = Las vegas
+*/
+int en_loop(int target)
+{
+	/* loop */
+	int i = 0;
+
+	/* if stop game */
+	int to_return = 0;
+	int start_mile = els_miles_counter;
+	int current_mile_counter = 0;
+
+	/* load the targetted miles */
+	int mile_target = s_cities_miles[target];
+
+	/* play the event of the city */
+	(*city_event[target])();
+
+	if(els_is_update)
+		ui_update_progress(els_miles_counter, mile_target, els_current_city);
+	
+	if(els_is_inventory)
+		ui_update_inventory();
+
+	/* check if user stille have gas */
+	if(inventory->gas == 0 || inventory->food == 0)
+		to_return = 1;
+
+	while(els_miles_counter <= mile_target && to_return == 0)
+	{
+		/* display progress */
+		if(els_is_update)
+			ui_update_progress(els_miles_counter, mile_target, els_current_city);
+		
+		/* display inventory */
+		if(els_is_inventory)
+			ui_update_inventory();
+
+		/* random event */
+		if((els_miles_counter % s_drop_per_mile) == 0 && s_cities_drops[target] <= uf_random(100))
+			(*se_events[uf_random(6) + 1])();
+		
+		/* check if half of jurney */
+		if(current_mile_counter == (mile_target - start_mile) / 2)
+		{
+			if(inventory->food > 0)
+			{
+				/* remove food for main character */
+				en_mod_food(-1);
+				
+				/* remove food per passenger */
+				while(inventory->food > 0 && i < inventory->pa_count)
+				{
+					en_mod_food(-1);
+					i++;
+				}
+				/* remove passenger who could't eat */
+				while(i < inventory->pa_count)
+					en_rm_passenger(i);
+			}
+			else
+				to_return = 1;
+		}
+		
+		els_miles_counter++;
+		current_mile_counter++;
+		uf_wait(10000 * s_mile_gap_time);
+	}
+
+	/* go to the next city at the end */
+	els_current_city += 1;
+	return to_return;
+}
+
 void en_add_passenger(char* name, int pos)
 {
 	int i = 0;
@@ -92,7 +167,7 @@ void en_add_passenger(char* name, int pos)
 	inventory->pa_count += 1;
 }
 
-void en_rm_parrenger(int position)
+void en_rm_passenger(int position)
 {
 	if(position > -1)
 	{
@@ -135,81 +210,6 @@ void en_mod_gas(int val)
 {
 	/* NEEDS INVENTORY LOGS */
 	inventory->gas += val;
-}
-
-/*	target = targetted city 
-	0 = first city = Las vegas
-*/
-int en_loop(int target)
-{
-	/* loop */
-	int i = 0;
-
-	/* if stop game */
-	int to_return = 0;
-	int start_mile = els_miles_counter;
-
-	/* load the targetted miles */
-	int mile_target = s_cities_miles[target];
-
-	/* play the event of the city */
-	(*city_event[target])();
-
-	if(els_is_update)
-		ui_update_progress(els_miles_counter, mile_target, els_current_city);
-	
-	if(els_is_inventory)
-		ui_update_inventory();
-
-	/* check if user stille have gas */
-	if(inventory->gas == 0)
-		to_return = 1;
-
-	while(els_miles_counter <= mile_target && to_return == 0)
-	{
-		/* display progress */
-		if(els_is_update)
-			ui_update_progress(els_miles_counter, mile_target, els_current_city);
-		
-		/* display inventory */
-		if(els_is_inventory)
-			ui_update_inventory();
-
-		/* random event */
-		if((els_miles_counter % s_drop_per_mile) == 0 && s_cities_drops[target] <= uf_random(100))
-			(*se_events[uf_random(6) + 1])();
-		
-		/* check if half of jurney */
-		if(els_miles_counter == (mile_target - start_mile) / 2)
-		{
-			if(inventory->food > 0)
-			{
-				en_mod_food(-1);
-				/* remove food per passenger */
-				while(i < inventory->pa_count && inventory->food > 0)
-				{
-					en_mod_food(-1);
-					i++;
-				}
-				/* remove passenger who could't eat */
-				while(i < inventory->pa_count)
-				{
-					en_rm_parrenger(i);
-					i++;
-				}
-			}
-			else
-				to_return = 1;
-			en_mod_gas(-1);
-		}
-		
-		els_miles_counter++;
-		uf_wait(10000 * s_mile_gap_time);
-	}
-
-	/* go to the next city at the end */
-	els_current_city += 1;
-	return to_return;
 }
 
 int en_update_total()

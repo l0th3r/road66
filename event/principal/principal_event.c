@@ -5,6 +5,7 @@ void empty() {}
 
 void pe_event_1();
 void pe_event_2();
+void pe_event_7();
 
 int who_is_alive = 0;
 
@@ -66,7 +67,7 @@ void pe_event_1()	/* Las Vegas */
                 current = 2;
 			break;
 			case 2:
-				temp = ui_choice("Give him what he asks.", "Grab your gun and kill him.", "/", "/");                  
+				temp = ui_choice("Give him what he asks.", "Grab your gun and kill him.", "/", "/");
                 if(temp == 0)
                     current = 4;
                 if(temp == 1)
@@ -74,6 +75,7 @@ void pe_event_1()	/* Las Vegas */
 			break;
 			case 3:
 				/* NEED GAME OVER WINDOW */
+                current = -1;
 			break;
 			case 4:
 				ui_continu_choice(win_men);
@@ -90,21 +92,21 @@ void pe_event_1()	/* Las Vegas */
 			break;
 			break;
 			case 402:
-				temp = ui_choice("Ask information to the organizer.", "Leave.","/", "/");                  
+				temp = ui_choice("Ask information to the organizer.", "Leave.","/", "/");
                 if(temp == 0)
                     current = 410;
                 if(temp == 1)
                     current = 403;
 			break;
 			case 403:
-				temp = ui_choice("Yes.", "No, I have ever been to Las Vegas.", "/", "/");                  
+				temp = ui_choice("Yes.", "No, I have ever been to Las Vegas.", "/", "/");
                 if(temp == 0)
                     current = 404;
                 if(temp == 1)
                     current = 407;
 			break;
 			case 404:
-				temp = ui_choice("I don't know.", "Play in a casino.", "Maybe have a date with you.", "Something like tropical holidays, a house or whatever.");                  
+				temp = ui_choice("I don't know.", "Play in a casino.", "Maybe have a date with you.", "Something like tropical holidays, a house or whatever.");
                 if(temp == 0)
                     current = 405;
                 if(temp == 1)
@@ -139,7 +141,7 @@ void pe_event_1()	/* Las Vegas */
                 current = 411;
 			break;
             case 411:
-				temp = ui_choice("What if I fight?", "What if I bet?", "I'm not interested.", "/");                  
+				temp = ui_choice("What if I fight?", "What if I bet?", "I'm not interested.", "/");
                 if(temp == 0)
                     current = 412;
                 if(temp == 1)
@@ -1256,7 +1258,7 @@ void pe_event_2()
                 }
 			break;
             case 1:
-                temp = ui_choice("Knock again.", "Go back to the bus.", "/", "/");                  
+                temp = ui_choice("Knock again.", "Go back to the bus.", "/", "/");
                 if(temp == 0)
                     current = 2;
                 if(temp == 1)
@@ -1267,31 +1269,31 @@ void pe_event_2()
                 ui_continu_choice(win_men);
 			break;
             case 3:
-                temp = ui_choice("Go into the house.", "Say him goodbye.", "/", "/");                  
+                temp = ui_choice("Go into the house.", "Say him goodbye.", "/", "/");
                 if(temp == 0)
                     current = 7;
                 if(temp == 1)
                     current = 19;
 			break;
             case 4:
-                temp = ui_choice("Peace.", "Chaos?", "/", "/");                  
+                temp = ui_choice("Peace.", "Chaos?", "/", "/");
                 if(temp == 0)
                     current = 5;
                 if(temp == 1)
                     current = 6;
 			break;
             case 5:
-                temp = ui_choice("Where are you going?", "/", "/", "/");                  
+                temp = ui_choice("Where are you going?", "/", "/", "/");
                 if(temp == 0)
                     current = 8;
 			break;
             case 6:
-                temp = ui_choice("Where are you going?", "/", "/", "/");                  
+                temp = ui_choice("Where are you going?", "/", "/", "/");
                 if(temp == 0)
                     current = 8;
 			break;
             case 7:
-                temp = ui_choice("Do you wanna come with me?", "I am here to say goodbye to my old friend.", "/", "/");                  
+                temp = ui_choice("Do you wanna come with me?", "I am here to say goodbye to my old friend.", "/", "/");
                 if(temp == 0)
                     current = 4;
                 if(temp == 1)
@@ -1307,12 +1309,12 @@ void pe_event_2()
                     current = 11;
 			break;
             case 9:
-                temp = ui_choice("Follow Jackson.", "/", "/", "/");                  
+                temp = ui_choice("Follow Jackson.", "/", "/", "/");
                 if(temp == 0)
                     current = 11;
 			break;
             case 10:
-                temp = ui_choice("Follow Jackson.", "/", "/", "/");                  
+                temp = ui_choice("Follow Jackson.", "/", "/", "/");
                 if(temp == 0)
                     current = 11;
 			break;
@@ -1326,7 +1328,7 @@ void pe_event_2()
                 current = 13;
             break;
             case 13:
-                temp = ui_choice("How much for the gasoline barrel?", "No, thank you.", "/", "/");                  
+                temp = ui_choice("How much for the gasoline barrel?", "No, thank you.", "/", "/");
                 if(temp == 0)
                     current = 14;
                 if(temp == 1)
@@ -1335,7 +1337,7 @@ void pe_event_2()
             case 14:
                 if(inventory->money >= 50)
                 {
-                    temp = ui_choice("I take it.", "It's more than twice in a gas station!", "/", "/");                  
+                    temp = ui_choice("I take it.", "It's more than twice in a gas station!", "/", "/");
                     if(temp == 0)
                     {
                         en_mod_gas(+1);
@@ -1345,13 +1347,13 @@ void pe_event_2()
                         current = 15;
                 } else
                 {
-                    temp = ui_choice("I don't have enough money.", "/", "/", "/");                  
+                    temp = ui_choice("I don't have enough money.", "/", "/", "/");
                     if(temp == 0)
                         current = 17;
                 }
             break;
             case 15:
-                temp = ui_choice("Yes.", "No, thanks.", "/", "/");                  
+                temp = ui_choice("Yes.", "No, thanks.", "/", "/");
                 if(temp == 0)
                 {
                     en_mod_gas(+1);
@@ -1361,17 +1363,17 @@ void pe_event_2()
                     current = 17;
             break;
             case 16:
-                temp = ui_choice("Keep driving in Henderson.", "/", "/", "/");                  
+                temp = ui_choice("Keep driving in Henderson.", "/", "/", "/");
                 if(temp == 0)
                     current = 20;
             break;
             case 17:                
-                temp = ui_choice("Keep driving in Henderson.", "/", "/", "/");                  
+                temp = ui_choice("Keep driving in Henderson.", "/", "/", "/");
                 if(temp == 0)
                     current = 20;
             break;
             case 18:                
-                temp = ui_choice("Keep driving in Henderson.", "/", "/", "/");                  
+                temp = ui_choice("Keep driving in Henderson.", "/", "/", "/");
                 if(temp == 0)
                     current = 20;
             break;
@@ -1380,19 +1382,18 @@ void pe_event_2()
                 current = 7;
             break;
             case 20:                
-                temp = ui_choice("Stop the bus next to the building.", "Keep driving.", "/", "/");                  
+                temp = ui_choice("Stop the bus next to the building.", "Keep driving.", "/", "/");
                 if(temp == 0)
                     current = 22;
                 if(temp == 1)
                     current = 21;
             break;
             case 21:
-                /* NEEDS STATISTICS */
                 ui_continu_choice(win_men);
                 current = 32;
             break;
             case 22:                
-                temp = ui_choice("Hey dude! Don't do that!", "Jump coward!", "Look at him.", "/");                  
+                temp = ui_choice("Hey dude! Don't do that!", "Jump coward!", "Look at him.", "/");
                 if(temp == 0)
                     current = 25;
                 if(temp == 1)
@@ -1401,7 +1402,7 @@ void pe_event_2()
                     current = 26;
             break;
             case 23:                
-                temp = ui_choice("Do you smoke?", "Of course life is shit! And we all have to fight it!", "Holy shit you are right! And when I see your big ass, I pity you even more!", "/");                  
+                temp = ui_choice("Do you smoke?", "Of course life is shit! And we all have to fight it!", "Holy shit you are right! And when I see your big ass, I pity you even more!", "/");
                 if(temp == 0)
                     current = 27;
                 if(temp == 1)
@@ -1414,21 +1415,21 @@ void pe_event_2()
                 current = 32;
             break;
             case 25:                
-                temp = ui_choice("Ask him if he's a smoker.", "You try a joke and propose.", "/", "/");                  
+                temp = ui_choice("Ask him if he's a smoker.", "You try a joke and propose.", "/", "/");
                 if(temp == 0)
                     current = 27;
                 if(temp == 1)
                     current = 30;
             break;
             case 26:                
-                temp = ui_choice("Don't answer.", "You big fat ass! Are you gonna jump?", "/", "/");                  
+                temp = ui_choice("Don't answer.", "You big fat ass! Are you gonna jump?", "/", "/");
                 if(temp == 0)
                     current = 24;
                 if(temp == 1)
                     current = 23;
             break;
             case 27:                
-                temp = ui_choice("What’s your name?", "/", "/", "/");                  
+                temp = ui_choice("What’s your name?", "/", "/", "/");
                 if(temp == 0)
                 {
                     char1 = "Bob";
@@ -1440,14 +1441,14 @@ void pe_event_2()
                 current = 32;
             break;
             case 29:                
-                temp = ui_choice("Propose him to come with you.", "Suggest him to leave this city.", "/", "/");                  
+                temp = ui_choice("Propose him to come with you.", "Suggest him to leave this city.", "/", "/");
                 if(temp == 0)
                     current = 33;
                 if(temp == 1)
                     current = 34;
             break;
             case 30:                
-                temp = ui_choice("Propose him to come with you.", "Suggest him to leave this city.", "/", "/");                  
+                temp = ui_choice("Propose him to come with you.", "Suggest him to leave this city.", "/", "/");
                 if(temp == 0)
                     current = 35;
                 if(temp == 1)
@@ -1462,7 +1463,7 @@ void pe_event_2()
                 current = -1;
             break;
             case 33:                
-                temp = ui_choice("Keep driving.", "/", "/", "/");                  
+                temp = ui_choice("Keep driving.", "/", "/", "/");
                 if(temp == 0)
                 {
                     en_add_passenger(char1, inventory->pa_count);
@@ -1470,7 +1471,7 @@ void pe_event_2()
                 }
             break;
             case 34:                
-                temp = ui_choice("Keep driving.", "/", "/", "/");                  
+                temp = ui_choice("Keep driving.", "/", "/", "/");
                 if(temp == 0)
                     current = 32;
             break;
@@ -1483,8 +1484,8 @@ void pe_event_2()
                 ui_continu_choice(win_men);
                 current = 24;
             break;
-            case 37:         
-                /* NEED : remove Maxence from the bus */    
+            case 37:
+                en_rm_passenger(uf_compare("Maxence"));
                 en_mod_money(+3);
                 en_mod_food(+2);
                 ui_continu_choice(win_men);
@@ -1512,16 +1513,9 @@ void pe_event_7()	/* Dallas */
     char* char4 = "Absjorn";
     char* char5 = "Evelynn";
 
-    char* fighter_bet = NULL;
-    char* choice0_temp = NULL;
-    char* choice1_temp = NULL;
-    char* choice2_temp = NULL;
-    char* choice3_temp = NULL;
-
     int required_passenger = 4;
     int explosives_installed = 0; /* 0 == false      1 == true */
 
-    money_bet += 1;
     if (inventory->pa_count > 0)
         char4 = inventory->passengers[uf_random(inventory->pa_count)];
 
@@ -1534,9 +1528,9 @@ void pe_event_7()	/* Dallas */
         case 0:
             temp = ui_choice("Honk.", "Get out of the bus.", "/", "/");
             if (temp == 0)
-                current = ;
+                current = 1;
             if (temp == 1)
-                current = ;
+                current = 2;
             break;
         case 1:
             temp = ui_choice("Find a way to open the portal.", "/", "/", "/");
@@ -2171,7 +2165,7 @@ void pe_event_7()	/* Dallas */
             if (explosives_installed == 1)
                 current = 243;
             else
-                current = 244
+                current = 244;
             break;
         case 243:
             ui_continu_choice(win_men);
@@ -2419,7 +2413,7 @@ void pe_event_7()	/* Dallas */
             if (temp == 0)
                 current = 429;
 
-            char3 = "Soldier"
+            char3 = "Soldier";
                 break;
         case 429:
             temp = ui_choice("That's because I'm not one. I came from one of their Dallas prisons.", "A shipment of ammunition to Lawton that I stole. They won't need it anymore.", "/", "/");
@@ -2646,7 +2640,7 @@ void pe_event_7()	/* Dallas */
             if (temp == 0)
                 current = 608;
 
-            char1 = "Henry Cortez"
+            char1 = "Henry Cortez";
                 break;
         case 608:
             temp = ui_choice("I am listening.", "/", "/", "/");
@@ -3422,7 +3416,7 @@ void pe_event_7()	/* Dallas */
                 current = -1;
             break;
 
-
+        }
         after_event_clear(win_env, win_men);
     }
 }

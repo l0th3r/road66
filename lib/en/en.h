@@ -32,7 +32,7 @@ int en_update_total();
 void en_init();
 void en_start_game();
 void en_add_passenger(char* name, int pos);
-void en_rm_parrenger(int position);
+void en_rm_passenger(int position);
 void en_mod_food(int val);
 void en_mod_gas(int val);
 void en_mod_money(int val);

@@ -1,0 +1,73 @@
+// SECONDARY EVENT #12
+// Bump 2
+// Signature: Maxence Jacquot
+---------------------------------------------------------------------------------------------------------------------------
+(#0)
+
+[narr]The road is so long in front of you it fades in the distance.
+You start wondering...
+BUMP!
+You probably drove on something.
+
+	1 - Stop the bus. 	
+	// 1
+	2 - Keep driving.
+	// EVENT ENDED
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#1) 
+
+[narr]A strange suitcase lays on the road.
+Your bus probably wreaked it open while driving on it.
+You take a closer look.
+As you walk through the suitcase you hear a noise: Bip... Bip... Bip...
+What the...
+
+	1 - Run. 	
+	//2
+	2 - Stay here.
+	//3
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#2) 
+
+[main]Shit... Shit... Shit!
+[narr]You run like the devil is at your back.
+BOOM!
+[main]Who the hell leaves a bomb in a suitcase in the middle of nowhere?
+[narr]Saying this out loud you start realising, it's probably a trap.
+You hear people coming.
+
+	1 - Leave. 	
+	//4
+	2 - Stay here.
+	//5
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#3) 
+
+[narr]You don't move an inch, closing your eyes, hoping to wake up from this nightmare.
+BOOM!
+
+// GAME OVER
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#4) 
+
+[narr]You quickly get on your bus and start the engine.
+
+// EVENT ENDED
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#5) 
+
+[narr]You get shot right where you are.
+You fall on the ground your blood spilling out.
+
+// GAME OVER
+

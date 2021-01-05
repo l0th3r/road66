@@ -604,6 +604,7 @@ Thanks, pal. I owe you one. And if I were going to disappear, don't forget I'm d
 [char5]Farewell!
 [narr]Maxence leaves for the horizon, in pursuit of his dream. This image will remain forever engraved in your memory. A man ready to do anything for his art.
 
+	// Remove Maxence from the bus
 	// You gain 3$ 
 	// GET 2 foods
 	// GO TO 38

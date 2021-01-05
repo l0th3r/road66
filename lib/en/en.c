@@ -53,10 +53,24 @@ void en_start_game()
 {
 	/* set capacity */
 	inventory->capacity = s_maximum_size;
-	while(els_is_exit == 0) {
-		ui_refresh(0);
+
+	/* ============== TEST ============== */
+
+	/* test add */
+	en_add_passenger("Maxence", inventory->pa_count);
+	en_add_passenger("Philipe", inventory->pa_count);
+
+	/* ============== TEST ============== */
+
+	/* START VALUE */
+	en_mod_money(+s_start_money);
+	en_mod_gas(+s_start_gas);
+	en_mod_food(+s_start_food);
+
+	ui_refresh(0);
+
+	while(els_is_exit == 0)
 		els_is_exit = en_loop(els_current_city);
-	}
 }
 
 void en_add_passenger(char* name, int pos)
@@ -98,6 +112,11 @@ void en_rm_parrenger(int position)
 
 		inventory->pa_count -= 1;
 	}
+
+	wclear(win_inv);
+	box(win_inv, 0, 0);
+	mvwprintw(win_inv, 0, 2, " Inventory ");
+	ui_update_inventory();
 }
 
 void en_mod_food(int val)
@@ -123,6 +142,9 @@ void en_mod_gas(int val)
 */
 int en_loop(int target)
 {
+	/* loop */
+	int i = 0;
+
 	/* if stop game */
 	int to_return = 0;
 	int start_mile = els_miles_counter;
@@ -132,29 +154,6 @@ int en_loop(int target)
 
 	/* play the event of the city */
 	(*city_event[target])();
-
-	/* ============== TEST ============== */
-
-	/* test add */
-	en_add_passenger("Maxence", inventory->pa_count);
-	en_add_passenger("Philipe", inventory->pa_count);
-
-	/* test delete */
-	en_add_passenger("SHOULD NOT DISPLAY", inventory->pa_count);
-	en_rm_parrenger(uf_compare("SHOULD NOT DISPLAY"));
-
-	/* test Gas and gas */
-	en_mod_gas(+10);
-	en_mod_food(+6);
-
-	en_mod_gas(-1);
-	en_mod_food(-1);
-
-	/* test money */
-	en_mod_money(+10);
-	en_mod_money(-1);
-
-	/* ============== TEST ============== */
 
 	if(els_is_update)
 		ui_update_progress(els_miles_counter, mile_target, els_current_city);
@@ -176,18 +175,31 @@ int en_loop(int target)
 		if(els_is_inventory)
 			ui_update_inventory();
 
-
 		/* random event */
-		/* if(uf_random(s_city_drops[target] * (mile_target - start_mile)) == 0) */
-		if((els_miles_counter % 100) == 0 && s_cities_drops[target] <= uf_random(100))
-		{
+		if((els_miles_counter % s_drop_per_mile) == 0 && s_cities_drops[target] <= uf_random(100))
 			(*se_events[uf_random(6) + 1])();
-		}
 		
 		/* check if half of jurney */
 		if(els_miles_counter == (mile_target - start_mile) / 2)
 		{
-			en_mod_food(-(inventory->pa_count + 1));
+			if(inventory->food > 0)
+			{
+				en_mod_food(-1);
+				/* remove food per passenger */
+				while(i < inventory->pa_count && inventory->food > 0)
+				{
+					en_mod_food(-1);
+					i++;
+				}
+				/* remove passenger who could't eat */
+				while(i < inventory->pa_count)
+				{
+					en_rm_parrenger(i);
+					i++;
+				}
+			}
+			else
+				to_return = 1;
 			en_mod_gas(-1);
 		}
 		

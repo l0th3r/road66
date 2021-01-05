@@ -18,5 +18,10 @@ extern char* s_main_chara_name;
 extern int s_text_thread;
 extern int s_mile_gap_time;
 extern int s_maximum_size;
+extern int s_drop_per_mile;
+extern int s_start_money;
+extern int s_start_food;
+extern int s_start_gas;
+
 
 #endif

@@ -19,6 +19,10 @@ char* s_main_chara_name = "main_chara_name";
 int s_text_thread = 1;
 int s_mile_gap_time = 0;
 int s_maximum_size = 10;
+int s_drop_per_mile = 100;
+int s_start_money = 10;
+int s_start_food;
+int s_start_gas;
 
 int se_init()
 {
@@ -59,7 +63,11 @@ int se_init()
 	config_lookup_bool (&cf, "text_thread", &s_text_thread);
 	config_lookup_int(&cf, "mile_gap_time", &s_mile_gap_time);
 	config_lookup_int(&cf, "maximum_size", &s_maximum_size);
-	
+	config_lookup_int(&cf, "drop_per_mile", &s_drop_per_mile);
+	config_lookup_int(&cf, "start_money", &s_start_money);
+	config_lookup_int(&cf, "start_food", &s_start_food);
+	config_lookup_int(&cf, "start_gas", &s_start_gas);
+
 	return(EXIT_SUCCESS);
 }
 

@@ -1,3 +1,5 @@
+// 1/5/2021 6:20:54 PM
+//
 // SECONDARY EVENT #5
 // IT'S A TRAP!
 // Signature : Damien Boussard
@@ -6,8 +8,10 @@
 // char0 = The bad guy
 //
 // CONSEQUENCES :
-// - Loose food
+// - Loose 1 food
 // - Loose 1 passenger
+// - Loose 1 gas
+// - Loose 100$
 // - Game over
 // - Kill 1 person
 
@@ -97,10 +101,14 @@ You try to forget what just happened and continue on your way.
 
 [char0]Good choice. Now give us your ressources.
 
-	1 - Be obedient
+	1 - Be obedient.
 	// 9
-	2 - Refuse
-	// 8
+	2 - Refuse.
+		IF (passenger > 0)
+			// 8
+			//YOU LOOSE ONE PASSENGER
+		else
+			// GO TO 11
 
 —————————————————————————————————————————————
 
@@ -109,18 +117,24 @@ You try to forget what just happened and continue on your way.
 [narr]While looking you in the eye he shoots one of the bus passengers through the window.
 [char0]Next time it'll be you.
 
-	//YOU LOOSE ONE PASSENGER
 	1 - Give up
 	// 9
-	2 - Refuse one more / last(?) time
+	2 - Refuse one more time
 	// 10
 
 —————————————————————————————————————————————
 
 (#9)
 
-[narr]They take some of your food and leave while laughing.
+[narr]They steal ressources you and leave while laughing.
 
+	IF (you have at least 2 foods)
+		-1 food
+	IF (you have at least 100$)
+		-100$
+	IF (you have more than 1 gas)
+		-1 gas
+		
 	// YOU LOSE RESSOURCES
 	// EVENT ENDED
 
@@ -128,6 +142,19 @@ You try to forget what just happened and continue on your way.
 
 (#10)
 
-[narr]He shoots again, but in your head this time. Bad for you, there is no deus ex machina today.
+[narr]The next bullet goes through your head. Bad for you, there is no deus ex machina today.
 
 	//GAME OVER
+	
+—————————————————————————————————————————————
+
+(#11)
+
+[narr]He shoots again right ahead your feet.
+
+	1 - Give up
+	// 9
+	2 - Refuse one more time
+	// 10
+
+

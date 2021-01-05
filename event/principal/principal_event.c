@@ -1241,7 +1241,7 @@ void pe_event_2()
         switch(current)
 		{
 			case 0:
-				if(uf_compare("Maxence") == 1)
+				if(uf_compare("Maxence") != -1)
                 {
                     temp = ui_choice("Drop Maxence in Henderson City.", "/", "/", "/");
                     if(temp == 0)

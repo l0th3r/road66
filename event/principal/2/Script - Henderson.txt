@@ -1,6 +1,6 @@
-// 1/1/2021 11:41:36 PM
+// 1/5/2021 1:08:28 AM
 //
-// MAIN EVENT #3
+// MAIN EVENT #2
 // HENDERSON
 // SEE AN OLD FRIEND - SHOP - MEET A GUY WHO WANTS TO KILL ITSELF
 // Signature: Axel Faux
@@ -11,6 +11,7 @@
 // char2 = Rafe
 // char3 = Apu		// A seller, friend of char0
 // char4 = //a random passenger
+// char5 = Maxence
 //
 // CONSEQUENCES:
 // - Get ressources: food, medikit
@@ -241,7 +242,7 @@ You do so and when you enter, a shotgun is reloaded, aiming you.
 [char3]It's yours for fifty dollars.
 	
 	IF (myWallet >= 50) {
-		1 - Buy the gasoline barrel.
+		1 - I take it.
 		// GET 1 GAS
 		// 16
 		
@@ -450,7 +451,7 @@ The fat guy crashes the asphalt like a crepe.
 Yes, I do smoke! Why?
 [narr]You grab a cigarette pack from your pocket. You still have 2 cigarettes in it and you raise your hand to show it to the guy. 
 [main]Mate, here! Come with me to discuss! 
-[narr]The guy sniffs and rubs his sleeve on the face to dry his tears. He takes a breath… Wait for a while… 
+[narr]The guy sniffs and rubs his sleeve on the face to dry his tears. He takes a breath... Wait for a while... 
 And moves away from the edge of the building. The guy joins you and his hands are shaking. Coming to you, you kindly smile and give him a cigarette. 
 [char1]Thank you. 
 
@@ -574,8 +575,8 @@ And I let you quiet.
 [char0]You sound fun! What’s your name? 
 [main]I'm <main>. And you? 
 [narr]The guy sniffs and rubs his sleeve on the face to dry his tears. 
-He takes a breath… 
-Wait for while… 
+He takes a breath... 
+Wait for while...
 [char1]My name is <char1>!
 [narr]Then he moves away from the edge of the building. His hands are shaking. The guy joins you and brackets you. 
 [char1]Let’s leave this place.
@@ -597,7 +598,15 @@ Wait for while…
 
 (#37)		024
 
+[char5]It's time to transcend the video game, my friend. I will finally experience ecstasy.
+Thanks, pal. I owe you one. And if I were going to disappear, don't forget I'm doing this for art. I owe you one. 
+[narr]He turns around and gives you his wallet. As well as two mayonnaise chicken sandwitchs from the Bodeso brand.
+[char5]Farewell!
+[narr]Maxence leaves for the horizon, in pursuit of his dream. This image will remain forever engraved in your memory. A man ready to do anything for his art.
 
+	// Remove Maxence from the bus
+	// You gain 3$ 
+	// GET 2 foods
 	// GO TO 38
 
 ---------------------------------------------------------------------------------------------------------------------------

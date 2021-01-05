@@ -1,0 +1,255 @@
+// Secondary event #12
+// Barbecue
+//
+// Writer : Le Philippe Théo 
+//
+// char1 = Unknown Man // will be Bils 
+//
+// CONSEQUENCES 
+// Gain money
+// Gain person
+// Make a good action -> pris dans le bus
+// Make a bad action-> braquage 
+// Make a very bad action-> (kill)
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#0) 
+
+[narr]As you drive on the road, crossing a deserted land, you notice a red car parked at your right.
+
+	1 – Stop the bus.
+	//1 
+	2 – Keep driving.
+	// EVENT ENDED
+ 
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#1) 
+
+[narr]The rumbling sound of the engine is slowly decreasing until it stops. You pull the brake, take away your belt and get up from your seat. After a quick look in the direction of your cargo, you open the doors of the bus. While your step touches the ground, a violent blow comes right in your face. You immediately close the eyes before realising the heat of the wind. The air is dry and the sum is hitting so much that you need to put your hand over your eyes to protect them.
+You finally take a look at the car but the reflection of the sun blinds you. However, beneath the sand and dry dirt smelling, you start to smell something else. It's coming from the back of the car.
+
+	1 - Look around the car.
+	// 3 
+	2 - Go back to the bus. 
+	// 4
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#2) 
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#3) 
+
+[narr]You begin to make a move to search for the reason of this weird smelling.
+A man is sitted on a camping chair. He's half naked, wearing a blue jean, a white hat and a cigar, alone and trying to make a fire. 
+His dried mouth is covered with dust but you manage to see an extinguished cigar. He turns to you and smiles, showing his teeth, clean as if those were a bright window despite the dirt all over his chest.
+[main]Well! If it's not a fellow partner for barbecue that we have here!
+[narr]The man seems to need some help for the fire but before you ask anything, he'is crouching to blow a small fire that immediately comes to life and rises like a living creature. You realise a growling sound on your back and turn your head.
+A dog accompanied him, a puppy. It's an Australian cattle dog, focused on you and showing teeth.
+[char1]Come on Marina! Stop this mess and get over here!
+[narr]The dog stops his growling before passing between your legs as you are nothing but an obstacle to cross for him. The man is stroking his pet and seems careful.
+ 
+	1 - Talk to him.
+	// 5 
+	// char1 = Bils
+	2 - Grab your gun and threaten him.
+	// 6 
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#4) 
+
+[narr]You start the engine and hear a dog barking. It surprises you and your heart rate is skipping a beat and you put one's foot down. In your hurry, you didn't notice a voice who was calling.
+
+	// EVENT ENDED
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#5) 
+
+[narr]You start talking to him about who he is and why he's standing here alone with his dog. He's starting to cook sausages as you are discussing. Nevertheless, he's telling you that his name is <char1> and starts to share his story with you. 
+[char1]Ah, nice to meet you <main>!
+[main]What are you doing here alone?
+[char1]Ah... It's quite a long story to be honest. I've been fleeing for the past two days from my hometown that became... Radically different to tell the least.
+You see... I used to be a dog breeder. I used to be with animals and nothing could get me happier. A strange cult was gaining more and more power. 
+I wasn't really taking it like a problem you see. I think we can believe in what we wish and respect our choices but... not in that way. Sorry but I cannot just tell this to somebody, the scar is wild open in my heart.
+[narr]The man is giving you cooked meat. 
+[char1]Here, take it before it gets cold.
+[main]Thank you, <char1>.
+
+	1- Question him more. 
+	// 7 
+	2- Keep silent.
+	// 16
+ 
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#6)
+
+[narr]You pull out your gun and point it directly to the forefront of the man. He's looking you into your eyes. They are full of hatred.
+[char1]You are all the same.
+
+	1- Shoot at him.
+	// 8 
+	2- Keep your gun on him.
+	// 10
+
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#7) 
+
+[narr]You ask for sharing the complete story.
+[char1]After the meal then.
+[narr]You start eating your meat. It's good and it reminds you how precious your moments with your family are. It's only food but maybe it's more than that. The fire crackles and before it comes to ashes, <char1> takes a moment to feed his puppy and take him on his knees and pet him. He takes a breath and keeps telling you what happens to him.
+[char1]Haha you see... My dog, the old one, had a litter. She was supposed to give birth to puppies this month. 
+[narr]His voice is trembling and he's interrupting for a few seconds. 
+[char1]Two days ago, I was with my dogs and we were in the middle of the afternoon in the garden. Nothing was different from the over days. Until there... until they came. They... were five. Five white figures that come to my front gate and they pull out their... guns. Dark machines of death and they point them on my dogs. One of them shouted: Faithful America! The noise... It's... Still in my head. Not from the guns but my dogs... My dogs... 
+[narr]Tears appear all over his eyes. 
+
+	// GO TO 19
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#8) 
+
+[narr]You press the trigger and a bullet goes with a struggling sound. The man is lying on his chair stuffed by his blood. You hear a small whine. A small puppy is coming behind the rock. He seems to be afraid but succeeds to get out of his hide before starting to approach from the man's body. There's no way this puppy is going to survive.
+
+	1 - Kill it.
+	// 11
+	2 - Let him alive.
+	// 12
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#9)
+
+[narr]You look at the puppy and <char1>.
+[main]How can't I help a man that offers me a meal and lives such horrors? Come to my bus if you want, I'm heading to Oklahoma City.
+[narr]You can see in his bright eyes his happiness covered by tears that aren't even dry.
+[char1]Th... Thank you so much! You save me and my Marina!
+[narr]He smiles and gives you money to thank you. 
+
+	// GET 20 dollars
+	// GET Bils IN THE BUS
+	// EVENT ENDED 
+	
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#10)
+
+[char1]You are shooting, huh? Little balls for such a grown person.
+[narr]He's stepping up from his chair and starts to make a fire before stepping up with a rock on his hand. He hits you on the head. You scream, as the pain is taking away your sense. You take a look at your opponent by instinct... the man is preparing to land you another hit!
+
+	1- Evade.
+	// 18
+	2- Convince him to stop.
+	// 17
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#11)
+
+[narr]You decide to help it in your own way and shoot at him. Nevertheless, you hit it on the belly and the bullet didn't kill it. The puppy is still alive and screaming to death. You shoot another bullet to it then another one. The screams and calm comes once again. Searching for supplies. you find few resources. You leave your massacre to the desert and get back to your bus.
+
+	// GET 20 dollars
+	// GET 2 FOODS
+	// EVENT ENDED
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#12) 
+
+[narr]You let the puppy live and start to look for supplies. Your search is accompanied by the puppet. You find few resources and leave your massacre to the desert.
+	
+// GET 20 dollars
+	// GET 2 FOODS
+	// EVENT ENDED
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#13)
+
+[narr]You explain to him that you cannot take him into your bus. You see a strange rictus on his mouth.
+He hesitates for a bit but asks you for a bit of gas to help him to reach the next city he wishes to go.
+
+	1- Help him and give him 1 gas.
+	// 14
+	2- Don't help him.
+	// 15
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#14)
+
+[narr]You accept to help him.
+[char1]Th... Thank you so much <main>. 
+[narr]You leave the place with a smile, nod before getting to your bus and continue your trip.
+
+	// LOSE 1 GAS
+	//EVENT ENDED 
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#15)
+
+[narr]You tell him that you cannot give him anything. The man is turning to you.
+[char1]I gave you hospitality and food and this is how you reward me? Guess we fail to stay humans after all.
+[narr]You leave the place.
+
+	//EVENT ENDED
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#16) 
+
+[narr]You don't want to make him more uncomfortable.
+<char1> is looking at you, the puppy standing on his knees.
+[char1]Do you have fuel to help me out? I need one gas jerry can.
+
+	1- Help him and propose him a place on the bus.
+	// 9
+	2- Give him one gas.
+	// 14
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#17) 
+
+[main]Hold... On!
+[narr]The second hit is harder, you lose your consciousness and never wake up.
+
+	//GAME OVER
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#18) 
+
+[narr]You step aside and evade. By reflex, you pull out your gun and shoot him. He's lying inert on the sand and of course, dead. You hear a small whine. A small puppy is coming from behind a rock. He seems to be afraid but succeeds to get out of his hide before starting to approach from the man's body. There's no way it's gonna survive.
+
+	1 - Kill it.
+	// 11
+	2 - Let him alive.
+	// 12
+
+
+------------------------------------------------------------------------------------------------------------------------------------- 
+
+(#19) 
+
+[char1]They let me live and said that I should never have taken care of them. They left and I stayed here, powerless and unable to make a move. 
+Until I heard my dog who was having a litter. She wasn't making a sound but she was still alive, her body riddled of bullets. I came to her, even if the ground was full of blood and my eyes full of tears. I saw that she wasn't going to survive. I take his head on my knees like I always did. She left me, killed by these animals. 
+I cried a lot, drowned between despair and sadness and it was until I saw something moving in his belly.  
+[main]Did anyone of them survive? 
+[narr]Bils is looking, turning his head from the fire and directly pointing them into yours before looking at the puppy standing on his knees.
+[char1]Since then, I took my car and arrived here. My gas tank is empty... Can you help me?
+
+	1 - Propose him to come on the bus.
+	// 9
+	2 - Let him here.
+	// 13
+

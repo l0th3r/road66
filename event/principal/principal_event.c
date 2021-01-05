@@ -35,13 +35,13 @@ void pe_event_1()	/* Las Vegas */
     char* char5 = "/";
 
     int money_bet = -1;
-	int last_lost_machine_dial = 0;
-	int unlock_hostel = 0; 
-	int unlock_exit_door = 0;
-	int locked_fight_room = 0;
-	int owe_money = 0;
+    int last_lost_machine_dial = 0;
+    int unlock_hostel = 0; 
+    int unlock_exit_door = 0;
+    int locked_fight_room = 0;
+    int owe_money = 0;
 
-	char* fighter_bet = NULL;
+    char* fighter_bet = NULL;
     char* choice0_temp = NULL;
     char* choice1_temp = NULL;
     char* choice2_temp = NULL;
@@ -1228,7 +1228,7 @@ void pe_event_2()
     char* char2 = "Rafe";
     char* char3 = "Apu";
     char* char4 = NULL;
-    char* char5 = "/";
+    char* char5 = "Maxence";
 
     if(inventory->pa_count > 0)
         char4 = inventory->passengers[uf_random(inventory->pa_count)];
@@ -1243,7 +1243,7 @@ void pe_event_2()
 			case 0:
 				if(uf_compare("Maxence") == 1)
                 {
-                    temp = ui_choice("Knock again.", "Go back to the bus.", "/", "/");
+                    temp = ui_choice("Drop Maxence in Henderson City.", "/", "/", "/");
                     if(temp == 0)
                         current = 37;
                 }
@@ -1481,7 +1481,10 @@ void pe_event_2()
                 ui_continu_choice(win_men);
                 current = 24;
             break;
-            case 37:                
+            case 37:         
+                /* NEED : remove Maxence from the bus */    
+                en_mod_money(+3);
+                en_mod_food(+2);
                 ui_continu_choice(win_men);
                 current = 38;
             break;

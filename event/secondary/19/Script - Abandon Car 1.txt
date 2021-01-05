@@ -1,0 +1,23 @@
+// SECONDARY EVENT #19
+// Abandon Car 1
+// Signature: Maxence Jacquot
+---------------------------------------------------------------------------------------------------------------------------
+(#0)
+
+[narr]You see an abandoned car in the distance.
+
+	1 - Take a look. 	
+	// 1
+	2 - Keep driving.
+	// EVENT ENDED
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#1) 
+
+[narr]You get off.
+The car is empty. The owner probably left it there when the engine died. 
+You syphon what's left in the gas tank and leave.
+
+// add 1 Fuel
+// EVENT ENDED

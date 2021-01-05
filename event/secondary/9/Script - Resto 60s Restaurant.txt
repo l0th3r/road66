@@ -108,14 +108,12 @@ You take off the cloth.
 
 (#6)
 
-[narr]You both run and you let here come into the bus.
+[narr]You both run and you let her come into the bus.
 [char1]Let's go! We have to leave now!
 
 	1 - Leave.
 	// EVENT ENDED
-	2 - Go back to the restaurant.
-	// 
-
+	
 ---------------------------------------------------------------------------------------------------------------------------
 
 (#7)
@@ -263,4 +261,5 @@ Katy.
 	// 9
 	2 - Search the kitchen and open the cash register.
 	// 12
+
 

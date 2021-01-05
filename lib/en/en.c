@@ -80,21 +80,24 @@ void en_add_passenger(char* name, int pos)
 
 void en_rm_parrenger(int position)
 {
-	int i = position;
-
-	while(i < inventory->pa_count - 1)
+	if(position > -1)
 	{
+		int i = position;
+
+		while(i < inventory->pa_count - 1)
+		{
+			free(inventory->passengers[i]);
+			en_add_passenger(inventory->passengers[i + 1], i);
+
+			/* i know its dirty :/ */
+			inventory->pa_count -= 1;
+			i++;
+		}
+
 		free(inventory->passengers[i]);
-		en_add_passenger(inventory->passengers[i + 1], i);
 
-		/* i know its dirty :/ */
 		inventory->pa_count -= 1;
-		i++;
 	}
-
-	free(inventory->passengers[i]);
-
-	inventory->pa_count -= 1;
 }
 
 void en_mod_food(int val)
@@ -138,7 +141,7 @@ int en_loop(int target)
 
 	/* test delete */
 	en_add_passenger("SHOULD NOT DISPLAY", inventory->pa_count);
-	en_rm_parrenger(uf_compare("SHOULD NOT DISPLAY"));
+	en_rm_parrenger(uf_compare("SHOULD NOT PLAY"));
 
 	/* test Gas and gas */
 	en_mod_gas(+5);

@@ -1500,16 +1500,17 @@ void pe_event_2()
     }
 }
 
+
 void pe_event_7()	/* Dallas */
 {
     int current = 0;
     int temp;
-    char* char0 = "/";
-    char* char1 = "/";
+    char* char0 = "Rafe";
+    char* char1 = "Evelynn";
     char* char2 = "/";
-    char* char3 = "/";
-    char* char4 = "/";
-    char* char5 = "/";
+    char* char3 = "Masked Guy";
+    char* char4 = "Absjorn";
+    char* char5 = "Evelynn";
 
     char* fighter_bet = NULL;
     char* choice0_temp = NULL;
@@ -1521,6 +1522,8 @@ void pe_event_7()	/* Dallas */
     int explosives_installed = 0; /* 0 == false      1 == true */
 
     money_bet += 1;
+    if (inventory->pa_count > 0)
+        char4 = inventory->passengers[uf_random(inventory->pa_count)];
 
     while(current >= 0)
     {
@@ -2200,7 +2203,8 @@ void pe_event_7()	/* Dallas */
             }
             else
             {
-                /* NEED char2 = random passenger */
+                if (inventory->pa_count > 0)
+                    char4 = inventory->passengers[uf_random(inventory->pa_count)];
                 current = 262;
             }
             break;
@@ -3421,5 +3425,4 @@ void pe_event_7()	/* Dallas */
 
         after_event_clear(win_env, win_men);
     }
-
 }

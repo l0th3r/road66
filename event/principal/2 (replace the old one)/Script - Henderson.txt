@@ -1,0 +1,620 @@
+// 1/5/2021 1:08:28 AM
+//
+// MAIN EVENT #2
+// HENDERSON
+// SEE AN OLD FRIEND - SHOP - MEET A GUY WHO WANTS TO KILL ITSELF
+// Signature: Axel Faux
+//
+// CHARACTERS:
+// char0 = Jackson
+// char1 = Man // Will be Bob
+// char2 = Rafe
+// char3 = Apu		// A seller, friend of char0
+// char4 = //a random passenger
+// char5 = Maxence
+//
+// CONSEQUENCES:
+// - Get ressources: food, medikit
+// - Get someone in the bus
+// - Abandon someone
+// - You did a very good action, you saved someone
+// - You didn’t help someone
+// - You participated to a very bad action / participate to a death
+// - The bus get a bit of damage
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#0)
+
+[narr]You just arrived in Henderson city. You see the remains of many cars in the street, probably burned during yet another riot.
+
+	IF (Maxence is in the bus)
+		1 - Drop Maxence in Henderson City.
+		// 37
+	ELSE 
+		// 38
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+(#1) 001
+
+[narr]You turn left, stop in a narrow street and get off the bus. 
+It’s been years since you’ve stepped on these pave stones. <char0>’s house hasn’t changed tho. Except for the barricades. 
+You knock on his door.
+KNOCK KNOCK... KNOCK... KNOCK 
+[main]Hey <char0>! Are you there? 
+[narr]There is no answer.
+
+	1 - Knock again. 
+	// 2
+	2 - Go back to the bus.
+	// 3
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#2) 002
+
+[narr]KNOCK KNOCK...
+[main]Hey <char0>! Please answer if...
+[narr]He opens the door suddenly and drags you into the house.
+VLAM!
+He closes and locks the door in a single movement.
+
+	// GO TO STEP 7
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#3) 003
+
+[narr]You walk back to your bus and the door opens. 
+[char0]How dumb you are! Hurry up, come inside! 
+
+	1 - Go into the house.
+	// 7
+	2 - Say him goodbye.
+	// 19
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#4) 	004	// Do you wanna come with me?
+		// I am here to say goodbye to my old friend.
+
+[narr]Frowning, <char0> looks contraried about this idea.
+[char0]Where are you going like that?
+[main]To Oklahoma City. It’s gonna be worse over here, we still have time.
+[char0]There is a border over there and it's very near. What do you think you’ll find over there?
+
+	1 - Peace.
+	// 5
+	2 - Chaos?
+	// 6
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#5)	004.1 	// Peace.
+
+[narr]He sighs mockingly.
+[char0]How could you be so sure? I'm pretty sure that it's a coup. The profitability, a little step forward through dictature. They think with their bank account and their thirst for power!
+[narr]Grouchy, <char0> throws a kick in one of his doors.
+[char0]Damn this movement, they are garbage! They destroyed America! They destroyed our freedom! I tell you, <main>. I TELL YOU! It's a coup!
+[main]Nobody knows where it's coming from, <char0>.
+[char0]And I tell you that it's always because of someone in the government. This consumer society, the internet, the technology, it went too far! I don't want to be part of this masquerade.
+For sure I'm leaving, <char0>, but not to Oklahoma City.
+
+	1 - Where are you going?
+	// 8
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#6)	004.2 	// Chaos.
+
+[narr]You noticed a smile at the corner of his mouth.
+[char0]It could be! I remain unsure about the future of this country now... I'm pretty sure that it's a coup. The profitability, a little step forward through dictature. They think with their bank account and their thirst for power!
+[narr]Grouchy, <char0> throws a kick in one of his doors.
+[char0]Damn this movement, they are garbage! They destroyed America! They destroyed our freedom! I tell you, <main>, I think it's a coup!
+[main]Nobody knows where it's coming from, <char0>.
+[char0]And I tell you that it's always because of someone in the government. This consumer society, the internet, the technology, it went too far! I don't want to be part of this masquerade.
+For sure I'm leaving but not to Oklahoma City.
+
+	1 - Where are you going?
+	// 8
+
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+(#7)	005
+
+[char0]Fucking unconscious, don’t scream in front of my door like that. 
+Well, I'm glad that you are still alive my friend! 
+[main]I'm leaving, <char0>.
+
+	1 - Do you wanna come with me?
+	// 4
+	2 - I am here to say goodbye to my old friend.
+	// 4
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#8)	006	// Where are you going?
+
+[char0]I will try Alaska, lead a lumberjack life. 
+[main]It would fit you well!
+[char0]Maybe, maybe... Far away from this shit. I will only regret leaving my house and all of my friends. 
+Aaah. The America two dot zero of this century! What a big mistake.
+[narr]He gives a little pat on your shoulder.
+[char0]I have to take resources before I leave. Come with me, I need help to carry some things.
+[main]Everything is closed, didn't you see the city centre?
+[char0]Hey, you are speaking to <char0>! I have good relations, you have to trust me. I think my friend will let you take resources too.
+[main]Alright, is it far?
+[char0]It's only a block away. We can go by walking narrow paths, it's safer than the road.
+
+	IF (passenger == 1)
+	// GO TO 9
+		IF (passenger >= 2)
+	// GO TO 10
+	IF (passenger == 0)
+	// GO TO 11
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+(#9)	006.1	// 1 PASSENGER
+
+[main]Hold on, <char0>.
+[narr]You go back to your bus to inform your passenger.
+[main]Hey, I come back in a few minutes, I'm gonna bring resources with my friend <char0>.
+[char4]Don't worry <main>! I'll wait on the bus.
+
+	1 - Follow Jackson.
+	// 11
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+(#10)	006.2		// MANY PASSENGERS
+
+[main]Hold on, <char0>.
+[narr]You go back to your bus to inform your passengers.
+[main]Hey, I come back in a few minutes, I'm gonna bring resources with my friend <char0>.
+[char4]Don't worry <main>! We'll wait on the bus.
+
+	1 - Follow Jackson.
+	// 11
+		
+---------------------------------------------------------------------------------------------------------------------------
+
+(#11)	006.3	
+
+[main]Let's go, <char0>.
+[narr]You follow <char0> into the little walking path of the street, among houses. Far away, rare gunshot resonates in the city.
+[main]Is it still far?
+[char0]No, here we are. Let me speak and don't play stupid.
+[narr]In front of the building, <char0> whistles in a particular way, or even coded.
+A metallic curtain opens, just enough to pass under it. <char0> nods your head to ask you to follow and squats under it to enter into the building.
+You do so and when you enter, a shotgun is reloaded, aiming you.
+[char3]Who the fuck is he?
+[char0]Relax <char3>, it's an old friend.
+[narr]Brutally, <char3> approach <char0> to speak in lower voice.
+[char3]I told you to bring nobody, in these times it's impossible to give our confidence to people.
+[narr]Looking at you, <char0> replies slowly.
+[char0]It's <main>, the <char2>'s brother.
+
+	// GO TO 12
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#12)	006.4
+
+[narr]They both look at you a while.
+[main]What?
+[char3]Nothing. It's been a while since I saw him. How is he doing?
+[main]He died this morning...
+[char0]Fuck.
+[char3]Damn. I'm sorry...
+[char0]All my condolences, but why didn't you speak about it when we were at home? How did it happen?
+[main]Never mind, I don't want to speak about it. It's the... chaotic movement fault.
+[narr]Then <char0> and <char3> walk away in the room and argue in a low voice. You don't hear them very well but some words may come out from their conversation. You deduce some of those talking about conspiracy theory, chaos...
+[char3]Come here my friend, it's not polite to speak like that.
+[char0]We need ressources, <char3>.
+[char3]Alright, alright, I still have some things. In these hard times, I can't help you as much as I could before. However, I may give you this for both of you.
+[narr]He gives food to you and <char0>.
+
+	// GET 1 FOOD
+	// GO TO 13
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+(#13)	006.5
+
+[char0]Thank you, my friend.
+[char3]This is not a lot but I hope it will help you, see it as a gesture of benevolence. Overwise I still have few resources to sell.
+[narr]He shows his stock and <char0> gives him some bills to buy food and gasoline barrels.
+[main]How much?
+[char0]I still have one gasoline barrel. Sorry, it's all that I can afford to sell.
+
+	1 - How much for the gasoline barrel?
+	// 14
+	2 - No, thank you.
+	// 17
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+(#14)	006.6
+
+[char3]It's yours for fifty dollars.
+	
+	IF (myWallet >= 50) {
+		1 - I take it.
+		// GET 1 GAS
+		// 16
+		
+		2 - It's more than twice in a gas station!
+		// 15
+	}
+	
+	ELSE 
+		1 - I don't have enough money.
+		// 17
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+(#15)		006.7
+
+[char3]Do I have the face of a gas salesman asshole? Maybe you will never ever find gas!
+Who the fuck do you think you are? First I welcome you in my house, I give you food and disrespect me like that?!
+[narr]He approaches you, gesturing like an hysteric.
+[char0]Hey, HEY! Calm down!
+<main>, do you want it?
+
+	1 - Yes.
+	// GET 1 GAS
+	// 16
+	
+	2 - No, thanks.
+	// 17
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#16)		006.8
+
+[char3]Thank you. Sorry guys but I can't keep you here any longer.
+[char0]Alright, <char3>, thank you, my friend. I have to finish to prepare my stuff.
+[narr]He accompanies you both to the exit and nods you to say goodbye without a word.
+[char3]See you, <char0>. Take care, both of you.
+[narr]You go back to <char0>'s house.
+[main]What a strange man, <char3>.
+[char0]Don't judge him. I told you, I've safe sources.
+[narr]At his house, <char0> bid you farewell.
+[char0]You shouldn't stay here longer, we don't know how long the calm will last in Henderson. Or when a civil war could begin again, I would say. 
+[main]I wish you a peaceful journey, may our paths cross again.
+[narr]He gives a good tap in your shoulder and you leave with your bus.
+	
+	1 - Keep driving in Henderson.
+	// 20
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#17)		006.9
+
+[char3]So it's time for you to go, I can't keep you here any longer.
+[char0]Alright, <char3>, thank you, my friend. I have to finish to prepare my stuff.
+[narr]He accompanies you both to the exit and nods you to say goodbye without a word.
+[char3]See you, <char0>. Take care, both of you.
+[narr]You go back to <char0>'s house.
+[main]What a strange man, <char3>.
+[char0]Don't judge him. I told you, I've safe sources.
+[narr]At his house, <char0> bid you farewell.
+[char0]You shouldn't stay here longer, we don't know how long the calm will last in Henderson. Or when a civil war could begin again, I would say. 
+[main]I wish you a peaceful journey, may our paths cross again.
+[narr]He gives a good tap in your shoulder and you leave with your bus.
+	
+	1 - Keep driving in Henderson.
+	// 20
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#18)		006.92
+
+[char3]It's a shame. Guys, it's time for you to go, I can't keep you here any longer.
+[char0]Alright, <char3>, thank you, my friend. I have to finish to prepare my stuff.
+[narr]He accompanies you both to the exit and nods you to say goodbye without a word.
+[char3]See you, <char0>. Take care, both of you.
+[narr]You go back to <char0>'s house.
+[main]What a strange man, <char3>.
+[char0]Don't judge him. I told you, I've safe sources.
+[narr]At his house, <char0> bid you farewell.
+[char0]You shouldn't stay here longer, we don't know how long the calm will last in Henderson. Or when a civil war could begin again, I would say. 
+[main]I wish you a peaceful journey, may our paths cross again.
+[narr]He gives you a good tap on the shoulder and you leave.
+	
+	1 - Keep driving in Henderson.
+	// 20
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#19)		007
+
+[narr]He drags you into the house and closes the door. 
+
+	// GO TO 7
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#20)		008
+
+[narr]Almost at the exit of the city, you see someone on the top of a small building along your road. 
+You hear him screaming and crying. 
+
+	1 - Stop the bus next to the building.
+	// 22
+	2 - Keep driving.
+	// 21
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#21)	009
+
+[narr]Approaching the building, you hear the guy screaming. 
+BOOM! 
+Something just fell down on top of your bus. 
+You stop by reflex. You hear something rolling and you see a bloody fat guy falling like a crepe on the asphalt. 
+[main]FUCK! 
+[narr]Shocked, you finally keep driving. 
+[main]Poor guy, perhaps I should have stopped the bus...
+
+	// YOU DIDN'T HELP SOMEONE BUT IT DOESN'T MEAN THAT YOU KILLED HIM
+	// YOUR BUS TAKES A BIT OF DAMAGE
+
+	// GO TO 32
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#22)		010
+
+[narr]You stop the bus next to the building. 
+He is crying but still seems ready to jump.
+
+	1 - Hey dude! Don't do that!
+	// try to convince him - good one
+	// 25
+	2 - Jump coward!
+	// try a hard approach - good one
+	// 23
+	3 - Look at him.	
+	// do not empathize - bad one
+	// 26
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#23)		011	// HARD WAY
+
+[char1]What?! 
+[main]Dude, you are not gonna do that, come here to discuss. 
+[char1]Just go away! 
+[main]No, mate. I want to help you, everybody should deserve that! 
+[char1]This is not a matter of what we deserve! 
+My life is shit, everything is shit! 
+
+	1 - Do you smoke?
+	// 27
+	2 - Of course life is shit! And we all have to fight it!
+	// 28
+	3 -  Holy shit you are right! And when I see your big ass, I pity you even more!
+	// 31
+
+---------------------------------------------------------------------------------------------------------------------------
+
+
+(#24) 	012	// YOU DID 2 BAD CHOICES
+
+[narr]He is mumbling something, still staggering. 
+Then he jumps! 
+[char1]Aaaaaaah! 
+[narr]His scream is loud and terrifying. Like a puppet you see him falling and his arms are swinging in the air... 
+It seems like the time just stopped. You know what’s gonna happen is now inevitable.
+SPLATCH! 
+The fat guy crashes the asphalt like a crepe. 
+[main]Fuck! It's disgusting...
+[narr]Shocked, you go back to your bus.
+
+	// YOU DIDN’T HELP SOMEONE
+	// GO TO 32
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#25)		013	// GOOD WAY
+
+[char1]No! Go away, I want to finish all of this! 
+[narr]He looks very determined to jump and look at the ground, forty-two feet lower.
+
+	1 - Ask him if he's a smoker.
+	// 27
+	2 - You try a joke and propose.
+	// 30
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#26)		014
+
+[narr]The guy looks at you too. 
+[char1]What the hell are you looking at? 
+
+	1 - Don't answer.
+	// 24
+	2 - You big fat ass! Are you gonna jump?
+	// 23
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#27)		015
+
+[narr]The guy stops crying and looks at you. 
+[char1]What the fuck? 
+Yes, I do smoke! Why?
+[narr]You grab a cigarette pack from your pocket. You still have 2 cigarettes in it and you raise your hand to show it to the guy. 
+[main]Mate, here! Come with me to discuss! 
+[narr]The guy sniffs and rubs his sleeve on the face to dry his tears. He takes a breath... Wait for a while... 
+And moves away from the edge of the building. The guy joins you and his hands are shaking. Coming to you, you kindly smile and give him a cigarette. 
+[char1]Thank you. 
+
+	1 - What’s your name? 
+	// YOU SAVED SOMEONE
+	// char1 = Bob
+	// GO TO 29
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#28)		016
+
+[char1]I don’t want to fight anymore! 
+[narr]He is mumbling something, still staggering. 
+Then he jumps! 
+[char1]Aaaaaaah! 
+[narr]His scream is loud and terrifying. Like a puppet you see him falling and his arms are swinging in the air... 
+It seems like the time just stopped. You know what’s gonna happen is now inevitable.
+SPLATCH! 
+The fat guy crashes the asphalt like a crepe. 
+[main]Fuck! It's disgusting...
+[narr]Shocked, you go back to your bus.
+
+	// YOU DIDN’T HELP SOMEONE
+	// GO TO 32
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#29)		017
+
+[char1]My name is <char1>.
+[main]What are you going to do? You’re gonna jump from this building?
+[char1]I don't know... I came here because I lost my family, my business... Look around you, the city is not alive anymore and several buildings are destroyed. What should I do?
+
+	1 - Propose him to come with you.
+	// 33
+	2 - Suggest him to leave this city.
+	// 34
+		
+---------------------------------------------------------------------------------------------------------------------------
+
+(#30)		018
+
+[main]And what about jumping from a higher building? Most of the half fail their suicide from this height.
+[narr]The man mirthless laughs and looks at you! 
+[char1]Haha! You remind me someone, you little bastard! 
+[main]Come on! I don’t want to be mean with you. 
+
+	1 - Propose him to come with you.
+	// 35
+	2 - Suggest him to leave this city.
+	// 36
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#31)		019
+
+[narr]The man becomes angry and screams after you. 
+[char1]YOU LITTLE PIECE OF SHIT! 
+You are the worst asshole I’ve met in my life! 
+[main]You fat ass! You make an eclipse with the sun! 
+[char1]FUCK YOU! 
+[narr]The guy gains momentum and jumps in the direction of your bus. 
+[char1]Aaaaaaah! 
+[narr]His scream is loud. 
+Like a puppet you see him falling and his arms are swinging in the air... 
+At this moment, you knew you fucked up. And it was like the time was stopped when you felt your heart stop beating. 
+BOOM! 
+The sound of the crash and the violence of the impact is terrifying. 
+He falls on the top of your bus like a crepe, then on the asphalt.
+[main]Fuck!
+[narr]Your bus is a bit damaged. The sheet is even a little sunken. Shocked, you go back to your bus and keep driving.
+
+	// YOU PARTICIPATED TO A VERY BAD ACTION
+	// YOUR BUS TAKE A BIT OF DAMAGE
+	// GO TO 32
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#32)		020
+
+[narr]You leave the place and keep driving. 
+You see a road panel saying that you are leaving Henderson.
+
+	// EVENT ENDED
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#33)		021
+
+[main]Well, <char1>, do you need a ride? I almost cross the USA to the East Coast? I try to reach a safe place.
+[narr]Yes, wherever you want. I need to leave this place.
+[main]Here we go! I'm <main>.
+[char1]Thank you very much <main>.
+
+	1 - Keep driving.
+	// YOU SAVED SOMEONE
+	// YOU GET char1 IN THE BUS
+	// 32
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#34)		022
+
+[main]I suggest you leave this city, mate.
+[char1]You are right, I'll take my car and go to Mexico, it was a kid dream.
+[main]Amazing! Realize your dream, you have nothing to lose.
+[narr]He takes you in his arms.
+[char1]You are a good person, <main>. Thank you.
+[narr]He greets you and goes back to his car.
+
+	1 - Keep driving.
+	// 32
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#35)		023
+
+[main]Listen. Here is a deal: I cross the USA to the East Coast. Don’t jump, and I may drive you somewhere else less shabby than this city. 
+And I let you quiet. 
+[char0]You sound fun! What’s your name? 
+[main]I'm <main>. And you? 
+[narr]The guy sniffs and rubs his sleeve on the face to dry his tears. 
+He takes a breath... 
+Wait for while...
+[char1]My name is <char1>!
+[narr]Then he moves away from the edge of the building. His hands are shaking. The guy joins you and brackets you. 
+[char1]Let’s leave this place.
+
+	// YOU SAVED SOMEONE
+	// YOU GET char1 IN THE BUS
+	// GO TO 32
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+(#36)		024
+
+[main]You should leave the city and realize your dreams!
+[char1]What dreams?! I don’t want to fight anymore! 
+
+	// GO TO 24
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#37)		024
+
+[char5]It's time to transcend the video game, my friend. I will finally experience ecstasy.
+Thanks, pal. I owe you one. And if I were going to disappear, don't forget I'm doing this for art. I owe you one. 
+[narr]He turns around and gives you his wallet. As well as two mayonnaise chicken sandwitchs from the Bodeso brand.
+[char5]Farewell!
+[narr]Maxence leaves for the horizon, in pursuit of his dream. This image will remain forever engraved in your memory. A man ready to do anything for his art.
+
+	// You gain 3$ 
+	// GET 2 foods
+	// GO TO 38
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#38)		024
+
+[radio]... the USA army is currently negotiating ##th the president to divide the ############## be faith################ an ################ better future ################cision on the border ####... 
+[narr]A frequency scrambles the radio with another one. You may get some incomplete information until the radio is completely inaudible.
+One of your friends lives here, <char0>, you wonder how he's living all of this. 
+Maybe you could pay him a visit? He lives only a few streets ahead.
+
+	// GO TO 1

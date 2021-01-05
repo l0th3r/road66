@@ -132,10 +132,24 @@ int en_loop(int target)
 
 	/* ============== TEST ============== */
 
+	/* test add */
 	en_add_passenger("yeee", inventory->pa_count);
 	en_add_passenger("1111", inventory->pa_count);
 
-	en_mod_gas(+1);
+	/* test delete */
+	en_add_passenger("SHOULD NOT DISPLAY", inventory->pa_count);
+	en_rm_parrenger(uf_compare("SHOULD NOT DISPLAY"));
+
+	/* test Gas and gas */
+	en_mod_gas(+5);
+	en_mod_food(+6);
+
+	en_mod_gas(-1);
+	en_mod_food(-1);
+
+	/* test money */
+	en_mod_money(+100);
+	en_mod_money(-100);
 
 	/* ============== TEST ============== */
 
@@ -192,4 +206,10 @@ void en_end()
 	}
 	free(inventory->passengers);
 	free(inventory);
+
+	/* TEST */
+
+	/* printf("res = %d\n", uf_strcmp("Cosom", "Cosmo")); */
+
+	/* TEST */
 }

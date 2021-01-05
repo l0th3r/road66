@@ -25,9 +25,9 @@ int uf_strcmp(char* src, char* dest)
 
 	if(uf_str_len(src) == uf_str_len(dest))
 	{
+		to_return = 1;
 		while(i < uf_str_len(src))
 		{
-			to_return = 1;
 			if(src[i] != dest[i])
 				to_return = 0;
 			i++;
@@ -39,13 +39,13 @@ int uf_strcmp(char* src, char* dest)
 
 int uf_compare(char* to_use)
 {
-	int to_return = 0;
+	int to_return = -1;
 	int i = 0;
 
 	while(i < inventory->pa_count)
 	{
 		if(uf_strcmp(to_use, inventory->passengers[i]) == 1)
-			to_return = 1;
+			to_return = i;
 		i++;
 	}
 

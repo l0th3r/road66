@@ -1,0 +1,95 @@
+// SECONDARY EVENT #10
+// GAS STATION
+// Signature: Axel Faux
+//
+// PARAMETER:
+//
+// CHARACTERS:
+// char0 = Cashier
+// 
+//
+// CONSEQUENCES:
+//  Buy food
+//  Buy gasoline
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#0)
+
+[narr]There is a gas station on your right, apparently open.
+
+ .d8888b.   .d8888b.        .d8888b.         d8888  .d8888b.        .d8888b.         d8888  .d8888b.
+d88P  Y88b d88P  Y88b      d88P  Y88b       d88888 d88P  Y88b      d88P  Y88b       d88888 d88P  Y88b
+888        888             888    888      d88P888 Y88b.           888    888      d88P888 Y88b.
+888d888b.  888d888b.       888            d88P 888  "Y888b.        888            d88P 888  "Y888b.
+888P "Y88b 888P "Y88b      888  88888    d88P  888     "Y88b.      888  88888    d88P  888     "Y88b.
+888    888 888    888      888    888   d88P   888       "888      888    888   d88P   888       "888
+Y88b  d88P Y88b  d88P      Y88b  d88P  d8888888888 Y88b  d88P      Y88b  d88P  d8888888888 Y88b  d88P
+ "Y8888P"   "Y8888P"        "Y8888P88 d88P     888  "Y8888P"        "Y8888P88 d88P     888  "Y8888P"
+
+(66 GAS GAS)
+                                                               
+	1 - Stop at the gas station.
+	// 1
+	2 - Keep driving.
+	// EVENT ENDED
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#1)
+
+[narr]You enter the little store, no more different from those we are used to seeing.
+Two cops are drinking a cofee and keep an eye on you.
+[char0]Hello, sir!
+[main]Hi!
+
+	1 - Buy him something.
+	// 2
+	4 - Leave the gas station.
+	// 3
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#2)
+
+[char0]How may I help you?
+[narr]		   _	
+			./ o \.
+		 ...*		  *...
+	  ...*		      *...
+    ..*		      	     *..
+ ..*						   *..
+o ===================================	o
+|		    66 GAS GAS			|
+|							|
+|	FOOD: 	X0	:	30$ / u	|
+|	GASOLINE: 	X1	:	45$ / u	|
+o ===================================	o
+		
+	1 - Leave the gas station.
+	// 5
+
+			
+	// IF (busStorage < busCapacity)
+		// IF (wallet >= gasolinePrice)
+		2 - Buy gasoline.
+		// MONEY -45
+		// 3
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#3)
+
+[narr]After a little break, you leave.
+[main]Have a nice day!
+[char0]Thank you, bye.
+
+	// EVENT ENDED
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+
+
+

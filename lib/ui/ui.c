@@ -170,6 +170,11 @@ int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4)
 	return selected;
 }
 
+void ui_log_inv(char* str)
+{
+
+}
+
 void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char* char1, char* char2, char* char3, char* char4, char* char5)
 {
 	char* raw;
@@ -353,20 +358,79 @@ void ui_update_progress(int val, int end_value, int current_city)
 void ui_update_inventory()
 {
 	/* lines */
-	int i = 4;
+	int i = 6;
 	/* loop variable */
 	int j = 0;
 
 	mvwprintw(win_inv, 2, 4, "Inventory slots %d/%d", en_update_total(), inventory->capacity);
+	mvwprintw(win_inv, 4, 4, "Wallet %d$", inventory->money);
 
 	if(inventory->pa_count > 0)
-		mvwprintw(win_inv, 3, 4, "%d Passengers:", inventory->pa_count);
+		mvwprintw(win_inv, 5, 4, "%d Passengers:", inventory->pa_count);
 
 	while(j < inventory->pa_count)
 	{
 		mvwprintw(win_inv, i, 4, "- %s", inventory->passengers[j]);
 		i++;
 		j++;
+	}
+
+	start_color();
+	init_color(COLOR_RED, 255, 0, 0);
+	init_pair(2, COLOR_RED, COLOR_BLACK);
+
+	/* generate gas and food bar */
+	i = inventory->capacity / 2;
+
+	while(i >= 0)
+	{
+		/* gas */
+		if(i <= inventory->gas / 2)
+		{
+			mvwaddch(win_inv, (inv_h - i) - 4, 3, ACS_CKBOARD);
+			mvwaddch(win_inv, (inv_h - i) - 4, 4, ACS_CKBOARD);
+			mvwaddch(win_inv, (inv_h - i) - 4, 5, ACS_CKBOARD);
+		}
+		else
+		{
+			mvwaddch(win_inv, (inv_h - i) - 4, 3, ACS_LTEE);
+			mvwaddch(win_inv, (inv_h - i) - 4, 4, ' ');
+			mvwaddch(win_inv, (inv_h - i) - 4, 5, ' ');
+		}
+
+		if(i - 1 == inventory->gas / 2)
+		{	
+			mvwprintw(win_inv, (inv_h - i) - 4, 5, "%d", inventory->gas);
+		}
+
+		/* food */
+		if(i <= inventory->food / 2)
+		{
+			if(inventory->food <= inventory->pa_count + 1)
+				wattron(win_inv, COLOR_PAIR(2));
+
+			mvwaddch(win_inv, (inv_h - i) - 4, 8, ACS_CKBOARD);
+			mvwaddch(win_inv, (inv_h - i) - 4, 9, ACS_CKBOARD);
+			mvwaddch(win_inv, (inv_h - i) - 4, 10, ACS_CKBOARD);
+			wattroff(win_inv, COLOR_PAIR(2));
+		}
+		else
+		{
+			mvwaddch(win_inv, (inv_h - i) - 4, 8, ACS_LTEE);
+			mvwaddch(win_inv, (inv_h - i) - 4, 9, ' ');
+			mvwaddch(win_inv, (inv_h - i) - 4, 10, ' ');
+		}
+
+		if(i - 1 == inventory->food / 2)
+		{
+			if(inventory->food <= inventory->pa_count + 1)
+				wattron(win_inv, COLOR_PAIR(2));
+			mvwprintw(win_inv, (inv_h - i) - 4, 10, "%d", inventory->food);
+			
+			wattroff(win_inv, COLOR_PAIR(2));
+		}
+		
+		i--;
 	}
 
 	wrefresh(win_inv);

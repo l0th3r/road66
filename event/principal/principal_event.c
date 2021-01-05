@@ -6,6 +6,8 @@ void empty() {}
 void pe_event_1();
 void pe_event_2();
 
+int who_is_alive = 0;
+
 /* function to call for each city */
 void (*city_event[9])() = 
 {

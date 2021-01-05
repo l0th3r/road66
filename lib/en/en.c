@@ -136,25 +136,31 @@ int en_loop(int target)
 	/* ============== TEST ============== */
 
 	/* test add */
-	en_add_passenger("yeee", inventory->pa_count);
-	en_add_passenger("1111", inventory->pa_count);
+	en_add_passenger("Maxence", inventory->pa_count);
+	en_add_passenger("Philipe", inventory->pa_count);
 
 	/* test delete */
 	en_add_passenger("SHOULD NOT DISPLAY", inventory->pa_count);
-	en_rm_parrenger(uf_compare("SHOULD NOT PLAY"));
+	en_rm_parrenger(uf_compare("SHOULD NOT DISPLAY"));
 
 	/* test Gas and gas */
-	en_mod_gas(+5);
+	en_mod_gas(+10);
 	en_mod_food(+6);
 
 	en_mod_gas(-1);
 	en_mod_food(-1);
 
 	/* test money */
-	en_mod_money(+100);
-	en_mod_money(-100);
+	en_mod_money(+10);
+	en_mod_money(-1);
 
 	/* ============== TEST ============== */
+
+	if(els_is_update)
+		ui_update_progress(els_miles_counter, mile_target, els_current_city);
+	
+	if(els_is_inventory)
+		ui_update_inventory();
 
 	/* check if user stille have gas */
 	if(inventory->gas == 0)
@@ -173,7 +179,7 @@ int en_loop(int target)
 
 		/* random event */
 		/* if(uf_random(s_city_drops[target] * (mile_target - start_mile)) == 0) */
-		if((els_miles_counter % 10) == 0 && s_cities_drops[target] <= uf_random(100))
+		if((els_miles_counter % 100) == 0 && s_cities_drops[target] <= uf_random(100))
 		{
 			(*se_events[uf_random(6) + 1])();
 		}

@@ -19,7 +19,8 @@ void se_event_9();
 void se_event_10();
 void se_event_11();
 void se_event_12();
-/* */ 
+void se_event_13();
+/* */
 void se_event_18();
 void se_event_19();
 void se_event_20();
@@ -453,7 +454,7 @@ void se_event_3()
             break;
         case 15:
             temp = ui_choice("Leave.", "Search in the truck.", "/", "/");
-            if (temp == 0) 
+            if (temp == 0)
                 current = -1;
             if (temp == 1)
                 current = 12;
@@ -1157,6 +1158,114 @@ void se_event_12()
         case 5:
             current = -1; /* NEED GAME OVER*/
             ui_continu_choice();
+            break;
+        }
+
+        after_event_clear(win_env, win_men);
+    }
+}
+
+void se_event_13()
+{
+    int current = 0;
+    int temp;
+    char* char0 = "Evelynn";
+    char* char1 = "Rafe";
+    char* char2 = "/";
+    char* char3 = "/";
+    char* char4 = "/";
+    char* char5 = "/";
+
+    while (current >= 0)
+    {
+        ui_print_dial(win_env, current, ev_w, "event/secondary/13", char0, char1, char2, char3, char4, char5);
+
+        switch (current)
+        {
+        case 0:
+            temp = ui_choice("It's possible.", "I don't think so, I'm alright.", "/", "/");
+            if (temp == 0)
+                current = 1;
+            if (temp == 1)
+                current = 15;
+            break;
+        case 1:
+            temp = ui_choice("Everything is gonna be alright.", "What's happening to me?", "/", "/");
+            if (temp == 0)
+                current = 2;
+            if (temp == 1)
+                current = 2;
+            break;
+        case 2:
+            temp = ui_choice("Focus more.", "Focus on the road.", "/", "/");
+            if (temp == 0)
+                current = 3;
+            if (temp == 1)
+                current = 4;
+            break;
+        case 3:
+            current = 16;
+            ui_continu_choice();
+            break;
+        case 4:
+            current = -1;
+            ui_continu_choice();
+            break;
+        case 5:
+            temp = ui_choice("Fight the thing!", "Keep swiming!", "/", "/");
+            if (temp == 0)
+                current = 7;
+            if (temp == 1)
+                current = 8;
+            break;
+        case 6:
+            temp = ui_choice("Found out what it is.", "Flee from this thing.", "/", "/");
+            if (temp == 0)
+                current = 11;
+            if (temp == 1)
+                current = 12;
+            break;
+        case 7:
+            temp = ui_choice("Go on the surface!", "Keep fighting!", "/", "/");
+            if (temp == 0)
+                current = 9;
+            if (temp == 1)
+                current = 10;
+            break;
+        case 8:
+            current = -1;
+            ui_continu_choice();
+            break;
+        case 9:
+            current = -1;
+            ui_continu_choice();
+            break;
+        case 10:
+            current = -1;
+            ui_continu_choice();
+            break;
+        case 11:
+            current = -1;
+            ui_continu_choice();
+            break;
+        case 12:
+            current = -1;
+            ui_continu_choice();
+            break;
+        case 15:
+            current = -1;
+            ui_continu_choice();
+            break;
+        case 16:
+            current = 17;
+            ui_continu_choice();
+            break;
+        case 17:
+            temp = ui_choice("Run away!", "Wait.", "/", "/");
+            if (temp == 0)
+                current = 5;
+            if (temp == 1)
+                current = 6;
             break;
         }
 

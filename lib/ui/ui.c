@@ -23,6 +23,7 @@ void ui_update_inventory();
 
 /* USER INTERACTIONS */
 void ui_continu_choice(WINDOW * win_men);
+void ui_log_choice(char* str);
 int ui_set_menu();
 int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4);
 
@@ -103,6 +104,25 @@ int ui_refresh(int is_menu)
 	return temp;
 }
 
+void ui_log_choice(char* str)
+{
+	start_color();
+	init_color(COLOR_RED, 255, 168, 0);
+	init_pair(2, COLOR_RED, COLOR_BLACK);
+
+	wattron(win_inv, COLOR_PAIR(2));
+	mvwprintw(win_men, 2, 2, "%s",str);
+	wattroff(win_inv, COLOR_PAIR(2));
+
+	wrefresh(win_men);
+}
+
+void ui_log_inv(char* str)
+{
+	mvwprintw(win_inv, inv_h - (inventory->capacity - 5), 2, "%s", str);
+	wrefresh(win_inv);
+}
+
 int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4)
 {
 	int is_good = 0;
@@ -127,14 +147,14 @@ int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4)
 			if(i == selected)
 				wattron(win_men, A_REVERSE);
 
-			mvwprintw(win_men, i + 2, 2, "%d: %s", i + 1, arr[i]);
+			mvwprintw(win_men, i + 3, 2, "%d: %s", i + 1, arr[i]);
 
 			if(arr[i + 1][0] == '/')
 				end = i + 1;
 
 			wattroff(win_men, A_REVERSE);
-			mvwprintw(win_men, 6, 2, "^ and v arrows to navigate.");
-			mvwprintw(win_men, 7, 2, "enter key to select.");
+			mvwprintw(win_men, me_h - 3, 2, "^ and v arrows to navigate.");
+			mvwprintw(win_men, me_h - 2, 2, "enter key to select.");
 
 			wrefresh(win_men);
 			i++;	
@@ -168,11 +188,6 @@ int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4)
 	wrefresh(win_men);
 
 	return selected;
-}
-
-void ui_log_inv(char* str)
-{
-
 }
 
 void ui_print_dial(WINDOW * win, int id, int ev_w, char* path, char* char0, char* char1, char* char2, char* char3, char* char4, char* char5)
@@ -368,21 +383,26 @@ void ui_update_inventory()
 	init_color(COLOR_RED, 255, 0, 0);
 	init_pair(2, COLOR_RED, COLOR_BLACK);
 
+	/* print inventory slots, in red if full */
 	if(en_update_total() == inventory->capacity)
 		wattron(win_inv, COLOR_PAIR(2));
+	
 	mvwprintw(win_inv, 2, 4, "Inventory slots %d/%d", en_update_total(), inventory->capacity);
 	wattroff(win_inv, COLOR_PAIR(2));
 
+	/* print money */
 	mvwprintw(win_inv, 3, 4, "Wallet %d$", inventory->money);
 
+	/* print passengers if there is more than 0 */
 	if(inventory->pa_count > 0)
-		mvwprintw(win_inv, 5, 4, "%d Passengers:", inventory->pa_count);
-
-	while(j < inventory->pa_count)
 	{
-		mvwprintw(win_inv, i, 4, "- %s", inventory->passengers[j]);
-		i++;
-		j++;
+		mvwprintw(win_inv, 5, 4, "%d Passengers:", inventory->pa_count);
+		while(j < inventory->pa_count)
+		{
+			mvwprintw(win_inv, i, 4, "- %s", inventory->passengers[j]);
+			i++;
+			j++;
+		}
 	}
 
 	/* generate gas and food bar */
@@ -397,12 +417,14 @@ void ui_update_inventory()
 			mvwaddch(win_inv, (inv_h - i) - 4, gas_start, ACS_CKBOARD);
 			mvwaddch(win_inv, (inv_h - i) - 4, gas_start + 1, ACS_CKBOARD);
 			mvwaddch(win_inv, (inv_h - i) - 4, gas_start + 2, ACS_CKBOARD);
+			mvwaddch(win_inv, (inv_h - i) - 4, gas_start + 3, ' ');
 		}
 		else
 		{
 			mvwaddch(win_inv, (inv_h - i) - 4, gas_start, ACS_LTEE);
 			mvwaddch(win_inv, (inv_h - i) - 4, gas_start + 1, ' ');
 			mvwaddch(win_inv, (inv_h - i) - 4, gas_start + 2, ' ');
+			mvwaddch(win_inv, (inv_h - i) - 4, gas_start + 3, ' ');
 		}
 
 		if(i == inventory->gas / 2)
@@ -418,6 +440,7 @@ void ui_update_inventory()
 			mvwaddch(win_inv, (inv_h - i) - 4, food_start, ACS_CKBOARD);
 			mvwaddch(win_inv, (inv_h - i) - 4, food_start + 1, ACS_CKBOARD);
 			mvwaddch(win_inv, (inv_h - i) - 4, food_start + 2, ACS_CKBOARD);
+			mvwaddch(win_inv, (inv_h - i) - 4, food_start + 3, ' ');
 			wattroff(win_inv, COLOR_PAIR(2));
 		}
 		else
@@ -425,13 +448,14 @@ void ui_update_inventory()
 			mvwaddch(win_inv, (inv_h - i) - 4, food_start, ACS_LTEE);
 			mvwaddch(win_inv, (inv_h - i) - 4, food_start + 1, ' ');
 			mvwaddch(win_inv, (inv_h - i) - 4, food_start + 2, ' ');
+			mvwaddch(win_inv, (inv_h - i) - 4, food_start + 3, ' ');
 		}
 
 		if(i == inventory->food / 2)
 		{
 			if(inventory->food < inventory->pa_count + 1)
 				wattron(win_inv, COLOR_PAIR(2));
-			mvwprintw(win_inv, (inv_h - i) - 4, food_start + 2, "%d   ", inventory->food);
+			mvwprintw(win_inv, (inv_h - i) - 4, food_start + 2, "%d  ", inventory->food);
 			
 			wattroff(win_inv, COLOR_PAIR(2));
 		}

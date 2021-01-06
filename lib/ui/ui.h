@@ -26,6 +26,7 @@ void ui_update_inventory();
 
 /* USER INTERACTIONS */
 void ui_continu_choice(WINDOW * win_men);
+void ui_log_choice(char* str);
 int ui_set_menu();
 int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4);
 

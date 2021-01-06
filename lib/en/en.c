@@ -112,13 +112,17 @@ int en_loop(int target)
 		if(els_is_inventory)
 			ui_update_inventory();
 
-		/* random event */
+		/* generate random event */
 		if((els_miles_counter % s_drop_per_mile) == 0 && s_cities_drops[target] <= uf_random(100))
 			(*se_events[uf_random(6) + 1])();
 		
 		/* check if half of jurney */
 		if(current_mile_counter == (mile_target - start_mile) / 2)
 		{
+			/* remove gas from the trip */
+			en_mod_gas(-1);
+
+			/* remove food from the trip */
 			if(inventory->food > 0)
 			{
 				/* remove food for main character */
@@ -185,6 +189,10 @@ void en_rm_passenger(int position)
 
 		free(inventory->passengers[i]);
 
+		if(inventory->gas < 1)
+			en_mod_food(-1);
+		else
+			en_mod_gas(-1);
 		inventory->pa_count -= 1;
 	}
 
@@ -196,7 +204,43 @@ void en_rm_passenger(int position)
 
 void en_mod_food(int val)
 {
-	/* NEEDS INVENTORY LOGS */
+	int temp;
+	char* choice_0 = "Replace 1 Passenger?";
+	char* choice_1 = "Replace 1 Gas?";
+
+	if(en_update_total() + val > inventory->capacity)
+	{
+		while(en_update_total() < inventory->capacity && val > 0)
+		{
+			inventory->food += 1;
+			val--;
+		}
+		while(val > 0)
+		{
+			ui_update_inventory();
+			if(inventory->pa_count < 1)
+				choice_0 = "/";
+			if(inventory->gas < 1)
+				choice_1 = "/";
+
+			/* ask the user whith what he want to switch ressources */
+			ui_log_choice("You have to many things, select what you want to sacrifice one by one:");
+			temp = ui_choice(choice_0, choice_1, "/", "/");
+			if(temp == 0 && inventory->pa_count > 0)
+			{
+				en_rm_passenger(0);
+				inventory->food += 1;
+				val--;
+			}
+			if(temp == 1 && inventory->gas > 0)
+			{
+				en_mod_gas(-1);
+				inventory->food += 1;
+				val--;
+			}
+		}
+	}
+	ui_update_inventory();
 	inventory->food += val;
 }
 
@@ -208,7 +252,43 @@ void en_mod_money(int val)
 
 void en_mod_gas(int val)
 {
-	/* NEEDS INVENTORY LOGS */
+	int temp;
+	char* choice_0 = "Replace 1 Passenger?";
+	char* choice_1 = "Replace 1 Food?";
+
+	if(en_update_total() + val > inventory->capacity)
+	{
+		while(en_update_total() < inventory->capacity && val > 0)
+		{
+			inventory->gas += 1;
+			val--;
+		}
+		while(val > 0)
+		{
+			ui_update_inventory();
+			if(inventory->pa_count < 1)
+				choice_0 = "/";
+			if(inventory->food < 1)
+				choice_1 = "/";
+
+			/* ask the user whith what he want to switch ressources */
+			ui_log_choice("You have to many things, select what you want to sacrifice one by one:");
+			temp = ui_choice(choice_0, choice_1, "/", "/");
+			if(temp == 0 && inventory->pa_count > 0)
+			{
+				en_rm_passenger(0);
+				inventory->gas += 1;
+				val--;
+			}
+			if(temp == 1 && inventory->food > 0)
+			{
+				en_mod_food(-1);
+				inventory->gas += 1;
+				val--;
+			}
+		}
+	}
+	ui_update_inventory();
 	inventory->gas += val;
 }
 

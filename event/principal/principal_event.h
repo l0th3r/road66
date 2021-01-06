@@ -3,7 +3,8 @@
 
 
 /* functions to call for each event */
-void (*city_event[9])();
+void (*city_events[9])();
+void (*main_events[7])();
 
 
 #endif

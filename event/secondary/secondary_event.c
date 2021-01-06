@@ -577,7 +577,7 @@ void se_event_5()
                 current = 9;
             if (temp == 1)
             {
-                if (passenger->pa_count > 0)
+                if (inventory->pa_count > 0)
                 {
                     en_rm_passenger(inventory->pa_count);
                     current = 8;
@@ -694,7 +694,7 @@ void se_event_7()
             break;
         case 1:
             if (inventory->pa_count > 0)
-                current = 2
+                current = 2;
             else
                 current = 3;
             ui_continu_choice();
@@ -775,7 +775,7 @@ void se_event_8()
             ui_continu_choice();
             break;
         case 5:
-            if (/* NEED CHECK INVENTORY NOT FULL */)
+            if (en_update_total() < inventory->capacity)
                 choice1_temp = "Of course, tell him to get on the bus.";
             else choice1_temp = "/";
             temp = ui_choice("Sorry, I can't take him with me.", choice1_temp, "/", "/");
@@ -1173,8 +1173,6 @@ void se_event_19()
     char* char4 = "/";
     char* char5 = "/";
 
-    char* choice1_temp = NULL;
-
     while (current >= 0)
     {
         ui_print_dial(win_env, current, ev_w, "event/secondary/19", char0, char1, char2, char3, char4, char5);
@@ -1209,8 +1207,6 @@ void se_event_20()
     char* char3 = "/";
     char* char4 = "/";
     char* char5 = "/";
-
-    char* choice1_temp = NULL;
 
     while (current >= 0)
     {
@@ -1281,7 +1277,7 @@ void se_event_21()
                 current = -1;
             break;
         case 3:
-            en_rm_passenger(inventory->passengers[uf_random(inventory->pa_count - 1)]);
+            en_rm_passenger(uf_random(inventory->pa_count - 1));
             en_mod_money(+100);
             current = 2;
             ui_continu_choice();
@@ -1334,6 +1330,4 @@ void se_event_22()
 
         after_event_clear(win_env, win_men);
     }
-}
-
 }

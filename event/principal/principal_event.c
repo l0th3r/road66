@@ -10,20 +10,30 @@ void pe_event_7();
 int who_is_alive = 0;
 
 /* function to call for each city */
-void (*city_event[9])() = 
+void (*city_events[9])() = 
 {
-    empty, /* city 0 = Los Angeles */
-    empty, /* city 1 = Las Vegas */
-    empty, /* city 2 = Henderson */
-    empty,
-    empty,
-    empty,
-    empty,
-    empty,
-    empty,
+    empty,  /* city 0 = Los Angeles */
+    empty,  /* city 1 = Las Vegas */
+    empty,  /* city 2 = Henderson */
+    empty,  /* city 3 = Kingman */
+    empty,  /* city 4 = Phoenix City */
+    empty,  /* city 5 = Flagstaff */
+    empty,  /* city 6 = Albuquerque */
+    empty,  /* city 7 = Dallas */
+    empty,  /* city 8 = Oklahoma */
 };
 
-
+/* function to call for each city */
+void (*main_events[7])() = 
+{
+    empty,  /* Maxence */
+    empty,  /* Axel F */
+    empty,  /* Axel D */
+    empty,  /* Théo */
+    empty,  /* Damien */
+    empty,  /* Cosmo */
+    empty,  /* Road block */
+};
 
 
 void pe_event_1()	/* Las Vegas */

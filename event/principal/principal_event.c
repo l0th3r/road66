@@ -9,6 +9,8 @@ void pe_event_2();
 void pe_event_3();
 void pe_event_7();
 
+void pe_event_106();
+
 int who_is_alive = 0;
 
 /* function to call for each city */
@@ -28,13 +30,13 @@ void (*city_events[9])() =
 /* function to call for each city */
 void (*main_events[7])() = 
 {
-    empty,  /* Maxence */
-    empty,  /* Axel F */
-    empty,  /* Axel D */
-    empty,  /* Cosmo */
-    empty,  /* Damien */
-    empty,  /* Theo */
-    empty,  /* Road blocked */
+    empty,          /* Maxence */
+    empty,          /* Axel F */
+    empty,          /* Axel D */
+    empty,          /* Cosmo */
+    empty,          /* Damien */
+    empty,          /* Theo */
+    pe_event_106,   /* Road blocked */
 };
 
 
@@ -4695,9 +4697,6 @@ void pe_event_106()	/* Road Blocked */
     char* char3 = "Masked Guy";
     char* char4 = "Absjorn";
     char* char5 = "Evelynn";
-
-    int required_passenger = 4;
-    int explosives_installed = 0; /* 0 == false      1 == true */
 
     if (inventory->pa_count > 0)
         char2 = inventory->passengers[uf_random(inventory->pa_count)];

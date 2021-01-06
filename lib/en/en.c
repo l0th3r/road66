@@ -61,6 +61,7 @@ void en_start_game()
 	/* ============== TEST ============== */
 
 	/* START VALUE */
+	els_current_city = s_city_start;
 	en_mod_money(+s_start_money);
 	en_mod_gas(+s_start_gas);
 	en_mod_food(+s_start_food);

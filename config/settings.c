@@ -23,6 +23,7 @@ int s_drop_per_mile = 100;
 int s_start_money = 10;
 int s_start_food;
 int s_start_gas;
+int s_city_start;
 
 int se_init()
 {
@@ -67,6 +68,7 @@ int se_init()
 	config_lookup_int(&cf, "start_money", &s_start_money);
 	config_lookup_int(&cf, "start_food", &s_start_food);
 	config_lookup_int(&cf, "start_gas", &s_start_gas);
+	config_lookup_int(&cf, "city_start", &s_city_start);
 
 	return(EXIT_SUCCESS);
 }

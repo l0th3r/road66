@@ -22,6 +22,7 @@ extern int s_drop_per_mile;
 extern int s_start_money;
 extern int s_start_food;
 extern int s_start_gas;
+extern int s_city_start;
 
 
 #endif

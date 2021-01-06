@@ -22,6 +22,7 @@ void se_event_12();
 void se_event_13();
 /* */
 void se_event_15();
+void se_event_16();
 /* */
 void se_event_18();
 void se_event_19();
@@ -29,7 +30,7 @@ void se_event_20();
 void se_event_21();
 void se_event_22();
 
-void empty2(){}
+void empty2() {}
 
 /* creating event functions array */
 void (*se_events[23])() =
@@ -47,10 +48,10 @@ void (*se_events[23])() =
     se_event_10,
     se_event_11,
     se_event_12,
+    se_event_13,
     empty2,
-    empty2,
-    empty2,
-    empty2,
+    se_event_15,
+    se_event_16,
     empty2,
     se_event_18,
     se_event_19,
@@ -76,19 +77,19 @@ void se_event_drop()
 
     /* check if there are event still available */
     is = 1;
-    while(i < 23)
+    while (i < 23)
     {
-        if(se_event_check[i] == 0)
+        if (se_event_check[i] == 0)
             is = 0;
         i++;
     }
 
-    if(is == 0)
+    if (is == 0)
     {
-        while(is == 0)
+        while (is == 0)
         {
             temp = uf_random(22);
-            if(se_event_check[temp] == 0)
+            if (se_event_check[temp] == 0)
                 is = 1;
         }
         (*se_events[temp])();
@@ -1324,6 +1325,85 @@ void se_event_15()
 
             if (inventory->money >= 40)
                 choice2_temp = "Buy one Gas for 40$.";
+            else choice2_temp = "/";
+
+            temp = ui_choice(choice0_temp, choice1_temp, choice2_temp, "/");
+            if (temp == 0)
+            {
+                if (inventory->money < 30)
+                    current = 3
+                else
+                    current = 4;
+            }
+            if (temp == 1)
+            {
+                en_mod_food(+1);
+                en_mod_money(-30);
+                current = 2;
+            }
+            if (temp == 2)
+            {
+                en_mod_gas(+1);
+                en_mod_money(-40);
+                current = 2;
+            }
+            break;
+        case 3:
+            current = 2;
+            ui_continu_choice();
+            break;
+        case 4:
+            current = 2;
+            ui_continu_choice();
+            break;
+        }
+
+        after_event_clear(win_env, win_men);
+    }
+}
+
+void se_event_16()
+{
+    int current = 0;
+    int temp;
+    char* char0 = "Shopkeeper";
+    char* char1 = "/";
+    char* char2 = "/";
+    char* char3 = "/";
+    char* char4 = "/";
+    char* char5 = "/";
+
+    char* choice1_temp = NULL;
+    char* choice2_temp = NULL;
+
+    while (current >= 0)
+    {
+        ui_print_dial(win_env, current, ev_w, "event/secondary/16", char0, char1, char2, char3, char4, char5);
+
+        switch (current)
+        {
+        case 0:
+            temp = ui_choice("Stop the bus.", "Keep driving.", "/", "/");
+            if (temp == 0)
+                current = 1;
+            if (temp == 1)
+                current = -1;
+            break;
+        case 1:
+            current = 2;
+            ui_continu_choice();
+            break;
+        case 2:
+            if (inventory->money < 40)
+                choice0 = "Sorry, I don't have money."
+            else choice0 = "Leave.";
+
+            if (inventory->money >= 40)
+                choice1_temp = "Buy one Food for 40$.";
+            else choice1_temp = "/";
+
+            if (inventory->money >= 50)
+                choice2_temp = "Buy one Gas for 50$.";
             else choice2_temp = "/";
 
             temp = ui_choice(choice0_temp, choice1_temp, choice2_temp, "/");

@@ -14,15 +14,15 @@ int who_is_alive = 0;
 /* function to call for each city */
 void (*city_events[9])() = 
 {
-    empty, /* city 0 = Los Angeles */
-    empty,      /* city 1 = Las Vegas */
-    empty,      /* city 2 = Henderson */
-    empty,      /* city 3 = Kingman */
-    empty,      /* city 4 = Phoenix City */
-    empty,      /* city 5 = Flagstaff */
-    empty,      /* city 6 = Albuquerque */
-    empty,      /* city 7 = Dallas */
-    empty,      /* city 8 = Oklahoma */
+    pe_event_0,     /* city 0 = Los Angeles */
+    pe_event_1,     /* city 1 = Las Vegas */
+    pe_event_2,     /* city 2 = Henderson */
+    pe_event_3,     /* city 3 = Kingman */
+    empty,          /* city 4 = Phoenix City */
+    empty,          /* city 5 = Flagstaff */
+    empty,          /* city 6 = Albuquerque */
+    pe_event_7,     /* city 7 = Dallas */
+    empty,          /* city 8 = Oklahoma */
 };
 
 /* function to call for each city */
@@ -442,7 +442,7 @@ void pe_event_1()	/* Las Vegas */
                 if (temp == 2)
                     current = 418;
  
-                inventory->money -= money_bet;
+                en_mod_money(-money_bet);
 			break;
             case 417:
 				ui_continu_choice(win_men);

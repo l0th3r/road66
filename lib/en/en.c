@@ -101,7 +101,6 @@ int en_loop(int target)
 	if(inventory->gas == 0 || inventory->food == 0)
 		to_return = 1;
 
-	en_mod_money(+10);
 	while(els_miles_counter <= mile_target && to_return == 0)
 	{
 		/* display progress */

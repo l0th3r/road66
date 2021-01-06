@@ -1,0 +1,215 @@
+// SECONDARY EVENT #13
+// Dreams of yourself
+// Signature : Le Philippe Théo
+//
+// CHARACTERS :
+// char0 = Evelynn
+// char1 = Rafe
+//
+// CONSEQUENCES :
+// None
+
+------------------------------------------------------------------------------------------------------------------
+
+(#0)
+
+[narr]It's been now a few kilometres that you start to feel a bit annoyed. Maybe it is the road that tired you?
+
+	1 - It's possible.
+	// 1
+	2 - I don't think so, I'm alright.
+	// 15
+
+------------------------------------------------------------------------------------------------------------------
+
+(#1)
+
+[narr]You don't really know why but you start to feel a weight on your shoulders. Your throat is tight, you don’t know what’s happening to you.
+It feels like you are hanging at a rope. Your spirit and your mind are closed but yet so far away.
+
+	1 - Everything is gonna be alright.
+	// 2
+	2 - What's happening to me?
+	// 2
+
+-------------------------------------------------------------------------------------------------------------------
+
+(#2)
+
+[narr]You are looking at the road and trying to calm down. Your breath is helping a lot in your fight against this overwhelming tension that is spreading in your mind and your body.
+Nonetheless, you need to focus on your breath a bit more if you REALLY want to calm yourself.
+
+	1 -  Focus more.
+	// 3
+	2 -  Focus on the road.
+	// 4
+
+----------------------------------------------------------------------------------------------------------------------
+
+(#3)
+
+[narr]You put all of your focus on yourself. The annoyment become only a dream on the sweet night of summer. You feel relieved and relaxed.
+You take a look at the road and discover a person that is crossing the road.
+...
+You brake!
+...
+But you react too late. You didn't focus enough on the road and directly go into it. You get out of the car and go check on him. You try to get closer to make sure that he's alive. It's a man and he's laying down on the road. Blood is scattering all over himself.
+You feel a bitter almost acid taste as you realize that the man in front of you is nothing else than <char1>, your brother.
+Something else, a more powerful flow of energy is rising up to your eyes. The river is released and its water is as pure as the crystal yet full of salt.
+They allow you to free constricted yet inaudible words from your strangle vocal cords like hoarse by an unusual pressure.
+
+	//16
+
+----------------------------------------------------------------------------------------------------------------------
+
+(#4)
+
+[narr]Beneath your emotional instability, you decide to do not take the risk to put yourself and the passengers in danger.
+You hope that everything will get calmer as you keep progressing on the road.
+
+	//EVENT ENDED
+
+----------------------------------------------------------------------------------------------------------------------
+
+(#5)
+
+[narr]You run away from the wave before a slip from your island and flatten on the water. It hurts a lot but you need to swing away!
+You are getting away as fast as you can in the opposite direction of the wave but it's going closer and closer to you.
+In your hurry for survival, you forget an important matter: your stamina.
+You are losing your breath and as you become more and more tired, you feel like a presence above you...
+...
+...
+SOMETHING CATCH YOUR LEG!
+It's pulling you down to the surface!
+
+	1 - Fight the thing!
+	// 7
+	2 - Keep swiming!
+	// 8
+
+----------------------------------------------------------------------------------------------------------------------
+
+(#6)
+
+[narr]The monstrous wave is coming to you. Full of doubts and regrets, you are facing your greatest challenge so far: acceptation of your faults.
+As the water pound all over yourself, your limbs are ripped apart and your agony is so intense that even words are insufficient to describe it.
+You managed somehow to stay conscious and found yourself able to move. You didn't lose any limbs and all and you feel lighter...?
+The water surrounds you. However, it's not the only thing that you feel. A presence, undescriptive and undeniable but somehow crying.
+
+	1 - Found out what it is.
+	// 11
+	2 - Flee from this thing.
+	// 12
+
+----------------------------------------------------------------------------------------------------------------------
+
+(#7)
+
+[narr]You want to go under the surface after catching your breath to fight the thing or whatever that is! You catch your breath and dive!
+As you are opening your eyes, your blood freeze. It's <char0> and her half-rotted face is looking at you.
+You struggle to free yourself but her taking is too strong and your movements too slow and weak to hurt her.
+Your breath is decreasing a lot! You need to breathe!
+
+	1 -  Go on the surface!
+	// 9
+	2 -  Keep fighting!
+	// 10
+
+----------------------------------------------------------------------------------------------------------------------
+
+(#8)
+
+[narr]You try to swim away from that whatever it is, but... It seems that it has taken you pretty well!
+It pulls you underneath! You try to flee from it but you feel fingers that are putting apart your neck. Your last sound is the breaking of your bones. You are losing conscience and your mind...
+...
+...
+You wake up with a jolt! You are sweating abundantly, full of fear and you turn yourself from your bed to throw everything up. Your eyes are glomming with tears and you are awake but tired.
+
+	//EVENT ENDED
+
+----------------------------------------------------------------------------------------------------------------------
+
+(#9)
+
+[narr]You try to get to the surface as much as you can... However, Evelyn is too strong and your consciousness is extinguishing. Everything became dark and cold...
+...
+...
+You wake up with a jolt! You are sweating abundantly but... But... You are alive! 
+[main]Was it just a dream?
+
+	//EVENT ENDED
+
+----------------------------------------------------------------------------------------------------------------------
+
+(#10)
+
+[narr]You try to go to fight back as much as you can... However, <char0> is too strong and your consciousness is extinguishing. Everything become dark and cold...
+...
+...
+You wake up with a jolt! You are sweating abundantly but... But... You are alive! 
+[main]Was it just a dream?
+
+
+	//EVENT ENDED
+----------------------------------------------------------------------------------------------------------------------
+
+(#11)
+
+[narr]Your curiosity is too high to stop looking for the thing. You start to swim and follow the cries. After sometimes, it becomes louder and louder and you expect to find something that needs some help. Nevertheless, you succeed to reach the ever loading sound.
+You discover <char0>, in a stoup. Her hair is blooming like waves and she doesn't seem to take yours into consideration. You try to talk to her but you aren't making a single sound.
+She quickly opens your eyes. In a fraction of seconds, she reaches you. She sticks her eyes with yours. 
+She doesn't make a move. After a few seconds, you heard her voice but her lips aren't moving.
+She tells you to stop and hugs you. 
+[char0]Start living without me and your brother.
+[narr]You lose conscience and your mind...
+You open your eyes, get up and look at the horizon. You feel... Lighter. The sun is rising. 
+It's time to keep going on your journey. 
+For the best or the worst.
+
+//EVENT ENDED
+
+----------------------------------------------------------------------------------------------------------------------
+
+(#12)
+
+[narr]You think that fight for your flee is a good idea. 
+You don't have the time to understand what's happening until you release that a spear had pierced your heart.
+...
+...
+You wake up with a jolt! You are sweating abundantly but... But... You are alive! 
+[main]Was it just a dream?
+
+	//EVENT ENDED
+----------------------------------------------------------------------------------------------------------------------
+
+(#15)
+
+[narr]You keep driving despite your feelings.
+
+	// EVENT ENDED
+
+----------------------------------------------------------------------------------------------------------------------
+
+(#16)
+
+[narr]You lack air and it's only once you really start to express yourself that you perceive the note tinted by regrets and rigidity.
+Drown by the rancour of your own weakness, you notice that water had already raised all above and around you. You look for something before being taken by waters.
+As you are searching for a way out, you manage to discover a small island of sand and reached it as fast as possible.
+After getting your breath back, you take a look around yourself. You can only see water... Water everywhere.
+You choose to look above and become aware of a written message on the sand: Souvenir.
+They come back, like a racket of a thousand stepping horses and they hit you. They hit you so much that you wish to forget, you wish to do not consider what you think.
+
+	//17
+	
+----------------------------------------------------------------------------------------------------------------------
+
+(#17)
+
+[narr]Because of you, <char1> is dead. You're without your family, alone... The prey of your failure.
+Nevertheless, it's not the only thing you take account in. The thunder is rumbling and your frame bones are shattered.
+You take a look at the direction of the sound and see a blaring wave that is rising at the horizon.
+
+	1 -  Run away!
+	// 5
+	2 -  Wait.
+	// 6

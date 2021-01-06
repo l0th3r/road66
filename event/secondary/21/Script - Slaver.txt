@@ -1,0 +1,70 @@
+// SECONDARY EVENT #21
+// Slaver
+// Signature: Maxence Jacquot
+// char0 = Slaver
+---------------------------------------------------------------------------------------------------------------------------
+(#0)
+
+[narr]You see a fat guy surrounded by people in chains.
+
+	1 - Stop the bus. 	
+	// 1
+	2 - Keep driving.
+	// EVENT ENDED
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#1) 
+
+[narr]You get off. The man is very well dressed and look at you with a big smile on his face.
+[char0]Hello my dear colleague. Maybe we can make business.
+[main]Business?
+[char0]You see, I trade people.
+[main]You're a slaver?
+[char0]Wow! Don't be rude. I'm just the one trading. I'm a businessman.
+
+// 2
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#2) 
+
+[char0]So should we make a trade?
+
+	if(passenger in the bus)
+		1 - Sell one of your mates for 100$. 	
+		// 3
+	else 1 - I have nobody to trade with you.
+		// 5
+		
+	2 - Leave.
+	// 4
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+(#3) 
+
+[narr]You randomly pick one of your mates and watch him being enchained.
+[char0]Nice.
+
+//subtract 1 mate
+// get 100$
+// 2
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#4) 
+
+[char0]You leave so soon?
+[narr]He seems disappointed and you leave this weird guy.
+
+	// EVENT ENDED
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#5) 
+
+[narr]He seems disappointed and you leave.
+[char0]You leave so soon?
+
+// EVENT ENDED

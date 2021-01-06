@@ -1,0 +1,16 @@
+[narr]You arrive at the hospital. <char0> puts the gun on his belt.
+[char0]Alright, park you there.
+[narr]You do as he says.
+[char0]Now come with me, we have to find <char1>.
+[narr]The anarchy is spread to the hospital too. You try to find your way among patients and nurses. 
+You finally find <char1>, healing a patient.
+[char0]Hey! <char1>!
+[char1]What are you doing here <char0>?
+[char0]I can't explain to you right now honey, you have to trust me. We must leave, now! 
+[char1]Sir, I am really sorry. Another nurse will take you in charge. 
+[narr]The patient grabs a knife from his pocket, grasps <char1> and puts it under her throat.
+[char2]She's going nowhere!
+[narr]Following his instinct, <char0> grabs his gun and aims at the patient.
+[char0]Fuck! Let her go!
+[narr]A security guard hears the argument and aims at your brother with his gun.
+[char3]Drop your weapon right now!

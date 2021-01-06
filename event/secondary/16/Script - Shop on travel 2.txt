@@ -1,0 +1,70 @@
+// SECONDARY EVENT #16
+// Sho on travel 2
+// Signature: Maxence Jacquot
+//
+// char0 = ShopKeeper
+---------------------------------------------------------------------------------------------------------------------------
+(#0)
+
+[narr]You see a weird looking guy with a purple trench coat on the side of the road.
+He is holding a handwritten sign saying: “Shop”.
+Wait… You’ve seen this before.
+
+	1 - Stop the bus. 	
+	// 1
+	2 - Keep driving.
+	// EVENT ENDED
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#1) 
+
+[narr]You get off. Is that the same guy?
+[char0]Howdy. Got some rare goods stranger.
+[narr]it is the same guy.
+
+// 2
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#2) 
+
+[char0]Prices went a bit up. You know, hard times.
+
+	// if (money < 40)
+		1 - Sorry I don't have enough money.
+		// 3
+	else
+		1 - Leave.
+		// 4
+
+	if (money >= 40)
+	2 - Buy 1 Food for 40$.
+	// GET 1 FOOD
+	// 2
+
+	if (money >= 50)
+	1 - Buy 1 Gas for 40$.
+	// GET 1 Gas
+	// 2
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#3) 
+
+[narr]The <char0> seems contraried about your lack of money.
+[char0]Alright, bye.
+[narr]You leave and keep driving.
+
+// EVENT ENDED
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#4) 
+
+[char0]A pleasure doing business with you.
+[narr]You leave and start the engine.
+
+// EVENT ENDED
+

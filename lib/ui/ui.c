@@ -129,6 +129,7 @@ void ui_log_choice(char* str)
 void ui_log_inv(char* str, int value)
 {
 	int i = 2;
+	int line = inv_h - (inventory->capacity - 5);
 	char char_temp;
 
 	if(value >= 0)
@@ -140,16 +141,24 @@ void ui_log_inv(char* str, int value)
 	init_color(COLOR_CYAN, 255, 168, 0);
 	init_pair(4, COLOR_BLACK, COLOR_YELLOW);
 
+	/* change line for diffrent ressources */
+	if(uf_strcmp(str, "Food") == 1)
+		line++;
+	else if(uf_strcmp(str, "Passenger") == 1)
+		line--;
+
+	/* clear line */
 	while(i < inv_w - 2)
 	{
-		mvwaddch(win_inv, inv_h - (inventory->capacity - 5), i, ' ');
+		mvwaddch(win_inv, line, i, ' ');
 		i++;
 	}
 
 	is_inv_log = 1;
 
+	/* clear with colors */
 	wattron(win_inv, COLOR_PAIR(4));
-	mvwprintw(win_inv, inv_h - (inventory->capacity - 5), 3, "%s %c%d", str, char_temp, value);
+	mvwprintw(win_inv, line, 3, "%s %c%d", str, char_temp, value);
 	wattroff(win_inv, COLOR_PAIR(4));
 
 	wrefresh(win_inv);
@@ -503,7 +512,9 @@ void ui_update_inventory()
 			i = 2;
 			while(i < inv_w - 2)
 			{
+				mvwaddch(win_inv, (inv_h - (inventory->capacity - 5)) - 1, i, ' ');
 				mvwaddch(win_inv, inv_h - (inventory->capacity - 5), i, ' ');
+				mvwaddch(win_inv, (inv_h - (inventory->capacity - 5)) + 1, i, ' ');
 				i++;
 			}
 			is_inv_log = 0;

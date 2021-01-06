@@ -27,6 +27,8 @@ void se_event_20();
 void se_event_21();
 void se_event_22();
 
+void empty2(){}
+
 /* creating event functions array */
 void (*se_events[23])() =
 {
@@ -43,11 +45,11 @@ void (*se_events[23])() =
     se_event_10,
     se_event_11,
     se_event_12,
-    /*se_event_13,*/
-    /*se_event_14,*/
-    /*se_event_15,*/
-    /*se_event_16,*/
-    /*se_event_17,*/
+    empty2,
+    empty2,
+    empty2,
+    empty2,
+    empty2,
     se_event_18,
     se_event_19,
     se_event_20,
@@ -63,6 +65,12 @@ void se_event_drop()
     int i = 0;
     int temp;
     int is;
+
+    se_event_check[13] = 1;
+    se_event_check[14] = 1;
+    se_event_check[15] = 1;
+    se_event_check[16] = 1;
+    se_event_check[17] = 1;
 
     /* check if there are event still available */
     is = 1;

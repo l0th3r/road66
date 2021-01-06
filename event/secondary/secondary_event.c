@@ -61,7 +61,6 @@ int se_event_check[23] = { 0 };
 void se_event_drop()
 {
     int i = 0;
-    int cnt = 0;
     int temp;
     int is;
 
@@ -793,9 +792,9 @@ void se_event_8()
     char* char4 = "/";
     char* char5 = "/";
 
-    se_event_check[8] = 1;
-
     char* choice1_temp = NULL;
+
+    se_event_check[8] = 1;
 
     if (inventory->pa_count > 0)
         char1 = inventory->passengers[uf_random(inventory->pa_count)];
@@ -1007,9 +1006,9 @@ void se_event_10()
     char* char4 = "/";
     char* char5 = "/";
 
-    se_event_check[10] = 1;
-
     char* choice1_temp = NULL;
+
+    se_event_check[10] = 1;
 
     while (current >= 0)
     {
@@ -1284,10 +1283,10 @@ void se_event_18()
     char* char4 = "/";
     char* char5 = "/";
 
-    se_event_check[18] = 1;
-
     char* choice1_temp = NULL;
     char* choice2_temp = NULL;
+
+    se_event_check[18] = 1;
 
     while (current >= 0)
     {
@@ -1432,9 +1431,9 @@ void se_event_21()
     char* char4 = "/";
     char* char5 = "/";
 
-    se_event_check[21] = 1;
-
     char* choice1_temp = NULL;
+
+    se_event_check[21] = 1;
 
     while (current >= 0)
     {

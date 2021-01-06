@@ -25,6 +25,7 @@ typedef struct {
 	size_t total;
 } inv;
 extern inv* inventory;
+extern int els_miles_counter;
 
 int en_loop(int target);
 int en_update_total();

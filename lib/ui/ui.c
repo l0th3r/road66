@@ -22,8 +22,9 @@ void ui_update_progress(int val, int end_value, int current_city);
 void ui_update_inventory();
 
 /* USER INTERACTIONS */
-void ui_continu_choice(WINDOW * win_men);
+void ui_continu_choice();
 void ui_log_choice(char* str);
+void ui_log_inv(char* str, int value);
 int ui_set_menu();
 int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4);
 
@@ -106,21 +107,46 @@ int ui_refresh(int is_menu)
 
 void ui_log_choice(char* str)
 {
+	int i = 2;
 	start_color();
-	init_color(COLOR_RED, 255, 168, 0);
-	init_pair(2, COLOR_RED, COLOR_BLACK);
+	init_pair(5, COLOR_BLACK, COLOR_YELLOW);
 
-	wattron(win_inv, COLOR_PAIR(2));
+	while(i < me_w - 2)
+	{
+		mvwaddch(win_men, 2, i, ' ');
+		i++;
+	}
+
+	wattron(win_men, COLOR_PAIR(5));
 	mvwprintw(win_men, 2, 2, "%s",str);
-	wattroff(win_inv, COLOR_PAIR(2));
+	wattroff(win_men, COLOR_PAIR(5));
 
 	wrefresh(win_men);
 }
 
-void ui_log_inv(char* str)
+void ui_log_inv(char* str, int value)
 {
-	mvwprintw(win_inv, inv_h - (inventory->capacity - 5), 2, "%s", str);
-	wrefresh(win_inv);
+	int i = 2;
+	char char_temp;
+
+	if(value >= 0)
+		char_temp = '+';
+	else
+		char_temp = '-';
+
+	start_color();
+	init_color(COLOR_CYAN, 255, 168, 0);
+	init_pair(4, COLOR_BLACK, COLOR_YELLOW);
+
+	while(i < inv_w - 2)
+	{
+		mvwaddch(win_inv, inv_h - (inventory->capacity - 5), i, ' ');
+		i++;
+	}
+
+	wattron(win_inv, COLOR_PAIR(4));
+	mvwprintw(win_inv, inv_h - (inventory->capacity - 5), 2, "%s %c %d", str, char_temp, value);
+	wattroff(win_inv, COLOR_PAIR(4));
 }
 
 int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4)
@@ -465,7 +491,7 @@ void ui_update_inventory()
 	wrefresh(win_inv);
 }
 
-void ui_continu_choice(WINDOW * win)
+void ui_continu_choice()
 {
 	ui_choice("Continue", "/", "/", "/");
 }

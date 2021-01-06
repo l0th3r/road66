@@ -36,6 +36,184 @@ void (*main_events[7])() =
 };
 
 
+void pe_event_0()
+{
+    int current = 0;
+    int temp;
+    char* char0 = "Rafe";
+    char* char1 = "Evelynn";
+    char* char2 = "The patient";
+    char* char3 = "The security guard";
+    char* char4 = "Young man";
+    char* char5 = "Assaillant";
+
+    while(current >= 0)
+    {
+        ui_print_dial(win_env, current, ev_w, "event/principal/0", char0, char1, char2, char3, char4, char5);
+
+        switch(current)
+		{
+			case 0:
+				temp = ui_choice("Answer the call.", "/", "/", "/");
+                if(temp == 0)
+                    current = 1;
+			break;
+            case 1:
+				temp = ui_choice("Leave your apartment.", "Check one last time for your stuff.", "/", "/");
+                if(temp == 0)
+                    current = 3;
+                if(temp == 1)
+                    current = 2;
+			break;
+            case 2:
+                temp = ui_choice("Leave your apartment.", "/", "/", "/");
+                if(temp == 0)
+                    current = 3;
+			break;
+            case 3:
+                current = 4;
+                ui_continu_choice();
+			break;
+            case 4:
+                temp = ui_choice("Turn around.", "Honk.", "/", "/");
+                if(temp == 0)
+                    current = 5;
+                if(temp == 1)
+                    current = 6;
+			break;
+            case 5:
+                current = 7;
+                ui_continu_choice();
+			break;
+            case 6:
+                current = 5;
+                ui_continu_choice();
+			break;
+            case 7:
+                temp = ui_choice("Try to convince your brother to drop his weapon.", "Try to convince the guard that your brother doesn't mean to hurt anybody.", "/", "/");
+                if(temp == 0)
+                    current = 8;
+                if(temp == 1)
+                    current = 9;
+			break;
+            case 8:
+                temp = ui_choice("Leave the hospital by the main entrance door.", "Find another exit.", "/", "/");
+                if(temp == 0)
+                    current = 10;
+                if(temp == 1)
+                    current = 11;
+			break;
+            case 9:
+                temp = ui_choice("Listen to me. He's dead and we can't stay here.", "Shut up! Is there a safe exit door?", "Listen, Evelynn. Right now, I am completely lost, just like you. But we need to get out of here.", "/");
+                if(temp == 0)
+                    current = 17;
+                if(temp == 1)
+                    current = 19;
+                if(temp == 2)
+                    current = 20;
+			break;
+            case 10:
+                temp = ui_choice("Leave.", "Stay to help your brother.", "/", "/");
+                if(temp == 0)
+                    current = 14;
+                if(temp == 1)
+                    current = 12;
+			break;
+            case 11:
+                temp = ui_choice("Stay with your brother to help him.", "Leave him.", "/", "/");
+                if(temp == 0)
+                    current = 12;
+                if(temp == 1)
+                    current = 13;
+			break;
+            case 12:
+                current = 14;
+                ui_continu_choice();
+			break;
+            case 13:
+                current = 14;
+                ui_continu_choice();
+			break;
+            case 14:
+                current = 15;
+                ui_continu_choice();
+			break;
+            case 15:
+                current = 16;
+                ui_continu_choice();
+			break;
+            case 16:
+                temp = ui_choice("Drive faster.", "Stop at the light.", "/", "/");
+                if(temp == 0)
+                    current = 22;
+                if(temp == 1)
+                    current = 23;
+			break;
+            case 17:
+                current = 18;
+                ui_continu_choice();
+			break;
+            case 18:
+                current = 15;
+                ui_continu_choice();
+			break;
+            case 19:
+                current = 21;
+                ui_continu_choice();
+			break;
+            case 20:
+                current = 21;
+                ui_continu_choice();
+			break;
+            case 21:
+                current = 15;
+                ui_continu_choice();
+			break;
+            case 22:
+                temp = ui_choice("Stop the bus.", "Keep driving.", "/", "/");
+                if(temp == 0)
+                    current = 25;
+                if(temp == 1)
+                    current = 26;
+			break;
+            case 23:
+                current = 24;
+                ui_continu_choice();
+			break;
+            case 24:
+                temp = ui_choice("Open the door.", "Drive away.", "/", "/");
+                if(temp == 0)
+                    current = 27;
+                if(temp == 1)
+                    current = 28;
+			break;
+            case 25:
+                current = 24;
+                ui_continu_choice();
+			break;
+            case 26:
+                current = 24;
+                ui_continu_choice();
+			break;
+            case 27:
+                char4 = "Tim";
+                current = 29;
+                ui_continu_choice();
+			break;
+            case 28:
+                current = 29;
+                ui_continu_choice();
+			break;
+            case 29:
+                current = -1;
+                ui_continu_choice();
+			break;
+        }
+
+        after_event_clear(win_env, win_men);
+    }
+}
+
 void pe_event_1()	/* Las Vegas */
 {
     int current = 0;

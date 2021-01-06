@@ -25,8 +25,9 @@ void ui_update_progress(int val, int end_value, int current_city);
 void ui_update_inventory();
 
 /* USER INTERACTIONS */
-void ui_continu_choice(WINDOW * win_men);
+void ui_continu_choice();
 void ui_log_choice(char* str);
+void ui_log_inv(char* str, int value);
 int ui_set_menu();
 int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4);
 

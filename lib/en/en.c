@@ -56,9 +56,7 @@ void en_start_game()
 
 	/* ============== TEST ============== */
 
-	/* test add */
-	en_add_passenger("Maxence", inventory->pa_count);
-	en_add_passenger("Philipe", inventory->pa_count);
+	
 
 	/* ============== TEST ============== */
 
@@ -90,7 +88,7 @@ int en_loop(int target)
 	int mile_target = s_cities_miles[target];
 
 	/* play the event of the city */
-	(*city_event[target])();
+	(*city_events[target])();
 
 	if(els_is_update)
 		ui_update_progress(els_miles_counter, mile_target, els_current_city);
@@ -141,7 +139,16 @@ int en_loop(int target)
 			else
 				to_return = 1;
 		}
-		
+
+		/* MAIN QUEST AND EVENTS */
+
+		if(els_miles_counter == 280)
+		{
+			
+		}
+
+		/* MAIN QUEST AND EVENTS */
+
 		els_miles_counter++;
 		current_mile_counter++;
 		uf_wait(10000 * s_mile_gap_time);

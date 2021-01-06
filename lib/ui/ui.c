@@ -25,6 +25,7 @@ void ui_update_inventory();
 void ui_continu_choice();
 void ui_log_choice(char* str);
 void ui_log_inv(char* str, int value);
+void ui_clear_inv_log();
 int ui_set_menu();
 int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4);
 
@@ -128,7 +129,6 @@ void ui_log_choice(char* str)
 
 void ui_log_inv(char* str, int value)
 {
-	int i = 2;
 	int line = inv_h - (inventory->capacity - 5);
 	char char_temp;
 
@@ -148,11 +148,7 @@ void ui_log_inv(char* str, int value)
 		line--;
 
 	/* clear line */
-	while(i < inv_w - 2)
-	{
-		mvwaddch(win_inv, line, i, ' ');
-		i++;
-	}
+	ui_clear_inv_log();
 
 	is_inv_log = 1;
 
@@ -170,7 +166,6 @@ int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4)
 	int choice;
 	int selected = 0;
 	int i = 0;
-
 	int end = 4;
 
 	char* arr[4];
@@ -180,18 +175,26 @@ int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4)
 	arr[2] = choice3;
 	arr[3] = choice4;
 
+	/* clear inv logs */
+	ui_clear_inv_log();
+
+	/* put the selected marker */
+	while(arr[selected][0] == '/')
+		selected++;
+
 	while(is_good == 0)
 	{
 		i = 0;
+
 		while(i < end)
 		{
+			/* put the selecte one in reverse */
 			if(i == selected)
 				wattron(win_men, A_REVERSE);
 
-			mvwprintw(win_men, i + 3, 2, "%d: %s", i + 1, arr[i]);
-
-			if(arr[i + 1][0] == '/')
-				end = i + 1;
+			/* only print when choice is usable */
+			if(arr[i][0] != '/')
+				mvwprintw(win_men, i + 3, 2, "%d: %s", i + 1, arr[i]);
 
 			wattroff(win_men, A_REVERSE);
 			mvwprintw(win_men, me_h - 3, 2, "^ and v arrows to navigate.");
@@ -202,21 +205,26 @@ int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4)
 		}
 		choice = wgetch(win_men);
 
+		/* loop is to prevent all not usable choices */
 		switch(choice)
 		{
 			case 259:
-				if(selected > 0)
-					selected--;
-				else
-					selected = end - 1;
+				do
+				{
+					if(selected > 0)
+						selected--;
+					else
+						selected = end - 1;
+				} while(arr[selected][0] == '/');
 				break;
 			case 258:
-				if(selected < end - 1)
-					selected++;
-				else
-					selected = 0;
-				break;
-			default:
+				do
+				{
+					if(selected < end - 1)
+						selected++;
+					else
+						selected = 0;
+				}while(arr[selected][0] == '/');
 				break;
 		}
 		if(choice == 10)
@@ -509,19 +517,24 @@ void ui_update_inventory()
 		is_inv_log++;
 		if(is_inv_log == 40)
 		{
-			i = 2;
-			while(i < inv_w - 2)
-			{
-				mvwaddch(win_inv, (inv_h - (inventory->capacity - 5)) - 1, i, ' ');
-				mvwaddch(win_inv, inv_h - (inventory->capacity - 5), i, ' ');
-				mvwaddch(win_inv, (inv_h - (inventory->capacity - 5)) + 1, i, ' ');
-				i++;
-			}
-			is_inv_log = 0;
+			ui_clear_inv_log();
 		}
 	}
 
 	wrefresh(win_inv);
+}
+
+void ui_clear_inv_log()
+{
+	int i = 2;
+	while(i < inv_w - 2)
+	{
+		mvwaddch(win_inv, (inv_h - (inventory->capacity - 5)) - 1, i, ' ');
+		mvwaddch(win_inv, inv_h - (inventory->capacity - 5), i, ' ');
+		mvwaddch(win_inv, (inv_h - (inventory->capacity - 5)) + 1, i, ' ');
+		i++;
+	}
+	is_inv_log = 0;
 }
 
 void ui_continu_choice()

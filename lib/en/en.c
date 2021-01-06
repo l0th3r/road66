@@ -100,6 +100,10 @@ int en_loop(int target)
 	if(inventory->gas == 0 || inventory->food == 0)
 		to_return = 1;
 
+	
+	en_mod_food(+5);
+
+
 	while(els_miles_counter <= mile_target && to_return == 0)
 	{
 		/* display progress */
@@ -254,22 +258,16 @@ void en_mod_food(int val)
 				choice_0 = "/";
 			if(inventory->gas < 1)
 				choice_1 = "/";
-
 			/* ask the user whith what he want to switch ressources */
-			ui_log_choice("You have to many things, select what you want to sacrifice one by one:");
+			ui_log_choice("You have too many things, select what you want to sacrifice one by one:");
 			temp = ui_choice(choice_0, choice_1, "/", "/");
-			if(temp == 0 && inventory->pa_count > 0)
-			{
+			if(temp == 0)
 				en_rm_passenger(0);
-				inventory->food += 1;
-				val--;
-			}
-			if(temp == 1 && inventory->gas > 0)
-			{
+			if(temp == 1)
 				en_mod_gas(-1);
-				inventory->food += 1;
+
+			inventory->food += 1;
 				val--;
-			}
 		}
 	}
 	ui_update_inventory();
@@ -306,20 +304,15 @@ void en_mod_gas(int val)
 				choice_1 = "/";
 
 			/* ask the user whith what he want to switch ressources */
-			ui_log_choice("You have to many things, select what you want to sacrifice one by one:");
+			ui_log_choice("You have too many things, select what you want to sacrifice one by one:");
 			temp = ui_choice(choice_0, choice_1, "/", "/");
 			if(temp == 0 && inventory->pa_count > 0)
-			{
 				en_rm_passenger(0);
-				inventory->gas += 1;
-				val--;
-			}
 			if(temp == 1 && inventory->food > 0)
-			{
 				en_mod_food(-1);
-				inventory->gas += 1;
+			
+			inventory->gas += 1;
 				val--;
-			}
 		}
 	}
 	ui_update_inventory();

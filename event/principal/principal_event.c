@@ -1711,7 +1711,6 @@ void pe_event_3()	/* Kingman */
 
     char* choice1_temp = NULL;
     char* choice2_temp = NULL;
-    char* choice3_temp = NULL;
 
     while (current >= 0)
     {
@@ -1776,7 +1775,7 @@ void pe_event_3()	/* Kingman */
                     current = 8;
                 break;
             case 8:
-                temps = ui_choice("Go talk to the man at your right.", "Go talk to the man at your left.", "Go to Clifford repair.", "/");
+                temp = ui_choice("Go talk to the man at your right.", "Go talk to the man at your left.", "Go to Clifford repair.", "/");
                 if (temp == 0)
                 {
                     lock_picking = 1;
@@ -1841,7 +1840,7 @@ void pe_event_3()	/* Kingman */
                     current = 19;
                 break;
             case 16:
-                temps = ui_choice("Walk past them with a friendly greeting.", "Walk past them with a solemnly greeting.", "Walk past them without greeting them.", "/");
+                temp = ui_choice("Walk past them with a friendly greeting.", "Walk past them with a solemnly greeting.", "Walk past them without greeting them.", "/");
                 if (temp == 0)
                 {
                     suspicion -= 1;
@@ -1895,7 +1894,7 @@ void pe_event_3()	/* Kingman */
                 if (temp == 1)
                     current = 36;
             case 24:
-                temps = ui_choice("I have to go watch the kid, where is her cell again?", "What's going on here?", "Do you know where the boss is?", "/");
+                temp = ui_choice("I have to go watch the kid, where is her cell again?", "What's going on here?", "Do you know where the boss is?", "/");
                 if (temp == 0)
                     current = 29;
                 if (temp == 1)
@@ -1966,7 +1965,7 @@ void pe_event_3()	/* Kingman */
                     current = 36;
                 break;
             case 36:
-                temps = ui_choice("Go right.", "Go straight.", "Go left.", "/");
+                temp = ui_choice("Go right.", "Go straight.", "Go left.", "/");
                 if (temp == 0)
                     current = 69;
                 if (temp == 1)
@@ -2241,7 +2240,7 @@ void pe_event_3()	/* Kingman */
                 else
                     choice2_temp = "/";
 
-                temps = ui_choice("Find a way to get his attention elsewhere.", "Shoot him.", choice2_temp, "/");
+                temp = ui_choice("Find a way to get his attention elsewhere.", "Shoot him.", choice2_temp, "/");
                 if (temp == 0)
                     current = 70;
                 if (temp == 1)
@@ -2303,7 +2302,7 @@ void pe_event_3()	/* Kingman */
                     current = 78;
                 break;
             case 77:
-                temps = ui_choice("I'm here to save you, let's go!", "Don't worry sweety, I'm here to help you. Let's go?", "Come, quickly!", "/");
+                temp = ui_choice("I'm here to save you, let's go!", "Don't worry sweety, I'm here to help you. Let's go?", "Come, quickly!", "/");
                 if (temp == 0)
                     current = 79;
                 if (temp == 1)
@@ -2318,7 +2317,7 @@ void pe_event_3()	/* Kingman */
                 }
                 break;
             case 78:
-                temps = ui_choice("I'm here to save you, let's go!", "Don't worry sweety, I'm here to help you. Let's go?", "Come, quickly!", "/");
+                temp = ui_choice("I'm here to save you, let's go!", "Don't worry sweety, I'm here to help you. Let's go?", "Come, quickly!", "/");
                 if (temp == 0)
                     current = 79;
                 if (temp == 1)
@@ -2340,7 +2339,7 @@ void pe_event_3()	/* Kingman */
                     current = 94;
                 break;
             case 80:
-                temps = ui_choice("Take the kid hostage.", "/", "/", "/");
+                temp = ui_choice("Take the kid hostage.", "/", "/", "/");
                 if (know_truth == 0 && armed == 1)
                 {
                     child_affection -= 5;
@@ -2479,7 +2478,7 @@ void pe_event_3()	/* Kingman */
                     current = 96;
                 break;
             case 95:
-                temps = ui_choice("Come out.", "Leave a note of blackmail hoping to get something from Clifford.", "Go out the window.", "/");
+                temp = ui_choice("Come out.", "Leave a note of blackmail hoping to get something from Clifford.", "Go out the window.", "/");
                 if (temp == 0)
                     current = 96;
                 if (temp == 1)
@@ -2658,7 +2657,7 @@ void pe_event_3()	/* Kingman */
                 }
                 break;
             case 116:
-                temps = ui_choice("Bring her to Caitlyn.", "Bring her back to Clifford.", "Take her with you.", "/");
+                temp = ui_choice("Bring her to Caitlyn.", "Bring her back to Clifford.", "Take her with you.", "/");
                 if (temp == 0)
                     current = 120;
                 if (temp == 1)
@@ -2681,7 +2680,7 @@ void pe_event_3()	/* Kingman */
                     current = 119;
                 break;
             case 118:
-                temps = ui_choice("Bring her to Caitlyn.", "Bring her back to Clifford.", "Take her with you.", "/");
+                temp = ui_choice("Bring her to Caitlyn.", "Bring her back to Clifford.", "Take her with you.", "/");
                 if (temp == 0)
                     current = 120;
                 if (temp == 1)
@@ -2694,7 +2693,7 @@ void pe_event_3()	/* Kingman */
                         current = 123;
                 }
             case 119:
-                temps = ui_choice("Bring her to Caitlyn.", "Bring her back to Clifford.", "Take her with you.", "/");
+                temp = ui_choice("Bring her to Caitlyn.", "Bring her back to Clifford.", "Take her with you.", "/");
                 if (temp == 0)
                     current = 120;
                 if (temp == 1)
@@ -2709,14 +2708,14 @@ void pe_event_3()	/* Kingman */
             case 120:
                 ui_continu_choice(win_men);
                 current = -1;
-                en_mod_gas += 2;
-                en_mod_food += 2;
+                en_mod_gas(+2);
+                en_mod_food(+2);
                 break;
             case 121:
                 ui_continu_choice(win_men);
                 current = -1;
-                en_mod_gas += 2;
-                en_mod_food += 2;
+                en_mod_gas(+2);
+                en_mod_food(+2);
                 break;
             case 122:
                 temp = ui_choice("Bring her to Caitlyn.", "Bring her back to Clifford.", "/", "/");
@@ -2728,8 +2727,8 @@ void pe_event_3()	/* Kingman */
             case 123:
                 ui_continu_choice(win_men);
                 current = -1;
-                en_mod_gas += 2;
-                en_mod_food += 2;
+                en_mod_gas(+2);
+                en_mod_food(+2);
                 break;
             case 124:
                 ui_continu_choice(win_men);

@@ -23,7 +23,7 @@ void se_event_13();
 /* */
 void se_event_15();
 void se_event_16();
-/* */
+void se_event_17();
 void se_event_18();
 void se_event_19();
 void se_event_20();
@@ -52,7 +52,7 @@ void (*se_events[23])() =
     empty2,
     se_event_15,
     se_event_16,
-    empty2,
+    se_event_17,
     se_event_18,
     se_event_19,
     se_event_20,
@@ -1411,7 +1411,7 @@ void se_event_16()
             temp = ui_choice(choice0_temp, choice1_temp, choice2_temp, "/");
             if (temp == 0)
             {
-                if (inventory->money < 30)
+                if (inventory->money < 40)
                     current = 3;
                 else
                     current = 4;
@@ -1419,13 +1419,93 @@ void se_event_16()
             if (temp == 1)
             {
                 en_mod_food(+1);
-                en_mod_money(-30);
+                en_mod_money(-40);
                 current = 2;
             }
             if (temp == 2)
             {
                 en_mod_gas(+1);
-                en_mod_money(-40);
+                en_mod_money(-50);
+                current = 2;
+            }
+            break;
+        case 3:
+            current = 2;
+            ui_continu_choice();
+            break;
+        case 4:
+            current = 2;
+            ui_continu_choice();
+            break;
+        }
+
+        after_event_clear(win_env, win_men);
+    }
+}
+
+void se_event_17()
+{
+    int current = 0;
+    int temp;
+    char* char0 = "Shopkeeper";
+    char* char1 = "/";
+    char* char2 = "/";
+    char* char3 = "/";
+    char* char4 = "/";
+    char* char5 = "/";
+
+    char* choice0_temp = NULL;
+    char* choice1_temp = NULL;
+    char* choice2_temp = NULL;
+
+    while (current >= 0)
+    {
+        ui_print_dial(win_env, current, ev_w, "event/secondary/17", char0, char1, char2, char3, char4, char5);
+
+        switch (current)
+        {
+        case 0:
+            temp = ui_choice("Stop the bus.", "Keep driving.", "/", "/");
+            if (temp == 0)
+                current = 1;
+            if (temp == 1)
+                current = -1;
+            break;
+        case 1:
+            current = 2;
+            ui_continu_choice();
+            break;
+        case 2:
+            if (inventory->money < 35)
+                choice0_temp = "Sorry, I don't have money.";
+            else choice0_temp = "Leave.";
+
+            if (inventory->money >= 35)
+                choice1_temp = "Buy one Food for 35$.";
+            else choice1_temp = "/";
+
+            if (inventory->money >= 45)
+                choice2_temp = "Buy one Gas for 45$.";
+            else choice2_temp = "/";
+
+            temp = ui_choice(choice0_temp, choice1_temp, choice2_temp, "/");
+            if (temp == 0)
+            {
+                if (inventory->money < 35)
+                    current = 3;
+                else
+                    current = 4;
+            }
+            if (temp == 1)
+            {
+                en_mod_food(+1);
+                en_mod_money(-35);
+                current = 2;
+            }
+            if (temp == 2)
+            {
+                en_mod_gas(+1);
+                en_mod_money(-45);
                 current = 2;
             }
             break;
@@ -1480,8 +1560,8 @@ void se_event_18()
             if (inventory->money >= 20)
                 choice1_temp = "Buy on Food for 20$.";
             else choice1_temp = "/";
-            if (inventory->money >= 30)
-                choice2_temp = "Buy on Gas for 30$.";
+            if (inventory->money >= 40)
+                choice2_temp = "Buy on Gas for 40$.";
             else choice2_temp = "/";
 
             temp = ui_choice("Leave.", choice1_temp, choice2_temp, "/");
@@ -1490,11 +1570,13 @@ void se_event_18()
             if (temp == 1)
             {
                 en_mod_money(-20);
+                en_mod_food(+1);
                 current = 4;
             }
             if (temp == 2)
             {
-                en_mod_money(-30);
+                en_mod_gas(+1);
+                en_mod_money(-40);
                 current = 3;
             }
             break;

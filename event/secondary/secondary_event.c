@@ -1294,6 +1294,7 @@ void se_event_15()
     char* char4 = "/";
     char* char5 = "/";
 
+    char* choice0_temp = NULL;
     char* choice1_temp = NULL;
     char* choice2_temp = NULL;
 
@@ -1316,8 +1317,8 @@ void se_event_15()
             break;
         case 2:
             if (inventory->money < 30)
-                choice0 = "Sorry, I don't have money."
-            else choice0 = "Leave.";
+                choice0_temp = "Sorry, I don't have money.";
+            else choice0_temp = "Leave.";
 
             if (inventory->money >= 30)
                 choice1_temp = "Buy one Food for 30$.";
@@ -1331,7 +1332,7 @@ void se_event_15()
             if (temp == 0)
             {
                 if (inventory->money < 30)
-                    current = 3
+                    current = 3;
                 else
                     current = 4;
             }
@@ -1373,6 +1374,7 @@ void se_event_16()
     char* char4 = "/";
     char* char5 = "/";
 
+    char* choice0_temp = NULL;
     char* choice1_temp = NULL;
     char* choice2_temp = NULL;
 
@@ -1395,8 +1397,8 @@ void se_event_16()
             break;
         case 2:
             if (inventory->money < 40)
-                choice0 = "Sorry, I don't have money."
-            else choice0 = "Leave.";
+                choice0_temp = "Sorry, I don't have money.";
+            else choice0_temp = "Leave.";
 
             if (inventory->money >= 40)
                 choice1_temp = "Buy one Food for 40$.";
@@ -1410,7 +1412,7 @@ void se_event_16()
             if (temp == 0)
             {
                 if (inventory->money < 30)
-                    current = 3
+                    current = 3;
                 else
                     current = 4;
             }

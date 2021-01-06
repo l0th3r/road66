@@ -33,8 +33,8 @@ void (*main_events[7])() =
     empty,  /* Axel D */
     empty,  /* Cosmo */
     empty,  /* Damien */
-    empty,  /* Théo */
-    empty,  /* Road block */
+    empty,  /* Theo */
+    empty,  /* Road blocked */
 };
 
 
@@ -4680,6 +4680,41 @@ void pe_event_7()	/* Dallas */
             break;
 
         }
+        after_event_clear(win_env, win_men);
+    }
+}
+
+
+void pe_event_106()	/* Road Blocked */
+{
+    int current = 0;
+    int temp;
+    char* char0 = "Rafe";
+    char* char1 = "Evelynn";
+    char* char2 = "/";
+    char* char3 = "Masked Guy";
+    char* char4 = "Absjorn";
+    char* char5 = "Evelynn";
+
+    int required_passenger = 4;
+    int explosives_installed = 0; /* 0 == false      1 == true */
+
+    if (inventory->pa_count > 0)
+        char2 = inventory->passengers[uf_random(inventory->pa_count)];
+
+    while(current >= 0)
+    {
+        ui_print_dial(win_env, current, ev_w, "event/principal/106", char0, char1, char2, char3, char4, char5);
+
+        switch(current)
+	{
+		case 0:
+		    temp = ui_choice("Keep driving.", "/", "/", "/");
+		    if (temp == 0)
+			current = -1;
+		    break;
+        }
+
         after_event_clear(win_env, win_men);
     }
 }

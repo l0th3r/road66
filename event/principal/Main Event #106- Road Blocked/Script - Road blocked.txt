@@ -1,0 +1,20 @@
+// SCRIPTED EVENT #106
+// ZE FUCKING FRENCH
+// Signature: Damien Boussard
+//
+// CHARACTERS: 
+// - char0 = The soldier
+//
+// CONSEQUENCES: DEVIATION TO DALLAS
+// 
+
+—————————————————————————————————————————————
+
+(#0)
+
+[narr]500 miles before Oklahoma City.
+Abandoned vehicles block the entire width of the road. The sight of this panorama makes you feel a violent desolation that you have never felt before.
+You can keep going on a road that drives you to the South and a panel says: Dallas - 496 miles.
+[main]Here we go for a little detour!
+
+	// EVENT ENDED

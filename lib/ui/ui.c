@@ -25,7 +25,7 @@ void ui_update_inventory();
 void ui_continu_choice();
 void ui_log_choice(char* str);
 void ui_log_inv(char* str, int value);
-void ui_clear_inv_log();
+void ui_clear_inv_log(int val);
 int ui_set_menu();
 int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4);
 
@@ -143,18 +143,31 @@ void ui_log_inv(char* str, int value)
 
 	/* change line for diffrent ressources */
 	if(uf_strcmp(str, "Food") == 1)
+	{
+		/* clear food line */
+		ui_clear_inv_log(2);
 		line++;
+	}
 	else if(uf_strcmp(str, "Passenger") == 1)
+	{
+		/* clear passenger line */
+		ui_clear_inv_log(0);
 		line--;
-
-	/* clear line */
-	ui_clear_inv_log();
+	}
+	else if(uf_strcmp(str, "Money") == 1)
+	{
+		/* clear money line */
+		ui_clear_inv_log(3);
+		line += 2;
+	}
+	else
+		ui_clear_inv_log(1);
 
 	is_inv_log = 1;
 
 	/* clear with colors */
 	wattron(win_inv, COLOR_PAIR(4));
-	mvwprintw(win_inv, line, 3, "%s %c%d", str, char_temp, value);
+	mvwprintw(win_inv, line, 3, " %s %c%d ", str, char_temp, value);
 	wattroff(win_inv, COLOR_PAIR(4));
 
 	wrefresh(win_inv);
@@ -176,7 +189,10 @@ int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4)
 	arr[3] = choice4;
 
 	/* clear inv logs */
-	ui_clear_inv_log();
+	ui_clear_inv_log(0);
+	ui_clear_inv_log(1);
+	ui_clear_inv_log(2);
+	ui_clear_inv_log(3);
 
 	/* put the selected marker */
 	while(arr[selected][0] == '/')
@@ -514,24 +530,31 @@ void ui_update_inventory()
 	/* remove inv log if its from too long time */
 	if(is_inv_log != 0)
 	{
-		is_inv_log++;
-		if(is_inv_log == 40)
+		if(is_inv_log == 50)
 		{
-			ui_clear_inv_log();
+			ui_clear_inv_log(0);
+			ui_clear_inv_log(1);
+			ui_clear_inv_log(2);
+			ui_clear_inv_log(3);
 		}
+		else
+			is_inv_log++;
 	}
 
 	wrefresh(win_inv);
 }
 
-void ui_clear_inv_log()
+/* val = 0 = clear passenger line */
+/* val = 1 = clear Gas line */
+/* val = 0 = clear Food line */
+void ui_clear_inv_log(int val)
 {
 	int i = 2;
+	int line = ((inv_h - (inventory->capacity - 5)) - 1) + val;
+
 	while(i < inv_w - 2)
 	{
-		mvwaddch(win_inv, (inv_h - (inventory->capacity - 5)) - 1, i, ' ');
-		mvwaddch(win_inv, inv_h - (inventory->capacity - 5), i, ' ');
-		mvwaddch(win_inv, (inv_h - (inventory->capacity - 5)) + 1, i, ' ');
+		mvwaddch(win_inv, line, i, ' ');
 		i++;
 	}
 	is_inv_log = 0;

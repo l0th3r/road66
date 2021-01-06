@@ -100,10 +100,7 @@ int en_loop(int target)
 	if(inventory->gas == 0 || inventory->food == 0)
 		to_return = 1;
 
-	
-	en_mod_food(+5);
-
-
+	en_mod_money(+10);
 	while(els_miles_counter <= mile_target && to_return == 0)
 	{
 		/* display progress */
@@ -267,7 +264,7 @@ void en_mod_food(int val)
 				en_mod_gas(-1);
 
 			inventory->food += 1;
-				val--;
+			val--;
 		}
 	}
 	ui_update_inventory();
@@ -276,7 +273,7 @@ void en_mod_food(int val)
 
 void en_mod_money(int val)
 {
-	/* NEEDS INVENTORY LOGS */
+	ui_log_inv("Money", val);
 	inventory->money += val;
 }
 
@@ -312,7 +309,7 @@ void en_mod_gas(int val)
 				en_mod_food(-1);
 			
 			inventory->gas += 1;
-				val--;
+			val--;
 		}
 	}
 	ui_update_inventory();

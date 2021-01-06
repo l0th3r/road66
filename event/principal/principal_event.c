@@ -14,7 +14,7 @@ int who_is_alive = 0;
 /* function to call for each city */
 void (*city_events[9])() = 
 {
-    pe_event_0, /* city 0 = Los Angeles */
+    empty, /* city 0 = Los Angeles */
     empty,      /* city 1 = Las Vegas */
     empty,      /* city 2 = Henderson */
     empty,      /* city 3 = Kingman */

@@ -19,6 +19,7 @@ void se_event_9();
 void se_event_10();
 void se_event_11();
 void se_event_12();
+void se_event_13();
 /* */
 void se_event_18();
 void se_event_19();

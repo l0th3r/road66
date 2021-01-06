@@ -5,6 +5,7 @@ void empty() {}
 
 void pe_event_1();
 void pe_event_2();
+void pe_event_3();
 void pe_event_7();
 
 int who_is_alive = 0;
@@ -1683,6 +1684,1080 @@ void pe_event_2()
                 ui_continu_choice(win_men);
                 current = 1;
             break;
+        }
+
+        after_event_clear(win_env, win_men);
+    }
+}
+
+void pe_event_3()	/* Kingman */
+{
+    int current = 0;
+    int temp;
+    char* char0 = "Mysterious Woman";
+    char* char1 = "Caitlyn";
+    char* char2 = "Clifford";
+    char* char3 = "Claire";
+    char* char4 = "Caitlyn's minion";
+    char* char5 = "Clifford's minion";
+
+    int lock_picking = 0;
+    int guard_clothes = 0;
+    int armed = 0;
+    int know_truth = 0;
+    int repaired_bus = 0;
+    int suspicion = 0;
+    int child_affection = 0;
+
+    char* choice1_temp = NULL;
+    char* choice2_temp = NULL;
+    char* choice3_temp = NULL;
+
+    while (current >= 0)
+    {
+        ui_print_dial(win_env, current, ev_w, "event/principal/3", char0, char1, char2, char3, char4, char5);
+
+        switch (current)
+        {
+            case 0:
+                temp = ui_choice("Run without looking back.", "Turn around.", "/", "/");
+                if (temp == 0)
+                    current = 1;
+                if (temp == 1)
+                    current = 2;
+                break;
+            case 1:
+                temp = ui_choice("What are you going to do with me? I'm alone and I have nothing to give you.", "I don't give a fuck about that, I just want to know if you have a good reason to do this to me!", "/", "/");
+                if (temp == 0)
+                    current = 3;
+                if (temp == 1)
+                    current = 4;
+                break;
+            case 2:
+                temp = ui_choice("What are you going to do with me? I'm alone and I have nothing to give you.", "I don't give a fuck about that, I just want to know if you have a good reason to do this to me!", "/", "/");
+                if (temp == 0)
+                    current = 3;
+                if (temp == 1)
+                    current = 4;
+                break;
+            case 3:
+                temp = ui_choice("Are you the one who put the city in this state?", "Yeah so it's not your city at all.", "/", "/");
+                if (temp == 0)
+                    current = 5;
+                if (temp == 1)
+                    current = 6;
+                break;
+            case 4:
+                temp = ui_choice("Are you the one who put the city in this state?", "Yeah so it's not your city at all.", "/", "/");
+                if (temp == 0)
+                    current = 5;
+                if (temp == 1)
+                    current = 6;
+                break;
+            case 5:
+                temp = ui_choice("But you're crazy, that sounds really dangerous! Find yourself someone else!", "Mmmm... I'm up for it, but you better keep your promise!", "/", "/");
+                if (temp == 0)
+                    current = 7;
+                if (temp == 1)
+                    current = 8;
+                break;
+            case 6:
+                temp = ui_choice("But you're crazy, that sounds really dangerous! Find yourself someone else!", "Mmmm... I'm up for it, but you better keep your promise!", "/", "/");
+                if (temp == 0)
+                    current = 7;
+                if (temp == 1)
+                    current = 8;
+                break;
+            case 7:
+                temp = ui_choice("Accept.", "Accept.", "/", "/");
+                if (temp == 0)
+                    current = 8;
+                if (temp == 1)
+                    current = 8;
+                break;
+            case 8:
+                temps = ui_choice("Go talk to the man at your right.", "Go talk to the man at your left.", "Go to Clifford repair.", "/");
+                if (temp == 0)
+                {
+                    lock_picking = 1;
+                    current = 9;
+                }
+                if (temp == 1)
+                    current = 10;
+                if (temp == 2)
+                    current = 13;
+                break;
+            case 9:
+                temp = ui_choice("Go talk to the other guy.", "Go to Clifford repair.", "/", "/");
+                if (temp == 0)
+                    current = 11;
+                if (temp == 1)
+                    current = 13;
+                break;
+            case 10:
+                temp = ui_choice("Go talk to the other guy.", "Go to Clifford repair.", "/", "/");
+                if (temp == 0)
+                {
+                    lock_picking = 1;
+                    current = 12;
+                }
+                if (temp == 1)
+                    current = 13;
+                break;
+            case 11:
+                temp = ui_choice("Go to Clifford repair", "/", "/", "/");
+                if (temp == 0)
+                    current = 13;
+                break;
+            case 12:
+                temp = ui_choice("Go to Clifford repair", "/", "/", "/");
+                if (temp == 0)
+                    current = 13;
+                break;
+            case 13:
+                temp = ui_choice("Approach the guards and call them out.", "Go to the back of the building.", "/", "/");
+                if (temp == 0)
+                    current = 14;
+                if (temp == 1)
+                    current = 15;
+                break;
+            case 14:
+                ui_continu_choice(win_men);
+                current = -2;
+                break;
+            case 15:
+                if (lock_picking == 1)
+                    choice1_temp = "Try to crochet the door.";
+                else choice1_temp = "1";
+
+                temp = ui_choice("Knock him down and take his clothes.", choice1_temp, "/", "/");
+                if (temp == 0)
+                {
+                    guard_clothes = 1;
+                    armed = 1;
+                    suspicion += 2;
+                }
+                if (temp == 1)
+                    current = 19;
+                break;
+            case 16:
+                temps = ui_choice("Walk past them with a friendly greeting.", "Walk past them with a solemnly greeting.", "Walk past them without greeting them.", "/");
+                if (temp == 0)
+                {
+                    suspicion -= 1;
+                    current = 17;
+                }
+                if (temp == 1)
+                {
+                    suspicion += 1;
+                    current = 18;
+                }
+                if (temp == 2)
+                    current = 19;
+                break;
+            case 17:
+                ui_continu_choice(win_men);
+                current = 23;
+                break;
+            case 18:
+                ui_continu_choice(win_men);
+                current = 23;
+                break;
+            case 19:
+                ui_continu_choice(win_men);
+                current = 23;
+                break;
+            case 20:
+                temp = ui_choice("Persevere.", "Search the guard for the key.", "/", "/");
+                if (temp == 0)
+                    current = 49;
+                if (temp == 1)
+                    current = 21;
+                break;
+            case 21:
+                temp = ui_choice("Go in immediately.", "Try to put the key back on the guard so as not to arouse suspicion.", "/", "/");
+                if (temp == 0)
+                {
+                    suspicion += 1;
+                    current = 49;
+                }
+                if (temp == 1)
+                    current = 22;
+                break;
+            case 22:
+                ui_continu_choice(win_men);
+                current = -2;
+                break;
+            case 23:
+                temp = ui_choice("Go talk to him.", "Continue on your way.", "/", "/");
+                if (temp == 0)
+                    current = 24;
+                if (temp == 1)
+                    current = 36;
+            case 24:
+                temps = ui_choice("I have to go watch the kid, where is her cell again?", "What's going on here?", "Do you know where the boss is?", "/");
+                if (temp == 0)
+                    current = 29;
+                if (temp == 1)
+                {
+                    suspicion += 1;
+                    current = 25;
+                }
+                if (temp == 2)
+                    current = 27;
+                break;
+            case 25:
+                temp = ui_choice("What I'm asking is why you, you're doing nothing.", "I'm new here.", "/", "/");
+                if (temp == 0)
+                    current = 26;
+                if (temp == 1)
+                    current = 30;
+            case 26:
+                temp = ui_choice("I'm from the surveillance team.", "I'm from the team 3.", "/", "/");
+                if (temp == 0)
+                    current = 31;
+                if (temp == 1)
+                    current = 32;
+            case 27:
+                temp = ui_choice("Nah, it's just that I would like to see him for a personal thing.", "It's about the kid. Is she still well restrained in the usual place?", "/", "/");
+                if (temp == 0)
+                {
+                    suspicion += 1;
+                    current = 28;
+                }
+                if (temp == 1)
+                    current = 33;
+            case 28:
+                temp = ui_choice("Usually he's pretty cool isn't he?", "I know but this is special, take care of what concerns you.", "/", "/");
+                if (temp == 0)
+                    current = 34;
+                if (temp == 1)
+                    current = 35;
+            case 29:
+                temp = ui_choice("Continue on your way.", "/", "/", "/");
+                if (temp == 0)
+                    current = 36;
+                break;
+            case 30:
+                ui_continu_choice(win_men);
+                current = -2;
+                break;
+            case 31:
+                temp = ui_choice("Continue on your way.", "/", "/", "/");
+                if (temp == 0)
+                    current = 36;
+                break;
+            case 32:
+                ui_continu_choice(win_men);
+                current = -2;
+                break;
+            case 33:
+                temp = ui_choice("Continue on your way.", "/", "/", "/");
+                if (temp == 0)
+                    current = 36;
+                break;
+            case 34:
+                ui_continu_choice(win_men);
+                current = -2;
+                break;
+            case 35:
+                temp = ui_choice("Continue on your way.", "/", "/", "/");
+                if (temp == 0)
+                    current = 36;
+                break;
+            case 36:
+                temps = ui_choice("Go right.", "Go straight.", "Go left.", "/");
+                if (temp == 0)
+                    current = 69;
+                if (temp == 1)
+                    current = 37;
+                if (temp == 2)
+                {
+                    suspicion += 2;
+                    current = 43;
+                }
+                break;
+            case 37:
+                temp = ui_choice("Sorry boss, it's just to tell you that the troops are ready soon.", "Sorry boss, I just wanted to tell you some soldiers are wondering if it's worth it to spill more blood.", "/", "/");
+                if (temp == 0)
+                    current = 38;
+                if (temp == 1)
+                {
+                    suspicion += 3;
+                    current = 39;
+                }
+                break;
+            case 38:
+                temp = ui_choice("Ok boss.", "Just one more question boss, what do you plan for the child?", "/", "/");
+                if (temp == 0)
+                    current = 41;
+                if (temp == 1)
+                {
+                    know_truth = 1;
+                    suspicion += 2;
+                    current = 40;
+                }
+                break;
+            case 39:
+                temp = ui_choice("Ok boss.", "Just one more question boss, what do you plan for the child?", "/", "/");
+                if (temp == 0)
+                    current = 41;
+                if (temp == 1)
+                {
+                    know_truth = 1;
+                    suspicion += 2;
+                    current = 40;
+                }
+                break;
+            case 40:
+                temp = ui_choice("Return to the junction.", "/", "/", "/");
+                if (temp == 0)
+                    current = 41;
+                break;
+            case 41:
+                temp = ui_choice("Go left.", "Go right.", "/", "/");
+                if (temp == 0)
+                {
+                    suspicion += 2;
+                    current = 42;
+                }
+                if (temp == 1)
+                    current = 69;
+                break;
+            case 42:
+                temp = ui_choice("Go straight.", "/", "/", "/");
+                if (temp == 0)
+                    current = 69;
+                break;
+            case 43:
+                temp = ui_choice("Go straight.", "Go left.", "/", "/");
+                if (temp == 0)
+                    current = 69;
+                if (temp == 1)
+                    current = 44;
+                break;
+            case 44:
+                temp = ui_choice("Sorry boss, it's just to tell you that the troops are ready soon.", "Sorry boss, I just wanted to tell you some soldiers are wondering if it's worth it to spill more blood.", "/", "/");
+                if (temp == 0)
+                    current = 45;
+                if (temp == 1)
+                {
+                    suspicion += 3;
+                    current = 46;
+                }
+                break;
+            case 45:
+                temp = ui_choice("Ok boss.", "Just one more question boss, what do you plan for the child?", "/", "/");
+                if (temp == 0)
+                    current = 47;
+                if (temp == 1)
+                {
+                    suspicion += 2;
+                    know_truth = 1;
+                    current = 48;
+                }
+                break;
+            case 46:
+                temp = ui_choice("Ok boss.", "Just one more question boss, what do you plan for the child?", "/", "/");
+                if (temp == 0)
+                    current = 47;
+                if (temp == 1)
+                {
+                    suspicion += 2;
+                    know_truth = 1;
+                    current = 48;
+                }
+                break;
+            case 47:
+                temp = ui_choice("Go left.", "/", "/", "/");
+                if (temp == 0)
+                    current = 69;
+                break;
+            case 48:
+                temp = ui_choice("Go left.", "/", "/", "/");
+                if (temp == 0)
+                    current = 69;
+                break;
+            case 49:
+                temp = ui_choice("Go through the ventilation grid.", "Take the corridor.", "/", "/");
+                if (temp == 0)
+                    current = 50;
+                if (temp == 1)
+                    current = 67;
+                break;
+            case 50:
+                temp = ui_choice("Listen to them.", "Keep moving forward.", "/", "/");
+                if (temp == 0)
+                    current = 51;
+                if (temp == 1)
+                    current = 52;
+                break;
+            case 51:
+                temp = ui_choice("Go to right.", "Go to left.", "/", "/");
+                if (temp == 0)
+                    current = 53;
+                if (temp == 1)
+                    current = 58;
+                break;
+            case 52:
+                temp = ui_choice("Go to right.", "Go to left.", "/", "/");
+                if (temp == 0)
+                {
+                    know_truth = 1;
+                    current = 53;
+                }
+                if (temp == 1)
+                    current = 58;
+                break;
+            case 53:
+                temp = ui_choice("Wait and see if the guys below leave.", "Turn around anyway and go back to the fork.", "/", "/");
+                if (temp == 0)
+                    current = 54;
+                if (temp == 1)
+                {
+                    suspicion += 3;
+                    current = 57;
+                }
+                break;
+            case 54:
+                temp = ui_choice("Wait a little longer.", "Turn around anyway and go back to the fork.", "/", "/");
+                if (temp == 0)
+                    current = 55;
+                if (temp == 1)
+                {
+                    suspicion += 3;
+                    current = 57;
+                }
+                break;
+            case 55:
+                temp = ui_choice("Wait a little longer.", "Turn around anyway and go back to the fork.", "/", "/");
+                if (temp == 0)
+                    current = 56;
+                if (temp == 1)
+                {
+                    suspicion += 3;
+                    current = 57;
+                }
+                break;
+            case 56:
+                temp = ui_choice("Take cover.", "Run over him.", "/", "/");
+                if (temp == 0)
+                    current = 59;
+                if (temp == 1)
+                    current = 63;
+                break;
+            case 57:
+                temp = ui_choice("Take cover.", "Run over him.", "/", "/");
+                if (temp == 0)
+                    current = 59;
+                if (temp == 1)
+                    current = 63;
+                break;
+            case 58:
+                temp = ui_choice("Take cover.", "Run over him.", "/", "/");
+                if (temp == 0)
+                    current = 59;
+                if (temp == 1)
+                    current = 63;
+                break;
+            case 59:
+                temp = ui_choice("Take cover behind the doorframe.", "Take cover behind the red barrel.", "/", "/");
+                if (temp == 0)
+                {
+                    suspicion += 2;
+                    current = 60;
+                }
+                if (temp == 1)
+                    current = 61;
+                break;
+            case 60:
+                temp = ui_choice("Run over him.", "Run away.", "/", "/");
+                if (temp == 0)
+                    current = 62;
+                if (temp == 1)
+                {
+                    suspicion += 2;
+                    current = 69;
+                }
+                break;
+            case 61:
+                ui_continu_choice(win_men);
+                current = 2;
+                break;
+            case 62:
+                temp = ui_choice("Take his gun before fleeing.", "Run away.", "/", "/");
+                if (temp == 0)
+                {
+                    armed = 1;
+                    current = 69;
+                }
+                if (temp == 1)
+                    current = 69;
+                break;
+            case 63:
+                temp = ui_choice("Finish him by a kick in the head.", "Take his gun.", "/", "/");
+                if (temp == 0)
+                    current = 64;
+                if (temp == 1)
+                {
+                    armed = 1;
+                    current = 65;
+                }
+                break;
+            case 64:
+                temp = ui_choice("Continue on your way.", "/", "/", "/");
+                if (temp == 0)
+                    current = 69;
+                break;
+            case 65:
+                temp = ui_choice("Tie him up.", "Kill him.", "/", "/");
+                if (temp == 0)
+                    current = 66;
+                if (temp == 1)
+                {
+                    suspicion += 3;
+                    current = 66;
+                }
+                break;
+            case 66:
+                temp = ui_choice("Continue on your way.", "/", "/", "/");
+                if (temp == 0)
+                    current = 69;
+                break;
+            case 67:
+                temp = ui_choice("Approach discreetly.", "Go back and go through the ventilation grid.", "/", "/");
+                if (temp == 0)
+                    current = 68;
+                if (temp == 1)
+                    current = 50;
+                break;
+            case 68:
+                ui_continu_choice(win_men);
+                current = -2;
+                break;
+            case 69:
+                if (guard_clothes == 1)
+                    choice2_temp = "Go talk to him.";
+                else
+                    choice2_temp = "/";
+
+                temps = ui_choice("Find a way to get his attention elsewhere.", "Shoot him.", choice2_temp, "/");
+                if (temp == 0)
+                    current = 70;
+                if (temp == 1)
+                {
+                    suspicion += 5;
+                    current = 76;
+                }
+                if (temp == 2)
+                    current = 73;
+                break;
+            case 70:
+                temp = ui_choice("Call the guard by trying a random name.", "Drop the crates and simulate a cry for help.", "/", "/");
+                if (temp == 0)
+                    current = 71;
+                if (temp == 1)
+                    current = 72;
+                break;
+            case 71:
+                ui_continu_choice(win_men);
+                current = -2;
+                break;
+            case 72:
+                temp = ui_choice("Open the door.", "/", "/", "/");
+                if (know_truth == 0)
+                    current = 77;
+                if (know_truth == 1)
+                    current = 78;
+                break;
+            case 73:
+                temp = ui_choice("Ask him to let you in to see the kid.", "Tell him that you were sent to take over.", "/", "/");
+                if (temp == 0)
+                {
+                    suspicion += 1;
+                    current = 74;
+                }
+                if (temp == 1)
+                    current = 75;
+                break;
+            case 74:
+                temp = ui_choice("Tell him that you were sent to take over.", "/", "/", "/");
+                if (temp == 0)
+                {
+                    suspicion += 1;
+                    current = 75;
+                }
+                break;
+            case 75:
+                temp = ui_choice("Open the door.", "/", "/", "/");
+                if (know_truth == 0)
+                    current = 77;
+                if (know_truth == 1)
+                    current = 78;
+                break;
+            case 76:
+                temp = ui_choice("Open the door.", "/", "/", "/");
+                if (know_truth == 0)
+                    current = 77;
+                if (know_truth == 1)
+                    current = 78;
+                break;
+            case 77:
+                temps = ui_choice("I'm here to save you, let's go!", "Don't worry sweety, I'm here to help you. Let's go?", "Come, quickly!", "/");
+                if (temp == 0)
+                    current = 79;
+                if (temp == 1)
+                {
+                    child_affection += 5;
+                    current = 79;
+                }
+                if (temp == 2)
+                {
+                    child_affection += 5;
+                    current = 79;
+                }
+                break;
+            case 78:
+                temps = ui_choice("I'm here to save you, let's go!", "Don't worry sweety, I'm here to help you. Let's go?", "Come, quickly!", "/");
+                if (temp == 0)
+                    current = 79;
+                if (temp == 1)
+                {
+                    child_affection += 5;
+                    current = 79;
+                }
+                if (temp == 2)
+                {
+                    child_affection += 5;
+                    current = 79;
+                }
+                break;
+            case 79:
+                temp = ui_choice("Exit the room.", "/", "/", "/");
+                if (suspicion > 6)
+                    current = 80;
+                if (suspicion < 7)
+                    current = 94;
+                break;
+            case 80:
+                temps = ui_choice("Take the kid hostage.", "/", "/", "/");
+                if (know_truth == 0 && armed == 1)
+                {
+                    child_affection -= 5;
+                    current = 81;
+                }
+                if (know_truth == 1 && armed == 1)
+                {
+                    child_affection -= 5;
+                    current = 82;
+                }
+                if (know_truth == 0 && armed == 0)
+                {
+                    child_affection -= 10;
+                    current = 83;
+                }
+                if (know_truth == 1 && armed == 0)
+                {
+                    child_affection -= 10;
+                    current = 84;
+                }
+                break;
+            case 81:
+                temp = ui_choice("Why are you so afraid of losing Caitlyn's daughter?", "I appreciate seeing your red face twist in fear.", "/", "/");
+                if (temp == 0)
+                    current = 85;
+                if (temp == 1)
+                    current = 86;
+                break;
+            case 82:
+                temp = ui_choice("So, you are Claire's father? And Caitlyn is her mother?", "So, bye Clifford, I'll go give your daughter to your worst enemy.", "/", "/");
+                if (temp == 0)
+                    current = 87;
+                if (temp == 1)
+                    current = 88;
+                break;
+            case 83:
+                temp = ui_choice("Why are you so afraid of losing Caitlyn's daughter?", "I appreciate seeing your red face twist in fear.", "/", "/");
+                if (temp == 0)
+                    current = 85;
+                if (temp == 1)
+                    current = 86;
+                break;
+            case 84:
+                temp = ui_choice("So, you are Claire's father? And Caitlyn is her mother?", "So, bye Clifford, I'll go give your daughter to your worst enemy.", "/", "/");
+                if (temp == 0)
+                    current = 87;
+                if (temp == 1)
+                    current = 86;
+                break;
+            case 85:
+                temp = ui_choice("Is it true? Why keep her locked up then?", "I don't care about that, I just want what she promised me.", "/", "/");
+                if (temp == 0)
+                    current = 89;
+                if (temp == 1)
+                {
+                    repaired_bus = 1;
+                    current = 90;
+                }
+                break;
+            case 86:
+                temp = ui_choice("Ahah! Maybe next time!", "Maybe you don't have to do this. We could find an arrangement.", "/", "/");
+                if (temp == 0)
+                    current = 92;
+                if (temp == 1)
+                {
+                    repaired_bus = 1;
+                    current = 93;
+                }
+                break;
+            case 87:
+                temp = ui_choice("So why you keep her in a cell? You're crazy.", "Sorry man, I don't want to get involve into your family problems.", "/", "/");
+                if (temp == 0)
+                    current = 89;
+                if (temp == 1)
+                    current = 88;
+                break;
+            case 88:
+                temp = ui_choice("Sorry, business is business. Bye Clifford.", "Maybe you can do something.", "/", "/");
+                if (temp == 0)
+                    current = 92;
+                if (temp == 1)
+                    current = 93;
+                break;
+            case 89:
+                temp = ui_choice("I'm sorry for you but I have my own problem.", "I don't care about that, I just want what she promised me.", "/", "/");
+                if (temp == 0)
+                {
+                    repaired_bus = 1;
+                    current = 91;
+                }
+                if (temp == 1)
+                {
+                    repaired_bus = 1;
+                    current = 90;
+                }
+                break;
+            case 90:
+                temp = ui_choice("I promise.", "I can't promise this.", "/", "/");
+                if (temp == 0)
+                {
+                    child_affection += 5;
+                    current = 110;
+                }
+                if (temp == 1)
+                    current = 110;
+                break;
+            case 91:
+                temp = ui_choice("I promise.", "I can't promise this.", "/", "/");
+                if (temp == 0)
+                {
+                    child_affection += 5;
+                    current = 110;
+                }
+                if (temp == 1)
+                    current = 110;
+                break;
+            case 92:
+                ui_continu_choice(win_men);
+                current = 110;
+                break;
+            case 93:
+                temp = ui_choice("I promise.", "I can't promise this.", "/", "/");
+                if (temp == 0)
+                {
+                    child_affection += 5;
+                    current = 110;
+                }
+                if (temp == 1)
+                    current = 110;
+                break;
+            case 94:
+                temp = ui_choice("Explore the room.", "Wait a few seconds and go out.", "/", "/");
+                if (temp == 0)
+                    current = 95;
+                if (temp == 1)
+                    current = 96;
+                break;
+            case 95:
+                temps = ui_choice("Come out.", "Leave a note of blackmail hoping to get something from Clifford.", "Go out the window.", "/");
+                if (temp == 0)
+                    current = 96;
+                if (temp == 1)
+                {
+                    repaired_bus = 1;
+                    current = 97;
+                }
+                if (temp == 2)
+                    current = 100;
+                break;
+            case 96:
+                temp = ui_choice("Try the window.", "Shout at them that you have the kid and that you will hurt her if they come in.", "/", "/");
+                if (temp == 0)
+                    current = 105;
+                if (temp == 1)
+                {
+                    child_affection -= 5;
+                    current = 99;
+                }
+                break;
+            case 97:
+                temp = ui_choice("Go out the window.", "Wait without making noise.", "/", "/");
+                if (temp == 0)
+                    current = 100;
+                if (temp == 1)
+                    current = 98;
+                break;
+            case 98:
+                temp = ui_choice("Try the window.", "/", "/", "/");
+                if (temp == 0)
+                    current = 105;
+                break;
+            case 99:
+                temp = ui_choice("Try the window.", "/", "/", "/");
+                if (temp == 0)
+                    current = 105;
+                break;
+            case 100:
+                temp = ui_choice("Fire on the lock to open it.", "Try to break it down.", "/", "/");
+                if (temp == 0)
+                    current = 108;
+                if (temp == 1)
+                    current = 101;
+                break;
+            case 101:
+                temp = ui_choice("Hit the window again.", "Shout at them that you have the kid and that you will hurt her if they come in.", "/", "/");
+                if (temp == 0)
+                    current = 103;
+                if (temp == 1)
+                    current = 102;
+                break;
+            case 102:
+                if (armed == 1)
+                    choice1_temp = "Fire on the lock to open it.";
+                else choice1_temp = "/";
+
+                temp = ui_choice("Hit the window again.", choice1_temp, "/", "/");
+                if (temp == 0)
+                    current = 103;
+                if (temp == 1)
+                    current = 109;
+                break;
+            case 103:
+                if (armed == 1)
+                    choice1_temp = "Fire on the lock to open it.";
+                else choice1_temp = "/";
+
+                temp = ui_choice("Hit the window again.", choice1_temp, "/", "/");
+                if (temp == 0)
+                    current = 104;
+                if (temp == 1)
+                    current = 109;
+                break;
+            case 104:
+                ui_continu_choice(win_men);
+                current = 111;
+                break;
+            case 105:
+                if (armed == 1)
+                    choice1_temp = "Fire on the lock to open it.";
+                else choice1_temp = "/";
+
+                temp = ui_choice("Try to break it down.", choice1_temp, "/", "/");
+                if (temp == 0)
+                    current = 106;
+                if (temp == 1)
+                    current = 109;
+                break;
+            case 106:
+                if (armed == 1)
+                    choice1_temp = "Fire on the lock to open it.";
+                else choice1_temp = "/";
+
+                temp = ui_choice("Hit the window again.", choice1_temp, "/", "/");
+                if (temp == 0)
+                    current = 107;
+                if (temp == 1)
+                    current = 109;
+                break;
+            case 107:
+                ui_continu_choice(win_men);
+                current = 111;
+                break;
+            case 108:
+                ui_continu_choice(win_men);
+                current = 111;
+                break;
+            case 109:
+                ui_continu_choice(win_men);
+                current = 111;
+                break;
+            case 110:
+                temp = ui_choice("Let Claire take the mattress.", "Keep the mattress for yourself.", "/", "/");
+                if (temp == 0)
+                {
+                    child_affection += 5;
+                    current = 112;
+                }
+                if (temp == 1)
+                {
+                    child_affection -= 5;
+                    current = 112;
+                }
+                break;
+            case 111:
+                temp = ui_choice("Let Claire take the mattress.", "Keep the mattress for yourself.", "/", "/");
+                if (temp == 0)
+                {
+                    child_affection += 5;
+                    current = 112;
+                }
+                if (temp == 1)
+                {
+                    child_affection -= 5;
+                    current = 112;
+                }
+                break;
+            case 112:
+                temp = ui_choice("You speak sometimes, kiddo?", "You don't want to talk a bit sweaty?", "/", "/");
+                if (temp == 0)
+                    current = 113;
+                if (temp == 1)
+                    current = 113;
+                break;
+            case 113:
+                temp = ui_choice("Ok, like you want, I don't care anyway.", "Like you want. But I want to tell you my story.", "/", "/");
+                if (temp == 0)
+                    current = 114;
+                if (temp == 1)
+                {
+                    child_affection += 5;
+                    current = 115;
+                }
+                break;
+            case 114:
+                temp = ui_choice("To Caitlyn, like I promise.", "I don't know. If you speak to me, it'll be easier for me to decide.", "/", "/");
+                if (temp == 0)
+                {
+                    child_affection -= 5;
+                    current = 116;
+                }
+                if (temp == 1)
+                    current = 117;
+                break;
+            case 115:
+                temp = ui_choice("Yes.", "No.", "/", "/");
+                if (temp == 0)
+                {
+                    child_affection += 5;
+                    current = 118;
+                }
+                if (temp == 1)
+                {
+                    child_affection -= 5;
+                    current = 119;
+                }
+                break;
+            case 116:
+                temps = ui_choice("Bring her to Caitlyn.", "Bring her back to Clifford.", "Take her with you.", "/");
+                if (temp == 0)
+                    current = 120;
+                if (temp == 1)
+                    current = 121;
+                if (temp == 2)
+                {
+                    if (child_affection < 10)
+                        current = 122;
+                    if (child_affection > 9)
+                        current = 123;
+                }
+            case 117:
+                temp = ui_choice("Yes.", "No.", "/", "/");
+                if (temp == 0)
+                {
+                    child_affection += 5;
+                    current = 118;
+                }
+                if (temp == 1)
+                    current = 119;
+                break;
+            case 118:
+                temps = ui_choice("Bring her to Caitlyn.", "Bring her back to Clifford.", "Take her with you.", "/");
+                if (temp == 0)
+                    current = 120;
+                if (temp == 1)
+                    current = 121;
+                if (temp == 2)
+                {
+                    if (child_affection < 10)
+                        current = 122;
+                    if (child_affection > 9)
+                        current = 123;
+                }
+            case 119:
+                temps = ui_choice("Bring her to Caitlyn.", "Bring her back to Clifford.", "Take her with you.", "/");
+                if (temp == 0)
+                    current = 120;
+                if (temp == 1)
+                    current = 121;
+                if (temp == 2)
+                {
+                    if (child_affection < 10)
+                        current = 122;
+                    if (child_affection > 9)
+                        current = 123;
+                }
+            case 120:
+                ui_continu_choice(win_men);
+                current = -1;
+                en_mod_gas += 2;
+                en_mod_food += 2;
+                break;
+            case 121:
+                ui_continu_choice(win_men);
+                current = -1;
+                en_mod_gas += 2;
+                en_mod_food += 2;
+                break;
+            case 122:
+                temp = ui_choice("Bring her to Caitlyn.", "Bring her back to Clifford.", "/", "/");
+                if (temp == 0)
+                    current = 123;
+                if (temp == 1)
+                    current = 121;
+                break;
+            case 123:
+                ui_continu_choice(win_men);
+                current = -1;
+                en_mod_gas += 2;
+                en_mod_food += 2;
+                break;
+            case 124:
+                ui_continu_choice(win_men);
+                if (repaired_bus == 0)
+                    current = 125;
+                if (repaired_bus == 1)
+                    current = 126;
+                break;
+            case 125:
+                temp = ui_choice("Refuse to leave without the child and make a nice tirade full of compassion.", "Leave.", "/", "/");
+                if (temp == 0)
+                    current = 126;
+                if (temp == 1)
+                    current = 127;
+                break;
+            case 126:
+                ui_continu_choice(win_men);
+                current = -2;
+                break;
+            case 127:
+                ui_continu_choice(win_men);
+                current = -1;
+                break;
+            case 128:
+                ui_continu_choice(win_men);
+                en_add_passenger(char3, inventory->pa_count);
+                current = -1;
+                break;
         }
 
         after_event_clear(win_env, win_men);

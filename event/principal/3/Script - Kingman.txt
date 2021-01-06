@@ -1,0 +1,1720 @@
+// MAJOR EVENT #4 - KINGMAN
+// 
+// Signature : Damien Boussard
+//
+// CHARACTERS :
+// - char0 = Mysterious woman
+// - char1 = Caitlyn
+// - char2 = Clifford
+// - char3 = Claire
+// - char4 = Claire's minion
+// - char5 = Clifford's minion
+//
+// CONSEQUENCES :
+// - GAME OVER
+// - Get one passenger
+// - Get 5 food and 5 gas
+//
+// VARIABLE :
+// - LOCK_PICKING = FALSE
+// - GUARD_CLOTHES = FALSE
+// - ARMED = FALSE
+// - KNOW_TRUTH = FALSE
+// - REPAIRED_BUS = FALSE
+// - SUSPICION = 0
+// - CHILD_AFFECTION = 0
+//
+
+—————————————————————————————————————————————
+
+(#0)
+
+[narr]You see a sign announcing Kingman. After all these adventures, you hope that this time you can breathe a bit. But when you see the first buildings in ruins in the distance, you are quickly disillusioned. After driving for almost an hour in this deserted city, you sense that there is a problem with the bus. You stop and walk out. As soon as you put your foot on the ground you notice that hundreds of points are strewn on the ground. They appear to have been placed there on purpose. Of course, all four of your tires are flat. You sigh and address to passengers.
+[main]The tires are all flat. I saw some car wrecks earlier, I'm going to go for a ride and hopefully find some usable tires
+[narr]You go towards the city centre, telling yourself that you will have a better chance of finding a bus there. After walking for ten minutes or so without having seen a living soul, you hear footsteps behind you.
+
+	0 - Run without looking back.
+	// 1
+	1 - Turn around.
+	// 2
+
+—————————————————————————————————————————————
+
+(#1)
+
+[narr]Used to bad meetings, you instinctively try to outrun the people behind you, whoever they are. You suddenly hear a gunshot and a bullet passes 10 centimeters from your ear. You get the message, you raise your hands and slowly turn around. You barely have time to see the gunman when he hits you with his pistol-grip and everything goes black.
+You wake up in a sordid room. A woman with two gorillas looks at you.
+[char0]So, shall we wake up?!
+[main]Where am I? Who are you?
+[char1]I'm Caitlyn, chief of this clan and you are in my headquarters, in the western part of Kingman, my town.
+
+	0 - Ok... and what are you going to do with me? I'm alone and I have nothing to give you...
+	// 3
+	1 - I don't give a fuck about that, I just want to know if you have a good reason to do this to me!
+	// 4
+
+—————————————————————————————————————————————
+
+(#2)
+
+[narr]Hoping to find locals, your hopes quickly fly when you realize that an armed and menacing man is facing you. He walks up to you and raises his gun.
+[main]No, no, no!
+[narr]He hits you with his pistol-grip and you pass out.
+You wake up in a sordid room. A woman with two gorillas looks at you.
+[char0]So, shall we wake up?!
+[main]Where am I? Who are you?
+[char1]I'm Lynn, chief of this clan and you are in my headquarters, in the western part of Kingman, my town.
+
+	0 - Ok... and what are you going to do with me? I'm alone and I have nothing to give you...
+	// 3
+	1 - I don't give a fuck about that, I just want to know if you have a good reason to do this to me!
+	// 4
+
+—————————————————————————————————————————————
+
+(#3)
+
+[char1]Don't lie to me, I know you just arrived by bus, that you have blown your tires out on our anti-intrusion system and that you have quite a few resources. But don't worry, I'm not going to take all of this from you. However, I have a favour to ask you. Follow me.
+[narr]You get up and follow Caitlyn into a large room where all the local scum and banditry looks like. You even see military equipment.
+[char1]You see, Kingman is my town. In fact, just half. The other is possessed by Clifford. This motherfucker and I go head-to-head for total control of the city.
+
+	0 - Are you the one who put the city in this state?
+	// 5
+	1 - Yeah so it's not your city at all.
+	// 6
+
+
+—————————————————————————————————————————————
+
+(#4)
+
+[char1]I advise against being disrespectful, you are not in a position to be smart. that you have blown your tires out on our anti-intrusion system and that you have quite a few resources. But don't worry, I'm not going to take all of this from you. However, I have a favour to ask you. Follow me.
+[narr]You get up and follow Caitlyn into a large room where all the local scum and banditry looks like. You even see military equipment.
+[char1]You see, Kingman is my town. In fact, just half. The other is possessed by Clifford. This motherfucker and I go head-to-head for total control of the city.
+
+
+	0 - Are you the one who put the city in this state?
+	// 5
+	1 - Yeah so it's not your city at all.
+	// 6
+
+
+—————————————————————————————————————————————
+
+(#5)
+
+[char1]It takes what it takes. 
+[narr]Caitlyn raises her chin dismissively and continues.
+[char1]Normally this town is mine, and I had gained the advantage when Clifford managed to get hold of my only daughter, Claire. Now I find myself bound hand and foot.
+[main]And is that why you need me?
+[char1]That's it. Nobody knows you here. My squad is shrinking and I don't want to risk losing more. So I want to offer you a deal. You're going to have to infiltrate Clifford's headquarters and get Claire back. Also, I am not ungrateful, if you succeed I will repair your bus and give you food and gas, enough to travel serenely to Phoenix.
+
+	0 - But you're crazy, that sounds really dangerous! Find yourself someone else!
+	// 7
+	1 - Mmmm... I'm up for it, but you better keep your promise!
+	// 8
+
+
+—————————————————————————————————————————————
+
+(#6)
+
+[narr]One of the gorillas hit you in the stomach. In shock, you fold in half, breathless. Caitlyn raises her chin dismissively and continues.
+[char1]Normally this town is mine, and I had gained the advantage when Clifford managed to get hold of my only daughter, Claire. Now I find myself bound hand and foot.
+[main]And is that why you need me?
+[char1]That's it. Nobody knows you here. My squad is shrinking and I don't want to risk losing more. So I want to offer you a deal. You're going to have to infiltrate Clifford's headquarters and get Claire back. Also, I am not ungrateful, if you succeed I will repair your bus and give you food and gas, enough to travel serenely to Phoenix.
+
+	0 - But you're crazy, that sounds really dangerous! Find yourself someone else!
+	// 7
+	1 - Mmmm... I'm up for it, but you better keep your promise!
+	// 8
+
+
+—————————————————————————————————————————————
+
+(#7)
+
+[char1]I suspected such an answer, but I'm afraid I won't give you a choice. If you refuse, don't even hope to find a piece of your bus or its passengers. And of course, you will lose your life as a bonus.
+
+	0 - Accept.
+	// 8
+	1 - Accept.
+	// 8
+
+—————————————————————————————————————————————
+
+(#8)
+
+[char1]Perfect! My men will take you to Clifford headquarters and wait for you to enter, in case you crave freedom.
+[main]She walks out of the room and leaves you there, in a room where two guys are waiting to escort you.
+
+	0 - Go talk to the man at your right.
+	LOCK_PICKING = TRUE
+	// 9
+	1 - Go talk to the man at your left.
+	// 10
+	2 - Go to Clifford repair.
+	// 13
+
+
+—————————————————————————————————————————————
+
+(#9)
+
+[main]Hi... Something to tell me about this mission? Your boss didn't give me much info.
+[char4]Yeah, I have some information for you. As you can imagine, the building is full of guards, and they will be armed. I think you can try to sneak around, either by disguising yourself as a guard or simply by being discreet. I will show you something that will help you.
+[narr]He teach you how to picks simples locks.
+[char4]If you want to live, be careful, maybe some little mistakes won't betray you, but if you accumulate then, you surely will have a bad surprise.
+[narr]Thanks for the advice.
+[char4]Your welcome, you are nice to me.
+
+	0 - Go talk to the other guy.
+	// 11
+	1 - Go to Clifford repair.
+	// 13
+
+
+—————————————————————————————————————————————
+
+(#10)
+
+[main]Hi... Something to tell me about this mission? Your boss didn't give me much info.
+[char4]Not at all. Just watch out for Clifford. It's a mad man. We nicknamed him the Big Red Dog.
+[main]Seriously?
+[char4]You'll understand if you see him.
+
+	0 - Go talk to the other guy.
+	LOCK_PICKING = TRUE
+	// 12
+	1 - Go to Clifford repair.
+	// 13
+
+
+—————————————————————————————————————————————
+
+(#11)
+
+[main]And you, do you have any interesting information for me?
+[char4]Not at all. Just watch out for Clifford. It's a mad man. We nicknamed him the Big Red Dog.
+[main]Seriously?
+[char4]You'll understand if you see him.
+
+	0 - Go to Clifford repair.
+	//13
+
+
+—————————————————————————————————————————————
+
+(#12)
+
+[main]And you, do you have any interesting information for me?
+[char4]Yeah, I have some information for you. As you can imagine, the building is full of guards and they will be armed. I think you can try to sneak around, either by disguising yourself as a guard or simply by being discreet. I will show you something that will help you.
+[narr]He teach you how to picks simples locks.
+[char4]If you want to live, be careful, maybe some little mistakes won't betray you, but if you accumulate then, you surely will have a bad surprise.
+[narr]Thanks for the advice.
+[char4]Your welcome, you are nice to me.
+
+	0 - Go to Clifford repair.
+	// 13
+
+
+—————————————————————————————————————————————
+
+(#13)
+
+[narr]After a short jeep ride, you continue on foot through the deserted town for a full hour until you see the Clifford repair. In any case, according to the words of your guides: the building looks like all the others and there doesn't seem to be people outside.
+[char4]We won't go further. Go ahead, we'll leave when you get to the building. And don't forget that we have your bus and its occupants’ hostage.
+[narr]You walk towards the building. As you approach, you find that there is a guard in front of the door. You hear a heavy metal door slam and see another guard coming from behind the building. There must be a door at the back.
+
+	0 - Approach the guards and call them out.
+	// 14
+	1 - Go to the back of the building.
+	// 15
+
+
+—————————————————————————————————————————————
+
+(#14)
+
+[main]Hey guys!
+[char5]Who the hell are you?!
+[main]I'm just here for...
+[narr]They don't listen to you and shoot you before you answer.
+
+	// GAME OVER
+
+
+—————————————————————————————————————————————
+
+(#15)
+
+[narr]You arrive in front of the back door. A guard is sleeping next to it. You try to open the door, but it's close.
+
+	0 - Knock him down and take his clothes.
+	GUARD_CLOTHES = TRUE
+	ARMED = TRUE
+	// 16
+	(IF LOCK_PICKING == TRUE) 1 - Try to crochet the door.
+	// 19
+
+
+—————————————————————————————————————————————
+
+(#16)
+
+[narr]You quickly put on the guard's clothes and take the revolver he had with him. You prepare to hide his unconscious body when you hear voices coming to front the door. In case they come outside, you hurry back to the entrance dragging the body of the guard and leaving it in the shade of the building, behind a barrel. You are again at the principal entrance, visible but incognito. You try to act naturally.
+
+
+SUSPICION =+ 2
+
+	0 - Walk past them with a friendly greeting.
+	SUSPICION =- 1
+	// 17
+	1 - Walk past them with a solemnly greeting.
+	SUSPICION =+ 1
+	// 18
+	2 - Walk past them without greeting them.
+	// 19
+
+
+—————————————————————————————————————————————
+
+(#17)
+
+[narr]They return your greetings to you as you enter the building.
+
+	// 23
+
+
+—————————————————————————————————————————————
+
+(#18)
+
+[narr]They follow you with a startled look as you enter the building. You say to yourself that you probably have too much of a stick in your ass.
+
+	//23
+
+
+—————————————————————————————————————————————
+
+(#19)
+
+[narr]They look at you badly while whispering something about the pretentious asshole. You ignore them and enter the building.
+
+	//23
+
+
+—————————————————————————————————————————————
+
+(#20)
+
+[narr]The lock is complex and need time to be picking.
+
+	0 - Persevere.
+	// 49
+	1 - Search the guard for the key.
+	// 21
+
+
+—————————————————————————————————————————————
+
+(#21)
+
+[narr]You find the key, but the guard starts to wake up!
+
+	0 - Go in immediately
+	SUSPICION =+ 1
+	// 49
+	1 - Try to put the key back on the guard so as not to arouse suspicion.
+	// 22
+
+
+—————————————————————————————————————————————
+
+(#22)
+
+[narr]You didn't have the time to do that, the guard wakes up and, with superhuman reaction speed, hit you with his gun. Again, you faint, but this time you will never wake up.
+
+	//GAME OVER
+
+
+—————————————————————————————————————————————
+
+(#23)
+
+[narr]You come to a room where a few guys are busy. Looks like they're preparing to go to war. You don't disturb them and continue down a hallway where you pass a room where a guy is sitting on an armchair with his feet on the table playing dart.
+
+	0 - Go talk to him.
+	// 24
+	1 - Continue on your way.
+	// 36
+
+
+—————————————————————————————————————————————
+
+(#24)
+
+[narr]You approach him. He sees you and looks at you, waiting to see what you want from him.
+
+	0 - I have to go watch the kid, where is her cell again?
+	// 29
+	1 - What's going on here?
+	SUSPICION =+ 1
+	// 25
+	2 - Do you know where the boss is?
+	// 27
+
+
+—————————————————————————————————————————————
+
+(#25)
+
+[char5]What are you doing to me here? Like, don't you know what's going on?
+
+	0 - What I'm asking is why you, you're doing nothing.
+	// 26
+	1 - I'm new here.
+	// 30
+
+
+—————————————————————————————————————————————
+
+(#26)
+
+[char5]I'm doing nothing? Is that how you talk to a superior? What team are you on? I see your case with your boss.
+
+	0 - I'm from the surveillance team.
+	// 31
+	1 - I'm from the team 3.
+	// 32
+
+
+—————————————————————————————————————————————
+
+(#27)
+
+[char5]I don't know. he must be busy, he won't have time to see a simple recruit like you. Why do you want to see him? It is important?
+
+	0 - Nah, it's just that I would like to see him for a personal thing.
+	SUSPICION =+ 1
+	// 28
+	1 - It's about the kid. Is she still well restrained in the usual place?
+	// 33
+
+
+—————————————————————————————————————————————
+
+(#28)
+
+[char5]Because you think the boss does care about you? Where do you come from?
+
+	0 - Usually he's pretty cool isn't he?
+	// 34
+	1 - I know but this is special, take care of what concerns you.
+	// 35
+
+
+—————————————————————————————————————————————
+
+(#29)
+
+[char5]You must have drunk too much last night. It's just to the right at the fork. Ah, and you tell the chef that the preparations are soon finished. He must be in a meeting in room 4, straight at the crossroads.
+
+	0 - Continue on your way.
+	// 36
+
+
+—————————————————————————————————————————————
+
+(#30)
+
+[char5]New here? It all seems weird to me.
+[narr]He pulls out a gun and points it at you.
+[char5]You're going to come with me and we'll go see if anyone here knows you.
+[narr]You go to the previous room and the gunman asks in a loud voice
+[char5]Does anyone know this puppet?
+[narr]Nobody reacts. You turn to him
+[main]Wait, you don't have to...
+[narr]It shoots you right in the head.
+
+	// GAME OVER
+
+
+—————————————————————————————————————————————
+
+(#31)
+
+[char5]The surveillance team? You will take a good correction. But there is no time. Hurry up and go take your shift in the cell.
+[main]The cell?
+[char5]The one where the kid is, on the right at the crossroads, you idiot!
+[main] Y... yes boss, I'm going right now.
+
+	0 - Continue on your way.
+	// 36
+
+
+—————————————————————————————————————————————
+
+(#32)
+
+[char5]Team 3? What is that? There is no team 3. I'm starting to ask myself a few questions about you...
+narr]He pulls out a gun and points it at you.
+[char5]You're going to come with me and we'll go see if anyone here knows you.
+[narr]You go to the previous room and the gunman asks in a loud voice
+[char5]Does anyone know this puppet?
+[narr]Nobody reacts. You turn to him
+[main]Wait, you don't have to...
+[narr]It shoots you right in the head.
+
+	// GAME OVER
+
+
+—————————————————————————————————————————————
+
+(#33)
+
+[char5]Yes, in the cell to the right at the fork. If it's about the kid and it's important, go see the boss quickly. He must be meeting in Room 4, straight ahead at the fork.
+
+	0 - Continue on your way.
+	// 36
+
+
+—————————————————————————————————————————————
+
+(#34)
+
+[char5]Pretty cool? Are you kidding me? I'm starting to ask myself a few questions about you...
+narr]He pulls out a gun and points it at you.
+[char5]You're going to come with me and we'll go see if anyone here knows you.
+[narr]You go to the previous room and the gunman asks in a loud voice
+[char5]Does anyone know this puppet?
+[narr]Nobody reacts. You turn to him
+[main]Wait, you don't have to...
+[narr]It shoots you right in the head.
+
+	// GAME OVER
+
+
+—————————————————————————————————————————————
+
+(#35)
+
+[char5]You have to calm down when you talk to a superior! Go on then, you'll see if he shoots you in the head. He must be in a meeting in Room 4, straight ahead at the fork. And then you will take over the guard in the cell. Finally, if you survive your discussion with the chef.
+[main]The cell?
+[char5]That of the kid, asshole, on the left at the junction coming back from room 4.
+
+	0 - Continue on your way.
+	// 36
+
+
+—————————————————————————————————————————————
+
+(#36)
+
+[narr]You arrive at a junction.
+
+	0 - Go right.
+	// 69 ?
+	1 - Go straight.
+	// 37
+	2 - Go left.
+	SUSPICION =+ 2
+	// 43
+
+
+—————————————————————————————————————————————
+
+(#37)
+
+[narr]You continue in a corridor until you reach a door. You hear voices from the other side. You enter and then come across a group of people leaning over a map. One of them explains something to the others. This person looks up and you notice a large red mark on his face like a burn but which would have remained bright red. You are facing Clifford, the Big Red Dog.
+[char2]What's the matter?
+
+	0 - Sorry boss, it's just to tell you that the troops are ready soon.
+	// 38
+	1 - Sorry boss, I just wanted to tell you some soldiers are wondering if it's worth it to spill more blood.
+	SUSPICION =+ 3
+	// 39
+
+
+—————————————————————————————————————————————
+
+(#38)
+
+[char2]Okay. Now get out.
+
+	0 - Ok boss.
+	// 41
+	1 - Just one more question boss, what do you plan for the child?
+	SUSPICION =+ 2
+	KNOW_TRUTH = TRUE
+	// 40
+
+
+—————————————————————————————————————————————
+
+(#39)
+
+[char2]I'm going to pretend I haven't heard anything. Now get out.
+
+	0 - Ok boss.
+	// 41
+	1 - Just one more question boss, what do you plan for the child?
+	SUSPICION =+ 2
+	KNOW_TRUTH = TRUE
+	// 40
+
+
+—————————————————————————————————————————————
+
+(#40)
+
+[char2]I'm going to save her from this woman-like monster. My child will never be in danger. Now get out before I decide to make sure that you never bother us again.
+[narr]You are a bit surprised by this answer, but insisting will probably not get you where you want.
+
+	0 - Return to the junction.
+	// 41
+
+
+—————————————————————————————————————————————
+
+(#41)
+
+[narr]You are back to the junction.
+
+	0 - Go left.
+	SUSPICION =+ 2
+	// 42
+	1 - Go right.
+	// 69
+
+
+—————————————————————————————————————————————
+
+(#42)
+
+[narr]You arrive in a hallway with many doors. You try a few but they are all closed or lead to an empty room. You arrive at the end of the corridor facing the last door. Also closed. You look around you. You notice a guy looking at you, taken aback.
+[char5]Are you looking for some things boy?
+[main]No no it's good, there is no problem.
+[narr]You turn back under the suspicious gaze of this guy.
+
+	0 - Go straight.
+	// 69
+
+
+—————————————————————————————————————————————
+
+(#43)
+
+[narr]You arrive in a hallway with many doors. You try a few but they are all closed or lead to an empty room. You arrive at the end of the corridor facing the last door. Also closed. You look around you. You notice a guy looking at you, taken aback.
+[char5]Are you looking for some things boy?
+[main]No no it's good, there is no problem.
+[narr]You turn back under the suspicious gaze of this guy.
+
+	0 - Go straight.
+	// 69
+	1 - Go left.
+	// 44
+
+
+—————————————————————————————————————————————
+
+(#44)
+
+[narr]You continue in a corridor until you reach a door. You hear voices from the other side. You enter and then come across a group of people leaning over a map. One of them explains something to the others. This person looks up and you notice a large red mark on his face like a burn but which would have remained bright red. You are facing Clifford, the Big Red Dog.
+[char2]What's the matter?
+
+	0 - Sorry boss, it's just to tell you that the troops are ready soon.
+	// 45
+	1 - Sorry boss, I just wanted to tell you some soldiers are wondering if it's worth it to spill more blood.
+	SUSPICION =+ 3
+	// 46
+
+
+—————————————————————————————————————————————
+
+(#45)
+
+[char2]Okay. Now get out.
+
+	0 - Ok boss.
+	// 47
+	1 - Just one more question boss, what do you plan for the child?
+	SUSPICION =+ 2
+	KNOW_TRUTH = TRUE
+	// 48
+
+
+—————————————————————————————————————————————
+
+(#46)
+
+[char2]I'm going to pretend I haven't heard anything. Now get out.
+
+	0 - Ok boss.
+	// 47
+	1 - Just one more question boss, what do you plan for the child?
+	SUSPICION =+ 2
+	KNOW_TRUTH = TRUE
+	// 48
+
+
+—————————————————————————————————————————————
+
+(#47)
+
+[narr]You are back to the junction.
+
+	0 - Go left.
+	// 69
+
+
+—————————————————————————————————————————————
+
+(#48)
+
+[char2]I'm going to save her from this woman-like monster. My child will never be in danger. Now get out before I decide to make sure that you never bother us again.
+[narr]You are a bit surprised by this answer, but insisting will probably not get you where you want. You return to the junction.
+
+	0 - Go left.
+	// 69
+
+
+—————————————————————————————————————————————
+
+(#49)
+
+[narr]Fortunately, you arrive in an empty room. In front of you, there is a corridor from which you hear voices. To your left is an air duct just big enough to fit through.
+
+	0 - Go through the ventilation grid.
+	// 50
+	1 - Take the corridor.
+	// 67
+
+
+—————————————————————————————————————————————
+
+(#50)
+
+[narr]You tear off the gate and lean on a chair to go through the duct. You replace the grid without being able to reattach it. You walk slowly without making any noise. You arrive at the top of a room where the voices you hear before come from.
+
+	0 - Listen to them.
+	// 51
+	1 - Keep moving forward.
+	// 52
+
+
+—————————————————————————————————————————————
+
+(#51)
+
+[char5]...boss looked angry. He went to the meeting room just behind that room to the right. I wouldn't like to be one of the lieutenants right now.
+[narr]You keeps moving forward to a crossroad.
+
+	0 - Go to right.
+	// 53
+	1 - Go to left.
+	// 58
+
+
+—————————————————————————————————————————————
+
+(#52)
+
+[narr]You keep moving forward to a crossroad.
+
+	0 - Go to right.
+	KNOW_TRUTH = TRUE
+	// 53
+	1 - Go to left.
+	// 58
+
+
+—————————————————————————————————————————————
+
+(#53)
+
+[narr]You arrive again above a room where a group is discussing. But this time the discussion seems more important. You look through the slits in the grid and spot a man with a bright red profile, which gives you good reason to believe it is Clifford, the Big Red Dog.
+[char2]...and with that, victory is assured, ah ah!
+[char5]And about Caitlyn? If she tries to take Claire while we are attacking her repair?
+[char2]Don't worry about that. I don't think my daughter will be her priority if we are killing all her troops.
+[narr]You are a little surprised by what you have just heard. Caitlyn lied to you? You decide to continue but the conduit stops directly after the room. You want to turn around to turn back but it might make some noise.
+
+	0 - Wait and see if the guys below leave.
+	// 54
+	1 - Turn around anyway and go back to the fork.
+	SUSPICION =+ 3
+	// 57
+
+
+—————————————————————————————————————————————
+
+(#54)
+
+[narr]They talk about things that don't interest you.
+
+	0 - Wait a little longer.
+	// 55
+	1 - Turn around anyway and go back to the fork.
+	SUSPICION =+ 3
+	// 57
+
+
+—————————————————————————————————————————————
+
+(#55)
+
+[narr]They continue to talk about things that don't interest you.
+
+	0 - Wait a little longer.
+	// 56
+	1 - Turn around anyway and go back to the fork.
+	SUSPICION =+ 3
+	// 57
+
+
+—————————————————————————————————————————————
+
+(#56)
+
+[narr]They end up leaving the room. You go back to the fork and take the other direction. After passing through a few rooms, you feel the duct squeak and move. Suddenly it breaks and you find yourself in the room below. A guy is watching you wide-eyed. He tries to take a gun out of his pocket.
+
+	0 - Take cover.
+	// 59
+	1 - Run over him.
+	// 63
+
+
+—————————————————————————————————————————————
+
+(#57)
+
+[narr]You turn around very slowly, but unfortunately, the friction of your shoe makes noise. Discussions downstairs stop for a few seconds before resuming. You return to the fork and take the other direction. After passing through a few rooms, you feel the duct squeak and move. Suddenly it breaks and you find yourself in the room below. A guy is watching you wide-eyed. He tries to take a gun out of his pocket.
+
+	0 - Take cover.
+	// 59
+	1 - Run over him.
+	// 63
+
+
+—————————————————————————————————————————————
+
+(#58)
+
+[narr]After passing through a few rooms, you feel the duct squeak and move. Suddenly it breaks and you find yourself in the room below. A guy is watching you wide-eyed. He tries to take a gun out of his pocket.
+
+	0 - Take cover.
+	// 59
+	1 - Run over him.
+	// 63
+
+
+—————————————————————————————————————————————
+
+(#59)
+
+[narr]By the time the guy takes out his gun, you scan the room for a place to take cover. Two solutions jump out at you.
+
+	0 - Take cover behind the doorframe.
+	SUSIPICION =+ 2
+	// 60
+	1 - Vous mettre à couvert derrière un baril rouge
+	// 61
+
+
+—————————————————————————————————————————————
+
+(#60)
+
+[narr]Once in cover the guy empties his magazine towards you, without success.
+
+	0 - Run over him.
+	// 62
+	1 - Run away.
+	SUSPICION =+ 2
+	// 69
+
+
+—————————————————————————————————————————————
+
+(#61)
+
+[narr]What a surprise, when the guy shoots the barrel, it explodes!
+
+	// GAME OVER
+
+
+—————————————————————————————————————————————
+
+(#62)
+
+[narr]While he's reloading, you run into him and knock him out with a snap. He collapses to the ground, unconscious. However, the gunshots surely alerted his companions!
+
+	0 - Take his gun before fleeing.
+	ARMED = TRUE
+	// 69
+	1 - Run away.
+	// 69
+
+
+—————————————————————————————————————————————
+
+(#63)
+
+[narr]Taking advantage of the surprise effect, you rush over to the guy and punch him down, knocking him down.
+
+	0 - Finish him by a kick in the head.
+	// 64
+	1 - Take his gun.
+	ARMED = TRUE
+	// 65
+
+
+—————————————————————————————————————————————
+
+(#64)
+
+[narr]He should be unconscious for a few hours. You quickly hide his body behind a barrel.
+
+	0 - Continue on your way
+	// 69
+
+
+—————————————————————————————————————————————
+
+(#65)
+
+[narr]You threaten him with his own weapon. He raises his hands in surrender.
+
+	0 - Tie him up.
+	// 66
+	1 - Kill him.
+	SUSPICION =+ 3
+	// YOU KILL SOMEONE
+	// 66
+
+
+—————————————————————————————————————————————
+
+(#66)
+
+[narr]You hide him behind a barrel. Some guard can come, alerted by the noise.
+
+	0 - Continue on your way
+	// 69
+
+
+—————————————————————————————————————————————
+
+(#67)
+
+[narr]Glancing down the hall you see three men chatting. Unfortunately, there is nothing to take cover.
+
+	0 - Approach discreetly.
+	// 68
+	1 - Go back and go through the ventilation grid.
+	// 50
+
+
+—————————————————————————————————————————————
+
+(#68)
+
+[narr]Unfortunately, you are not invisible. They see you and shoot you.
+
+	// GAME OVER
+
+
+—————————————————————————————————————————————
+
+(#69)
+
+[narr]You finally arrive in the room where the door to the kid's cell is. A guard stands in front of it. He's armed. You are out of his sight for now.
+
+	0 - Find a way to get his attention elsewhere.
+	// 70
+	(IF GUARD_CLOTHES == TRUE) 1 - Go talk to him.
+	// 73
+	(IF ARMED == TRUE) 2 - Shoot him.
+	SUSPICION =+ 5
+	// YOU KILL SOMEONE
+	// 76
+
+
+—————————————————————————————————————————————
+
+(#70)
+
+[narr]Discreetly, you glance around. You notice a pile of crates in the adjacent hallway.
+
+	0 - Call the guard by trying a random name.
+	// 71
+	1 - Drop the crates and simulate a cry for help.
+	// 72
+
+
+—————————————————————————————————————————————
+
+(#71)
+
+[narr]Hidden behind the crates, you shout 
+[main]Kevin! Come over here!
+[narr]The guard comes towards you.
+[char5]Wait, I'm coming!
+[narr]Stunned at your luck, you grab a plank lying there and prepare to leap in front of it to knock it out. But as you strain your ears for the right moment, he shoots you through the crates. As you take your last breath, he walks up to you
+[char5]You shouldn't take me for a jerk.
+
+	// GAME OVER
+
+
+—————————————————————————————————————————————
+
+(#72)
+
+[narr]After you apply your plan, you stand against the doorframe, plank in hand. You strain your ears and listen to the guard slowly approaching. Despite his suspicion, you pick up speed when he gets to your level and smashes him with your plank. You take his keys and head for the door.
+
+	(IF KNOW_TRUTH == FALSE) 0 - Open the door.
+	// 77
+	(IF KNOW_TRUTH == TRUE) 1 - Open the door.
+	// 78
+
+
+—————————————————————————————————————————————
+
+(#73)
+
+[narr]You approach him.
+
+	0 - Ask him to let you in to see the kid.
+	SUSPICION =+ 1
+	// 74
+	1 - Tell him that you were sent to take over.
+	// 75
+
+
+—————————————————————————————————————————————
+
+(#74)
+
+[narr]He doesn't look convinced.
+[char5]Uh... no sorry.
+
+	0 - Tell him that you were sent to take over.
+	SUSPICION =+ 1
+	// 75
+
+
+—————————————————————————————————————————————
+
+(#75)
+
+[char5]Nice, I'll go take a nap.
+[narr]The guard leaves you the keys and goes. You are alone in front of the closed door.
+
+	(IF KNOW_TRUTH == FALSE) 0 - Open the door.
+	// 77
+	(IF KNOW_TRUTH == TRUE) 1 - Open the door.
+	// 78
+
+
+—————————————————————————————————————————————
+
+(#76)
+
+[narr]You take your time to aim for his head and, without any qualms, shoot. You go take the keys on his body.
+
+	(IF KNOW_TRUTH == FALSE) 0 - Open the door.
+	// 77
+	(IF KNOW_TRUTH == TRUE) 1 - Open the door.
+	// 78
+
+
+—————————————————————————————————————————————
+
+(#77)
+
+[narr]You enter the room. To your surprise, you arrive in a little girl's room and not in a cell. The kid is squatting in a corner of the room. You approach her.
+
+	0 - I'm here to save you, let's go!
+	// 79
+	1 - Don't worry sweety, I'm here to help you. Let's go?
+	CHILD_AFFECTION =+ 5
+	// 79
+	2 - Come, quickly!
+	CHILD_AFFECTION =- 5
+	// 79
+
+
+—————————————————————————————————————————————
+
+(#78)
+
+[narr]You enter the room. When you see that the cell is actually a beautiful little girl's room, you begin to understand what the chief is saying. The kid is squatting in a corner of the room. You approach her.
+
+	0 - I'm here to save you, let's go!
+	// 79
+	1 - Don't worry sweety, I'm here to help you. Let's go?
+	CHILD_AFFECTION =+ 5
+	// 79
+	2 - Come, quickly!
+	CHILD_AFFECTION =- 5
+	// 79
+
+
+—————————————————————————————————————————————
+
+(#79)
+
+[narr]The child remains silent and follows you without flinching.
+
+	(IF SUSPICION > 6) 0 - Exit the room.
+	// 80
+	(IF SUSPICION < 7) 1 - Exit the room.
+	// 94
+
+
+—————————————————————————————————————————————
+
+(#80)
+
+[narr]As soon as you exit the room, you come face to face with Clifford, accompanied by a few gunmen threatening you.
+[char2]So, a Caitlyn infiltrator? You should stop this right now if you want a quick death.
+[narr]His eyes shine with a gleam of madness and anger. You start to panic, you have to do something.
+
+	(IF KNOW_TRUTH == FALSE & ARMED == TRUE) 0 - Take the kid hostage.
+	CHILD_AFFECTION =- 5
+	// 81
+	(IF KNOW_TRUTH == TRUE & ARMED == TRUE) 1 - Take the kid hostage.
+	CHILD_AFFECTION =- 5
+	// 82
+	(IF KNOW_TRUTH == FALSE & ARMED == FALSE) 2 - Take the kid hostage.
+	CHILD_AFFECTION =- 10
+	// 83
+	(IF KNOW_TRUTH == TRUE & ARMED == FALSE) 3 - Take the kid hostage.
+	CHILD_AFFECTION =- 10
+	// 84
+
+
+—————————————————————————————————————————————
+
+(#81)
+
+[narr]You don't have the choice. Hoping that the girl's life is worth enough for them as a hostage, you place her in front of you and point your gun at her. To your surprise, it works even better than expected.
+[char2]What are you doing? Let her go.
+[main]And then you will kill me like a dog? No thanks.
+[narr]You start to take the direction of the exit without turning your back to them. Clifford follows you, hands in the air, ordering his men not to attack you. You arrive outside, a few steps from freedom.
+
+	0 - Why are you so afraid of losing Caitlyn's daughter?
+	// 85
+	1 - I appreciate seeing your red face twist in fear.
+	// 86
+
+
+—————————————————————————————————————————————
+
+(#82)
+
+[narr]You don't have the choice. Realizing that the kid is actually more important to Clifford than to Caitlyn, you draw your gun and point it at the kid.
+[char2]What are you doing? Let her go.
+[main]And then you will kill me like a dog? No thanks.
+[narr]You start to take the direction of the exit without turning your back to them. Clifford follows you, hands in the air, ordering his men not to attack you. You arrive outside, a few steps from freedom.
+
+	0 - So, you are Claire's father? And Caitlyn is her mother?
+	// 87
+	1 - So, bye Clifford, I'll go give your daughter to your worst enemy.
+	// 88
+
+
+—————————————————————————————————————————————
+
+(#83)
+
+[narr]You don't have the choice. Hoping that the girl's life is worth enough for them as a hostage, you put your elbow under his chin and place the other hand on his head. You place her in front of you like a shield.
+[main]Do not move, at his age, the body is very flexible but breaks easily.
+[char2]What are you doing? Let her go.
+[main]And then you will kill me like a dog? No thanks.
+[narr]You start to take the direction of the exit without turning your back to them. Clifford follows you, hands in the air, ordering his men not to attack you. You arrive outside, a few steps from freedom.
+
+	0 - Why are you so afraid of losing Caitlyn's daughter?
+	// 85
+	1 - I appreciate seeing your red face twist in fear.
+	// 86
+
+
+—————————————————————————————————————————————
+
+(#84)
+
+[narr]You don't have the choice. Realizing that the kid is actually more important to Clifford than to Caitlyn, you put your elbow under his chin and place the other hand on his head. You place her in front of you like a shield.
+[main]Do not move, at his age, the body is very flexible but breaks easily.
+[char2]What are you doing? Let her go.
+[main]And then you will kill me like a dog? No thanks.
+[narr]You start to take the direction of the exit without turning your back to them. Clifford follows you, hands in the air, ordering his men not to attack you. You arrive outside, a few steps from freedom.
+
+	0 - So, you are Claire's father? And Caitlyn is her mother?
+	// 87
+	1 - So, bye Clifford, I'll go give your daughter to your worst enemy.
+	// 86
+
+
+—————————————————————————————————————————————
+
+(#85)
+
+[char2]You bastard, you're just a pawn, she's not Caitlyn's daughter, she's mine! Caitlyn is manipulating you, you stupid dog.
+
+	0 - Is it true? Why keep her locked up then?
+	// 89
+	1 - I don't care about that, I just want what she promised me.
+	REPAIRED_BUS = TRUE
+	// 90
+
+
+—————————————————————————————————————————————
+
+(#86)
+
+[char2]I will never stop chasing you and I will gladly offer you a long agony before letting you rott in a cell! Death would be far too good for you!
+
+	0 - Ahah! Maybe next time!
+	// 92
+	1 - Maybe you don't have to do this. We could find an arrangement.
+	REPAIRED_BUS = TRUE
+	// 93
+
+
+—————————————————————————————————————————————
+
+(#87)
+
+[char2]Of course I'm his father. And this whore is nothing to us!
+[narr]He spits on the floor.
+
+	0 - So why you keep her in a cell? You're crazy.
+	// 89
+	1 - Sorry man, I don't want to get involve into your family problems.
+	// 88
+
+
+—————————————————————————————————————————————
+
+(#88)
+
+[narr]Please, I beg you, give me back my daughter.
+
+	0 - Sorry, business is business. Bye Clifford.
+	// 92
+	1 - Maybe you can do something.
+	// 93
+
+
+—————————————————————————————————————————————
+
+(#89)
+
+[char2]Because I want to protect her from this cruel world! And especially from Caitlyn. She'll torture her just to reach me.
+
+	0 - I'm sorry for you but I have my own problem.
+	REPAIRED_BUS = TRUE
+	// 91
+	1 - I don't care about that, I just want what she promised me.
+	REPAIRED_BUS = TRUE
+	// 90
+
+
+—————————————————————————————————————————————
+
+(#90)
+
+[char2]And what is it? There's nothing she can give that I can't. Tell me your price.
+[main]Stop there. She has things that you can't give me. But if you want even a chance to see your kid again, you have to go fix the bus on Stockton Hill Road.
+[char2]All that you want. But promise me you won't hurt her.
+
+	0 - I promise.
+	CHILD_AFFECTION =+ 5
+	// 110
+	1 - I can't promise this.
+	// 110
+
+
+—————————————————————————————————————————————
+
+(#91)
+
+[char2]And I can help you to solve them.
+[main]Stop there. Caitlyn has things that you can't give me. But if you want even a chance to see your kid again, you have to go fix the bus on Stockton Hill Road.
+[char2]All that you want. But promise me no harm will be done to her.
+
+	0 - I promise.
+	CHILD_AFFECTION =+ 5
+	// 110
+	1 - I can't promise this.
+	// 110
+
+
+—————————————————————————————————————————————
+
+(#92)
+
+[narr]While Clifford is yelling at you, you start to leave, always threatening the girl.
+
+	// GO TO 110
+
+
+—————————————————————————————————————————————
+
+(#93)
+
+[char2]I'm listening to you.
+[main]I can't give you the kid now, but if you send someone to repair the bus on Stockton Hill Road, I'll help the child.
+[char2]And you think that I'll trust you?
+[main]You don't really have the choice.
+[char2]Uh... Ok... But promise me no harm will be done to her.
+
+	0 - I promise.
+	CHILD_AFFECTION =+ 5
+	// 110
+	1 - I can't promise this.
+	// 110
+
+
+—————————————————————————————————————————————
+
+(#94)
+
+[narr]Thanks to your discretion, no one seems to be actively looking for you. You take the child on your back and exit the room. You walk silently through the building. Luckily, the kid is not very heavy and rather quiet. In a hallway, you hear someone coming. You hide in the nearest room, praying that it is empty. Fortunately, it is.
+
+	0 - Explore the room.
+	// 95
+	1 - Wait a few seconds and go out.
+	// 96
+
+
+—————————————————————————————————————————————
+
+(#95)
+
+[narr]You realize that you are probably in Clifford's office. There is a window and you are on the ground floor.
+
+	0 - Come out.
+	// 96
+	1 - Leave a note of blackmail hoping to get something from Clifford.
+	REPAIRED_BUS = TRUE
+	// 97
+	2 - Go out the window.
+	// 100
+
+
+—————————————————————————————————————————————
+
+(#96)
+
+[narr]You go out, but too early. There is still someone in the hallway. He sees you and yells at the intruder. You reenter directly into the room and block the door with a chair.
+
+	0 - Try the window.
+	// 105
+	1 - Shout at them that you have the kid and that you will hurt her if they come in.
+	CHILD_AFFECTION =- 5
+	// 99
+
+
+—————————————————————————————————————————————
+
+(#97)
+
+[narr]You leave a note saying that in return for the kid you want him to the bus on Stockton Hill Road. You hear someone knocking on the door and asking
+[char5]Boss, are you there?
+
+	0 - Go out the window.
+	// 100
+	1 - Wait without making noise.
+	// 98
+
+
+—————————————————————————————————————————————
+
+(#98)
+
+[narr]You freeze. But the child, until now silent, sees a spider slowly descending from the ceiling. You also see her and gesture to the kid not to make noise. But that is in vain: by reflex, she screams. You jump on the chair and use it to block the door as the guy on the other side calls for reinforcements.
+
+	0 - Try the window.
+	// 105
+
+
+—————————————————————————————————————————————
+
+(#99)
+
+[narr]It doesn't make them react and they try to break down the door.
+
+	0 - Try the window.
+	// 105
+
+
+—————————————————————————————————————————————
+
+(#100)
+
+[narr]The window is closed.
+
+	(IF ARMED == TRUE) 0 - Fire on the lock to open it
+	// 108
+	1 - Try to break it down.
+	// 101
+
+
+—————————————————————————————————————————————
+
+(#101)
+
+[narr]The window doesn't break and the blow alerted the guy in the hallway. He asks what's going on, thinking his boss is in the room. You block the door with a chair. Without an answer, the guy behind then tries to break it down.
+
+	0 - Hit the window again.
+	// 103
+	1 - Shout at them that you have the kid and that you will hurt her if they come in.
+	// 102
+
+
+—————————————————————————————————————————————
+
+(#102)
+
+[narr]It doesn't make them react and they continue trying to break down the door.
+
+	0 - Hit the window again.
+	// 103
+	(IF ARMED == TRUE) 1 - Fire on the lock to open it.
+	// 109
+
+
+—————————————————————————————————————————————
+
+(#103)
+
+[narr]It still won't break but with a few more knocks it can pop open! But this is also the case with the door, which the guards will soon break.
+
+	0 - Hit the window again.
+	// 104
+	(IF ARMED == TRUE) 1 - Fire on the lock to open it.
+	// 109
+
+
+—————————————————————————————————————————————
+
+(#104)
+
+[narr]You kick it again and this time it opens! You exit as the guards manage to enter the room and shoot you from the window, but without success, because you are running like never before you have run and are already far away, the kid still on your shoulders.
+
+	// GO TO 111
+
+
+—————————————————————————————————————————————
+
+(#105)
+
+[narr]The window is closed.
+
+	0 - Try to break it down.
+	// 106
+	(IF ARMED == TRUE) 1 - Fire on the lock to open it.
+	// 109
+
+
+—————————————————————————————————————————————
+
+(#106)
+
+[narr]Your blow does nothing. The guys outside keep trying to break down the door.
+
+	0 - Hit the window again.
+	// 107
+	(IF ARMED == TRUE) 1 - Fire on the lock to open it.
+	// 109
+
+
+—————————————————————————————————————————————
+
+(#107)
+
+[narr]You kick it again and this time it opens! You exit as the guards manage to enter the room and shoot you from the window, but without success, because you are running like never before you have run and are already far away, the kid still on your shoulders.
+
+	// GO TO 111
+
+
+—————————————————————————————————————————————
+
+(#108)
+
+[narr]The gunshot alerts the guards, but it's too late: you've already jumped out the window and are running away, the kid still on your shoulders.
+
+	// GO TO 111
+
+—————————————————————————————————————————————
+
+(#109)
+
+[narr]The window cannot withstand your firepower. As Clifford's men make their way in, you are already putting as much distance as possible between you and them, the kid still on your shoulders.
+
+	// GO TO 111
+
+
+—————————————————————————————————————————————
+
+(#110)
+
+[narr]You go into the city, avoiding turning your back on them for the first few hundred meters. You pick up the kid on your back. After a few hours of walking, the night starts to come and you feel really tired. You decide to stop for the knight in a ruined house where you found an old mattress.
+
+	0 - Let Claire take the mattress.
+	CHILD_AFFECTION =+ 5
+	// 112
+	1 - Keep the mattress for yourself.
+	CHILD_AFFECTION =- 5
+	// 112
+
+
+—————————————————————————————————————————————
+
+(#111)
+
+[narr]After a few hours of walking, the night starts to come and you feel really tired. You decide to stop for the knight in a ruined house where you found an old mattress.
+
+	0 - Let Claire take the mattress.
+	CHILD_AFFECTION =+ 5
+	// 112
+	1 - Keep the mattress for yourself.
+	CHILD_AFFECTION =- 5
+	// 112
+
+
+—————————————————————————————————————————————
+
+(#112)
+
+[narr]The two of you settle down, ready to sleep.
+
+	0 - You speak sometimes, kiddo?
+	// 113
+	1 - You don't want to talk a bit sweaty?
+	// 113
+
+
+—————————————————————————————————————————————
+
+(#113)
+
+[narr]Claire shakes her head.
+
+	0 - Ok, like you want, I don't care anyway.
+	// 114
+	1 - Like you want. But I want to tell you my story.
+	CHILD_AFFECTION =+5
+	// 115
+
+
+—————————————————————————————————————————————
+
+(#114)
+
+[narr]A few minutes pass.
+[char3]Where are you taking me?
+
+	0 - To Caitlyn, like I promise.
+	CHILD_AFFECTION =- 5
+	// 116
+	1 - I don't know. If you speak to me, it'll be easier for me to decide.
+	// 117
+
+
+—————————————————————————————————————————————
+
+(#115)
+
+[narr]You start telling your story, with a lot of fantasy and a certain skill to change tragic events into the light, even comical events. As things progress, Claire pays more and more attention to you and ends up loosening up, to finally laugh heartily.
+[main]And you, tell me your story.
+[char3]Nothing happen in my life. Daddy always keeps me in my room and tell me that that the outside is dangerous and that if I go out I will die.
+[main]How was he with you? Has he ever hurt you?
+[char3]Never, but he always scared me. He changed his mood all the time. He used to give me gifts sometimes but I never really felt like he loved me.
+[narr]She started yawning.
+[main]Ok, time to sleep.
+[char3]Can I sleep with you?
+
+	0 - Yes.
+	CHILD_AFFECTION =+ 5
+	// 118
+	1 - No.
+	CHILD_AFFECTION =- 5
+	// 119
+
+
+—————————————————————————————————————————————
+
+(#116)
+
+[narr]She starts to cry silently. You try to ignore her until you both fall asleep. The next day, as you continue your way west of the city, you tell yourself that it is time to make a decision concerning Claire.
+
+	0 - Bring her to Caitlyn.
+	// 120
+	1 - Bring her back to Clifford.
+	// 121
+	(IF CHILD_AFFECTION < 10) 2 - Take her with you.
+	// 122
+	(IF CHILD_AFFECTION > 9) 3 - Take her with you.
+	// 123
+
+
+—————————————————————————————————————————————
+
+(#117)
+
+[char3]What do you want to know?
+[main]I don't know, speak about yourself.
+[char3]Uh... I have nothing to say... Nothing happened in my life. Daddy always keeps me in my room and tell me that that the outside is dangerous and that if I go out I will die.
+[main]How was he with you? Has he ever hurt you?
+[char3]Never, but he always scared me. He changed his mood all the time. He used to give me gifts sometimes but I never really felt like he loved me.
+[narr]She started yawning.
+[main]Ok, time to sleep.
+char3]Can I sleep with you?
+
+	0 - Yes.
+	CHILD_AFFECTION =+ 5
+	// 118
+	1 - No.
+	// 119
+
+
+—————————————————————————————————————————————
+
+(#118)
+
+[narr]She snuggles up to you and you both fall asleep like that. The next day, as you continue your way west of the city, you tell yourself that it is time to make a decision concerning Claire.
+
+	0 - Bring her to Caitlyn.
+	// 120
+	1 - Bring her back to Clifford.
+	// 121
+	(IF CHILD_AFFECTION < 10) 2 - Take her with you.
+	// 122
+	(IF CHILD_AFFECTION > 9) 3 - Take her with you.
+	// 123
+
+
+—————————————————————————————————————————————
+
+(#119)
+
+[narr]You both fall asleep. The next day, as you continue your way west of the city, you tell yourself that it is time to make a decision concerning Claire.
+
+	0 - Bring her to Caitlyn.
+	// 120
+	1 - Bring her back to Clifford.
+	// 121
+	(IF CHILD_AFFECTION < 10) 2 - Take her with you.
+	// 122
+	(IF CHILD_AFFECTION > 9) 3 - Take her with you.
+	// 124
+
+
+—————————————————————————————————————————————
+
+(#120)
+
+[narr]You return to see Caitlyn. She is really happy to see you with the kid.
+[char1]To be completely honest, I didn't even think you would come back. But a promise is a promise, I'll fix your bus and you can take as much gas and food as you want! Come here sweety, I won't bite you.
+[narr]As the start Claire tighten your hand harder and try to find your look, but when she realises you dodge it, she gives up and walks slowly to Caitlyn.
+During the day, Caitlyn does everything she promised, and by the end of the afternoon, you are ready to go. Then you leave Kingman, surely forever. 
+
+	// YOU GAIN 10 GAS AND AS MUCH FOOD AS YOU HAVE FREE SPACES
+	// EVENT END
+
+
+—————————————————————————————————————————————
+
+(#121)
+
+[narr]You decide to bring Claire back to her father. The child doesn't seem very happy but maybe it's better for her than Caitlyn.
+[char2]You're very smart, and I'm very grateful to you. I'll help you fix your bus and you can take as much gas and food as you want with you!
+[narr]With troops of Clifford's soldier, you return to your bus with your booty. A shootout begins between the men of Caitlyn and Clifford, but thanks to the numerical superiority of the latter, you win and manage to leave with your bus in good condition and with all its passengers. You are leaving Kingman, probably forever.
+
+	// YOU GAIN 10 GAS AND AS MUCH FOOD AS YOU HAVE FREE SPACES
+	// EVENT END
+
+
+—————————————————————————————————————————————
+
+(#122)
+
+[main]Do you want to come with us kiddo?
+[narr]Claire looks at you with surprise and shakes her head while dodging your look. Maybe she doesn’t trust you enough.
+
+	0 - Bring her to Caitlyn.
+	// 123
+	1 - Bring her back to Clifford.
+	// 121
+
+
+—————————————————————————————————————————————
+
+(#123)
+
+[narr]You return to see Caitlyn. She is really happy to see you with the kid.
+[char1]To be completely honest, I didn't even think you would come back. But a promise is a promise, I'll fix your bus and you can take as much gas and food as you want! Come here sweety, I won't bite you.
+[narr]As the start Claire tighten your hand harder, but she quickly gives up and walks slowly to Caitlyn.
+During the day, Caitlyn does everything she promised, and by the end of the afternoon, you are ready to go. Then you leave Kingman, surely forever. 
+
+	// YOU GAIN 10 GAS AND AS MUCH FOOD AS YOU HAVE FREE SPACES
+	// EVENT END
+
+
+—————————————————————————————————————————————
+
+(#124)
+
+[narr]You stop walking. Claire look at you.
+[main]Do you want to come with me, Claire? My travel isn't very safe but I think you'll be better with us than here.
+[narr]Her eyes widen in surprise then a big smile appears on her face.
+[char3]Yes I do!
+
+	(IF BUS_REPAIRED == FALSE) // GO TO 125
+	(IF BUS_REPAIRED == TRUE) // GO TO 126
+
+
+—————————————————————————————————————————————
+
+(#125)
+
+[narr]You arrive at the bus and are happy to see that there is nobody from Caitlyn's gang. But unfortunately, she has not yet fixed the. As you brainstorm a solution, Caitlyn's men come and see you with the kid. They take you in front of her. 
+[char2]You wanted to fuck me? Not like that my little one. Given the situation, I don't think I have to give you what I promised. However, I am a manianc, so I will fix your bus as promised but that will be all, and you will have to get out of Kingman as soon as possible.
+[narr]You try to negotiate for the child, but she tells you it's non-negotiable and tells you to leave immediately, as long as she doesn't change her mind.
+
+	0 - Refuse to leave without the child and make a nice tirade full of compassion.
+	// 126
+	1- Leave.
+	// 127
+
+
+—————————————————————————————————————————————
+
+(#126)
+
+[narr]You are just starting your tirade then she shoots you in the head.
+[char2]I said non-negotiable.
+
+	// GAME OVER
+
+
+—————————————————————————————————————————————
+
+(#127)
+
+[narr]While Claire is crying and calling your name, you leave without looking back. The bus is quickly repaired and you soon leave Kingman with a heavy heart.
+
+	// EVENT END
+
+
+—————————————————————————————————————————————
+
+(#128)
+
+[narr]You sneak around the bus. It has been repaired and no Caitlyn's men seem to be around! Not believing how lucky you are, you quickly jump in with Claire and start the bus. You turn around to leave the city and make a detour to continue east without having a bad encounter. Claire is already starting to get to know the other passengers and seems happier than ever.
+
+	// CLAIRE JOIN THE BUS
+	// EVENT END

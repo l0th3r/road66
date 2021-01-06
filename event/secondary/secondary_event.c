@@ -27,16 +27,63 @@ void se_event_21();
 void se_event_22();
 
 /* creating event functions array */
-void (*se_events[7])() =
+void (*se_events[23])() =
 {
+    se_event_0,
     se_event_1,
     se_event_2,
     se_event_3,
     se_event_4,
     se_event_5,
     se_event_6,
-    se_event_7
+    se_event_7,
+    se_event_8,
+    se_event_9,
+    se_event_10,
+    se_event_11,
+    se_event_12,
+    /*se_event_13,*/
+    /*se_event_14,*/
+    /*se_event_15,*/
+    /*se_event_16,*/
+    /*se_event_17,*/
+    se_event_18,
+    se_event_19,
+    se_event_20,
+    se_event_21,
+    se_event_22
 };
+
+/* to check if the event have been played */
+int se_event_check[23] = { 0 };
+
+void se_event_drop()
+{
+    int i = 0;
+    int cnt = 0;
+    int temp;
+    int is;
+
+    /* check if there are event still available */
+    is = 1;
+    while(i < 23)
+    {
+        if(se_event_check[i] == 0)
+            is = 0;
+        i++;
+    }
+
+    if(is == 0)
+    {
+        while(is == 0)
+        {
+            temp = uf_random(22);
+            if(se_event_check[temp] == 0)
+                is = 1;
+        }
+        (*se_events[temp])();
+    }
+}
 
 void se_event_0()
 {
@@ -48,6 +95,9 @@ void se_event_0()
     char* char3 = "/";
     char* char4 = "/";
     char* char5 = "/";
+
+    se_event_check[0] = 1;
+
 
     while (current >= 0)
     {
@@ -192,6 +242,8 @@ void se_event_1()
     char* char4 = "/";
     char* char5 = "/";
 
+    se_event_check[1] = 1;
+
     while (current >= 0)
     {
         ui_print_dial(win_env, current, ev_w, "event/secondary/1", char0, char1, char2, char3, char4, char5);
@@ -253,6 +305,8 @@ void se_event_2()
     char* char4 = "/";
     char* char5 = "/";
 
+    se_event_check[2] = 1;
+
     while (current >= 0)
     {
         ui_print_dial(win_env, current, ev_w, "event/secondary/2", char0, char1, char2, char3, char4, char5);
@@ -290,6 +344,8 @@ void se_event_3()
     char* char3 = "/";
     char* char4 = "/";
     char* char5 = "/";
+
+    se_event_check[3] = 1;
 
     while (current >= 0)
     {
@@ -419,6 +475,8 @@ void se_event_4()
     char* char4 = "/";
     char* char5 = "/";
 
+    se_event_check[4] = 1;
+
     while (current >= 0)
     {
         ui_print_dial(win_env, current, ev_w, "event/secondary/4", char0, char1, char2, char3, char4, char5);
@@ -523,6 +581,8 @@ void se_event_5()
     char* char4 = "/";
     char* char5 = "/";
 
+    se_event_check[5] = 1;
+
     while (current >= 0)
     {
         ui_print_dial(win_env, current, ev_w, "event/secondary/5", char0, char1, char2, char3, char4, char5);
@@ -626,6 +686,8 @@ void se_event_6()
     char* char4 = "/";
     char* char5 = "/";
 
+    se_event_check[6] = 1;
+
     while (current >= 0)
     {
         ui_print_dial(win_env, current, ev_w, "event/secondary/6", char0, char1, char2, char3, char4, char5);
@@ -676,8 +738,10 @@ void se_event_7()
     char* char4 = "/";
     char* char5 = "/";
 
+    se_event_check[7] = 1;
+
     if (inventory->pa_count > 0)
-        char0 = inventory->passengers[uf_random(inventory->pa_count - 1)];
+        char0 = inventory->passengers[uf_random(inventory->pa_count)];
 
     while (current >= 0)
     {
@@ -728,10 +792,12 @@ void se_event_8()
     char* char4 = "/";
     char* char5 = "/";
 
+    se_event_check[8] = 1;
+
     char* choice1_temp = NULL;
 
     if (inventory->pa_count > 0)
-        char1 = inventory->passengers[uf_random(inventory->pa_count - 1)];
+        char1 = inventory->passengers[uf_random(inventory->pa_count)];
 
     while (current >= 0)
     {
@@ -809,6 +875,8 @@ void se_event_9()
     char* char3 = "/";
     char* char4 = "/";
     char* char5 = "/";
+
+    se_event_check[9] = 1;
 
     while (current >= 0)
     {
@@ -938,6 +1006,8 @@ void se_event_10()
     char* char4 = "/";
     char* char5 = "/";
 
+    se_event_check[10] = 1;
+
     char* choice1_temp = NULL;
 
     while (current >= 0)
@@ -996,6 +1066,8 @@ void se_event_11()
     char* char4 = "/";
     char* char5 = "/";
 
+    se_event_check[11] = 1;
+
     while (current >= 0)
     {
         ui_print_dial(win_env, current, ev_w, "event/secondary/11", char0, char1, char2, char3, char4, char5);
@@ -1044,6 +1116,8 @@ void se_event_12()
     char* char3 = "/";
     char* char4 = "/";
     char* char5 = "/";
+
+    se_event_check[12] = 1;
 
     while (current >= 0)
     {
@@ -1100,6 +1174,8 @@ void se_event_18()
     char* char3 = "/";
     char* char4 = "/";
     char* char5 = "/";
+
+    se_event_check[18] = 1;
 
     char* choice1_temp = NULL;
     char* choice2_temp = NULL;
@@ -1173,6 +1249,8 @@ void se_event_19()
     char* char4 = "/";
     char* char5 = "/";
 
+    se_event_check[19] = 1;
+
     while (current >= 0)
     {
         ui_print_dial(win_env, current, ev_w, "event/secondary/19", char0, char1, char2, char3, char4, char5);
@@ -1208,6 +1286,8 @@ void se_event_20()
     char* char4 = "/";
     char* char5 = "/";
 
+    se_event_check[20] = 1;
+
     while (current >= 0)
     {
         ui_print_dial(win_env, current, ev_w, "event/secondary/20", char0, char1, char2, char3, char4, char5);
@@ -1242,6 +1322,8 @@ void se_event_21()
     char* char3 = "/";
     char* char4 = "/";
     char* char5 = "/";
+
+    se_event_check[21] = 1;
 
     char* choice1_temp = NULL;
 
@@ -1306,6 +1388,8 @@ void se_event_22()
     char* char3 = "/";
     char* char4 = "/";
     char* char5 = "/";
+
+    se_event_check[22] = 1;
 
     while (current >= 0)
     {

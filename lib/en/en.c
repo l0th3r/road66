@@ -112,7 +112,7 @@ int en_loop(int target)
 
 		/* generate random event */
 		if((els_miles_counter % s_drop_per_mile) == 0 && s_cities_drops[target] <= uf_random(100))
-			(*se_events[uf_random(6) + 1])();
+			se_event_drop();
 		
 		/* check if half of jurney */
 		if(current_mile_counter == (mile_target - start_mile) / 2)
@@ -142,10 +142,31 @@ int en_loop(int target)
 
 		/* MAIN QUEST AND EVENTS */
 
-		if(els_miles_counter == 280)
+		switch(els_miles_counter)
 		{
-			
+			case 280:
+				(*main_events[0])();
+			break;
+			case 300:
+				(*main_events[1])();
+			break;
+			case 320:
+				(*main_events[2])();
+			break;
+			case 404:
+				(*main_events[3])();
+			break;
+			case 666:
+				(*main_events[4])();
+			break;
+			case 917:
+				(*main_events[5])();
+			break;
+			case 1504:
+				(*main_events[6])();
+			break;
 		}
+		
 
 		/* MAIN QUEST AND EVENTS */
 
@@ -176,6 +197,8 @@ void en_add_passenger(char* name, int pos)
 	
 	/* add 1 to the number of passengers */
 	inventory->pa_count += 1;
+
+	ui_log_inv("Passenger", 1);
 }
 
 void en_rm_passenger(int position)
@@ -196,10 +219,10 @@ void en_rm_passenger(int position)
 
 		free(inventory->passengers[i]);
 
-		if(inventory->gas < 1)
-			en_mod_food(-1);
-		else
+		if(inventory->food < 1)
 			en_mod_gas(-1);
+		else
+			en_mod_food(-1);
 		inventory->pa_count -= 1;
 	}
 
@@ -214,6 +237,8 @@ void en_mod_food(int val)
 	int temp;
 	char* choice_0 = "Replace 1 Passenger?";
 	char* choice_1 = "Replace 1 Gas?";
+
+	ui_log_inv("Food", val);
 
 	if(en_update_total() + val > inventory->capacity)
 	{
@@ -262,6 +287,8 @@ void en_mod_gas(int val)
 	int temp;
 	char* choice_0 = "Replace 1 Passenger?";
 	char* choice_1 = "Replace 1 Food?";
+	
+	ui_log_inv("Gas", val);
 
 	if(en_update_total() + val > inventory->capacity)
 	{

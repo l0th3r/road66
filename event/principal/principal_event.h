@@ -4,6 +4,8 @@
 
 /* functions to call for each event */
 void (*city_events[9])();
+
+/* other main functions */
 void (*main_events[7])();
 
 

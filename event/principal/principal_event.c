@@ -1420,7 +1420,7 @@ void pe_event_2()
     char* char1 = "Man";
     char* char2 = "Rafe";
     char* char3 = "Apu";
-    char* char4 = NULL;
+    char* char4 = "/";
     char* char5 = "Maxence";
 
     if(inventory->pa_count > 0)

@@ -51,6 +51,8 @@ int me_w;
 int ev_h;
 int ev_w;
 
+int is_inv_log = 0;
+
 
 void ui_init()
 {
@@ -132,7 +134,7 @@ void ui_log_inv(char* str, int value)
 	if(value >= 0)
 		char_temp = '+';
 	else
-		char_temp = '-';
+		char_temp = ' ';
 
 	start_color();
 	init_color(COLOR_CYAN, 255, 168, 0);
@@ -144,9 +146,13 @@ void ui_log_inv(char* str, int value)
 		i++;
 	}
 
+	is_inv_log = 1;
+
 	wattron(win_inv, COLOR_PAIR(4));
-	mvwprintw(win_inv, inv_h - (inventory->capacity - 5), 2, "%s %c %d", str, char_temp, value);
+	mvwprintw(win_inv, inv_h - (inventory->capacity - 5), 3, "%s %c%d", str, char_temp, value);
 	wattroff(win_inv, COLOR_PAIR(4));
+
+	wrefresh(win_inv);
 }
 
 int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4)
@@ -486,6 +492,22 @@ void ui_update_inventory()
 			wattroff(win_inv, COLOR_PAIR(2));
 		}
 		i--;
+	}
+
+	/* remove inv log if its from too long time */
+	if(is_inv_log != 0)
+	{
+		is_inv_log++;
+		if(is_inv_log == 40)
+		{
+			i = 2;
+			while(i < inv_w - 2)
+			{
+				mvwaddch(win_inv, inv_h - (inventory->capacity - 5), i, ' ');
+				i++;
+			}
+			is_inv_log = 0;
+		}
 	}
 
 	wrefresh(win_inv);

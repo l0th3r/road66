@@ -790,9 +790,9 @@ void se_event_7()
             ui_continu_choice();
             break;
         case 4:
-            en_mod_money(+50);
             current = -1;
             ui_continu_choice();
+            en_mod_money(+50);
             break;
         }
         after_event_clear(win_env, win_men);

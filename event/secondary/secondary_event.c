@@ -650,7 +650,7 @@ void se_event_5()
             {
                 if (inventory->pa_count > 0)
                 {
-                    en_rm_passenger(inventory->pa_count);
+                    en_rm_passenger(inventory->passengers[uf_random(inventory->pa_count)]);
                     current = 8;
                 }
                 else

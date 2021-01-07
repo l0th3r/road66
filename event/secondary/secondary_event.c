@@ -1303,7 +1303,7 @@ void se_event_14()
 
     if (inventory->pa_count > 0)
         char0 = inventory->passengers[uf_random(inventory->pa_count)];
-    
+
     while (current >= 0)
     {
         ui_print_dial(win_env, current, ev_w, "event/secondary/14", char0, char1, char2, char3, char4, char5);
@@ -1608,6 +1608,7 @@ void se_event_18()
     char* char4 = "/";
     char* char5 = "/";
 
+    char* choice0_temp = NULL;
     char* choice1_temp = NULL;
     char* choice2_temp = NULL;
 
@@ -1631,6 +1632,9 @@ void se_event_18()
             ui_continu_choice();
             break;
         case 2:
+            if (inventory->money < 20)
+                choice0_temp = "Not really... I don't have enough money.";
+            else choice0_temp = "Leave.";
             if (inventory->money >= 20)
                 choice1_temp = "Buy on Food for 20$.";
             else choice1_temp = "/";
@@ -1638,7 +1642,7 @@ void se_event_18()
                 choice2_temp = "Buy on Gas for 40$.";
             else choice2_temp = "/";
 
-            temp = ui_choice("Leave.", choice1_temp, choice2_temp, "/");
+            temp = ui_choice(choice0_temp, choice1_temp, choice2_temp, "/");
             if (temp == 0)
                 current = 5;
             if (temp == 1)

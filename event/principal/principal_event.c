@@ -76,8 +76,8 @@ void pe_event_0()
                 current = 3;
             if (temp == 1)
             {
-                en_mod_food(+1);
-                current = 2;
+                els_is_exit = 666;
+                current = -1;
             }
             break;
         case 2:

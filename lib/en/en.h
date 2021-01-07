@@ -40,9 +40,9 @@ void en_mod_money(int val);
 void en_end();
 
 /* ENGINE VARIABLES */
-extern char* els_go_ms;
 /* check if the user want to quit */
 extern int els_is_exit;
+extern int els_is_win;
 /* ids of the current and next city */
 extern int els_current_city;
 /* condition to try to drop random event */

@@ -26,6 +26,7 @@ void ui_continu_choice();
 void ui_log_choice(char* str);
 void ui_log_inv(char* str, int value);
 void ui_clear_inv_log(int val);
+void ui_print_menu(WINDOW * win, int id, int ev_w, char* path);
 int ui_set_menu();
 int ui_set_go();
 int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4);
@@ -615,8 +616,9 @@ int ui_set_menu()
 	arr[2] = "/";
 	arr[3] = "/";
 
-	/* CHANGE IN MAIN.C THE RESPONSE */
+	ui_print_menu(win_start_menu, 2, x_max, "event");
 
+	/* CHANGE IN MAIN.C THE RESPONSE */
 	while(is_good == 0)
 	{
 		i = -1;
@@ -682,14 +684,36 @@ int ui_set_go()
 	int i = 0;
 
 	/* number of choices in total */
-	int end = 4;
+	int end = 1;
 
 	char* arr[4];
 
-	arr[0] = "KILL"; /* NEVER MAKE THIS "/" */
-	arr[1] = "Quit";
+	start_color();
+	init_pair(8, COLOR_WHITE, COLOR_RED);
+	init_pair(9, COLOR_BLACK, COLOR_GREEN);
+
+	/* if lose or win*/
+	if(els_is_win == 1)
+	{
+		/* print ASCII */
+		ui_print_menu(win_gov, 0, x_max, "event");
+		wattron(win_gov, COLOR_PAIR(8));
+		mvwprintw(win_gov, (y_max / 2 - end / 2 + i) - 3, 7, " %s ", s_gov_ms);
+		wattroff(win_gov, COLOR_PAIR(8));
+	}
+	else
+	{
+		/* print ASCII */
+		ui_print_menu(win_gov, 1, x_max, "event");
+		wattron(win_gov, COLOR_PAIR(9));
+		mvwprintw(win_gov, (y_max / 2 - end / 2 + i) - 3, 7, " %s ", s_win_ms);
+		wattroff(win_gov, COLOR_PAIR(9));
+	}
+
+	arr[0] = "Quit"; /* NEVER MAKE THIS "/" */
 	arr[2] = "/";
 	arr[3] = "/";
+	arr[4] = "/";
 
 	/* CHANGE IN MAIN.C THE RESPONSE */
 
@@ -708,35 +732,19 @@ int ui_set_go()
 
 		i = 0;
 
-		while(i < end)
+		while(i < 1)
 		{
 			if(i == selected)
 				wattron(win_gov, A_REVERSE);
 			
-			mvwprintw(win_gov, y_max / 2 - end / 2 + i, x_max / 2 - 7, "%d: %s", i + 1, arr[i]);
+			mvwprintw(win_gov, y_max / 2 - end / 2 + i, x_max / 2 - (uf_str_len(arr[i]) + 3), "%d: %s", i + 1, arr[i]);
 			wattroff(win_gov, A_REVERSE);
 			i++;		
 		}
 		wrefresh(win_gov);
 
 		choice = wgetch(win_gov);
-		switch(choice)
-		{
-			case 259:
-				if(selected > 0)
-					selected--;
-				else
-					selected = end - 1;
-				break;
-			case 258:
-				if(selected < end - 1)
-					selected++;
-				else
-					selected = 0;
-				break;
-			default:
-				break;
-		}
+
 		if(choice == 10) {
 			wrefresh(win_gov);
 			is_good = 1;
@@ -746,7 +754,46 @@ int ui_set_go()
 		
 	}
 
+	if(selected == 0)
+		selected = -1;
+
 	return selected;
+}
+
+void ui_print_menu(WINDOW * win, int id, int ev_w, char* path)
+{
+	char* raw;
+	char* file_path = malloc((uf_str_len(path) + 10) * sizeof(char));
+
+	int start_row = 7;
+	int fp = 0;
+	int ch = start_row;
+	int line = 3;
+
+	/* create path */
+	sprintf(file_path, "%s/%d.dial%c", path, id, '\0');
+
+	/* charge content */
+	raw = fp_read_file(file_path);
+
+	while(raw[fp] != '\0')
+	{
+		/* conditions to jump a line */
+		if(raw[fp - 1] == '\n' || ch == ev_w - 2
+		|| raw[fp - 1] == ']' || raw[fp] == '[')
+		{			
+			line++;
+			ch = start_row;
+		}
+		mvwprintw(win, line, ch++, "%c", raw[fp++]);
+	}
+
+	box(win, 0, 0);
+	mvwprintw(win, 0, 2, " Event ");
+	wrefresh(win);
+
+	free(raw);
+	free(file_path);
 }
 
 void ui_end()

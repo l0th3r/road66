@@ -16,6 +16,8 @@ char* s_cities_names[9];
 int s_cities_miles[8];
 int s_cities_drops[9];
 char* s_main_chara_name = "main_chara_name";
+char* s_win_ms = "WIN_MSG";
+char* s_gov_ms = "GOV_MSG";
 int s_text_thread = 1;
 int s_mile_gap_time = 0;
 int s_maximum_size = 10;
@@ -60,6 +62,12 @@ int se_init()
 	/* getting params */
 	config_lookup_string(&cf, "main_char_name", &c_char_temp);
 	s_main_chara_name = (char*)c_char_temp;
+
+	config_lookup_string(&cf, "win_msg", &c_char_temp);
+	s_win_ms = (char*)c_char_temp;
+
+	config_lookup_string(&cf, "gameover_msg", &c_char_temp);
+	s_gov_ms = (char*)c_char_temp;
 
 	config_lookup_bool (&cf, "text_thread", &s_text_thread);
 	config_lookup_int(&cf, "mile_gap_time", &s_mile_gap_time);

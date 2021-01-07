@@ -23,9 +23,9 @@ void en_mod_gas(int val);
 void en_end();
 
 /* ENGINE LOCALS VARIABLES */
-char* els_go_ms = "GAME OVER";
 /* check if the user want to quit */
 int els_is_exit = 0;
+int els_is_win = 0;
 /* ids of the current and next city */
 int els_current_city = 0;
 /* condition to try to drop random event */
@@ -77,6 +77,7 @@ int en_start_game()
 
 	while(els_is_exit == 0)
 		els_is_exit = en_loop(els_current_city);
+
 	return els_is_exit;
 }
 

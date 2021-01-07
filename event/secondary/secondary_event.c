@@ -1057,6 +1057,7 @@ void se_event_10()
             {
                 current = 3;
                 en_mod_money(-45);
+                en_mod_gas(+1);
             }
             break;
         case 3:

@@ -1421,7 +1421,7 @@ void pe_event_1()	/* Las Vegas */
             }
             break;
         case 901:
-            if (unlock_hostel == 1 && inventory->money >= 20)
+            if (unlock_hostel == 0 && inventory->money >= 20)
                 choice1_temp = "I want to sleep one night. Cost: 20$.";
             else if (unlock_exit_door == 1)
                 choice1_temp = "Leave the casino.";

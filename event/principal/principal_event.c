@@ -16,6 +16,7 @@ void pe_event_106();
 
 int who_is_alive = 0; /* 0 = Rafe   1 = Evelynn */
 int start_gas = 4;
+int start_food = 4;
 
 /* function to call for each city */
 void (*city_events[9])() =
@@ -64,7 +65,10 @@ void pe_event_0()
         case 0:
             temp = ui_choice("Answer the call.", "/", "/", "/");
             if (temp == 0)
+            {
+                en_mod_food(+start_food);
                 current = 1;
+            }
             break;
         case 1:
             temp = ui_choice("Leave your apartment.", "Check one last time for your stuff.", "/", "/");

@@ -75,11 +75,13 @@ void pe_event_0()
             if (temp == 0)
                 current = 3;
             if (temp == 1)
+            {
+                en_mod_food(+1);
                 current = 2;
+            }
             break;
         case 2:
             temp = ui_choice("Leave your apartment.", "/", "/", "/");
-            en_mod_food(+1);
             if (temp == 0)
                 current = 3;
             break;

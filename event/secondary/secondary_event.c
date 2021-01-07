@@ -69,12 +69,6 @@ void se_event_drop()
     int temp;
     int is;
 
-    se_event_check[13] = 1;
-    se_event_check[14] = 1;
-    se_event_check[15] = 1;
-    se_event_check[16] = 1;
-    se_event_check[17] = 1;
-
     /* check if there are event still available */
     is = 1;
     while (i < 23)
@@ -636,6 +630,7 @@ void se_event_5()
             break;
         case 5:
             current = -1; /* NEED GAME OVER */
+            els_is_exit = 666;
             ui_continu_choice();
             break;
         case 6:
@@ -650,7 +645,7 @@ void se_event_5()
             {
                 if (inventory->pa_count > 0)
                 {
-                    en_rm_passenger(inventory->passengers[uf_random(inventory->pa_count)]);
+                    en_rm_passenger(uf_random(inventory->pa_count));
                     current = 8;
                 }
                 else
@@ -678,6 +673,7 @@ void se_event_5()
             break;
         case 10:
             current = -2; /* NEED GAME OVER */
+            els_is_exit = 666;
             ui_continu_choice();
             break;
         case 11:
@@ -1166,6 +1162,7 @@ void se_event_12()
             break;
         case 3:
             current = -1; /* NEED GAME OVER*/
+            els_is_exit = 666;
             ui_continu_choice();
             break;
         case 4:
@@ -1174,6 +1171,7 @@ void se_event_12()
             break;
         case 5:
             current = -1; /* NEED GAME OVER*/
+            els_is_exit = 666;
             ui_continu_choice();
             break;
         }

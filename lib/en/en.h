@@ -28,9 +28,10 @@ extern inv* inventory;
 
 int en_loop(int target);
 int en_update_total();
+int en_start_game();
+int en_game_over();
 
 void en_init();
-void en_start_game();
 void en_add_passenger(char* name, int pos);
 void en_rm_passenger(int position);
 void en_mod_food(int val);
@@ -39,6 +40,7 @@ void en_mod_money(int val);
 void en_end();
 
 /* ENGINE VARIABLES */
+extern char* els_go_ms;
 /* check if the user want to quit */
 extern int els_is_exit;
 /* ids of the current and next city */

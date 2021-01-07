@@ -12,9 +12,10 @@ inv* inventory;
 
 int en_loop(int target);
 int en_update_total();
+int en_start_game();
+int en_game_over();
 
 void en_init();
-void en_start_game();
 void en_add_passenger(char* name, int pos);
 void en_rm_passenger(int position);
 void en_mod_food(int val);
@@ -22,6 +23,7 @@ void en_mod_gas(int val);
 void en_end();
 
 /* ENGINE LOCALS VARIABLES */
+char* els_go_ms = "GAME OVER";
 /* check if the user want to quit */
 int els_is_exit = 0;
 /* ids of the current and next city */
@@ -49,14 +51,19 @@ void en_init()
 	en_update_total();
 }
 
-void en_start_game()
+int en_start_game()
 {
 	/* set capacity */
 	inventory->capacity = s_maximum_size;
 
 	/* ============== TEST ============== */
 
-	
+	if(s_city_start != 0)
+	{
+		en_add_passenger("TEST CHARA 0", inventory->pa_count);
+		en_add_passenger("TEST CHARA 1", inventory->pa_count);
+		en_add_passenger("TEST CHARA 2", inventory->pa_count);
+	}
 
 	/* ============== TEST ============== */
 
@@ -70,6 +77,12 @@ void en_start_game()
 
 	while(els_is_exit == 0)
 		els_is_exit = en_loop(els_current_city);
+	return els_is_exit;
+}
+
+int en_game_over()
+{
+	return ui_refresh(2);
 }
 
 /*	target = targetted city 
@@ -80,104 +93,113 @@ int en_loop(int target)
 	/* loop */
 	int i = 0;
 
-	/* if stop game */
-	int to_return = 0;
+	/* travel values */
 	int start_mile = els_miles_counter;
 	int current_mile_counter = 0;
 
 	/* load the targetted miles */
 	int mile_target = s_cities_miles[target];
 
-	/* play the event of the city */
-	(*city_events[target])();
-
-	if(els_is_update)
-		ui_update_progress(els_miles_counter, mile_target, els_current_city);
-	
-	if(els_is_inventory)
-		ui_update_inventory();
-
-	/* check if user stille have gas */
-	if(inventory->gas == 0 || inventory->food == 0)
-		to_return = 1;
-
-	while(els_miles_counter <= mile_target && to_return == 0)
+	if(els_is_exit != 666)
 	{
-		/* display progress */
-		if(els_is_update)
-			ui_update_progress(els_miles_counter, mile_target, els_current_city);
-		
-		/* display inventory */
-		if(els_is_inventory)
-			ui_update_inventory();
+		/* play the event of the city */
+		(*city_events[target])();
 
-		/* generate random event */
-		if((els_miles_counter % s_drop_per_mile) == 0 && uf_random(100) <= s_cities_drops[target])
-			se_event_drop();
-		
-		/* check if half of jurney */
-		if(current_mile_counter == (mile_target - start_mile) / 2)
+		if(els_is_exit != 666)
 		{
-			/* remove gas from the trip */
-			en_mod_gas(-1);
+			if(els_is_update)
+				ui_update_progress(els_miles_counter, mile_target, els_current_city);
+			
+			if(els_is_inventory)
+				ui_update_inventory();
 
-			/* remove food from the trip */
-			if(inventory->food > 0)
+			/* check if user stille have gas */
+			if(inventory->gas == 0 || inventory->food == 0)
+				els_is_exit = 666;
+		}
+
+		while(els_miles_counter <= mile_target && els_is_exit == 0)
+		{
+			/* display progress */
+			if(els_is_update)
+				ui_update_progress(els_miles_counter, mile_target, els_current_city);
+			
+			/* display inventory */
+			if(els_is_inventory)
+				ui_update_inventory();
+
+			/* generate random event */
+			if((els_miles_counter % s_drop_per_mile) == 0 && uf_random(100) <= s_cities_drops[target])
+				se_event_drop();
+			
+			/* check if half of jurney */
+			if(current_mile_counter == (mile_target - start_mile) / 2)
 			{
-				/* remove food for main character */
-				en_mod_food(-1);
-				
-				/* remove food per passenger */
-				while(inventory->food > 0 && i < inventory->pa_count)
+				/* remove gas from the trip */
+				en_mod_gas(-1);
+
+				/* remove food from the trip */
+				if(inventory->food > 0)
 				{
+					/* remove food for main character */
 					en_mod_food(-1);
-					i++;
+					
+					/* remove food per passenger */
+					while(inventory->food > 0 && i < inventory->pa_count)
+					{
+						en_mod_food(-1);
+						i++;
+					}
+					/* remove passenger who could't eat */
+					while(i < inventory->pa_count)
+						en_rm_passenger(i);
 				}
-				/* remove passenger who could't eat */
-				while(i < inventory->pa_count)
-					en_rm_passenger(i);
+				else
+					els_is_exit = 666;
 			}
-			else
-				to_return = 1;
+
+			/* MAIN QUEST AND EVENTS */
+
+			if(els_is_exit != 666)
+			{
+				switch(els_miles_counter)
+				{
+					case 280:
+						(*main_events[0])();
+					break;
+					case 300:
+						(*main_events[1])();
+					break;
+					case 320:
+						(*main_events[2])();
+					break;
+					case 404:
+						(*main_events[3])();
+					break;
+					case 666:
+						(*main_events[4])();
+					break;
+					case 917:
+						(*main_events[5])();
+					break;
+					case 1504:
+						(*main_events[6])();
+					break;
+				}
+				
+				/* MAIN QUEST AND EVENTS */
+
+				els_miles_counter++;
+				current_mile_counter++;
+				uf_wait(10000 * s_mile_gap_time);
+			}
 		}
 
-		/* MAIN QUEST AND EVENTS */
-
-		switch(els_miles_counter)
-		{
-			case 280:
-				(*main_events[0])();
-			break;
-			case 300:
-				(*main_events[1])();
-			break;
-			case 320:
-				(*main_events[2])();
-			break;
-			case 404:
-				(*main_events[3])();
-			break;
-			case 666:
-				(*main_events[4])();
-			break;
-			case 917:
-				(*main_events[5])();
-			break;
-			case 1504:
-				(*main_events[6])();
-			break;
-		}
-		
-		/* MAIN QUEST AND EVENTS */
-
-		els_miles_counter++;
-		current_mile_counter++;
-		uf_wait(10000 * s_mile_gap_time);
+		/* go to the next city at the end */
+		if(els_is_exit != 666)
+			els_current_city += 1;
 	}
-
-	/* go to the next city at the end */
-	els_current_city += 1;
-	return to_return;
+	return els_is_exit;
 }
 
 void en_add_passenger(char* name, int pos)
@@ -330,10 +352,4 @@ void en_end()
 	}
 	free(inventory->passengers);
 	free(inventory);
-
-	/* TEST */
-
-	/* printf("res = %d\n", uf_strcmp("Cosom", "Cosmo")); */
-
-	/* TEST */
 }

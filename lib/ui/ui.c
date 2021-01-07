@@ -27,6 +27,7 @@ void ui_log_choice(char* str);
 void ui_log_inv(char* str, int value);
 void ui_clear_inv_log(int val);
 int ui_set_menu();
+int ui_set_go();
 int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4);
 
 
@@ -37,6 +38,7 @@ WINDOW * win_tra;
 WINDOW * win_inv;
 WINDOW * win_env;
 WINDOW * win_men;
+WINDOW * win_gov;
 
 /* TERMINAL SIZE */
 int y_max;
@@ -95,7 +97,7 @@ int ui_refresh(int is_menu)
 		win_men = ui_new_win(" Menu ", me_h, me_w, ev_h, inv_w + 1);
 		keypad(win_men, true);
 	}
-	else
+	else if(is_menu == 1)
 	{
 		delwin(win_start_menu);
 
@@ -103,6 +105,19 @@ int ui_refresh(int is_menu)
 		keypad(win_start_menu, true);
 
 		temp = ui_set_menu();
+	}
+	else
+	{
+		delwin(win_start_menu);
+		delwin(win_tra);
+		delwin(win_inv);
+		delwin(win_env);
+		delwin(win_men);
+
+		win_gov = ui_new_win(" GAME OVER X( ", y_max, x_max, 0, 0);
+		keypad(win_gov, true);
+
+		temp = ui_set_go();
 	}
 	
 	return temp;
@@ -650,6 +665,82 @@ int ui_set_menu()
 		}
 		else if(choice == 410)
 			ui_refresh(1);
+		
+	}
+
+	return selected;
+}
+
+int ui_set_go()
+{
+	/*int to_return = -1;*/
+	int is_good = 0;
+	int choice;
+	int selected = 0;
+	int i = 0;
+
+	/* number of choices in total */
+	int end = 4;
+
+	char* arr[4];
+
+	arr[0] = "KILL"; /* NEVER MAKE THIS "/" */
+	arr[1] = "Quit";
+	arr[2] = "/";
+	arr[3] = "/";
+
+	/* CHANGE IN MAIN.C THE RESPONSE */
+
+	while(is_good == 0)
+	{
+		i = -1;
+		end = 0;
+
+		/* exclude "/" choices */
+		while(i < end)
+		{
+			if(arr[end][0] != '/')
+				end++;
+			i++;			
+		}
+
+		i = 0;
+
+		while(i < end)
+		{
+			if(i == selected)
+				wattron(win_gov, A_REVERSE);
+			
+			mvwprintw(win_gov, y_max / 2 - end / 2 + i, x_max / 2 - 7, "%d: %s", i + 1, arr[i]);
+			wattroff(win_gov, A_REVERSE);
+			i++;		
+		}
+		wrefresh(win_gov);
+
+		choice = wgetch(win_gov);
+		switch(choice)
+		{
+			case 259:
+				if(selected > 0)
+					selected--;
+				else
+					selected = end - 1;
+				break;
+			case 258:
+				if(selected < end - 1)
+					selected++;
+				else
+					selected = 0;
+				break;
+			default:
+				break;
+		}
+		if(choice == 10) {
+			wrefresh(win_gov);
+			is_good = 1;
+		}
+		else if(choice == 410)
+			ui_refresh(3);
 		
 	}
 

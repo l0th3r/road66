@@ -29,6 +29,7 @@ void ui_continu_choice();
 void ui_log_choice(char* str);
 void ui_log_inv(char* str, int value);
 int ui_set_menu();
+int ui_set_go();
 int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4);
 
 /* GLOBAL WINDOWS */

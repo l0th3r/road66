@@ -23,18 +23,29 @@ int main(int ac, char **av)
 	ui_init();
 
 	/* GAME */
-	temp = ui_refresh(1);
+	/* display the main menu */
+	temp = 2;
 
-	switch(temp)
+	while(temp != -1)
 	{
-		case 0:
-			en_start_game();
+		switch(temp)
+		{
+			case 0:
+				/* play */
+				temp = en_start_game();
+				break;
+			case 1:
+				/* quit */
+				temp = -1;
 			break;
-		case 1:
-			/* quit */
+			case 2:
+				/* main menu */
+				temp = ui_refresh(1);
 			break;
-		default:
+			case 666:
+				temp = en_game_over();
 			break;
+		}
 	}
 
 	/* end the game */

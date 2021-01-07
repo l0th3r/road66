@@ -585,9 +585,9 @@ void pe_event_1()	/* Las Vegas */
             temp = ui_choice("What?", "Gimme this shit.", "No thanks.", "/");
             if (temp == 0)
                 current = 603;
-            if (temp == 2)
+            if (temp == 1)
                 current = 604;
-            if (temp == 3)
+            if (temp == 2)
                 current = 605;
             break;
         case 602:

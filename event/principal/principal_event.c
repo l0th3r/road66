@@ -368,7 +368,10 @@ void pe_event_1()	/* Las Vegas */
         case 412:
             temp = ui_choice("Let's fight.", "Negotiate.", "It sounds shit. Thank you, still.", "/");
             if (temp == 0)
+            {
+                money_bet = 100;
                 current = 600;
+            }
             if (temp == 1)
                 current = 602;
             if (temp == 2)
@@ -385,7 +388,10 @@ void pe_event_1()	/* Las Vegas */
             if (temp == 1)
                 current = 611;
             if (temp == 2)
+            {
+                money_bet = 100;
                 current = 600;
+            }
             if (temp == 3)
                 current = 414;
             break;
@@ -538,9 +544,12 @@ void pe_event_1()	/* Las Vegas */
         case 501:
             temp = ui_choice("Punch this motherfucker!", "You can do it!", "Wait for his right hook!", "Wait for his left hook!");
             if (temp == 0 || temp == 1 || temp == 2)
-                current = 501;
+                current = 503;
             if (temp == 3)
-                current = 502;
+            {
+                en_mod_money(+(money_bet * 2));
+                current = 504;
+            }
             break;
         case 502:
             temp = ui_choice("Stay in touch!", "Take him away!", "Raise your guard!", "You can do it!");
@@ -595,7 +604,10 @@ void pe_event_1()	/* Las Vegas */
         case 602:
             temp = ui_choice("Let's fight for two hundred bucks.", "Four hundred bucks.", "/", "/");
             if (temp == 0)
+            {
+                money_bet = 200;
                 current = 606;
+            }
             if (temp == 1)
                 current = 608;
             break;
@@ -622,7 +634,10 @@ void pe_event_1()	/* Las Vegas */
         case 608:
             temp = ui_choice("Two hundred bucks is a good price, I will fight.", "Never mind, I don't fight.", "/", "/");
             if (temp == 0)
+            {
+                money_bet = 200;
                 current = 606;
+            }
             if (temp == 1)
                 current = 609;
             break;
@@ -634,7 +649,10 @@ void pe_event_1()	/* Las Vegas */
                 current = 607;
             }
             if (temp == 1)
+            {
+                money_bet = 200;
                 current = 606;
+            }
             if (temp == 2)
                 current = 610;
             break;
@@ -1170,7 +1188,11 @@ void pe_event_1()	/* Las Vegas */
             break;
         case 797:
             ui_continu_choice(win_men);
-            en_mod_money(+(money_bet * 2));
+            if (owe_money == 1)
+                en_mod_money(+300);
+            else
+                en_mod_money(+money_bet);
+
             current = 901;
             break;
         case 798:

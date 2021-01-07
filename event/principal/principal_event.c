@@ -1203,6 +1203,7 @@ void pe_event_1()	/* Las Vegas */
             {
                 if (last_lost_machine_dial == 0)
                 {
+                    unlock_exit_door = 1;
                     current = 802;
                     en_mod_money(-10);
                 }

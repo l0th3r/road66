@@ -77,8 +77,8 @@ void pe_event_0()
                 current = 3;
             if (temp == 1)
             {
-                els_is_exit = 666;
-                current = -1;
+                en_mod_food(+1);
+                current = 2;
             }
             break;
         case 2:
@@ -4807,6 +4807,10 @@ void pe_event_100()	/* Maxence */
                 current = 3;
                 en_add_passenger(char0, inventory->pa_count);
             }
+            break;
+        case 3:
+            ui_continu_choice(win_men);
+            current = -1;
             break;
         }
 

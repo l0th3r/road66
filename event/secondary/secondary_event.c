@@ -803,7 +803,7 @@ void se_event_8()
 {
     int current = 0;
     int temp;
-    char* char0 = " Chief of Travellers";
+    char* char0 = "Chief of Travellers";
     char* char1 = "/";
     char* char2 = "Paco";
     char* char3 = "/";

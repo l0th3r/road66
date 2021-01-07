@@ -9,7 +9,7 @@ void pe_event_2();
 void pe_event_3();
 void pe_event_7();
 
-int who_is_alive = 0;
+int who_is_alive = 0; /* 0 = Rafe   1 = Evelynn */
 
 /* function to call for each city */
 void (*city_events[9])() =
@@ -29,7 +29,7 @@ void (*city_events[9])() =
 void (*main_events[7])() =
 {
     empty,          /* Maxence */
-    empty,          /* Axel F */
+    en_event_101,   /* Axel F */
     empty,          /* Axel D */
     pe_event_103,   /* Cosmo */
     empty,          /* Damien */
@@ -69,6 +69,7 @@ void pe_event_0()
             break;
         case 2:
             temp = ui_choice("Leave your apartment.", "/", "/", "/");
+            en_mod_food(+1);
             if (temp == 0)
                 current = 3;
             break;
@@ -94,9 +95,15 @@ void pe_event_0()
         case 7:
             temp = ui_choice("Try to convince your brother to drop his weapon.", "Try to convince the guard that your brother doesn't mean to hurt anybody.", "/", "/");
             if (temp == 0)
+            {
+                who_is_alive = 0; /* Rafe */
                 current = 8;
+            }
             if (temp == 1)
+            {
+                who_is_alive = 1; /* Evelynn */
                 current = 9;
+            }
             break;
         case 8:
             temp = ui_choice("Leave the hospital by the main entrance door.", "Find another exit.", "/", "/");
@@ -199,6 +206,7 @@ void pe_event_0()
             break;
         case 27:
             char4 = "Tim";
+            en_add_passenger(char4, inventory->pa_count);
             current = 29;
             ui_continu_choice();
             break;
@@ -207,6 +215,10 @@ void pe_event_0()
             ui_continu_choice();
             break;
         case 29:
+            current = 30;
+            ui_continu_choice();
+            break;
+        case 30:
             current = -1;
             ui_continu_choice();
             break;

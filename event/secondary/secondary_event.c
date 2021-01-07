@@ -30,6 +30,7 @@ void se_event_20();
 void se_event_21();
 void se_event_22();
 
+void empty2() {}
 
 /* creating event functions array */
 void (*se_events[23])() =
@@ -67,6 +68,12 @@ void se_event_drop()
     int i = 0;
     int temp;
     int is;
+
+    se_event_check[13] = 1;
+    se_event_check[14] = 1;
+    se_event_check[15] = 1;
+    se_event_check[16] = 1;
+    se_event_check[17] = 1;
 
     /* check if there are event still available */
     is = 1;
@@ -262,7 +269,7 @@ void se_event_1()
                 current = 2;
             break;
         case 1:
-            temp = ui_choice("I'm sorry but it is not on my way.", "Yeah, come in! I'll drive you there", "Start up the engine and leave.", "/");
+            temp = ui_choice("I'm sorry but it is not on my way.", "Yeah, come in! I'll drive you there.", "Start up the engine and leave.", "/");
             if (temp == 0)
                 current = 3;
             if (temp == 1)
@@ -643,7 +650,7 @@ void se_event_5()
             {
                 if (inventory->pa_count > 0)
                 {
-                    en_rm_passenger(uf_random(inventory->pa_count - 1));
+                    en_rm_passenger(inventory->passengers[uf_random(inventory->pa_count)]);
                     current = 8;
                 }
                 else
@@ -880,9 +887,9 @@ void se_event_9()
 {
     int current = 0;
     int temp;
-    char* char0 = "Big Guy";
+    char* char0 = "Bob";
     char* char1 = "Woman";
-    char* char2 = "Katy";
+    char* char2 = "/";
     char* char3 = "/";
     char* char4 = "/";
     char* char5 = "/";
@@ -1066,7 +1073,7 @@ void se_event_10()
     }
 }
 
-void se_event_11()
+void se_event_11() /* Bump1 */
 {
     int current = 0;
     int temp;
@@ -1781,7 +1788,7 @@ void se_event_21()
                 choice1_temp = "I don't have anybody to trade with you.";
             else choice1_temp = "Sell one of your mates for 100$.";
             temp = ui_choice(choice1_temp, "Leave.", "/", "/");
-                
+
             if (temp == 0)
             {
                 if (inventory->pa_count == 0)

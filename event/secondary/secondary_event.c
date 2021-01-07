@@ -1052,7 +1052,7 @@ void se_event_10()
             temp = ui_choice("Leave the gas station.", choice1_temp, "/", "/");
 
             if (temp == 0)
-                current = 5;
+                current = 3;
             if (temp == 1)
             {
                 current = 3;

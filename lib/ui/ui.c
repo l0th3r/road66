@@ -203,6 +203,8 @@ int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4)
 	arr[2] = choice3;
 	arr[3] = choice4;
 
+	ui_update_inventory();
+
 	/* put the selected marker */
 	while(arr[selected][0] == '/')
 		selected++;

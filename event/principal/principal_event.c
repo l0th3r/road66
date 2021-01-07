@@ -1208,7 +1208,7 @@ void pe_event_1()	/* Las Vegas */
                     current = last_lost_machine_dial;
             }
             if (temp == 1)
-                current = 850;
+                current = 900;
             break;
         case 802:
             en_mod_money(+10);
@@ -1220,7 +1220,7 @@ void pe_event_1()	/* Las Vegas */
                 en_mod_money(-10);
             }
             if (temp == 1)
-                current = 850;
+                current = 900;
             break;
         case 803:
             last_lost_machine_dial = (current + 1);
@@ -1231,7 +1231,7 @@ void pe_event_1()	/* Las Vegas */
                 en_mod_money(-10);
             }
             if (temp == 1)
-                current = 850;
+                current = 900;
             break;
         case 804:
             last_lost_machine_dial = (current + 1);
@@ -1242,7 +1242,7 @@ void pe_event_1()	/* Las Vegas */
                 en_mod_money(-10);
             }
             if (temp == 1)
-                current = 850;
+                current = 900;
             break;
         case 805:
             last_lost_machine_dial = (current + 1);
@@ -1253,7 +1253,7 @@ void pe_event_1()	/* Las Vegas */
                 en_mod_money(-10);
             }
             if (temp == 1)
-                current = 850;
+                current = 900;
             break;
         case 806:
             en_mod_money(+10);
@@ -1265,7 +1265,7 @@ void pe_event_1()	/* Las Vegas */
                 en_mod_money(-10);
             }
             if (temp == 1)
-                current = 850;
+                current = 900;
             break;
         case 807:
             en_mod_money(+50);
@@ -1277,7 +1277,7 @@ void pe_event_1()	/* Las Vegas */
                 en_mod_money(-10);
             }
             if (temp == 1)
-                current = 850;
+                current = 900;
             break;
         case 808:
             last_lost_machine_dial = (current + 1);
@@ -1288,7 +1288,7 @@ void pe_event_1()	/* Las Vegas */
                 en_mod_money(-10);
             }
             if (temp == 1)
-                current = 850;
+                current = 900;
             break;
         case 809:
             last_lost_machine_dial = (current + 1);
@@ -1299,7 +1299,7 @@ void pe_event_1()	/* Las Vegas */
                 en_mod_money(-10);
             }
             if (temp == 1)
-                current = 850;
+                current = 900;
             break;
         case 810:
             en_mod_money(+10);
@@ -1311,7 +1311,7 @@ void pe_event_1()	/* Las Vegas */
                 en_mod_money(-10);
             }
             if (temp == 1)
-                current = 850;
+                current = 900;
             break;
         case 811:
             last_lost_machine_dial = (current + 1);
@@ -1322,7 +1322,7 @@ void pe_event_1()	/* Las Vegas */
                 en_mod_money(-10);
             }
             if (temp == 1)
-                current = 850;
+                current = 900;
             break;
         case 812:
             last_lost_machine_dial = (current + 1);
@@ -1333,7 +1333,7 @@ void pe_event_1()	/* Las Vegas */
                 en_mod_money(-10);
             }
             if (temp == 1)
-                current = 850;
+                current = 900;
             break;
         case 813:
             last_lost_machine_dial = (current + 1);
@@ -1356,7 +1356,7 @@ void pe_event_1()	/* Las Vegas */
                 en_mod_money(-10);
             }
             if (temp == 1)
-                current = 850;
+                current = 900;
             break;
         case 815:
             last_lost_machine_dial = (current + 1);
@@ -1367,7 +1367,7 @@ void pe_event_1()	/* Las Vegas */
                 en_mod_money(-10);
             }
             if (temp == 1)
-                current = 850;
+                current = 900;
             break;
         case 816:
             last_lost_machine_dial = (current + 1);
@@ -1378,7 +1378,7 @@ void pe_event_1()	/* Las Vegas */
                 en_mod_money(-10);
             }
             if (temp == 1)
-                current = 850;
+                current = 900;
             break;
         case 817:
             en_mod_money(+10);
@@ -1390,7 +1390,7 @@ void pe_event_1()	/* Las Vegas */
                 en_mod_money(-10);
             }
             if (temp == 1)
-                current = 850;
+                current = 900;
             break;
         case 818:
             last_lost_machine_dial = 815;
@@ -1401,7 +1401,7 @@ void pe_event_1()	/* Las Vegas */
                 en_mod_money(-10);
             }
             if (temp == 1)
-                current = 850;
+                current = 900;
             break;
         case 900:
             temp = ui_choice("Go to the reception.", "Play on a slot machine.", "Go to the fight room.", "/");
@@ -4722,7 +4722,7 @@ void pe_event_7()	/* Dallas */
         case 849:
             temp = ui_choice("Wait, but what does he or she look like?", "/", "/", "/");
             if (temp == 0)
-                current = 850;
+                current = 900;
             break;
         case 850:
             temp = ui_choice("I confess that all of this is completely beyond me.", "/", "/", "/");

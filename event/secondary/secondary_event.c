@@ -20,7 +20,7 @@ void se_event_10();
 void se_event_11();
 void se_event_12();
 void se_event_13();
-/* */
+void se_event_14();
 void se_event_15();
 void se_event_16();
 void se_event_17();
@@ -49,7 +49,7 @@ void (*se_events[23])() =
     se_event_11,
     se_event_12,
     se_event_13,
-    empty2,
+    se_event_14,
     se_event_15,
     se_event_16,
     se_event_17,
@@ -1276,6 +1276,73 @@ void se_event_13()
                 current = 5;
             if (temp == 1)
                 current = 6;
+            break;
+        }
+
+        after_event_clear(win_env, win_men);
+    }
+}
+
+void se_event_14()
+{
+    int current = 0;
+    int temp;
+    char* char0 = "/";
+    char* char1 = "/";
+    char* char2 = "/";
+    char* char3 = "/";
+    char* char4 = "/";
+    char* char5 = "/";
+
+    if (inventory->pa_count > 0)
+        char0 = inventory->passengers[uf_random(inventory->pa_count)];
+    
+    while (current >= 0)
+    {
+        ui_print_dial(win_env, current, ev_w, "event/secondary/14", char0, char1, char2, char3, char4, char5);
+
+        switch (current)
+        {
+        case 0:
+            temp = ui_choice("Have a look behind you.", "/", "/", "/");
+            if (temp == 0)
+            {
+                if (inventory->pa_count > 0)
+                    current = 1;
+                else
+                    current = 4;
+            }
+            en_mod_food(-1);
+            break;
+        case 1:
+            temp = ui_choice("Threaten the passenger to do not that again.", "Kick the passenger out of the bus.", "/", "/");
+            if (temp == 0)
+                current = 2;
+            if (temp == 1)
+                current = 3;
+            break;
+        case 2:
+            current = -1;
+            ui_continu_choice();
+            break;
+        case 3:
+            current = -1;
+            ui_continu_choice();
+            break;
+        case 4:
+            temp = ui_choice("Keep the dog in your bus.", "Kick the dog out of the bus.", "/", "/");
+            if (temp == 0)
+                current = 2;
+            if (temp == 1)
+                current = 3;
+            break;
+        case 5:
+            current = -1;
+            ui_continu_choice();
+            break;
+        case 6:
+            current = -1;
+            ui_continu_choice();
             break;
         }
 

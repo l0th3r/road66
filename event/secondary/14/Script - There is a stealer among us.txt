@@ -1,0 +1,100 @@
+// SECONDARY EVENT #14
+// THERE IS A STEALER AMONG US
+// Signature: Axel Faux
+// 
+// CHARACTERS:
+// char0 = // random passenger
+//
+// CONSEQUENCES:
+// - LOOSE 1 FOOD
+
+---------------------------------------------------------------------------------------------------------------------------
+(#0)
+
+[narr]There is a bit of commotion at the back of the bus.
+
+	1 - Have a look behind you.
+	if (passenger > 0)
+	// 1
+	else
+	// 4
+	
+	// LOOSE 1 FOOD
+
+	
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+(#1) 
+
+[narr]You see <char0> steal one food. You stop the bus to yell at him.
+[main]Hey! I saw you asshole! How dare you take advantage of my hospitality?
+[narr]Hiden behind a seat mouthful with mayonaise all around the mouth, <char0> is eating extra food without your permission. Sitted, <char0> stop to chew and look at you guilty.
+[char0]But... But... I was hungry.
+
+	1 - Threaten the passenger to do not that again.
+	// 2
+	2 - Kick the passenger out of the bus.
+	// 3
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#2) 
+
+[narr]Next time, you better run very fast. I don't allow you to take my food if I haven't decided!
+[char0]...
+[narr]Then <char0> lowers his head in silence.
+You start the engine and keep driving.
+[main]Jerk...
+
+	// EVENT ENDED
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#3) 
+
+[char0]Hey, hey! What are you doing?!
+[main]Get out of my bus asshole!
+[char0]Let me go!
+[main]I said GET OUT!
+[narr]You brutally kick out <char0>.
+[char0]You can't leave me like that in the desert!
+[main]Don't worry you we'll survive, you ate enough to walk until the next city. 
+[narr]You start the engine and leave.
+
+	// EVENT ENDED
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#4) 
+
+[narr]You see a savage and dirty dog steeling one food. Surprised of its presence, you stop the bus.
+[main]Hey! What the fuck are you doing in my bus?!
+[narr]Hiden behind a seat mouthful with mayonaise all around its face, the dog is eating your food. Sitted, the dog stops to chew and look at you guilty and feared of you.
+
+	1 - Keep it in your bus.
+	// 5
+	2 - Kick the dog out of the bus.
+	// 6
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+(#5) 
+
+[narr]You kindly accept its presence and welcome it. Approaching you, without provocation, the dog attack you and try to bite your hand.
+[main]You fucking bastard! Get out of my bus!
+[narr]Crying of fear, you kick out the dog of the bus and it runs away.
+
+	1 - Keep driving.
+	// EVENT ENDED
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#6) 
+
+[main]I can't welcome you into this bus, buddy. Come on, get out!
+[narr]Crying of fear, you kick out the dog of the bus and it runs away.
+
+	1 - Keep driving.
+	// EVENT ENDED
+

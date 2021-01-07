@@ -608,7 +608,7 @@ void se_event_5()
                 current = 2;
             break;
         case 1:
-            temp = ui_choice("Stay in the bus.", "Leave the bus.", "/", "/");
+            temp = ui_choice("Stay in the bus.", "Get off the bus.", "/", "/");
             if (temp == 0)
                 current = 3;
             if (temp == 1)

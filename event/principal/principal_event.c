@@ -403,7 +403,6 @@ void pe_event_1()	/* Las Vegas */
             }
             break;
         case 415:   /* identique au 416 */
-            current = 417;
             if (inventory->money == 0)
                 choice0_temp = "Fuck, I'm ruined.";
             else if (inventory->money < 50)
@@ -422,22 +421,32 @@ void pe_event_1()	/* Las Vegas */
 
             temp = ui_choice(choice0_temp, choice1_temp, choice2_temp, "/");
             if (temp == 0)
-                if (inventory->money == 0)
+            {
+                if (inventory->money <= 0)
                     current = 418;
-            if (inventory->money < 50)
-                money_bet = inventory->money;
-            else if (inventory->money >= 50)
-                money_bet = 50;
+                else if (inventory->money < 50)
+                {
+                    current = 417;
+                    money_bet = inventory->money;
+                }
+                else if (inventory->money >= 50)
+                {
+                    current = 417;
+                    money_bet = 50;
+                }
+            }
 
             if (temp == 1)
+            {
+                current = 417;
                 money_bet = 100;
+            }
             if (temp == 2)
                 current = 418;
 
             en_mod_money(-money_bet);
             break;
         case 416:    /* identique au 415 */
-            current = 417;
             if (inventory->money == 0)
                 choice0_temp = "Fuck, I'm ruined.";
             else if (inventory->money < 50)
@@ -456,15 +465,26 @@ void pe_event_1()	/* Las Vegas */
 
             temp = ui_choice(choice0_temp, choice1_temp, choice2_temp, "/");
             if (temp == 0)
-                if (inventory->money == 0)
+            {
+                if (inventory->money <= 0)
                     current = 418;
-            if (inventory->money < 50)
-                money_bet = inventory->money;
-            else if (inventory->money >= 50)
-                money_bet = 50;
+                else if (inventory->money < 50)
+                {
+                    current = 417;
+                    money_bet = inventory->money;
+                }
+                else if (inventory->money >= 50)
+                {
+                    current = 417;
+                    money_bet = 50;
+                }
+            }
 
             if (temp == 1)
+            {
+                current = 417;
                 money_bet = 100;
+            }
             if (temp == 2)
                 current = 418;
 
@@ -526,7 +546,7 @@ void pe_event_1()	/* Las Vegas */
             temp = ui_choice("Stay in touch!", "Take him away!", "Raise your guard!", "You can do it!");
             if (temp == 0 || temp == 1 || temp == 3)
                 current = 505;
-            if (temp == 1)
+            if (temp == 2)
                 current = 506;
             break;
         case 503:
@@ -665,7 +685,7 @@ void pe_event_1()	/* Las Vegas */
                 current = 622;
             break;
         case 619:
-            temp = ui_choice("You try a short sequence of low-kick and high.", "Arch your leg behind his and use your shoulder to strike his chest.", "You step back, gain momentum and try to double dropkick.", "/");
+            temp = ui_choice("You try a short sequence of low-kick and high.", "Arch your leg behind him and use your shoulder to strike his chest.", "You step back, gain momentum and try to double dropkick.", "/");
             if (temp == 0)
                 current = 624;
             if (temp == 1)
@@ -963,7 +983,7 @@ void pe_event_1()	/* Las Vegas */
                 current = 644;
             break;
         case 664:
-            temp = ui_choice("Arch your leg behind his and use your shoulder to strike his chest.", "You step back, gain momentum and try to double dropkick.", "Clinch Foreman and stamp his thoracic cavity.", "/");
+            temp = ui_choice("arch your leg behind him and use your shoulder to strike his chest.", "You step back, gain momentum and try to double dropkick.", "Clinch Foreman and stamp his thoracic cavity.", "/");
             if (temp == 0)
                 current = 622;
             if (temp == 1)
@@ -1080,7 +1100,8 @@ void pe_event_1()	/* Las Vegas */
             break;
         case 791:
             ui_continu_choice(win_men);
-            /* NEED GAME OVER */
+            current = -1; /* NEED GAME OVER (die) */
+            ui_continu_choice();
             break;
         case 792:
             if (inventory->money >= 100)
@@ -1409,7 +1430,7 @@ void pe_event_1()	/* Las Vegas */
                 unlock_hostel = 1;
                 current = 900;
             }
-            if (temp == 1)
+            else if (temp == 1)
             {
                 if (unlock_hostel == 1)
                 {

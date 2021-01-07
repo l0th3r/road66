@@ -4697,6 +4697,50 @@ void pe_event_7()	/* Dallas */
     }
 }
 
+void pe_event_100()	/* Maxence */
+{
+    int current = 0;
+    int temp;
+    char* char0 = "Maxence";
+    char* char1 = "/";
+    char* char2 = "/";
+    char* char3 = "/";
+    char* char4 = "/";
+    char* char5 = "/";
+
+    while (current >= 0)
+    {
+        ui_print_dial(win_env, current, ev_w, "event/principal/100", char0, char1, char2, char3, char4, char5);
+
+        switch (current)
+        {
+        case 0:
+            temp = ui_choice("Sorry, I prefer to play Detroit Become Human.", "I don't understand, are you selling me something?", "/", "/");
+            if (temp == 0)
+                current = 1;
+            if (temp == 1)
+                current = 2;
+            break;
+        case 1:
+            ui_continu_choice(win_men);
+            current = -1;
+            break;
+        case 2:
+            temp = ui_choice("Sorry, I prefer to play Detroit Become Human.", "Why not. It's on my way.", "/", "/");
+            if (temp == 0)
+                current = 1;
+            if (temp == 1)
+            {
+                current = 3;
+                en_add_passenger(char0, inventory->pa_count);
+            }
+            break;
+        }
+
+        after_event_clear(win_env, win_men);
+    }
+}
+
 void pe_event_101()	/* Fake Axel */
 {
     int current = 0;

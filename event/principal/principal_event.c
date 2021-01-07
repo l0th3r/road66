@@ -1702,7 +1702,10 @@ void pe_event_2()
         case 29:
             temp = ui_choice("Propose him to come with you.", "Suggest him to leave this city.", "/", "/");
             if (temp == 0)
+            {
+                en_add_passenger(char1, inventory->pa_count);
                 current = 33;
+            }
             if (temp == 1)
                 current = 34;
             break;
@@ -1724,10 +1727,7 @@ void pe_event_2()
         case 33:
             temp = ui_choice("Keep driving.", "/", "/", "/");
             if (temp == 0)
-            {
-                en_add_passenger(char1, inventory->pa_count);
                 current = 32;
-            }
             break;
         case 34:
             temp = ui_choice("Keep driving.", "/", "/", "/");

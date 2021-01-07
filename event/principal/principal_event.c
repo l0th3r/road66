@@ -15,8 +15,8 @@ void pe_event_103();
 void pe_event_106();
 
 int who_is_alive = 0; /* 0 = Rafe   1 = Evelynn */
-int start_gas = 4;
-int start_food = 4;
+int start_gas = 5;
+int start_food = 5;
 
 /* function to call for each city */
 void (*city_events[9])() =

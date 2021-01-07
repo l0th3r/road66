@@ -25,7 +25,6 @@ typedef struct {
 	size_t total;
 } inv;
 extern inv* inventory;
-extern int els_miles_counter;
 
 int en_loop(int target);
 int en_update_total();
@@ -38,5 +37,19 @@ void en_mod_food(int val);
 void en_mod_gas(int val);
 void en_mod_money(int val);
 void en_end();
+
+/* ENGINE VARIABLES */
+/* check if the user want to quit */
+extern int els_is_exit;
+/* ids of the current and next city */
+extern int els_current_city;
+/* condition to try to drop random event */
+extern int els_is_random_events;
+/* mile counter */
+extern int els_miles_counter;
+/* condition to display the progress */
+extern int els_is_update;
+/* condition to update progress */
+extern int els_is_inventory;
 
 #endif

@@ -132,6 +132,8 @@ void ui_log_inv(char* str, int value)
 	int line = inv_h - (inventory->capacity - 5);
 	char char_temp;
 
+	is_inv_log = 1;
+
 	if(value >= 0)
 		char_temp = '+';
 	else
@@ -163,9 +165,7 @@ void ui_log_inv(char* str, int value)
 	else
 		ui_clear_inv_log(1);
 
-	is_inv_log = 1;
-
-	/* clear with colors */
+	/* print with colors */
 	wattron(win_inv, COLOR_PAIR(4));
 	mvwprintw(win_inv, line, 3, " %s %c%d ", str, char_temp, value);
 	wattroff(win_inv, COLOR_PAIR(4));
@@ -187,12 +187,6 @@ int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4)
 	arr[1] = choice2;
 	arr[2] = choice3;
 	arr[3] = choice4;
-
-	/* clear inv logs */
-	ui_clear_inv_log(0);
-	ui_clear_inv_log(1);
-	ui_clear_inv_log(2);
-	ui_clear_inv_log(3);
 
 	/* put the selected marker */
 	while(arr[selected][0] == '/')
@@ -246,6 +240,12 @@ int ui_choice(char* choice1, char* choice2, char* choice3, char* choice4)
 		if(choice == 10)
 			is_good = 1;
 	}
+
+	/* clear inv logs */
+	ui_clear_inv_log(0);
+	ui_clear_inv_log(1);
+	ui_clear_inv_log(2);
+	ui_clear_inv_log(3);
 
 	wclear(win_men);
 	box(win_men, 0, 0);
@@ -424,7 +424,7 @@ WINDOW * ui_new_win(char *name, int height, int width, int start_y, int start_x)
 
 void ui_update_progress(int val, int end_value, int current_city)
 {
-	mvwprintw(win_tra, 2, 4, "%s to %s", s_cities_names[current_city], s_cities_names[current_city + 1]);
+	mvwprintw(win_tra, 2, 4, "%s to %s    ", s_cities_names[current_city], s_cities_names[current_city + 1]);
 	mvwprintw(win_tra, 3, 4, "=> %d miles remaining.", end_value - val);
 
     mvwprintw(win_tra, 5, (val % 5) + 2, "      _____________      ");
@@ -446,22 +446,22 @@ void ui_update_inventory()
 
 	start_color();
 	init_color(COLOR_RED, 255, 0, 0);
-	init_pair(2, COLOR_RED, COLOR_BLACK);
+	init_pair(6, COLOR_RED, COLOR_BLACK);
 
 	/* print inventory slots, in red if full */
 	if(en_update_total() == inventory->capacity)
-		wattron(win_inv, COLOR_PAIR(2));
+		wattron(win_inv, COLOR_PAIR(6));
 	
-	mvwprintw(win_inv, 2, 4, "Inventory slots %d/%d", en_update_total(), inventory->capacity);
-	wattroff(win_inv, COLOR_PAIR(2));
+	mvwprintw(win_inv, 2, 4, "Inventory slots %d/%d   ", en_update_total(), inventory->capacity);
+	wattroff(win_inv, COLOR_PAIR(6));
 
 	/* print money */
-	mvwprintw(win_inv, 3, 4, "Wallet %d$", inventory->money);
+	mvwprintw(win_inv, 3, 4, "Wallet %d$   ", inventory->money);
 
 	/* print passengers if there is more than 0 */
 	if(inventory->pa_count > 0)
 	{
-		mvwprintw(win_inv, 5, 4, "%d Passengers:", inventory->pa_count);
+		mvwprintw(win_inv, 5, 4, "%d Passengers:    ", inventory->pa_count);
 		while(j < inventory->pa_count)
 		{
 			mvwprintw(win_inv, i, 4, "- %s", inventory->passengers[j]);
@@ -500,13 +500,13 @@ void ui_update_inventory()
 		if(i < inventory->food / 2)
 		{
 			if(inventory->food < inventory->pa_count + 1)
-				wattron(win_inv, COLOR_PAIR(2));
+				wattron(win_inv, COLOR_PAIR(6));
 
 			mvwaddch(win_inv, (inv_h - i) - 4, food_start, ACS_CKBOARD);
 			mvwaddch(win_inv, (inv_h - i) - 4, food_start + 1, ACS_CKBOARD);
 			mvwaddch(win_inv, (inv_h - i) - 4, food_start + 2, ACS_CKBOARD);
 			mvwaddch(win_inv, (inv_h - i) - 4, food_start + 3, ' ');
-			wattroff(win_inv, COLOR_PAIR(2));
+			wattroff(win_inv, COLOR_PAIR(6));
 		}
 		else
 		{
@@ -519,10 +519,10 @@ void ui_update_inventory()
 		if(i == inventory->food / 2)
 		{
 			if(inventory->food < inventory->pa_count + 1)
-				wattron(win_inv, COLOR_PAIR(2));
+				wattron(win_inv, COLOR_PAIR(6));
 			mvwprintw(win_inv, (inv_h - i) - 4, food_start + 2, "%d  ", inventory->food);
 			
-			wattroff(win_inv, COLOR_PAIR(2));
+			wattroff(win_inv, COLOR_PAIR(6));
 		}
 		i--;
 	}
@@ -546,7 +546,8 @@ void ui_update_inventory()
 
 /* val = 0 = clear passenger line */
 /* val = 1 = clear Gas line */
-/* val = 0 = clear Food line */
+/* val = 2 = clear Food line */
+/* val = 3 = clear money line */
 void ui_clear_inv_log(int val)
 {
 	int i = 2;

@@ -30,7 +30,6 @@ void se_event_20();
 void se_event_21();
 void se_event_22();
 
-void empty2() {}
 
 /* creating event functions array */
 void (*se_events[23])() =
@@ -68,12 +67,6 @@ void se_event_drop()
     int i = 0;
     int temp;
     int is;
-
-    se_event_check[13] = 1;
-    se_event_check[14] = 1;
-    se_event_check[15] = 1;
-    se_event_check[16] = 1;
-    se_event_check[17] = 1;
 
     /* check if there are event still available */
     is = 1;
@@ -650,7 +643,7 @@ void se_event_5()
             {
                 if (inventory->pa_count > 0)
                 {
-                    en_rm_passenger(inventory->passengers[uf_random(inventory->pa_count)]);
+                    en_rm_passenger(uf_random(inventory->pa_count - 1));
                     current = 8;
                 }
                 else

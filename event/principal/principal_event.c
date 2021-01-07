@@ -67,6 +67,7 @@ void pe_event_0()
             if (temp == 0)
             {
                 en_mod_food(+start_food);
+                els_is_inventory = 1;
                 current = 1;
             }
             break;

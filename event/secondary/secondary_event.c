@@ -933,10 +933,8 @@ void se_event_9()
                 current = 5;
             break;
         case 5:
-            temp = ui_choice("Ok, let's get out of here.", "Who did that to you?", "/", "/");
+            temp = ui_choice("Who did that to you?", "/", "/", "/");
             if (temp == 0)
-                current = 6;
-            if (temp == 1)
                 current = 7;
             break;
         case 6:
@@ -1006,6 +1004,7 @@ void se_event_9()
                 current = 9;
             if (temp == 1)
                 current = 12;
+            en_mod_food(+3);
             break;
         }
 

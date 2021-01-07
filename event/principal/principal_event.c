@@ -628,7 +628,7 @@ void pe_event_1()	/* Las Vegas */
             temp = ui_choice("I take the risk.", "Two hundred bucks is a good price finally.", "No, I said that I don't fight.", "/");
             if (temp == 0)
             {
-                owe_money = true;
+                owe_money = 1;
                 current = 607;
             }
             if (temp == 1)

@@ -73,7 +73,7 @@ void en_start_game()
 }
 
 /*	target = targetted city 
-	0 = first city = Las vegas
+	0 = first city = Los angeles
 */
 int en_loop(int target)
 {
@@ -112,7 +112,7 @@ int en_loop(int target)
 			ui_update_inventory();
 
 		/* generate random event */
-		if((els_miles_counter % s_drop_per_mile) == 0 && s_cities_drops[target] <= uf_random(100))
+		if((els_miles_counter % s_drop_per_mile) == 0 && uf_random(100) <= s_cities_drops[target])
 			se_event_drop();
 		
 		/* check if half of jurney */
@@ -168,7 +168,6 @@ int en_loop(int target)
 			break;
 		}
 		
-
 		/* MAIN QUEST AND EVENTS */
 
 		els_miles_counter++;

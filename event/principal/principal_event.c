@@ -276,8 +276,8 @@ void pe_event_1()	/* Las Vegas */
                 current = 3;
             break;
         case 3:
-            /* NEED GAME OVER WINDOW */
-            current = -1;
+            ui_continu_choice(win_men);
+            current = -2;
             break;
         case 4:
             ui_continu_choice(win_men);

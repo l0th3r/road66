@@ -2866,7 +2866,7 @@ void pe_event_7()	/* Dallas */
                 if (who_is_alive == 1) /* Evelynn */
                     current = 10;
                 if (who_is_alive == 1) /* Rafe */
-                        current = 11;
+                    current = 11;
             }
             break;
         case 7:
@@ -3044,7 +3044,7 @@ void pe_event_7()	/* Dallas */
                 current = 65;
             break;
         case 65:
-            temp = ui_choice("Yell at year.", "Nothing.", "/", "/");
+            temp = ui_choice("Yell at her.", "Nothing.", "/", "/");
             if (temp == 0)
                 current = 66;
             if (temp == 1)

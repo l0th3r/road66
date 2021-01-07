@@ -1851,7 +1851,7 @@ void pe_event_3()	/* Kingman */
         case 15:
             if (lock_picking == 1)
                 choice1_temp = "Try to crochet the door.";
-            else choice1_temp = "1";
+            else choice1_temp = "/";
 
             temp = ui_choice("Knock him down and take his clothes.", choice1_temp, "/", "/");
             if (temp == 0)
@@ -1859,9 +1859,10 @@ void pe_event_3()	/* Kingman */
                 guard_clothes = 1;
                 armed = 1;
                 suspicion += 2;
+                current = 16;
             }
             if (temp == 1)
-                current = 19;
+                current = 20;
             break;
         case 16:
             temp = ui_choice("Walk past them with a friendly greeting.", "Walk past them with a solemnly greeting.", "Walk past them without greeting them.", "/");
@@ -2694,7 +2695,7 @@ void pe_event_3()	/* Kingman */
                 if (child_affection < 10)
                     current = 122;
                 if (child_affection > 9)
-                    current = 123;
+                    current = 124;
             }
             break;
         case 117:
@@ -2718,7 +2719,7 @@ void pe_event_3()	/* Kingman */
                 if (child_affection < 10)
                     current = 122;
                 if (child_affection > 9)
-                    current = 123;
+                    current = 124;
             }
             break;
         case 119:
@@ -2849,14 +2850,24 @@ void pe_event_7()	/* Dallas */
             if (temp == 0)
                 current = 6;
             if (temp == 1)
-                current = 10;
+            {
+                if (who_is_alive == 1) /* Evelynn */
+                    current = 10;
+                if (who_is_alive == 1) /* Rafe */
+                    current = 11;
+            }
             break;
         case 6:
             temp = ui_choice("Stay in the bus.", "Get out of the bus.", "/", "/");
             if (temp == 0)
                 current = 7;
             if (temp == 1)
-                current = 10;
+            {
+                if (who_is_alive == 1) /* Evelynn */
+                    current = 10;
+                if (who_is_alive == 1) /* Rafe */
+                        current = 11;
+            }
             break;
         case 7:
             temp = ui_choice("Stay in the bus.", "Get out of the bus.", "/", "/");
@@ -4818,23 +4829,23 @@ void pe_event_103()	/* Cosmo */
 
         switch (current)
         {
-            case 0:
-                temp = ui_choice("You're not going anywhere with me, pal.", "I wanted to go for a chimichanga in Albuquerque, that's a good thing. Come on in.", "/", "/");
-                if (temp == 0)
-                    current = 1;
-                if (temp == 1)
-                {
-                    current = 2;
-                    en_add_passenger(char0, inventory->pa_count);
-                }
-                break;
-            case 1:
-                ui_continu_choice(win_men);
-                current = -1;
-                break;
-            case 2:
-                ui_continu_choice(win_men);
-                current = -1;
+        case 0:
+            temp = ui_choice("You're not going anywhere with me, pal.", "I wanted to go for a chimichanga in Albuquerque, that's a good thing. Come on in.", "/", "/");
+            if (temp == 0)
+                current = 1;
+            if (temp == 1)
+            {
+                current = 2;
+                en_add_passenger(char0, inventory->pa_count);
+            }
+            break;
+        case 1:
+            ui_continu_choice(win_men);
+            current = -1;
+            break;
+        case 2:
+            ui_continu_choice(win_men);
+            current = -1;
         }
 
         after_event_clear(win_env, win_men);

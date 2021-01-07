@@ -9,6 +9,11 @@ void pe_event_2();
 void pe_event_3();
 void pe_event_7();
 
+void pe_event_100();
+void pe_event_101();
+void pe_event_103();
+void pe_event_106();
+
 int who_is_alive = 0; /* 0 = Rafe   1 = Evelynn */
 
 /* function to call for each city */
@@ -28,8 +33,8 @@ void (*city_events[9])() =
 /* function to call for each city */
 void (*main_events[7])() =
 {
-    en_event_100,   /* Maxence */
-    en_event_101,   /* Axel F */
+    pe_event_100,   /* Maxence */
+    pe_event_101,   /* Axel F */
     empty,          /* Axel D */
     pe_event_103,   /* Cosmo */
     empty,          /* Damien */

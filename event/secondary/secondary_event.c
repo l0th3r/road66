@@ -1421,11 +1421,11 @@ void se_event_15()
             }
             break;
         case 3:
-            current = 2;
+            current = -1;
             ui_continu_choice();
             break;
         case 4:
-            current = 2;
+            current = -1;
             ui_continu_choice();
             break;
         }
@@ -1501,11 +1501,11 @@ void se_event_16()
             }
             break;
         case 3:
-            current = 2;
+            current = -1;
             ui_continu_choice();
             break;
         case 4:
-            current = 2;
+            current = -1;
             ui_continu_choice();
             break;
         }
@@ -1581,11 +1581,11 @@ void se_event_17()
             }
             break;
         case 3:
-            current = 2;
+            current = -1;
             ui_continu_choice();
             break;
         case 4:
-            current = 2;
+            current = -1;
             ui_continu_choice();
             break;
         }

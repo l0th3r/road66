@@ -1438,7 +1438,6 @@ void pe_event_2()
 
     while (current >= 0)
     {
-        /* 2 = id d'event  */
         ui_print_dial(win_env, current, ev_w, "event/principal/2", char0, char1, char2, char3, char4, char5);
 
         switch (current)
@@ -2494,7 +2493,7 @@ void pe_event_3()	/* Kingman */
                 current = 96;
             break;
         case 95:
-            temp = ui_choice("Come out.", "Leave a note of blackmail hoping to get something from Clifford.", "Go out the window.", "/");
+            temp = ui_choice("Come out.", "Leave a note of blackmail hoping to get something from Clifford.", "/", "/");
             if (temp == 0)
                 current = 96;
             if (temp == 1)
@@ -2502,8 +2501,6 @@ void pe_event_3()	/* Kingman */
                 repaired_bus = 1;
                 current = 97;
             }
-            if (temp == 2)
-                current = 100;
             break;
         case 96:
             temp = ui_choice("Try the window.", "Shout at them that you have the kid and that you will hurt her if they come in.", "/", "/");

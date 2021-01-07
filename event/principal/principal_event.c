@@ -2812,7 +2812,7 @@ void pe_event_3()	/* Kingman */
             if (repaired_bus == 0)
                 current = 125;
             if (repaired_bus == 1)
-                current = 126;
+                current = 128;
             break;
         case 125:
             temp = ui_choice("Refuse to leave without the child and make a nice tirade full of compassion.", "Leave.", "/", "/");

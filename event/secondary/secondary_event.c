@@ -677,8 +677,15 @@ void se_event_5()
                 en_mod_gas(-1);
             break;
         case 10:
-            current = -1; /* NEED GAME OVER */
+            current = -2; /* NEED GAME OVER */
             ui_continu_choice();
+            break;
+        case 11:
+            temp = ui_choice("Give up.", "Refuse one more time.", "/", "/");
+            if (temp == 0)
+                current = 9;
+            if (temp == 1)
+                current = 10;
             break;
         }
 
@@ -1104,7 +1111,7 @@ void se_event_11()
                 current = 4;
             break;
         case 3:
-            current = 2;
+            current = 4;
             ui_continu_choice();
             break;
         case 4:

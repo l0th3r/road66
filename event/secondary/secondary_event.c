@@ -1754,7 +1754,7 @@ void se_event_21()
 {
     int current = 0;
     int temp;
-    char* char0 = "/";
+    char* char0 = "Slaver";
     char* char1 = "/";
     char* char2 = "/";
     char* char3 = "/";

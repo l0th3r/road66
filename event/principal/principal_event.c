@@ -28,7 +28,7 @@ void (*city_events[9])() =
 /* function to call for each city */
 void (*main_events[7])() =
 {
-    empty,          /* Maxence */
+    en_event_100,   /* Maxence */
     en_event_101,   /* Axel F */
     empty,          /* Axel D */
     pe_event_103,   /* Cosmo */
@@ -1632,7 +1632,7 @@ void pe_event_2()
                 current = 23;
             break;
         case 27:
-            temp = ui_choice("What’s your name?", "/", "/", "/");
+            temp = ui_choice("What's your name?", "/", "/", "/");
             if (temp == 0)
             {
                 char1 = "Bob";
@@ -1907,6 +1907,7 @@ void pe_event_3()	/* Kingman */
                 current = 24;
             if (temp == 1)
                 current = 36;
+            break;
         case 24:
             temp = ui_choice("I have to go watch the kid, where is her cell again?", "What's going on here?", "Do you know where the boss is?", "/");
             if (temp == 0)
@@ -1925,12 +1926,14 @@ void pe_event_3()	/* Kingman */
                 current = 26;
             if (temp == 1)
                 current = 30;
+            break;
         case 26:
             temp = ui_choice("I'm from the surveillance team.", "I'm from the team 3.", "/", "/");
             if (temp == 0)
                 current = 31;
             if (temp == 1)
                 current = 32;
+            break;
         case 27:
             temp = ui_choice("Nah, it's just that I would like to see him for a personal thing.", "It's about the kid. Is she still well restrained in the usual place?", "/", "/");
             if (temp == 0)
@@ -1940,12 +1943,14 @@ void pe_event_3()	/* Kingman */
             }
             if (temp == 1)
                 current = 33;
+            break;
         case 28:
             temp = ui_choice("Usually he's pretty cool isn't he?", "I know but this is special, take care of what concerns you.", "/", "/");
             if (temp == 0)
                 current = 34;
             if (temp == 1)
                 current = 35;
+            break;
         case 29:
             temp = ui_choice("Continue on your way.", "/", "/", "/");
             if (temp == 0)
@@ -2316,7 +2321,7 @@ void pe_event_3()	/* Kingman */
                 current = 78;
             break;
         case 77:
-            temp = ui_choice("I'm here to save you, let's go!", "Don't worry sweety, I'm here to help you. Let's go?", "Come, quickly!", "/");
+            temp = ui_choice("I'm here to save you, let's go!", "Don't worry sweetie, I'm here to help you. Let's go?", "Come, quickly!", "/");
             if (temp == 0)
                 current = 79;
             if (temp == 1)
@@ -2631,7 +2636,7 @@ void pe_event_3()	/* Kingman */
             }
             break;
         case 112:
-            temp = ui_choice("You speak sometimes, kiddo?", "You don't want to talk a bit sweaty?", "/", "/");
+            temp = ui_choice("You speak sometimes, kiddo?", "You don't want to talk a bit sweetie?", "/", "/");
             if (temp == 0)
                 current = 113;
             if (temp == 1)
@@ -2683,6 +2688,7 @@ void pe_event_3()	/* Kingman */
                 if (child_affection > 9)
                     current = 123;
             }
+            break;
         case 117:
             temp = ui_choice("Yes.", "No.", "/", "/");
             if (temp == 0)
@@ -2706,6 +2712,7 @@ void pe_event_3()	/* Kingman */
                 if (child_affection > 9)
                     current = 123;
             }
+            break;
         case 119:
             temp = ui_choice("Bring her to Caitlyn.", "Bring her back to Clifford.", "Take her with you.", "/");
             if (temp == 0)
@@ -2719,6 +2726,7 @@ void pe_event_3()	/* Kingman */
                 if (child_affection > 9)
                     current = 123;
             }
+            break;
         case 120:
             ui_continu_choice(win_men);
             current = -1;
@@ -3040,7 +3048,7 @@ void pe_event_7()	/* Dallas */
         case 68:
             temp = ui_choice("Nothing.", "/", "/", "/");
             if (temp == 0)
-                current = 68;
+                current = 70;
             break;
         case 69:
             temp = ui_choice("Yell at her.", "/", "/", "/");
@@ -3209,7 +3217,7 @@ void pe_event_7()	/* Dallas */
             break;
         case 97:
             ui_continu_choice(win_men);
-            current = 97;
+            current = 98;
             break;
         case 98:
             temp = ui_choice("Go to the headquarters of Oklahoma City.", "/", "/", "/");
@@ -3351,7 +3359,7 @@ void pe_event_7()	/* Dallas */
             current = 224;
             break;
         case 224:
-            temp = ui_choice("You should set a C-4 to explode the school.", "Please don’t touch this. We have to stay focused on the mission.", "/", "/");
+            temp = ui_choice("You should set a C-4 to explode the school.", "Please don't touch this. We have to stay focused on the mission.", "/", "/");
             if (temp == 0)
                 current = 225;
             if (temp == 1)

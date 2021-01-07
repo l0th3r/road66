@@ -672,7 +672,7 @@ void se_event_5()
                 en_mod_gas(-1);
             break;
         case 10:
-            current = -2; /* NEED GAME OVER */
+            current = -1; /* NEED GAME OVER */
             els_is_exit = 666;
             ui_continu_choice();
             break;
@@ -1045,7 +1045,6 @@ void se_event_10()
                 current = 3;
             break;
         case 2:
-            /* NEED if (bus is not full)*/
             if (inventory->money >= 45)
                 choice1_temp = "Buy gasoline.";
             else choice1_temp = "/";

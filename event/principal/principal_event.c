@@ -15,6 +15,7 @@ void pe_event_103();
 void pe_event_106();
 
 int who_is_alive = 0; /* 0 = Rafe   1 = Evelynn */
+int start_gas = 4;
 
 /* function to call for each city */
 void (*city_events[9])() =
@@ -155,6 +156,7 @@ void pe_event_0()
         case 15:
             current = 16;
             ui_continu_choice();
+            en_mod_gas(+start_gas);
             break;
         case 16:
             temp = ui_choice("Drive faster.", "Stop at the light.", "/", "/");

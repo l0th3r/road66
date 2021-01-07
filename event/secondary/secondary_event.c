@@ -889,7 +889,7 @@ void se_event_9()
     int temp;
     char* char0 = "Big Guy";
     char* char1 = "Woman";
-    char* char2 = "/";
+    char* char2 = "Katy";
     char* char3 = "/";
     char* char4 = "/";
     char* char5 = "/";
@@ -1004,6 +1004,7 @@ void se_event_9()
                 current = 9;
             if (temp == 1)
                 current = 12;
+            char1 = "Katy";
             en_mod_food(+3);
             break;
         }
@@ -1787,6 +1788,7 @@ void se_event_21()
                 choice1_temp = "I don't have anybody to trade with you.";
             else choice1_temp = "Sell one of your mates for 100$.";
             temp = ui_choice(choice1_temp, "Leave.", "/", "/");
+                
             if (temp == 0)
             {
                 if (inventory->pa_count == 0)

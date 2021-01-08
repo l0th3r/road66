@@ -64,14 +64,16 @@ void pe_event_0()
         switch (current)
         {
         case 0:
-            temp = ui_choice("Answer the call.", "/", "/", "/");
+            current = -1;
+            ui_continu_choice();
+            /* temp = ui_choice("Answer the call.", "/", "/", "/");
              if (temp == 0)
              {
                  en_mod_food(+start_food);
                  els_is_inventory = 1;
-                 current = 1;
-             }
-            break;
+                 current = 1;*/
+        }
+        break;
         case 1:
             temp = ui_choice("Leave your apartment.", "Check one last time for your stuff.", "/", "/");
             if (temp == 0)
@@ -3092,15 +3094,15 @@ void pe_event_4()	/* PHEONIX CITY */
             if (temp == 1)
                 current = 49;
             break;
-        case 43:
-            temp = ui_choice("Open the mailbox.", "/", "/", "/");
-            if (temp == 0)
-                current = 56;
-            break;
         case 44:
             temp = ui_choice("Thea.", "/", "/", "/");
             if (temp == 0)
                 current = 49;
+            break;
+        case 49:
+            temp = ui_choice("Open the mailbox.", "/", "/", "/");
+            if (temp == 0)
+                current = 56;
             break;
         case 56:
             temp = ui_choice("Look for information.", "/", "/", "/");

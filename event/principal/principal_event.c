@@ -26,7 +26,7 @@ void (*city_events[9])() =
     pe_event_2,     /* city 2 = Henderson */
     pe_event_3,     /* city 3 = Kingman */
     empty,          /* city 4 = Phoenix City */
-    empty,     /* city 5 = Flagstaff */
+    empty,          /* city 5 = Flagstaff */
     empty,          /* city 6 = Albuquerque */
     pe_event_7,     /* city 7 = Dallas */
     empty,          /* city 8 = Oklahoma */
@@ -63,12 +63,14 @@ void pe_event_0()
         switch (current)
         {
         case 0:
-            temp = ui_choice("Answer the call.", "/", "/", "/");
+            current = -1;
+            ui_continu_choice();
+           /* temp = ui_choice("Answer the call.", "/", "/", "/");
             if (temp == 0)
             {
                 en_mod_food(+start_food);
                 els_is_inventory = 1;
-                current = 1;
+                current = 1;*/
             }
             break;
         case 1:
@@ -1556,12 +1558,12 @@ void pe_event_1()	/* Las Vegas */
 }
 
 
-void pe_event_2()
+void pe_event_2()   /* Henderson */
 {
     int current = 0;
     int temp;
     char* char0 = "Jackson";
-    char* char1 = "Man";
+    char* char1 = "Man"; /* Bob */
     char* char2 = "Rafe";
     char* char3 = "Apu";
     char* char4 = "/";

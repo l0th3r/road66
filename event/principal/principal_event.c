@@ -9,7 +9,6 @@ void pe_event_2();
 void pe_event_3();
 void pe_event_4();
 void pe_event_5();
-void pe_event_6();
 void pe_event_7();
 
 void pe_event_100();
@@ -31,7 +30,7 @@ void (*city_events[9])() =
     pe_event_3,     /* city 3 = Kingman */
     pe_event_4,     /* city 4 = Phoenix City */
     pe_event_5,     /* city 5 = Flagstaff */
-    pe_event_6;     /* city 6 = Albuquerque */
+    empty,          /* city 6 = Albuquerque */
     pe_event_7,     /* city 7 = Dallas */
     empty,          /* city 8 = Oklahoma */
 };
@@ -3841,7 +3840,7 @@ void pe_event_7()	/* Dallas */
     char* char4 = "Absjorn";
     char* char5 = "Evelynn";
 
-    int required_passenger = 4;
+    int required_passenger = 3;
     int explosives_installed = 0; /* 0 == false      1 == true */
 
     if (inventory->pa_count > 0)

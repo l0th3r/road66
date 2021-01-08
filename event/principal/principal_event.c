@@ -1215,6 +1215,7 @@ void pe_event_1()	/* Las Vegas */
                 current = 901;
             break;
         case 800:
+            unlock_exit_door = 1;
             ui_continu_choice(win_men);
             current = 801;
             break;
@@ -2921,7 +2922,7 @@ void pe_event_5()
     char* char3 = "Damien";
     char* char4 = "/"; /*Personne du bus*/
     char* char5 = "/";
-    
+
     char* choice0_temp = NULL;
     char* choice1_temp = NULL;
     char* choice2_temp = NULL;

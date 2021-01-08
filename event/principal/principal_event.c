@@ -8,6 +8,7 @@ void pe_event_1();
 void pe_event_2();
 void pe_event_3();
 void pe_event_4();
+void pe_event_5();
 void pe_event_7();
 
 void pe_event_100();
@@ -2939,9 +2940,9 @@ void pe_event_4()	/* PHEONIX CITY */
     int lock_morgue2 = 0;
     int lock_morgue3 = 0;
 
-    char* choice0_temp = NULL;
     char* choice1_temp = NULL;
     char* choice2_temp = NULL;
+    char* choice3_temp = NULL;
 
     while (current >= 0)
     {
@@ -4500,7 +4501,7 @@ void pe_event_7()	/* Dallas */
                 current = 285;
             else if (inventory->pa_count == 1)
                 current = 281;
-            else if (passenger->pa_cout > 1)
+            else if (inventory->pa_count > 1)
                 current = 282;
             break;
         case 281:
@@ -4514,10 +4515,6 @@ void pe_event_7()	/* Dallas */
         case 283:
             ui_continu_choice(win_men);
             current = 428;
-            break;
-        case 284:
-            ui_continu_choice(win_men);
-            current = 62;
             break;
         case 284:
             ui_continu_choice(win_men);
@@ -5891,7 +5888,7 @@ void pe_event_104()	/* Damien */
             current = -1;
             break;
         case 2:
-            temps = ui_choice("Cool, man, I'm leaving. Gotta be cool, man.", "Of course you can.", "/", "/");
+            temp = ui_choice("Cool, man, I'm leaving. Gotta be cool, man.", "Of course you can.", "/", "/");
             if (temp == 0)
                 current = 1;
             if (temp == 1)

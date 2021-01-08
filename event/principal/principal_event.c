@@ -63,16 +63,16 @@ void pe_event_0()
         switch (current)
         {
         case 0:
-            current = -1;
-            ui_continu_choice();
-           /* temp = ui_choice("Answer the call.", "/", "/", "/");
+            /*current = -1;
+            ui_continu_choice(); PRESENTATION VERSION */
+           temp = ui_choice("Answer the call.", "/", "/", "/");
             if (temp == 0)
             {
                 en_mod_food(+start_food);
                 els_is_inventory = 1;
                 current = 1;
             }
-            break;*/
+            break;
         case 1:
             temp = ui_choice("Leave your apartment.", "Check one last time for your stuff.", "/", "/");
             if (temp == 0)

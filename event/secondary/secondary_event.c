@@ -1320,11 +1320,14 @@ void se_event_14()
             en_mod_food(-1);
             break;
         case 1:
-            temp = ui_choice("Threaten the passenger to do not that again.", "Kick the passenger out of the bus.", "/", "/");
+            temp = ui_choice("Threaten the passenger to do not that again.", " Kick the passenger out of the bus.", "/", "/");
             if (temp == 0)
                 current = 2;
             if (temp == 1)
+            {
+                en_rm_passenger(uf_compare(char0));
                 current = 3;
+            }
             break;
         case 2:
             current = -1;
@@ -1797,7 +1800,7 @@ void se_event_21()
                 current = -1;
             break;
         case 3:
-            en_rm_passenger(uf_random(inventory->pa_count - 1));
+            en_rm_passenger(uf_random(inventory->pa_count));
             en_mod_money(+100);
             current = 2;
             ui_continu_choice();

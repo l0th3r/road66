@@ -1700,12 +1700,16 @@ void se_event_19()
         case 0:
             temp = ui_choice("Take a look.", "Keep driving.", "/", "/");
             if (temp == 0)
-                current = 1;
+                if (temp == 0)
+                {
+                    current = 1;
+                    en_mod_money(+100);
+                    en_mod_gas(+1);
+                }
             if (temp == 1)
                 current = -1;
             break;
         case 1:
-            en_mod_gas(+1);
             current = -1;
             ui_continu_choice();
             break;
@@ -1737,12 +1741,15 @@ void se_event_20()
         case 0:
             temp = ui_choice("Take a look.", "Keep driving.", "/", "/");
             if (temp == 0)
+            {
                 current = 1;
+                en_mod_money(+85);
+                en_mod_food(+4);
+            }
             if (temp == 1)
                 current = -1;
             break;
         case 1:
-            en_mod_gas(+1);
             current = -1;
             ui_continu_choice();
             break;

@@ -4524,7 +4524,7 @@ void pe_event_7()	/* Dallas */
             break;
         case 243:
             ui_continu_choice(win_men);
-            current = 242;
+            current = 244;
             break;
         case 244:
             ui_continu_choice(win_men);

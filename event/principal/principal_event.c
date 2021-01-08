@@ -9,6 +9,7 @@ void pe_event_2();
 void pe_event_3();
 void pe_event_4();
 void pe_event_5();
+void pe_event_6();
 void pe_event_7();
 
 void pe_event_100();
@@ -30,7 +31,7 @@ void (*city_events[9])() =
     pe_event_3,     /* city 3 = Kingman */
     pe_event_4,     /* city 4 = Phoenix City */
     pe_event_5,     /* city 5 = Flagstaff */
-    empty,          /* city 6 = Albuquerque */
+    pe_event_6;     /* city 6 = Albuquerque */
     pe_event_7,     /* city 7 = Dallas */
     empty,          /* city 8 = Oklahoma */
 };
@@ -3787,7 +3788,47 @@ void pe_event_5() /* FLAGSTAFF */
     }
 }
 
+void pe_event_6()	/* ALBUQUERQUE */
+{
+    int current = 0;
+    int temp;
+    char* char0 = "Cosmo";
+    char* char1 = "/";
+    char* char2 = "/";
+    char* char3 = "/";
+    char* char4 = "/";
+    char* char5 = "/";
 
+    while (current >= 0)
+    {
+        ui_print_dial(win_env, current, ev_w, "event/principal/6", char0, char1, char2, char3, char4, char5);
+
+        switch (current)
+        {
+        case 0:
+            ui_continu_choice(win_men);
+            if (uf_compare("Cosmo") != -1)
+            {
+                en_mod_food(+4);
+                en_mod_money(+1);
+                current = 1;
+            }
+            else 
+                current = -1
+            break;
+        case 1:
+            ui_continu_choice(win_men);
+            current = 2;
+            break;
+        case 2:
+            ui_continu_choice(win_men);
+            current = -1;
+            break;
+        }
+
+        after_event_clear(win_env, win_men);
+    }
+}
 
 void pe_event_7()	/* Dallas */
 {

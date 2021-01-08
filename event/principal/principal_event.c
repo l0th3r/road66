@@ -18,8 +18,8 @@ void pe_event_104();
 void pe_event_106();
 
 int who_is_alive = 0; /* 0 = Rafe   1 = Evelynn */
-int start_gas = 5;
-int start_food = 6;
+int start_gas = 6;
+int start_food = 9;
 
 /* function to call for each city */
 void (*city_events[9])() =
@@ -1698,7 +1698,7 @@ void pe_event_2()   /* Henderson */
             break;
         case 12:
             ui_continu_choice(win_men);
-            en_mod_food(+1);
+            en_mod_food(+4);
             current = 13;
             break;
         case 13:
@@ -3524,19 +3524,14 @@ void pe_event_5() /* FLAGSTAFF */
                 if (lock_shop == 1)
                     current = 200;
                 else
-                    current = 4;
+                    current = 5;
             }
             if (temp == 1)
             {
                 current = 5;
-                lock_shop = 1;
+                lock_shop = 2;
             }
             if (temp == 2)
-            {
-                current = 2;
-                lock_shop = 1;
-            }
-            if (temp == 3)
             {
                 current = 4;
                 lock_shop = 1;
@@ -3698,7 +3693,7 @@ void pe_event_5() /* FLAGSTAFF */
             ui_continu_choice(win_men);
             current = 1;
             break;
-        case 102:
+        case 104:
             temp = ui_choice("Goulash. 25$", "Marinated beef sirloin. 35$", "Pork with meatball and sauerkraut. 40$", "/");
             if (temp == 0)
             {
@@ -5800,7 +5795,7 @@ void pe_event_100()	/* Maxence */
             if (temp == 1)
             {
                 current = 3;
-                en_add_passenger(char0, inventory->pa_count);
+                en_add_passenger("Maxence", inventory->pa_count);
             }
             break;
         case 3:
@@ -5837,7 +5832,7 @@ void pe_event_101()	/* Fake Axel */
             if (temp == 1)
             {
                 current = 2;
-                en_add_passenger(char0, inventory->pa_count);
+                en_add_passenger("Axel", inventory->pa_count);
             }
             break;
         case 1:
@@ -5884,7 +5879,7 @@ void pe_event_103()	/* Cosmo */
             if (temp == 1)
             {
                 current = 2;
-                en_add_passenger(char0, inventory->pa_count);
+                en_add_passenger("Cosmo", inventory->pa_count);
             }
             break;
         case 1:
@@ -5936,7 +5931,7 @@ void pe_event_104()	/* Damien */
             if (temp == 1)
             {
                 current = 3;
-                en_add_passenger(char0, inventory->pa_count);
+                en_add_passenger("Damien", inventory->pa_count);
             }
             break;
         case 3:

@@ -123,7 +123,10 @@ int en_loop(int target)
 
 			/* check if user stille have gas */
 			if(inventory->gas == 0 || inventory->food == 0)
+			{
 				els_is_exit = 666;
+				s_gov_ms = "Not enough ressources to leave the town...";
+			}
 		}
 
 		while(els_miles_counter <= mile_target && els_is_exit == 0)

@@ -66,14 +66,14 @@ void pe_event_0()
         case 0:
             current = -1;
             ui_continu_choice();
-           /* temp = ui_choice("Answer the call.", "/", "/", "/");
-            if (temp == 0)
-            {
-                en_mod_food(+start_food);
-                els_is_inventory = 1;
-                current = 1;*/
-            }
-            break;
+            /* temp = ui_choice("Answer the call.", "/", "/", "/");
+             if (temp == 0)
+             {
+                 en_mod_food(+start_food);
+                 els_is_inventory = 1;
+                 current = 1;*/
+        }
+        break;
         case 1:
             temp = ui_choice("Leave your apartment.", "Check one last time for your stuff.", "/", "/");
             if (temp == 0)
@@ -239,10 +239,10 @@ void pe_event_0()
             current = -1;
             ui_continu_choice();
             break;
-        }
-
-        after_event_clear(win_env, win_men);
     }
+
+    after_event_clear(win_env, win_men);
+}
 }
 
 void pe_event_1()	/* Las Vegas */
@@ -1692,6 +1692,7 @@ void pe_event_2()   /* Henderson */
             if (temp == 0)
             {
                 en_mod_gas(+1);
+                en_mod_money(-50);
                 current = 16;
             }
             if (temp == 1)
@@ -3061,7 +3062,7 @@ void pe_event_4()	/* PHEONIX CITY */
             if (lock_morgue3 == 0)
                 choice3_temp = "Check the offices.";
             else choice3_temp = "/";
-                
+
             temp = ui_choice("Leave the morgue.", choice1_temp, choice2_temp, choice3_temp);
             if (temp == 0)
                 current = 111;

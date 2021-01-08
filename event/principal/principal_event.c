@@ -66,13 +66,13 @@ void pe_event_0()
         {
         case 0:
             temp = ui_choice("Answer the call.", "/", "/", "/");
-             if (temp == 0)
-             {
-                 en_mod_food(+start_food);
-                 els_is_inventory = 1;
-                 current = 1;
-             }
-        break;
+            if (temp == 0)
+            {
+                en_mod_food(+start_food);
+                els_is_inventory = 1;
+                current = 1;
+            }
+            break;
         case 1:
             temp = ui_choice("Leave your apartment.", "Check one last time for your stuff.", "/", "/");
             if (temp == 0)
@@ -238,10 +238,10 @@ void pe_event_0()
             current = -1;
             ui_continu_choice();
             break;
-    }
+        }
 
-    after_event_clear(win_env, win_men);
-}
+        after_event_clear(win_env, win_men);
+    }
 }
 
 void pe_event_1()	/* Las Vegas */
@@ -300,6 +300,7 @@ void pe_event_1()	/* Las Vegas */
         case 4:
             ui_continu_choice(win_men);
             current = 900;
+            els_is_update = 0;
             break;
         case 400:
             locked_fight_room = 1;
@@ -1503,7 +1504,7 @@ void pe_event_1()	/* Las Vegas */
                 current = 900;
             break;
         case 900:
-            temp = ui_choice("Go to the reception.", "Play on a slot machine.", "Go to the fight room.", "/");
+            temp = ui_choice("Go to the reception.", "Play on a slot machine.", "Go to the fight room.", "Go to the Cosmo-Bar");
             if (temp == 0)
                 current = 901;
             if (temp == 1)
@@ -1515,6 +1516,8 @@ void pe_event_1()	/* Las Vegas */
                 if (locked_fight_room == 1)
                     current = 401;
             }
+            if (temp == 3)
+                current = 902;
             break;
         case 901:
             if (unlock_exit_door == 1)
@@ -1541,12 +1544,51 @@ void pe_event_1()	/* Las Vegas */
                 }
             }
             break;
+        case 902:
+            if (inventory->money >= 20)
+            {
+                choice0_temp = "Super Expresso Brawl. 20$ (+1 Food)";
+                choice1_temp = "Vanillabean Dutchess Nut. 20$ (+1 Food)";
+                choice2_temp = "Spicy Pear Rhum. 20$ (+1 Food)";
+                choice3_temp = "Back to the main room.";
+            }
+            else
+            {
+                choice0_temp = "I'm fucking ruined, dude.";
+                choice1_temp = "/";
+                choice2_temp = "/";
+                choice3_temp = "/";
+            }
+
+            temp = ui_choice(choice0_temp, choice1_temp, choice2_temp, choice3_temp);
+            
+            if (inventory->money >= 20)
+            {
+                if (temp == 0 || temp == 1 || temp == 2)
+                {
+                    en_mod_money(-20);
+                    en_mod_food(+1);
+                    current = 903;
+                    unlock_exit_door = 1;
+                }
+                if (temp == 3)
+                    current = 900;
+            }
+            else
+                if (temp == 0)
+                    current = 900;
+            break;
+        case 903:
+            ui_continu_choice(win_men);
+            current = 902;
+            break;
         case 998:
             ui_continu_choice(win_men);
             current = 901;
             break;
         case 999:
             ui_continu_choice(win_men);
+            els_is_update = 1;
             current = -1;
             break;
         }
@@ -3440,7 +3482,7 @@ void pe_event_5() /* FLAGSTAFF */
     char* choice2_temp = NULL;
 
     int lock_shop = 0;
-    int money_stolen = 0; 
+    int money_stolen = 0;
     int food_stolen = 0;
 
     /* char4 = a passenger but not Damien */

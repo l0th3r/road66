@@ -13,6 +13,7 @@ void pe_event_7();
 void pe_event_100();
 void pe_event_101();
 void pe_event_103();
+void pe_event_104();
 void pe_event_106();
 
 int who_is_alive = 0; /* 0 = Rafe   1 = Evelynn */
@@ -40,7 +41,7 @@ void (*main_events[7])() =
     pe_event_101,   /* Axel F */
     empty,          /* Axel D */
     pe_event_103,   /* Cosmo */
-    empty,          /* Damien */
+    pe_event_104,   /* Damien */
     empty,          /* Theo */
     pe_event_106,   /* Road blocked */
 };
@@ -5882,16 +5883,27 @@ void pe_event_104()	/* Damien */
         switch (current)
         {
         case 0:
-            temp = ui_choice("/", "/", "/", "/");
+            temp = ui_choice("No, get out.", "I'm on my way to Oklahoma.", "/", "/");
             if (temp == 0)
-                current = -1;
+                current = 1;
+            if (temp == 1)
+                current = 2;
+            break;
+        case 1:
+            ui_continu_choice(win_men);
+            current = -1;
+            break;
+        case 2:
+            temps = ui_choice("Cool, man, I'm leaving. Gotta be cool, man.", "Of course you can.", "/", "/");
+            if (temp == 0)
+                current = 1;
             if (temp == 1)
             {
-                current = -1;
+                current = 3;
                 en_add_passenger(char0, inventory->pa_count);
             }
             break;
-        case 1:
+        case 3:
             ui_continu_choice(win_men);
             current = -1;
             break;

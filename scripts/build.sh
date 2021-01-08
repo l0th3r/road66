@@ -1,5 +1,4 @@
-#!/usr/bin/sh
-#   
+#!/bin/bash
 #   BUILD SCRIPT FILE 
 #   Script to build a version of the game /
 #

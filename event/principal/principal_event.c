@@ -3791,7 +3791,6 @@ void pe_event_5() /* FLAGSTAFF */
 void pe_event_6()	/* ALBUQUERQUE */
 {
     int current = 0;
-    int temp;
     char* char0 = "Cosmo";
     char* char1 = "/";
     char* char2 = "/";
@@ -3814,7 +3813,7 @@ void pe_event_6()	/* ALBUQUERQUE */
                 current = 1;
             }
             else 
-                current = -1
+                current = -1;
             break;
         case 1:
             ui_continu_choice(win_men);

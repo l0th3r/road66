@@ -5740,6 +5740,7 @@ void pe_event_103()	/* Cosmo */
         case 2:
             ui_continu_choice(win_men);
             current = -1;
+            break;
         }
 
         after_event_clear(win_env, win_men);

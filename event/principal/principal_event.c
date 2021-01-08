@@ -3441,6 +3441,8 @@ void pe_event_5() /* FLAGSTAFF */
     char* choice2_temp = NULL;
 
     int lock_shop = 0;
+    int money_stolen = 0; 
+    int food_stolen = 0;
 
     /* char4 = a passenger but not Damien */
     if (inventory->pa_count > 0)
@@ -3527,7 +3529,31 @@ void pe_event_5() /* FLAGSTAFF */
                 if (inventory->pa_count > 1)
                     current = 300;
                 else
-                    current = 301;
+                {
+                    if (inventory->food > 0)
+                    {
+                        food_stolen = 1;
+                        en_mod_food(-food_stolen);
+                    }
+
+                    if (inventory->money >= 10)
+                    {
+                        money_stolen = 10;
+                        en_mod_money(-money_stolen);
+                    }
+                    else if (inventory->money > 0)
+                    {
+                        money_stolen = inventory->money;
+                        en_mod_money(-money_stolen);
+                    }
+
+                    if (money_stolen > 0 || food_stolen > 0)
+                        current = 301;
+                    else
+                        current = 306;
+
+                    en_rm_passenger(uf_compare(char3));
+                }
             }
             break;
         case 4:
@@ -3664,6 +3690,61 @@ void pe_event_5() /* FLAGSTAFF */
             else
                 current = -1;
             break;
+        case 300:
+            temp = ui_choice("Leave to find Damien.", "/", "/", "/");
+            if (temp == 0)
+                current = 302;
+            break;
+        case 301:
+            ui_continu_choice(win_men);
+            current = -1;
+            break;
+        case 302:
+            temp = ui_choice("Give me back what you took.", "Give me back what you took from me. And your money too.", "Shoot him in the head.", "/");
+            if (temp == 0)
+            {
+                if (money_stolen > 0)
+                    en_mod_money(+money_stolen);
+                if (food_stolen > 0)
+                    en_mod_food(+food_stolen);
+
+                current = 303;
+            }
+            if (temp == 1)
+            {
+                if (money_stolen > 0)
+                    en_mod_money(+(money_stolen + 50));
+                if (food_stolen > 0)
+                    en_mod_food(+(food_stolen + 1));
+
+                current = 304;
+            }
+            if (temp == 2)
+            {
+                if (money_stolen > 0)
+                    en_mod_money(+(money_stolen + 50));
+                if (food_stolen > 0)
+                    en_mod_food(+(food_stolen + 1));
+
+                current = 305;
+            }
+            break;
+        case 303:
+            ui_continu_choice(win_men);
+            current = -1;
+            break;
+        case 304:
+            ui_continu_choice(win_men);
+            current = -1;
+            break;
+        case 305:
+            ui_continu_choice(win_men);
+            current = -1;
+            break;
+        case 306:
+            ui_continu_choice(win_men);
+            current = -1;
+            break;
         }
 
         after_event_clear(win_env, win_men);
@@ -3730,7 +3811,7 @@ void pe_event_7()	/* Dallas */
             {
                 if (who_is_alive == 1) /* Evelynn */
                     current = 10;
-                if (who_is_alive == 1) /* Rafe */
+                if (who_is_alive == 0) /* Rafe */
                     current = 11;
             }
             break;
@@ -3742,20 +3823,20 @@ void pe_event_7()	/* Dallas */
             {
                 if (who_is_alive == 1) /* Evelynn */
                     current = 10;
-                if (who_is_alive == 1) /* Rafe */
+                if (who_is_alive == 0) /* Rafe */
                     current = 11;
             }
             break;
         case 7:
             temp = ui_choice("Stay in the bus.", "Get out of the bus.", "/", "/");
-            if (who_is_alive == 0) /* Evelynn */
+            if (who_is_alive == 1) /* Evelynn */
             {
                 if (temp == 0)
                     current = 8;
                 if (temp == 1)
                     current = 10;
             }
-            if (who_is_alive == 1) /* Rafe */
+            if (who_is_alive == 0) /* Rafe */
             {
                 if (temp == 0)
                     current = 9;
@@ -4413,6 +4494,40 @@ void pe_event_7()	/* Dallas */
                 els_is_win = 1;
                 current = -1;
             }
+            break;
+        case 280:
+            ui_continu_choice(win_men);
+
+            if (inventory->pa_count == 0)
+                current = 285;
+            else if (inventory->pa_count == 1)
+                current = 281;
+            else if (passenger->pa_cout > 1)
+                current = 282;
+            break;
+        case 281:
+            ui_continu_choice(win_men);
+            current = 283;
+            break;
+        case 282:
+            ui_continu_choice(win_men);
+            current = 283;
+            break;
+        case 283:
+            ui_continu_choice(win_men);
+            current = 428;
+            break;
+        case 284:
+            ui_continu_choice(win_men);
+            current = 62;
+            break;
+        case 284:
+            ui_continu_choice(win_men);
+            current = 62;
+            break;
+        case 285:
+            ui_continu_choice(win_men);
+            current = 283;
             break;
 
             /* 400 */
@@ -5692,8 +5807,10 @@ void pe_event_101()	/* Fake Axel */
             ui_continu_choice(win_men);
             {
                 current = -1;
-                if (inventory->money > 0)
+                if (inventory->money >= 25)
                     en_mod_money(-25);
+                else if (inventory->money > 0)
+                    en_mod_money(-inventory->money);
             }
             break;
         case 2:
@@ -5738,6 +5855,43 @@ void pe_event_103()	/* Cosmo */
             current = -1;
             break;
         case 2:
+            ui_continu_choice(win_men);
+            current = -1;
+            break;
+        }
+
+        after_event_clear(win_env, win_men);
+    }
+}
+
+void pe_event_104()	/* Damien */
+{
+    int current = 0;
+    int temp;
+    char* char0 = "Damien";
+    char* char1 = "/";
+    char* char2 = "/";
+    char* char3 = "/";
+    char* char4 = "/";
+    char* char5 = "/";
+
+    while (current >= 0)
+    {
+        ui_print_dial(win_env, current, ev_w, "event/principal/104", char0, char1, char2, char3, char4, char5);
+
+        switch (current)
+        {
+        case 0:
+            temp = ui_choice("/", "/", "/", "/");
+            if (temp == 0)
+                current = -1;
+            if (temp == 1)
+            {
+                current = -1;
+                en_add_passenger(char0, inventory->pa_count);
+            }
+            break;
+        case 1:
             ui_continu_choice(win_men);
             current = -1;
             break;

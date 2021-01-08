@@ -1,0 +1,296 @@
+//
+// MAIN EVENT #9
+// FLAGSTAFF
+// Signature: Axel D.
+//
+// CHARACTERS:
+// char0 = Suspicious Seller
+// char1 = Old Women
+// char2 = Goofy 
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#0)
+
+[narr]The mountainous and wooded reefs typical of the region. The city centre, devoid of activity, reveals fragments of dramatic events behind the silence. Like a treasure hunt (paper chase?) that could be traced from one track to another. Some tourist shuttles at the stop. In direction of Colorado. No wonder, though, it's not really the right time for tourism. In the distance, you see the imposing Flagstaff shopping centre. A provincial shopping mall as you can see so many of them all over the country. No trace of activity. The place is in a decent state considering everything that's been going on lately. You enter the shopping centre. An open hall with all kinds of stores, some of which remain locked.
+
+1 - Head to the clothing-retail: M&H 
+// 4
+2 - Head to the organic supermarket: Group Foods Market 
+// 5
+3 - Head to the fast-food : Mc Goofy’s
+// 2 
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#4) 4 		// Head to the clothing-retail : M&H 
+
+[narr]It was a mannezingue of the old game, a black store, under a low ceiling, with a smoke-filled room next to it, in which frippery was sold. An elderly woman wearing a foreign costume came to greet you. 
+
+[char1]Hlupak. Hlupak ! Come in. Sit down, Hlupak. 
+
+1 - Sitting down. 
+// 12
+2 - Leave the room.
+// 11
+---------------------------------------------------------------------------------------------------------------------------
+
+(#5) 5 		//Head to the organic supermarket: Group Foods Market 
+
+[narr]A rather narrow room within its centre a man who approaches you. 
+[char0]Welcome to my humble store! 
+[narr]The manager was a sturdy, medium-size man who sat on one of the tables at the entrance. 
+[char0]Buy something, kokot. 
+
+1 - You really own this store? 
+// 6
+2 - What did you sell?
+// 104
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#2) 2		 // Head to the fast-food : Mc Goofie's 
+
+[narr]Here as elsewhere, a fast-food hall all that it has of more comun. But what is less banal is the man dressed as Goofy behind the counter. 
+[char2]Yaaah-hoo-hoo-hoo-hooey, kurva! 
+[main]I guess you're selling something? 
+[char2]Aaugh! 
+[narr]He said, nodding. 
+[char2]Buy. 
+
+1 - Hamburger on a bed of French fry oil, between two stale bread. (15$, 1 food) 
+// 20
+2 - Special promotion, 3 barrels of gasoline for the price of 4. (40$, 3 gas) 
+// 21
+3 - Bag of fries cooked and dried. (20$, 2 food)
+22 // 
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#6) 6		 // You really own this store? 
+
+[char0]No questions asked, Kaca pitoma! Just buy something. 
+
+1 - What did you sell?
+// 104
+
+---------------------------------------------------------------------------------------------------------------------------
+(#102) 5		 // What did you sell? 
+
+[char0]This is a food store. So food. Buy something! 
+
+1 - Return to the lobby of the shopping centre.
+// 10
+2 - Goulash. (25$, 1 foods) 
+// 7
+3 - Marinated beef sirloin. (35$, 2 foods) 
+// 8
+4 - Pork with meatball and sauerkraut. (40$, 4 foods)
+// 9
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#7) 7 		// Goulash. (25$, 1 foods) 
+
+[char1]Good. Good. We used it to feed the pigs. Buy it all or leave, Kaca pitoma.
+
+1 - Return to the lobby of the shopping centre.
+// 10
+
+(Display les autres articles)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#8) 8 		// Marinated beef sirloin. (35$, 2 foods) 
+
+[char1]We cut the sauce with water because we ran out of cream and the cranberry with local mushrooms. 
+[main]It's edible? 
+[char1]Of course. Buy.
+
+1 - Return to the lobby of the shopping centre.
+// 10
+
+(Display les autres articles)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#9) 9 		// Pork with meatball and sauerkraut. (40$, 4 foods) 
+
+[char1]Good choice. Jsi opravdu hlupak, ze! I warn because customer satisfaction is important, it's not really sauerkraut. 
+[main]What is it then? 
+[char1]I don't know, you have to ask for a matka. Buy something.
+
+1 - Return to the lobby of the shopping center.
+// 10
+(Display les autres articles)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#10) 10		 // Return to the lobby of the shopping centre. You turn back without a word. 
+
+[char0]Jdi do hajzlu ! Jdi se vymrskat ! 
+
+1 - Head to the clothing-retail : M&H 
+// 4 
+2 - Head to the fast-food : Mc Goofie's 
+// 2 
+3 - Leave the shopping center.
+// 200
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#200) 200 		// Leave the shopping center. 
+
+(END)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#12) 12 	// Sitting down. Lunch had not yet been served, and there was still cold tea on the table. 
+
+[char1]So drink up, Hlupak. 
+
+1 - No, thank you. What do you sell here?
+// 13 
+2 - Why not.
+// 14
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#11) 11 	// Leave the room. 
+
+[char1]Potrebuju tvoje penize, hlupaku. 
+[narr]You return to the lobby without asking for your rest. 
+
+1 - Head to the organic supermarket: Group Foods Market 
+// 5
+2 - Leave the shopping centre. 
+// 200
+3 - Head to the fast-food : Mc Goofie's
+// 2
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#13) 13 		// No, thank you. What do you sell here? 
+
+[char1]I'm offering you hospitality, Hlupak.
+[main]I'm not really a tea person. What do you sell?
+[char1]Here, I sell high fashion. Only the best. I can show you. Look at this pair of glasses, very classy, they were worn by Drake himself. 
+[narr]She put a huge pair of green glasses on the table. 
+[main]What's a pair of glasses from a Canadian star doing in Flagstaff?
+[char1]The poor blazen lost them when a huge pebble was accidentally dropped on a nearby road. 
+
+1 - Leave the room. 
+// 11
+2 - You mean you killed him?
+// 128
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#14) 14 		// Why not. 
+
+[narr]You sip tea carefully. It's just lukewarm water. 
+[main]It's disgusting, Grandma. 
+[char1]That'll be $25. 
+
+1 - It's out of the question, Granny.
+// 16
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#128) 128 		// You mean you killed him? 
+
+[char1]I explained to you that it was an accident, Kokot.
+[main]I imagine that it was a good thing for you to get his sedan back. 
+[char1]You're wrong. It was a Bugatti. But it is not selling. Matka loves beautiful cars. 
+
+1 - Thanks, Grandma. But I'm not interested in the frizz. I'll go look elsewhere if I find what I need.
+// 15
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#15) 15 		// Thanks, Grandma. But I'm not interested in the frizz. I'll go look elsewhere if I find what I need. 
+
+[char1]Don't forget to spend your money, Hlupak. 
+[main]I'll think about it, grandma. You head back to the lobby. 
+
+1- Head to the organic supermarket: Group Foods Market 
+// 5
+2 - Leave the shopping centre. 
+// 200
+3 - Head to the fast-food : Mc Goofie's
+// 2
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#22) 22 		// Bag of fries cooked and dried. (20$, 2 food) 
+
+[char2]Ow! Ow! Ow! 
+[narr]He spreads the large bag on the counter. 
+[char2]Ahyuck!
+
+1 - Leave the shopping center. 
+// 200
+(Display les autres articles)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#20) 20 		// Hamburger on a bed of French fry oil, between two stale bread. (15$, 1 food) 
+
+[main]I'll take this. 
+[char2]Aaugh! Aah-oh!
+
+1 - Leave the shopping centre. 
+// 200
+(Display les autres articles)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#21) 21 		// Special promotion, 3 barrels of gasoline for the price of 4. (40$, 3 gas)
+[main]Why sell gasoline in a fast food restaurant? 
+[char2]Somethin' wrong here!
+[main]No, I buy them, it's fine.
+
+1 - Leave the shopping centre. 
+// 200
+
+(Display les autres articles)d
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#23) 23		 // Return to the lobby of the shopping center. 
+
+[char2]Wowwhoa! 
+
+
+1 - Leave the shopping centre. 
+// 200
+2 - Head to the organic supermarket : Group Foods Market 
+// 5
+3 - Head to the clothing-retail : M&H
+// 4 
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#16) 16 		// It's out of the question, Granny. 
+
+[narr]Two masked men emerge from the back store, rifle at the shoulder. 
+[char1]We are civilized here, Hlupak. 
+
+1 - Pay your due. (-25$)
+// 17
+
+---------------------------------------------------------------------------------------------------------------------------
+
+(#17) 17		 // Pay your due. (-25$) 
+
+[char1]We can sell you some nice fripe. Only quality. 
+[main]No. I'm outta here. Farewell. 
+
+1 - Head to the organic supermarket: Group Foods Market
+// 5 
+2 - Leave the shopping centre. 
+// 200
+3 - Head to the fast-food : Mc Goofie's
+// 2
+
+---------------------------------------------------------------------------------------------------------------------------

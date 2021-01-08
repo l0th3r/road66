@@ -5878,13 +5878,11 @@ void pe_event_101()	/* Fake Axel */
             break;
         case 1:
             ui_continu_choice(win_men);
-            {
-                current = -1;
-                if (inventory->money >= 25)
-                    en_mod_money(-25);
-                else if (inventory->money > 0)
-                    en_mod_money(-inventory->money);
-            }
+            current = -1;
+            if (inventory->money >= 25)
+                en_mod_money(-25);
+            else if (inventory->money > 0)
+                en_mod_money(-inventory->money);
             break;
         case 2:
             ui_continu_choice(win_men);

@@ -63,14 +63,14 @@ void pe_event_0()
         switch (current)
         {
         case 0:
-            /*current = -1;
-            ui_continu_choice(); PRESENTATION VERSION */
-           temp = ui_choice("Answer the call.", "/", "/", "/");
+            current = -1;
+            ui_continu_choice();
+           /* temp = ui_choice("Answer the call.", "/", "/", "/");
             if (temp == 0)
             {
                 en_mod_food(+start_food);
                 els_is_inventory = 1;
-                current = 1;
+                current = 1;*/
             }
             break;
         case 1:
@@ -597,12 +597,10 @@ void pe_event_1()	/* Las Vegas */
             current = 601;
             break;
         case 601:
-            temp = ui_choice("What?", "Gimme this shit.", "No thanks.", "/");
+            temp = ui_choice("Gimme this shit.", "No thanks.", "/", "/");
             if (temp == 0)
-                current = 603;
-            if (temp == 1)
                 current = 604;
-            if (temp == 2)
+            if (temp == 1)
                 current = 605;
             break;
         case 602:
@@ -2869,14 +2867,14 @@ void pe_event_3()	/* Kingman */
         case 120:
             ui_continu_choice(win_men);
             current = -1;
-            en_mod_gas(+2);
-            en_mod_food(+2);
+            en_mod_gas(+4);
+            en_mod_food(+5);
             break;
         case 121:
             ui_continu_choice(win_men);
             current = -1;
-            en_mod_gas(+2);
-            en_mod_food(+2);
+            en_mod_gas(+4);
+            en_mod_food(+5);
             break;
         case 122:
             temp = ui_choice("Bring her to Caitlyn.", "Bring her back to Clifford.", "/", "/");
@@ -2888,8 +2886,8 @@ void pe_event_3()	/* Kingman */
         case 123:
             ui_continu_choice(win_men);
             current = -1;
-            en_mod_gas(+2);
-            en_mod_food(+2);
+            en_mod_gas(+3);
+            en_mod_food(+5);
             break;
         case 124:
             ui_continu_choice(win_men);

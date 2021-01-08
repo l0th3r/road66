@@ -2932,7 +2932,7 @@ void pe_event_5()
     if (inventory->pa_count > 0)
     {
         char4 = inventory->passengers[uf_random(inventory->pa_count)];
-        while (char4 == uf_compare(char3))
+        while (uf_strcmp(char3, char4))
         {
             char4 = inventory->passengers[uf_random(inventory->pa_count)];
         }
@@ -2961,7 +2961,7 @@ void pe_event_5()
                 choice1_temp = "/";
                 choice2_temp = "/";
             }
-            temps = ui_choice(choice0_temp, choice1_temp, choice2_temp, "/");
+            temp = ui_choice(choice0_temp, choice1_temp, choice2_temp, "/");
             if (temp == 0)
             {
                 if (lock_shop == 1)
@@ -2986,7 +2986,7 @@ void pe_event_5()
             }
             break;
         case 2:
-            temps = ui_choice("Hamburger on a bed of French fry oil, between two stale breads.(15$, 1 food)", "Special promotion, 3 barrels of gasoline for the price of 4.(40$, 3 gas)", "Bag of fries cooked and dried. (20$, 2 food)", " / ");
+            temp = ui_choice("Hamburger on a bed of French fry oil, between two stale breads.(15$, 1 food)", "Special promotion, 3 barrels of gasoline for the price of 4.(40$, 3 gas)", "Bag of fries cooked and dried. (20$, 2 food)", " / ");
             if (temp == 0)
             {
                 current = 20;
@@ -3055,7 +3055,7 @@ void pe_event_5()
             current = 1;
             break;
         case 11:
-            temps = ui_choice("Return to the lobby of the shopping center.", "Leave the shopping center.", "/", "/");
+            temp = ui_choice("Return to the lobby of the shopping center.", "Leave the shopping center.", "/", "/");
             if (temp == 0)
                 current = 1;
             if (temp == 1)
@@ -3081,7 +3081,7 @@ void pe_event_5()
                 current = 16;
             break;
         case 15:
-            temps = ui_choice("Return to the lobby of the shopping center.", "Leave the shopping centre.", "/", "/");
+            temp = ui_choice("Return to the lobby of the shopping center.", "Leave the shopping centre.", "/", "/");
             if (temp == 0)
                 current = 5;
             if (temp == 1)
@@ -3099,17 +3099,17 @@ void pe_event_5()
             current = 1;
             break;
         case 20:
-            temps = ui_choice("Leave the room.", "/", "/", "/");
+            temp = ui_choice("Leave the room.", "/", "/", "/");
             if (temp == 0)
                 current = 23;
             break;
         case 21:
-            temps = ui_choice("Leave the room.", "/", "/", "/");
+            temp = ui_choice("Leave the room.", "/", "/", "/");
             if (temp == 0)
                 current = 23;
             break;
         case 22:
-            temps = ui_choice("Leave the room.", "/", "/", "/");
+            temp = ui_choice("Leave the room.", "/", "/", "/");
             if (temp == 0)
                 current = 23;
             break;
@@ -3118,7 +3118,7 @@ void pe_event_5()
             current = 1;
             break;
         case 102:
-            temps = ui_choice("Goulash. 25$", "Marinated beef sirloin. 35$", "Pork with meatball and sauerkraut. 40$", "/");
+            temp = ui_choice("Goulash. 25$", "Marinated beef sirloin. 35$", "Pork with meatball and sauerkraut. 40$", "/");
             if (temp == 0)
             {
                 current = 7;

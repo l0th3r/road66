@@ -46,7 +46,7 @@ void (*se_events[23])() =
     se_event_8,
     se_event_9,
     se_event_10,
-    se_event_11,
+    empty2,
     se_event_12,
     se_event_13,
     se_event_14,
@@ -68,6 +68,8 @@ void se_event_drop()
     int i = 0;
     int temp;
     int is;
+
+    se_event_check[11] = 1;
 
     /* check if there are event still available */
     is = 1;

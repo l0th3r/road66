@@ -1324,16 +1324,18 @@ void se_event_14()
             if (temp == 0)
                 current = 2;
             if (temp == 1)
+            {
+                en_rm_passenger(uf_compare(char0));
                 current = 3;
+            }
             break;
         case 2:
             current = -1;
             ui_continu_choice();
             break;
         case 3:
-            current = -1;
-            en_rm_passenger(uf_compare(char0));
             ui_continu_choice();
+            current = -1;
             break;
         case 4:
             temp = ui_choice("Keep the dog in your bus.", "Kick the dog out of the bus.", "/", "/");

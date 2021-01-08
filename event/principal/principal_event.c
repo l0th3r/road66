@@ -27,7 +27,7 @@ void (*city_events[9])() =
     pe_event_2,     /* city 2 = Henderson */
     pe_event_3,     /* city 3 = Kingman */
     pe_event_4,     /* city 4 = Phoenix City */
-    pe_event_5,          /* city 5 = Flagstaff */
+    pe_event_5,     /* city 5 = Flagstaff */
     empty,          /* city 6 = Albuquerque */
     pe_event_7,     /* city 7 = Dallas */
     empty,          /* city 8 = Oklahoma */
@@ -2943,6 +2943,10 @@ void pe_event_4()	/* PHEONIX CITY */
     char* choice0_temp = NULL;
     char* choice1_temp = NULL;
     char* choice2_temp = NULL;
+
+    while (current >= 0)
+    {
+        ui_print_dial(win_env, current, ev_w, "event/principal/4", char0, char1, char2, char3, char4, char5);
 
         switch (current)
         {

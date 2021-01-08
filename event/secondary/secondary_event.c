@@ -260,7 +260,7 @@ void se_event_1()
             if (temp == 0)
                 current = 1;
             if (temp == 1)
-                current = 4;
+                current = 2;
             break;
         case 1:
             temp = ui_choice("I'm sorry but it is not on my way.", "Yeah, come in! I'll drive you there.", "Start up the engine and leave.", "/");

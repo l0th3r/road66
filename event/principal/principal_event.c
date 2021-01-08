@@ -3619,7 +3619,11 @@ void pe_event_7()	/* Dallas */
         case 100:
             temp = ui_choice("May our world stay faithful.", "/", "/", "/");
             if (temp == 0)
+            {
+                els_is_exit = 666;
+                els_is_win = 1;
                 current = -1;
+            }
             break;
         case 200:
             temp = ui_choice("Then, what are you doing in Dallas?", "/", "/", "/");
@@ -3892,7 +3896,11 @@ void pe_event_7()	/* Dallas */
         case 265:
             temp = ui_choice("For me, the fight is not over.", "/", "/", "/");
             if (temp == 0)
+            {
+                els_is_exit = 666;
+                els_is_win = 1;
                 current = -1;
+            }
             break;
 
             /* 400 */
@@ -5081,7 +5089,11 @@ void pe_event_7()	/* Dallas */
         case 852:
             temp = ui_choice("Start a new day.", "/", "/", "/");
             if (temp == 0)
+            {
+                els_is_exit = 666;
+                els_is_win = 1;
                 current = -1;
+            }
             break;
 
         }

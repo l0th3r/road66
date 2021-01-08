@@ -1338,17 +1338,19 @@ void se_event_14()
         case 4:
             temp = ui_choice("Keep the dog in your bus.", "Kick the dog out of the bus.", "/", "/");
             if (temp == 0)
-                current = 2;
+                current = 5;
             if (temp == 1)
-                current = 3;
+                current = 6;
             break;
         case 5:
-            current = -1;
-            ui_continu_choice();
+            temp = ui_choice("Keep driving.", "/", "/", "/");
+            if (temp == 0)
+                current = -1;
             break;
         case 6:
-            current = -1;
-            ui_continu_choice();
+            temp = ui_choice("Keep driving.", "/", "/", "/");
+            if (temp == 0)
+                current = -1;
             break;
         }
 

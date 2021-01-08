@@ -254,7 +254,7 @@ void pe_event_1()	/* Las Vegas */
     char* char2 = "Crowd";
     char* char3 = "Receptionist";
     char* char4 = "Foreman";
-    char* char5 = "/";
+    char* char5 = "Barman";
 
     int money_bet = -1;
     int last_lost_machine_dial = 0;
@@ -1505,7 +1505,7 @@ void pe_event_1()	/* Las Vegas */
                 current = 900;
             break;
         case 900:
-            temp = ui_choice("Go to the reception.", "Play on a slot machine.", "Go to the fight room.", "Go to the Cosmo-Bar");
+            temp = ui_choice("Go to the reception.", "Play on a slot machine.", "Go to the fight room.", "Go to the Cosmobar");
             if (temp == 0)
                 current = 901;
             if (temp == 1)

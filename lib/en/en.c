@@ -116,7 +116,7 @@ int en_loop(int target)
 		if(els_is_exit != 666)
 		{
 			if(els_is_update)
-				ui_update_progress(els_miles_counter, mile_target, els_current_city);
+				ui_update_progress(current_mile_counter, mile_target, els_current_city);
 			
 			if(els_is_inventory)
 				ui_update_inventory();
@@ -137,7 +137,7 @@ int en_loop(int target)
 				ui_update_inventory();
 
 			/* generate random event */
-			if((els_miles_counter % s_drop_per_mile) == 0 && uf_random(100) <= s_cities_drops[target])
+			if((els_miles_counter % s_drop_per_mile) == 2 && uf_random(100) <= s_cities_drops[target])
 			{
 				ui_clear_inv_log(0);
 				ui_clear_inv_log(1);

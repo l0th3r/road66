@@ -1211,7 +1211,6 @@ void pe_event_1()	/* Las Vegas */
                 if (inventory->money < 0)
                     en_mod_money(-inventory->money);
             }
-
             if (temp == 0)
                 current = 901;
             break;
@@ -1220,7 +1219,11 @@ void pe_event_1()	/* Las Vegas */
             current = 801;
             break;
         case 801:
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 if (last_lost_machine_dial == 0)
@@ -1238,7 +1241,11 @@ void pe_event_1()	/* Las Vegas */
         case 802:
             en_mod_money(+10);
             last_lost_machine_dial = (current + 1);
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 current = 803;
@@ -1249,7 +1256,11 @@ void pe_event_1()	/* Las Vegas */
             break;
         case 803:
             last_lost_machine_dial = (current + 1);
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 current = 804;
@@ -1260,7 +1271,11 @@ void pe_event_1()	/* Las Vegas */
             break;
         case 804:
             last_lost_machine_dial = (current + 1);
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 current = 805;
@@ -1271,7 +1286,11 @@ void pe_event_1()	/* Las Vegas */
             break;
         case 805:
             last_lost_machine_dial = (current + 1);
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 current = 806;
@@ -1283,7 +1302,11 @@ void pe_event_1()	/* Las Vegas */
         case 806:
             en_mod_money(+10);
             last_lost_machine_dial = (current + 1);
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 current = 807;
@@ -1295,7 +1318,11 @@ void pe_event_1()	/* Las Vegas */
         case 807:
             en_mod_money(+50);
             last_lost_machine_dial = (current + 1);
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 current = 808;
@@ -1306,7 +1333,11 @@ void pe_event_1()	/* Las Vegas */
             break;
         case 808:
             last_lost_machine_dial = (current + 1);
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 current = 809;
@@ -1317,7 +1348,11 @@ void pe_event_1()	/* Las Vegas */
             break;
         case 809:
             last_lost_machine_dial = (current + 1);
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 current = 810;
@@ -1329,7 +1364,11 @@ void pe_event_1()	/* Las Vegas */
         case 810:
             en_mod_money(+10);
             last_lost_machine_dial = (current + 1);
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 current = 811;
@@ -1340,7 +1379,11 @@ void pe_event_1()	/* Las Vegas */
             break;
         case 811:
             last_lost_machine_dial = (current + 1);
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 current = 812;
@@ -1351,7 +1394,11 @@ void pe_event_1()	/* Las Vegas */
             break;
         case 812:
             last_lost_machine_dial = (current + 1);
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 current = 813;
@@ -1362,7 +1409,11 @@ void pe_event_1()	/* Las Vegas */
             break;
         case 813:
             last_lost_machine_dial = (current + 1);
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 current = 814;
@@ -1374,7 +1425,11 @@ void pe_event_1()	/* Las Vegas */
         case 814:
             en_mod_money(+400);
             last_lost_machine_dial = (current + 1);
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 current = 815;
@@ -1385,7 +1440,11 @@ void pe_event_1()	/* Las Vegas */
             break;
         case 815:
             last_lost_machine_dial = (current + 1);
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 current = 816;
@@ -1396,7 +1455,11 @@ void pe_event_1()	/* Las Vegas */
             break;
         case 816:
             last_lost_machine_dial = (current + 1);
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 current = 817;
@@ -1408,7 +1471,11 @@ void pe_event_1()	/* Las Vegas */
         case 817:
             en_mod_money(+10);
             last_lost_machine_dial = (current + 1);
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 current = 818;
@@ -1419,7 +1486,11 @@ void pe_event_1()	/* Las Vegas */
             break;
         case 818:
             last_lost_machine_dial = 815;
-            temp = ui_choice("Insert 10$.", "Leave.", "/", "/");
+            if (inventory->money > 10)
+                choice0_temp = "Insert 10$";
+            else
+                choice0_temp = "/";
+            temp = ui_choice(choice0_temp, "Leave.", "/", "/");
             if (temp == 0)
             {
                 current = 815;
@@ -1457,13 +1528,13 @@ void pe_event_1()	/* Las Vegas */
             }
             else if (temp == 1)
             {
-                if (unlock_hostel == 1)
+                if (unlock_hostel == 1 && unlock_exit_door == 0)
                 {
                     en_mod_money(-20);
                     unlock_exit_door = 1;
                     current = 998;
                 }
-                else if (unlock_exit_door == 1)
+                if (unlock_exit_door == 1)
                     current = 999;
             }
             break;
@@ -2861,8 +2932,10 @@ void pe_event_5()
     if (inventory->pa_count > 0)
     {
         char4 = inventory->passengers[uf_random(inventory->pa_count)];
-        while (uf_strcmp(char4, char3) == 1)
+        while (char4 == uf_compare(char3))
+        {
             char4 = inventory->passengers[uf_random(inventory->pa_count)];
+        }
     }
 
     while (current >= 0)
@@ -2888,7 +2961,7 @@ void pe_event_5()
                 choice1_temp = "/";
                 choice2_temp = "/";
             }
-            temp = ui_choice(choice0_temp, choice1_temp, choice2_temp, "/");
+            temps = ui_choice(choice0_temp, choice1_temp, choice2_temp, "/");
             if (temp == 0)
             {
                 if (lock_shop == 1)
@@ -2913,7 +2986,7 @@ void pe_event_5()
             }
             break;
         case 2:
-            temp = ui_choice("Hamburger on a bed of French fry oil, between two stale breads.(15$, 1 food)", "Special promotion, 3 barrels of gasoline for the price of 4.(40$, 3 gas)", "Bag of fries cooked and dried. (20$, 2 food)", " / ");
+            temps = ui_choice("Hamburger on a bed of French fry oil, between two stale breads.(15$, 1 food)", "Special promotion, 3 barrels of gasoline for the price of 4.(40$, 3 gas)", "Bag of fries cooked and dried. (20$, 2 food)", " / ");
             if (temp == 0)
             {
                 current = 20;
@@ -2982,7 +3055,7 @@ void pe_event_5()
             current = 1;
             break;
         case 11:
-            temp = ui_choice("Return to the lobby of the shopping center.", "Leave the shopping center.", "/", "/");
+            temps = ui_choice("Return to the lobby of the shopping center.", "Leave the shopping center.", "/", "/");
             if (temp == 0)
                 current = 1;
             if (temp == 1)
@@ -3008,7 +3081,7 @@ void pe_event_5()
                 current = 16;
             break;
         case 15:
-            temp = ui_choice("Return to the lobby of the shopping center.", "Leave the shopping centre.", "/", "/");
+            temps = ui_choice("Return to the lobby of the shopping center.", "Leave the shopping centre.", "/", "/");
             if (temp == 0)
                 current = 5;
             if (temp == 1)
@@ -3026,17 +3099,17 @@ void pe_event_5()
             current = 1;
             break;
         case 20:
-            temp = ui_choice("Leave the room.", "/", "/", "/");
+            temps = ui_choice("Leave the room.", "/", "/", "/");
             if (temp == 0)
                 current = 23;
             break;
         case 21:
-            temp = ui_choice("Leave the room.", "/", "/", "/");
+            temps = ui_choice("Leave the room.", "/", "/", "/");
             if (temp == 0)
                 current = 23;
             break;
         case 22:
-            temp = ui_choice("Leave the room.", "/", "/", "/");
+            temps = ui_choice("Leave the room.", "/", "/", "/");
             if (temp == 0)
                 current = 23;
             break;
@@ -3045,7 +3118,7 @@ void pe_event_5()
             current = 1;
             break;
         case 102:
-            temp = ui_choice("Goulash. 25$", "Marinated beef sirloin. 35$", "Pork with meatball and sauerkraut. 40$", "/");
+            temps = ui_choice("Goulash. 25$", "Marinated beef sirloin. 35$", "Pork with meatball and sauerkraut. 40$", "/");
             if (temp == 0)
             {
                 current = 7;

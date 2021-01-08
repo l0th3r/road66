@@ -34,8 +34,10 @@ int els_is_random_events = 0;
 int els_miles_counter = 0;
 /* condition to display the progress */
 int els_is_update = 1;
-/* condition to update progress */
+/* condition to update inventory */
 int els_is_inventory = 1;
+/* condition to print logs */
+int els_is_log = 1;
 
 void en_init()
 {
@@ -103,6 +105,11 @@ int en_loop(int target)
 
 	if(els_is_exit != 666)
 	{
+		ui_clear_inv_log(0);
+		ui_clear_inv_log(1);
+		ui_clear_inv_log(2);
+		ui_clear_inv_log(3);
+
 		/* play the event of the city */
 		(*city_events[target])();
 
@@ -131,8 +138,14 @@ int en_loop(int target)
 
 			/* generate random event */
 			if((els_miles_counter % s_drop_per_mile) == 0 && uf_random(100) <= s_cities_drops[target])
+			{
+				ui_clear_inv_log(0);
+				ui_clear_inv_log(1);
+				ui_clear_inv_log(2);
+				ui_clear_inv_log(3);
 				se_event_drop();
-			
+			}
+
 			/* check if half of jurney */
 			if(current_mile_counter == (mile_target - start_mile) / 2)
 			{
@@ -142,6 +155,7 @@ int en_loop(int target)
 				/* remove food from the trip */
 				if(inventory->food > 0)
 				{
+					els_is_log = 0;
 					/* remove food for main character */
 					en_mod_food(-1);
 					
@@ -151,6 +165,9 @@ int en_loop(int target)
 						en_mod_food(-1);
 						i++;
 					}
+					els_is_log = 1;
+					ui_log_inv("Food", (-i) + (-1));
+
 					/* remove passenger who could't eat */
 					while(i < inventory->pa_count)
 						en_rm_passenger(i);
@@ -261,7 +278,8 @@ void en_mod_food(int val)
 	char* choice_0 = "Replace 1 Passenger?";
 	char* choice_1 = "Replace 1 Gas?";
 
-	ui_log_inv("Food", val);
+	if(els_is_log == 1)
+		ui_log_inv("Food", val);
 
 	if(en_update_total() + val > inventory->capacity)
 	{

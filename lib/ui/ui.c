@@ -84,42 +84,42 @@ int ui_refresh(int is_menu)
 	ev_h = y_max - me_h;
 	ev_w = x_max - inv_w - 1;
 
-	if(is_menu == 0)
-	{
-		delwin(win_start_menu);
-		delwin(win_tra);
-		delwin(win_inv);
-		delwin(win_env);
-		delwin(win_men);
+		if(is_menu == 0)
+		{
+			delwin(win_start_menu);
+			delwin(win_tra);
+			delwin(win_inv);
+			delwin(win_env);
+			delwin(win_men);
 
-		win_tra = ui_new_win(" Travel ", tra_h, tra_w, 0, 0);
-		win_inv = ui_new_win(" Inventory ", inv_h, inv_w, tra_h, 0);
-		win_env = ui_new_win(" Events ", ev_h, ev_w, 0, tra_w + 1);
-		win_men = ui_new_win(" Menu ", me_h, me_w, ev_h, inv_w + 1);
-		keypad(win_men, true);
-	}
-	else if(is_menu == 1)
-	{
-		delwin(win_start_menu);
+			win_tra = ui_new_win(" Travel ", tra_h, tra_w, 0, 0);
+			win_inv = ui_new_win(" Inventory ", inv_h, inv_w, tra_h, 0);
+			win_env = ui_new_win(" Events ", ev_h, ev_w, 0, tra_w + 1);
+			win_men = ui_new_win(" Menu ", me_h, me_w, ev_h, inv_w + 1);
+			keypad(win_men, true);
+		}
+		else if(is_menu == 1)
+		{
+			delwin(win_start_menu);
 
-		win_start_menu = ui_new_win(" start MENU ", y_max, x_max, 0, 0);
-		keypad(win_start_menu, true);
+			win_start_menu = ui_new_win("", y_max, x_max, 0, 0);
+			keypad(win_start_menu, true);
 
-		temp = ui_set_menu();
-	}
-	else
-	{
-		delwin(win_start_menu);
-		delwin(win_tra);
-		delwin(win_inv);
-		delwin(win_env);
-		delwin(win_men);
+			temp = ui_set_menu();
+		}
+		else
+		{
+			delwin(win_start_menu);
+			delwin(win_tra);
+			delwin(win_inv);
+			delwin(win_env);
+			delwin(win_men);
 
-		win_gov = ui_new_win(" GAME OVER X( ", y_max, x_max, 0, 0);
-		keypad(win_gov, true);
+			win_gov = ui_new_win(" GAME OVER ", y_max, x_max, 0, 0);
+			keypad(win_gov, true);
 
-		temp = ui_set_go();
-	}
+			temp = ui_set_go();
+		}
 	
 	return temp;
 }
@@ -618,6 +618,15 @@ int ui_set_menu()
 
 	ui_print_menu(win_start_menu, 2, x_max, "event");
 
+	/* print the squaaad */
+	mvwprintw(win_start_menu, y_max - 10, 7, "The Road 66 squad:");
+	mvwprintw(win_start_menu, y_max - 9, 7, "Axel FAUX ............ Nut Breaking Insane Dude");
+	mvwprintw(win_start_menu, y_max - 8, 7, "Axel DOBRIC ............ Bread Baking Designer");
+	mvwprintw(win_start_menu, y_max - 7, 7, "Maxence JACQUOT ............ Potato Connection Manager");
+	mvwprintw(win_start_menu, y_max - 6, 7, "Théo LE PHILIPPE ............ Playtester");
+	mvwprintw(win_start_menu, y_max - 5, 7, "Damien BOUSSARD ............ The Nice Guy");
+	mvwprintw(win_start_menu, y_max - 4, 7, "Cosmo ............ Master Programer of the Universe");
+
 	/* CHANGE IN MAIN.C THE RESPONSE */
 	while(is_good == 0)
 	{
@@ -671,7 +680,9 @@ int ui_set_menu()
 			ui_refresh(1);
 		
 	}
-
+	
+	wclear(win_start_menu);
+	wrefresh(win_start_menu);
 	return selected;
 }
 
@@ -692,8 +703,32 @@ int ui_set_go()
 	init_pair(8, COLOR_WHITE, COLOR_RED);
 	init_pair(9, COLOR_BLACK, COLOR_GREEN);
 
+	/* print squad */
+	mvwprintw(win_gov, y_max - 11, 7, "The Road 66 squad:");
+	wrefresh(win_gov);
+	uf_wait(1500000);
+	mvwprintw(win_gov, y_max - 9, 7, "Axel FAUX ............ Nut Breaking Insane Dude");
+	wrefresh(win_gov);
+	uf_wait(1000000);
+	mvwprintw(win_gov, y_max - 8, 7, "Axel DOBRIC ............ Bread Baking Designer");
+	wrefresh(win_gov);
+	uf_wait(1000000);
+	mvwprintw(win_gov, y_max - 7, 7, "Maxence JACQUOT ............ Potato Connection Manager");
+	wrefresh(win_gov);
+	uf_wait(1000000);
+	mvwprintw(win_gov, y_max - 6, 7, "Théo LE PHILIPPE ............ Playtester");
+	wrefresh(win_gov);
+	uf_wait(1000000);
+	mvwprintw(win_gov, y_max - 5, 7, "Damien BOUSSARD ............ The Nice Guy");
+	wrefresh(win_gov);
+	uf_wait(1000000);
+	mvwprintw(win_gov, y_max - 4, 7, "Cosmo ............ Master Programer of the Universe");
+	wrefresh(win_gov);
+	uf_wait(1000000);
+
+
 	/* if lose or win*/
-	if(els_is_win == 1)
+	if(els_is_win == 0)
 	{
 		/* print ASCII */
 		ui_print_menu(win_gov, 0, x_max, "event");
@@ -737,7 +772,7 @@ int ui_set_go()
 			if(i == selected)
 				wattron(win_gov, A_REVERSE);
 			
-			mvwprintw(win_gov, y_max / 2 - end / 2 + i, x_max / 2 - (uf_str_len(arr[i]) + 3), "%d: %s", i + 1, arr[i]);
+			mvwprintw(win_gov, y_max / 2 - end / 2 + i, 7, "%d: %s", i + 1, arr[i]);
 			wattroff(win_gov, A_REVERSE);
 			i++;		
 		}
@@ -751,12 +786,14 @@ int ui_set_go()
 		}
 		else if(choice == 410)
 			ui_refresh(3);
-		
+
 	}
 
 	if(selected == 0)
 		selected = -1;
 
+	wclear(win_gov);
+	wrefresh(win_gov);
 	return selected;
 }
 

@@ -53,5 +53,7 @@ extern int els_miles_counter;
 extern int els_is_update;
 /* condition to update progress */
 extern int els_is_inventory;
+/* condition to print logs */
+extern int els_is_log;
 
 #endif

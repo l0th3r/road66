@@ -1515,10 +1515,10 @@ void pe_event_1()	/* Las Vegas */
             }
             break;
         case 901:
-            if (unlock_hostel == 0 && inventory->money >= 20)
-                choice1_temp = "I want to sleep one night. Cost: 20$.";
-            else if (unlock_exit_door == 1)
+            if (unlock_exit_door == 1)
                 choice1_temp = "Leave the casino.";
+            else if (unlock_hostel == 0 && inventory->money >= 20)
+                choice1_temp = "I want to sleep one night. Cost: 20$.";
             else choice1_temp = "/";
 
             temp = ui_choice("Enter the main room.", choice1_temp, "/", "/");
@@ -1529,14 +1529,14 @@ void pe_event_1()	/* Las Vegas */
             }
             else if (temp == 1)
             {
-                if (unlock_hostel == 1 && unlock_exit_door == 0)
+                if (unlock_exit_door == 1)
+                    current = 999;
+                else
                 {
                     en_mod_money(-20);
                     unlock_exit_door = 1;
                     current = 998;
                 }
-                if (unlock_exit_door == 1)
-                    current = 999;
             }
             break;
         case 998:

@@ -867,12 +867,14 @@ void se_event_8()
             if (temp == 0)
                 current = 7;
             if (temp == 1)
+            {
                 current = 6;
+                en_add_passenger(char2, inventory->pa_count);
+            }
             break;
         case 6:
             current = -1;
             ui_continu_choice();
-            en_add_passenger(char2, inventory->pa_count);
             break;
         case 7:
             current = -1;

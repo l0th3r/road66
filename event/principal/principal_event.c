@@ -7,6 +7,7 @@ void pe_event_0();
 void pe_event_1();
 void pe_event_2();
 void pe_event_3();
+void pe_event_4();
 void pe_event_7();
 
 void pe_event_100();
@@ -25,8 +26,8 @@ void (*city_events[9])() =
     pe_event_1,     /* city 1 = Las Vegas */
     pe_event_2,     /* city 2 = Henderson */
     pe_event_3,     /* city 3 = Kingman */
-    empty,          /* city 4 = Phoenix City */
-    empty,          /* city 5 = Flagstaff */
+    pe_event_4,     /* city 4 = Phoenix City */
+    pe_event_5,          /* city 5 = Flagstaff */
     empty,          /* city 6 = Albuquerque */
     pe_event_7,     /* city 7 = Dallas */
     empty,          /* city 8 = Oklahoma */
@@ -70,8 +71,8 @@ void pe_event_0()
             {
                 en_mod_food(+start_food);
                 els_is_inventory = 1;
-                current = 1;
-            }*/
+                current = 1;*/
+            }
             break;
         case 1:
             temp = ui_choice("Leave your apartment.", "Check one last time for your stuff.", "/", "/");
@@ -2923,7 +2924,503 @@ void pe_event_3()	/* Kingman */
     }
 }
 
-void pe_event_5()
+void pe_event_4()	/* PHEONIX CITY */
+{
+    int current = 0;
+    int temp;
+    char* char0 = "David G.Jones";
+    char* char1 = "Nina Kramer";
+    char* char2 = "Sean Cushing";
+    char* char3 = "Someone Singing";
+    char* char4 = "/";
+    char* char5 = "/";
+
+    int lock_room = 0;
+    int lock_morgue1 = 0;
+    int lock_morgue2 = 0;
+    int lock_morgue3 = 0;
+
+    char* choice0_temp = NULL;
+    char* choice1_temp = NULL;
+    char* choice2_temp = NULL;
+
+        switch (current)
+        {
+        case 0:
+            ui_continu_choice(win_men);
+            current = 380;
+            break;
+        case 1:
+            if (lock_room == 0)
+            {
+                choice1_temp = "Search offices for clues.";
+                choice2_temp = "Get closer to the painting.";
+            }
+            else
+            {
+                choice1_temp = "/";
+                choice2_temp = "/";
+            }
+
+            temp = ui_choice("Return to the reception.", choice1_temp, choice2_temp, "/");
+            if (temp == 0)
+                current = 1;
+            if (temp == 1)
+            {
+                lock_room = 1;
+                current = 3;
+            }
+            if (temp == 2)
+            {
+                lock_room = 1;
+                current = 4;
+            }
+            break;
+        case 2:
+            temp = ui_choice("Heading to the morgue and the quarantine containment area.", "Heading to the Imaging, Physiology and Neurobiology Lab.", "/", "/");
+            if (temp == 0)
+                current = 11;
+            if (temp == 1)
+                current = 300;
+            break;
+        case 3:
+            ui_continu_choice(win_men);
+            current = 5;
+            break;
+        case 4:
+            temp = ui_choice("Remove the paint from the wall.", "/", "/", "/");
+            if (temp == 0)
+                current = 8;
+            break;
+        case 5:
+            temp = ui_choice("Return to the reception.", "Get closer to the painting.", "/", "/");
+            if (temp == 0)
+                current = 2;
+            if (temp == 1)
+                current = 4;
+            break;
+        case 8:
+            temp = ui_choice("Return to the reception.", "Search offices for clues.", "/", "/");
+            if (temp == 0)
+                current = 2;
+            if (temp == 1)
+                current = 3;
+            break;
+        case 11:
+            temp = ui_choice("Pass the decontamination airlock.", "/", "/", "/");
+            if (temp == 0)
+                current = 12;
+            break;
+        case 12:
+            temp = ui_choice("Head to the morgue.", "Move towards the origin of the sound.", "/", "/");
+            if (temp == 0)
+                current = 13;
+            if (temp == 1)
+                current = 100;
+            break;
+        case 13:
+            temp = ui_choice("Look for more information.", "/", "/", "/");
+            if (temp == 0)
+                current = 19;
+            break;
+        case 14:
+            temp = ui_choice("Access Mr. Jones's computer.", "/", "/", "/");
+            if (temp == 0)
+                current = 17;
+            break;
+        case 15:
+            ui_continu_choice(win_men);
+            current = 18;
+            break;
+        case 16:
+            temp = ui_choice("Look for more information.", "/", "/", "/");
+            if (temp == 0)
+                current = 19;
+            break;
+        case 17:
+            temp = ui_choice("Find clues in documents.", "/", "/", "/");
+            if (temp == 0)
+                current = 33;
+            break;
+        case 18:
+            temp = ui_choice("Look for more information.", "/", "/", "/");
+            if (temp == 0)
+                current = 19;
+            break;
+        case 19:
+            if (lock_morgue1 == 0)
+                choice1_temp = "Check the offices.";
+            else choice1_temp = "/";
+            if (lock_morgue2 == 0)
+                choice2_temp = "Check the offices.";
+            else choice2_temp = "/";
+            if (lock_morgue3 == 0)
+                choice3_temp = "Check the offices.";
+            else choice3_temp = "/";
+                
+            temp = ui_choice("Leave the morgue.", choice1_temp, choice2_temp, choice3_temp);
+            if (temp == 0)
+                current = 111;
+            if (temp == 1)
+            {
+                current = 14;
+                lock_morgue1 = 1;
+            }
+            if (temp == 2)
+            {
+                current = 15;
+                lock_morgue2 = 1;
+            }
+            if (temp == 3)
+            {
+                current = 16;
+                lock_morgue3 = 1;
+            }
+            break;
+        case 33:
+            temp = ui_choice("Access Mr. Jones's computer.", "/", "/", "/");
+            if (temp == 0)
+                current = 43;
+            break;
+        case 43:
+            temp = ui_choice("Maryam.", "Thea.", "/", "/");
+            if (temp == 0)
+                current = 44;
+            if (temp == 1)
+                current = 49;
+            break;
+        case 43:
+            temp = ui_choice("Open the mailbox.", "/", "/", "/");
+            if (temp == 0)
+                current = 56;
+            break;
+        case 44:
+            temp = ui_choice("Thea.", "/", "/", "/");
+            if (temp == 0)
+                current = 49;
+            break;
+        case 56:
+            temp = ui_choice("Look for information.", "/", "/", "/");
+            if (temp == 0)
+                current = 19;
+            break;
+        case 100:
+            temp = ui_choice("Enter the operating room.", "/", "/", "/");
+            if (temp == 0)
+                current = 102;
+            break;
+        case 101:
+            temp = ui_choice("Enter the operating room.", "/", "/", "/");
+            if (temp == 0)
+                current = 102;
+            break;
+        case 102:
+            ui_continu_choice(win_men);
+            current = 103;
+            break;
+        case 103:
+            temp = ui_choice("I don't get your bullshit, who are you?", "What exactly are you doing here?!", "Aim it at him with your gun.", "/");
+            if (temp == 0)
+                current = 104;
+            if (temp == 1)
+                current = 105;
+            if (temp == 2)
+                current = 106;
+            break;
+        case 104:
+            ui_continu_choice(win_men);
+            current = 107;
+            break;
+        case 105:
+            ui_continu_choice(win_men);
+            current = 107;
+            break;
+        case 106:
+            ui_continu_choice(win_men);
+            current = 107;
+            break;
+        case 107:
+            temp = ui_choice("Crystal clear.", "So you and your little friends are cannibals?", "What would your daughter Thea think of all this?", "/");
+            if (temp == 0)
+                current = 108;
+            if (temp == 1)
+                current = 109;
+            if (temp == 2)
+                current = 110;
+            break;
+        case 108:
+            ui_continu_choice(win_men);
+            current = 115;
+            break;
+        case 109:
+            temp = ui_choice("Why would you need me?", "Are you reconverted to cannibalism?", "/", "/");
+            if (temp == 0)
+                current = 111;
+            if (temp == 1)
+                current = 112;
+            break;
+        case 110:
+            temp = ui_choice("What happened to your wife and daughter?", "Are you reconverted to cannibalism?", "Why would you need me?", "/");
+            if (temp == 0)
+                current = 113;
+            if (temp == 1)
+                current = 112;
+            if (temp == 2)
+                current = 111;
+            break;
+        case 111:
+            temp = ui_choice("Are you reconverted to cannibalism?", "What happened to your wife and daughter?", "I don't have any more questions.", "/");
+            if (temp == 0)
+                current = 112;
+            if (temp == 1)
+                current = 113;
+            if (temp == 2)
+                current = 114;
+            break;
+        case 112:
+            temp = ui_choice("What happened to your wife and daughter?", "Why would you need me?", "/", "/");
+            if (temp == 0)
+                current = 113;
+            if (temp == 1)
+                current = 111;
+            break;
+        case 113:
+            temp = ui_choice("Are you reconverted to cannibalism?", "Why would you need me?", "/", "/");
+            if (temp == 0)
+                current = 112;
+            if (temp == 1)
+                current = 111;
+            break;
+        case 114:
+            ui_continu_choice(win_men);
+            current = 115;
+            break;
+        case 115:
+            ui_continu_choice(win_men);
+            current = 116;
+            break;
+        case 116:
+            temp = ui_choice("I couldn't understand why am I associated with cannibals?", "I know that both of your colleagues are fed up with the direction of things.", "/", "/");
+            if (temp == 0)
+                current = 501;
+            if (temp == 1)
+                current = 502;
+            break;
+        case 118:
+            temp = ui_choice("Let's get it over with.", "/", "/", "/");
+            if (temp == 0)
+                current = 505;
+            break;
+        case 300:
+            temp = ui_choice("Head towards the source of the light.", "/", "/", "/");
+            if (temp == 0)
+                current = 301;
+            break;
+        case 301:
+            temp = ui_choice("I don't think so.", "Take a seat.", "/", "/");
+            if (temp == 0)
+                current = 302;
+            if (temp == 1)
+                current = 303;
+            break;
+        case 302:
+            temp = ui_choice("It must have been really hard for me to understand how a medical laboratory could be in activity.", "And who am I interested in, tell me?", "I was expecting anything but that.", "/");
+            if (temp == 0)
+                current = 303;
+            if (temp == 1)
+                current = 304;
+            if (temp == 2)
+                current = 305;
+            break;
+        case 303:
+            temp = ui_choice("And who am I interested in, tell me?", "I was expecting anything but that.", "/", "/");
+            if (temp == 0)
+                current = 304;
+            if (temp == 1)
+                current = 305;
+            break;
+        case 304:
+            temp = ui_choice("And why?", "Let's cut to the chase.", "/", "/");
+            if (temp == 0)
+                current = 308;
+            if (temp == 1)
+                current = 309;
+            break;
+        case 305:
+            temp = ui_choice("Let's cut to the chase.", "Who exactly are you?", "/", "/");
+            if (temp == 0)
+                current = 309;
+            if (temp == 1)
+                current = 310;
+            break;
+        case 306:
+            temp = ui_choice("I guess you're not going to let me go, am I right?", "/", "/", "/");
+            if (temp == 0)
+                current = 312;
+            break;
+        case 307:
+            temp = ui_choice("I am listening.", "I guess you're not going to let me go, am I right?", "/", "/");
+            if (temp == 0)
+                current = 311;
+            if (temp == 1)
+                current = 312;
+            break;
+        case 308:
+            temp = ui_choice("I am listening.", "I guess you're not going to let me go, am I right ? ", "/", "/");
+            if (temp == 0)
+                current = 311;
+            if (temp == 1)
+                current = 312;
+            break;
+        case 309:
+            temp = ui_choice("I am listening.", "I guess you're not going to let me go, am I right?", "/", "/");
+            if (temp == 0)
+                current = 311;
+            if (temp == 1)
+                current = 312;
+            break;
+        case 310:
+            temp = ui_choice("I guess you're not going to let me go, am I right?", "/", "/", "/");
+            if (temp == 0)
+                current = 312;
+            break;
+        case 311:
+            temp = ui_choice("Someone special?", "What old traditions?", "What is your group?", "/");
+            if (temp == 0)
+                current = 320;
+            if (temp == 1)
+                current = 313;
+            if (temp == 2)
+                current = 314;
+            break;
+        case 312:
+            temp = ui_choice("I am listening.", "", "/", "/");
+            if (temp == 0)
+                current = 311;
+            break;
+        case 313:
+            temp = ui_choice("I guess I wouldn't know more than that.", "/", "/", "/");
+            if (temp == 0)
+                current = 316;
+            break;
+        case 314:
+            temp = ui_choice("I have more questions.", "I guess I wouldn't know more than that.", "/", "/");
+            if (temp == 0)
+                current = 315;
+            if (temp == 1)
+                current = 316;
+            break;
+        case 315:
+            temp = ui_choice("What is your group?", "What old traditions?", "Someone special?", "/");
+            if (temp == 0)
+                current = 314;
+            if (temp == 1)
+                current = 313;
+            if (temp == 2)
+                current = 320;
+            break;
+        case 316:
+            ui_continu_choice(win_men);
+            current = 317;
+            break;
+        case 317:
+            ui_continu_choice(win_men);
+            current = 500;
+            break;
+        case 318:
+            temp = ui_choice("And yet, I'm getting out of here.", "That doesn't answer my question, why are you in business.", "/", "/");
+            if (temp == 0)
+                current = 306;
+            if (temp == 1)
+                current = 307;
+            break;
+        case 319:
+            temp = ui_choice("I am listening.", "I guess you're not going to let me go, am I right?", "/", "/");
+            if (temp == 0)
+                current = 311;
+            if (temp == 1)
+                current = 312;
+            break;
+        case 320:
+            temp = ui_choice("I guess I wouldn't know more than that.", "/", "/", "/");
+            if (temp == 0)
+                current = 316;
+            break;
+        case 380:
+            temp = ui_choice("Go to the administrative offices.", "Heading to the morgue and the quarantine containment area", "Heading to the Imaging, Physiology and Neurobiology Lab.", "/");
+            if (temp == 0)
+                current = 1;
+            if (temp == 1)
+                current = 11;
+            if (temp == 2)
+                current = 300;
+            break;
+        case 500:
+            temp = ui_choice("I know that both of your colleagues are fed up with the direction of things.", "Can I find out why I am involved in your litigation?", "/", "/");
+            if (temp == 0)
+                current = 502;
+            if (temp == 1)
+                current = 503;
+            break;
+        case 502:
+            temp = ui_choice("Let's get it over with.", "/", "/", "/");
+            if (temp == 0)
+                current = 504;
+            break;
+        case 503:
+            temp = ui_choice("Let's get it over with.", "/", "/", "/");
+            if (temp == 0)
+                current = 504;
+            break;
+        case 504:
+            temp = ui_choice("Take a seat.", "/", "/", "/");
+            if (temp == 0)
+                current = 700;
+            break;
+        case 505:
+            temp = ui_choice("Take a seat.", "/", "/", "/");
+            if (temp == 0)
+                current = 700;
+            break;
+        case 506:
+            temp = ui_choice("Let's get it over with.", "/", "/", "/");
+            if (temp == 0)
+                current = 505;
+            break;
+        case 700:
+            temp = ui_choice("Nina Kramer.", "Sean Cushing.", "David G. Jones.", "/");
+            if (temp == 0)
+                current = 701;
+            if (temp == 1)
+                current = 702;
+            if (temp == 2)
+                current = 703;
+            break;
+        case 701:
+            ui_continu_choice(win_men);
+            current = -1;
+            en_mod_gas(+4);
+            en_mod_money(+65);
+            break;
+        case 702:
+            ui_continu_choice(win_men);
+            current = -1;
+            en_mod_gas(+2);
+            en_mod_money(+130);
+            break;
+        case 703:
+            ui_continu_choice(win_men);
+            current = -1;
+            en_mod_gas(+3);
+            en_mod_money(+95);
+            break;
+        }
+
+        after_event_clear(win_env, win_men);
+    }
+}
+
+void pe_event_5() /* FLAGSTAFF */
 {
     int current = 0;
     int temp;
@@ -5190,7 +5687,8 @@ void pe_event_101()	/* Fake Axel */
             ui_continu_choice(win_men);
             {
                 current = -1;
-                en_mod_money(-25);
+                if (inventory->money > 0)
+                    en_mod_money(-25);
             }
             break;
         case 2:

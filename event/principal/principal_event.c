@@ -1671,6 +1671,7 @@ void pe_event_2()
                 if (temp == 0)
                 {
                     en_mod_gas(+1);
+                    en_mod_money(-50);
                     current = 16;
                 }
                 if (temp == 1)

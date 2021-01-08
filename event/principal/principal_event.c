@@ -16,7 +16,7 @@ void pe_event_106();
 
 int who_is_alive = 0; /* 0 = Rafe   1 = Evelynn */
 int start_gas = 5;
-int start_food = 5;
+int start_food = 6;
 
 /* function to call for each city */
 void (*city_events[9])() =
@@ -26,7 +26,7 @@ void (*city_events[9])() =
     pe_event_2,     /* city 2 = Henderson */
     pe_event_3,     /* city 3 = Kingman */
     empty,          /* city 4 = Phoenix City */
-    empty,          /* city 5 = Flagstaff */
+    empty,     /* city 5 = Flagstaff */
     empty,          /* city 6 = Albuquerque */
     pe_event_7,     /* city 7 = Dallas */
     empty,          /* city 8 = Oklahoma */
@@ -2839,6 +2839,252 @@ void pe_event_3()	/* Kingman */
         after_event_clear(win_env, win_men);
     }
 }
+
+void pe_event_5()
+{
+    int current = 0;
+    int temp;
+    char* char0 = "Suspicious Seller";
+    char* char1 = "Old Women";
+    char* char2 = "Goofy";
+    char* char3 = "Damien";
+    char* char4 = "/"; /*Personne du bus*/
+    char* char5 = "/";
+    
+    char* choice0_temp = NULL;
+    char* choice1_temp = NULL;
+    char* choice2_temp = NULL;
+
+    int lock_shop = 0;
+
+    /* char4 = a passenger but not Damien */
+    if (inventory->pa_count > 0)
+    {
+        char4 = inventory->passengers[uf_random(inventory->pa_count)];
+        while (char4 == uf_compare(char3))
+        {
+            char4 = inventory->passengers[uf_random(inventory->pa_count)];
+        }
+    }
+
+    while (current >= 0)
+    {
+        ui_print_dial(win_env, current, ev_w, "event/principal/5", char0, char1, char2, char3, char4, char5);
+
+        switch (current)
+        {
+        case 0:
+            ui_continu_choice(win_men);
+            current = 1;
+            break;
+        case 1:
+            if (lock_shop == 0)
+            {
+                choice0_temp = "Head to the organic supermarket : Group Foods Market";
+                choice1_temp = "Head to the fast-food : Mc Goofie's";
+                choice2_temp = "Head to the clothing-retail : M&H";
+            }
+            else
+            {
+                choice0_temp = "Leave.";
+                choice1_temp = "/";
+                choice2_temp = "/";
+            }
+            temps = ui_choice(choice0_temp, choice1_temp, choice2_temp, "/");
+            if (temp == 0)
+            {
+                if (lock_shop == 1)
+                    current = 200;
+                else
+                    current = 4;
+            }
+            if (temp == 1)
+            {
+                current = 5;
+                lock_shop = 1;
+            }
+            if (temp == 2)
+            {
+                current = 2;
+                lock_shop = 1;
+            }
+            if (temp == 3)
+            {
+                current = 4;
+                lock_shop = 1;
+            }
+            break;
+        case 2:
+            temps = ui_choice("Hamburger on a bed of French fry oil, between two stale breads.(15$, 1 food)", "Special promotion, 3 barrels of gasoline for the price of 4.(40$, 3 gas)", "Bag of fries cooked and dried. (20$, 2 food)", " / ");
+            if (temp == 0)
+            {
+                current = 20;
+                en_mod_money(-25);
+                en_mod_food(+1);
+            }
+            if (temp == 1)
+            {
+                current = 21;
+                en_mod_money(-75);
+                en_mod_gas(+1);
+            }
+            if (temp == 2)
+            {
+                current = 22;
+                en_mod_money(-30);
+                en_mod_food(+2);
+            }
+            break;
+        case 3:
+            temp = ui_choice("Check out the bus", "/", "/", "/");
+            if (temp == 0)
+            {
+                if (inventory->pa_count > 1)
+                    current = 300;
+                else
+                    current = 301;
+            }
+            break;
+        case 4:
+            temp = ui_choice("Sitting down.", "Leave the room.", "/", "/");
+            if (temp == 0)
+                current = 12;
+            if (temp == 1)
+                current = 11;
+            break;
+        case 5:
+            temp = ui_choice("You really own this store?", "What did you sell?", "/", "/");
+            if (temp == 0)
+                current = 6;
+            if (temp == 1)
+                current = 104;
+            break;
+        case 6:
+            temp = ui_choice("What did you sell?", "/", "/", "/");
+            if (temp == 0)
+                current = 104;
+            break;
+        case 7:
+            temp = ui_choice("Return to the lobby of the shopping center.", "/", "/", "/");
+            if (temp == 0)
+                current = 1;
+            break;
+        case 8:
+            temp = ui_choice("Return to the lobby of the shopping center.", "/", "/", "/");
+            if (temp == 0)
+                current = 1;
+            break;
+        case 9:
+            temp = ui_choice("Return to the lobby of the shopping center.", "/", "/", "/");
+            if (temp == 0)
+                current = 1;
+            break;
+        case 10:
+            ui_continu_choice(win_men);
+            current = 1;
+            break;
+        case 11:
+            temps = ui_choice("Return to the lobby of the shopping center.", "Leave the shopping center.", "/", "/");
+            if (temp == 0)
+                current = 1;
+            if (temp == 1)
+                current = 200;
+            break;
+        case 12:
+            temp = ui_choice("No, thank you. What do you sell here?", "Why not.", "/", "/");
+            if (temp == 0)
+                current = 13;
+            if (temp == 1)
+                current = 14;
+            break;
+        case 13:
+            temp = ui_choice("Leave the room.", "You mean you killed him?", "/", "/");
+            if (temp == 0)
+                current = 11;
+            if (temp == 1)
+                current = 128;
+            break;
+        case 14:
+            temp = ui_choice("It's out of the question, Granny.", "/", "/", "/");
+            if (temp == 0)
+                current = 16;
+            break;
+        case 15:
+            temps = ui_choice("Return to the lobby of the shopping center.", "Leave the shopping centre.", "/", "/");
+            if (temp == 0)
+                current = 5;
+            if (temp == 1)
+                current = 200;
+            break;
+        case 16:
+            ui_continu_choice(win_men);
+            {
+                current = 17;
+                en_mod_money(-25);
+            }
+            break;
+        case 17:
+            ui_continu_choice(win_men);
+            current = 1;
+            break;
+        case 20:
+            temps = ui_choice("Leave the room.", "/", "/", "/");
+            if (temp == 0)
+                current = 23;
+            break;
+        case 21:
+            temps = ui_choice("Leave the room.", "/", "/", "/");
+            if (temp == 0)
+                current = 23;
+            break;
+        case 22:
+            temps = ui_choice("Leave the room.", "/", "/", "/");
+            if (temp == 0)
+                current = 23;
+            break;
+        case 23:
+            ui_continu_choice(win_men);
+            current = 1;
+            break;
+        case 102:
+            temps = ui_choice("Goulash. 25$", "Marinated beef sirloin. 35$", "Pork with meatball and sauerkraut. 40$", "/");
+            if (temp == 0)
+            {
+                current = 7;
+                en_mod_money(-25);
+                en_mod_food(+1);
+            }
+            if (temp == 1)
+            {
+                current = 8;
+                en_mod_money(-35);
+                en_mod_food(+2);
+            }
+            if (temp == 2)
+            {
+                current = 9;
+                en_mod_money(-40);
+                en_mod_food(+4);
+            }
+            break;
+        case 128:
+            temp = ui_choice("Thanks, Grandma. But I'm not interested in the frizz. I'll go look elsewhere if I find what I need.", "/", "/", "/");
+            if (temp == 0)
+                current = 15;
+            break;
+        case 200:
+            ui_continu_choice(win_men);
+            if (uf_compare("Damien") != -1)
+                current = 3;
+            else
+                current = -1;
+            break;
+        }
+
+        after_event_clear(win_env, win_men);
+    }
+}
+
 
 
 void pe_event_7()	/* Dallas */

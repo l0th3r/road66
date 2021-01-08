@@ -292,7 +292,8 @@ void pe_event_1()	/* Las Vegas */
         case 3:
             /* NEED GAME OVER */
             ui_continu_choice(win_men);
-            current = -2;
+            current = -1;
+            els_is_exit = 666;
             break;
         case 4:
             ui_continu_choice(win_men);
@@ -1966,7 +1967,8 @@ void pe_event_3()	/* Kingman */
             break;
         case 14:
             ui_continu_choice(win_men);
-            current = -2;
+            current = -1;
+            els_is_exit = 666;
             break;
         case 15:
             if (lock_picking == 1)
@@ -2030,7 +2032,8 @@ void pe_event_3()	/* Kingman */
             break;
         case 22:
             ui_continu_choice(win_men);
-            current = -2;
+            current = -1;
+            els_is_exit = 666;
             break;
         case 23:
             temp = ui_choice("Go talk to him.", "Continue on your way.", "/", "/");
@@ -2089,7 +2092,8 @@ void pe_event_3()	/* Kingman */
             break;
         case 30:
             ui_continu_choice(win_men);
-            current = -2;
+            current = -1;
+            els_is_exit = 666;
             break;
         case 31:
             temp = ui_choice("Continue on your way.", "/", "/", "/");
@@ -2098,7 +2102,8 @@ void pe_event_3()	/* Kingman */
             break;
         case 32:
             ui_continu_choice(win_men);
-            current = -2;
+            current = -1;
+            els_is_exit = 666;
             break;
         case 33:
             temp = ui_choice("Continue on your way.", "/", "/", "/");
@@ -2107,7 +2112,8 @@ void pe_event_3()	/* Kingman */
             break;
         case 34:
             ui_continu_choice(win_men);
-            current = -2;
+            current = -1;
+            els_is_exit = 666;
             break;
         case 35:
             temp = ui_choice("Continue on your way.", "/", "/", "/");
@@ -2382,7 +2388,8 @@ void pe_event_3()	/* Kingman */
             break;
         case 68:
             ui_continu_choice(win_men);
-            current = -2;
+            current = -1;
+            els_is_exit = 666;
             break;
         case 69:
             if (guard_clothes == 1)
@@ -2410,7 +2417,8 @@ void pe_event_3()	/* Kingman */
             break;
         case 71:
             ui_continu_choice(win_men);
-            current = -2;
+            current = -1;
+            els_is_exit = 666;
             break;
         case 72:
             temp = ui_choice("Open the door.", "/", "/", "/");
@@ -2897,7 +2905,8 @@ void pe_event_3()	/* Kingman */
             break;
         case 126:
             ui_continu_choice(win_men);
-            current = -2;
+            current = -1;
+            els_is_exit = 666;
             break;
         case 127:
             ui_continu_choice(win_men);

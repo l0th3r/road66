@@ -70,9 +70,9 @@ void pe_event_0()
             {
                 en_mod_food(+start_food);
                 els_is_inventory = 1;
-                current = 1;*/
+                current = 1;
             }
-            break;
+            break;*/
         case 1:
             temp = ui_choice("Leave your apartment.", "Check one last time for your stuff.", "/", "/");
             if (temp == 0)

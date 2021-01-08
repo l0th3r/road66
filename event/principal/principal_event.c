@@ -3522,21 +3522,17 @@ void pe_event_5() /* FLAGSTAFF */
             temp = ui_choice(choice0_temp, choice1_temp, choice2_temp, "/");
             if (temp == 0)
             {
+                if (lock_shop == 0)
+                    current = 5;
                 if (lock_shop == 1)
                     current = 200;
-                else
-                    current = 5;
             }
             if (temp == 1)
-            {
                 current = 5;
-                lock_shop = 2;
-            }
             if (temp == 2)
-            {
                 current = 4;
-                lock_shop = 1;
-            }
+
+            lock_shop = 1;
             break;
         case 2:
             temp = ui_choice("Hamburger on a bed of French fry oil, between two stale breads.(15$, 1 food)", "Special promotion, 3 barrels of gasoline for the price of 4.(40$, 3 gas)", "Bag of fries cooked and dried. (20$, 2 food)", " / ");
@@ -3695,12 +3691,30 @@ void pe_event_5() /* FLAGSTAFF */
             current = 1;
             break;
         case 104:
-            temp = ui_choice("Goulash. 25$", "Marinated beef sirloin. 35$", "Pork with meatball and sauerkraut. 40$", "/");
+            if (inventory->money >= 25)
+                choice0_temp = "Goulash. 25$";
+            else choice0_temp = "I don't have enough money.";
+
+            if (inventory->money >= 35)
+                choice1_temp = "Marinated beef sirloin. 35$";
+            else choice1_temp = "/";
+
+            if (inventory->money >= 40)
+                choice2_temp = "Pork with meatball and sauerkraut. 40$";
+            else choice2_temp = "/";
+
+            temp = ui_choice(choice0_temp, choice1_temp, choice2_temp, "/");
+
             if (temp == 0)
             {
-                current = 7;
-                en_mod_money(-25);
-                en_mod_food(+1);
+                if (inventory->money >= 25)
+                {
+                    current = 1;
+                    en_mod_money(-25);
+                    en_mod_food(+1);
+                }
+                else
+                    current = 7;
             }
             if (temp == 1)
             {
@@ -3791,6 +3805,7 @@ void pe_event_5() /* FLAGSTAFF */
 void pe_event_6()	/* ALBUQUERQUE */
 {
     int current = 0;
+    int temp;
     char* char0 = "Cosmo";
     char* char1 = "/";
     char* char2 = "/";
@@ -3813,7 +3828,7 @@ void pe_event_6()	/* ALBUQUERQUE */
                 current = 1;
             }
             else 
-                current = -1;
+                current = -1
             break;
         case 1:
             ui_continu_choice(win_men);

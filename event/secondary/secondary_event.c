@@ -1307,7 +1307,8 @@ void se_event_14()
     char* char5 = "/";
 
     if (inventory->pa_count > 0)
-        char0 = inventory->passengers[uf_random(inventory->pa_count)];
+        char0 = inventory->passengers[0];
+        /* char0 = inventory->passengers[uf_random(inventory->pa_count)]; */
 
     while (current >= 0)
     {

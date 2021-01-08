@@ -254,7 +254,7 @@ void se_event_1()
         ui_print_dial(win_env, current, ev_w, "event/secondary/1", char0, char1, char2, char3, char4, char5);
 
         switch (current)
-        {
+         {
         case 0:
             temp = ui_choice("Stop the bus.", "Keep driving", "/", "/");
             if (temp == 0)
@@ -266,8 +266,11 @@ void se_event_1()
             temp = ui_choice("I'm sorry but it is not on my way.", "Yeah, come in! I'll drive you there.", "Start up the engine and leave.", "/");
             if (temp == 0)
                 current = 3;
-            if (temp == 1)
+            if (temp == 1) 
+            {
                 current = 4;
+                char0 = "Robbert";
+            }
             if (temp == 2)
                 current = 2;
             break;
@@ -283,13 +286,13 @@ void se_event_1()
                 current = 2;
             break;
         case 4:
-            char0 = "Robbert";
             en_add_passenger(char0, inventory->pa_count);
             current = -1;
             ui_continu_choice();
             break;
         case 5:
             current = 4;
+            char0 = "Robbert";
             en_mod_money(+50);
             ui_continu_choice();
             break;
